@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="582" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -347,7 +347,7 @@ for Packet Header/Tail</PathElement>
                 <Comment Bounds="495 175 33 28" Id="569" xmlns="http://www.ni.com/MocCommon">
                     <p.Text>Ts</p.Text>
                 </Comment>
-                <Comment Bounds="55 255 92 28" Id="570" xmlns="http://www.ni.com/MocCommon">
+                <Comment Bounds="55 255 91 28" Id="570" xmlns="http://www.ni.com/MocCommon">
                     <p.Text>IQ Waveform</p.Text>
                 </Comment>
                 <Wire Id="589" Joints="N(567:x^2) N(445:434)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -652,11 +652,11 @@ for Packet Header/Tail</PathElement>
             <Label Id="342" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]304" Left="[float]629" Locked="[bool]True" Text="[string]RX Sample Rate" Top="[float]153" />
             <Label Id="343" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]307" Left="[float]253" Locked="[bool]True" Text="[string]TX Sample Rate" Top="[float]153" />
             <Label Id="344" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]310" Left="[float]88" Locked="[bool]True" Text="[string]TX Oversample Factor" Top="[float]153" />
-            <Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@-499706384_0" Height="[float]214" Id="802" Label="[UIModel]816" Left="[float]88" Top="[float]231" Value="{DataItemBinding Id=817}" Width="[float]294">
+            <Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@-499706384_0" Height="[float]214" Id="802" Label="[UIModel]816" Left="[float]88" Top="[float]231" Value="{DataItemBinding Id=817}" Width="[float]303">
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="803" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]807" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]71" Value="{ClusterBinding FieldName=Noise\ Power\ (dB)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-                <ArrayViewer ArrayElement="[UIModel]813" BaseName="[string]Array" Columns="[int]3" Dimensions="[int]1" Height="[float]36" Id="804" Label="[UIModel]808" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]119" Value="{ClusterBinding FieldName=Channel\ Response}" Width="[float]271" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+                <ArrayViewer ArrayElement="[UIModel]813" BaseName="[string]Array" Columns="[int]3" Dimensions="[int]1" Height="[float]36" Id="804" Label="[UIModel]808" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]119" Value="{ClusterBinding FieldName=Channel\ Response}" Width="[float]262" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                     <p.DefaultElementValue>0x0;0x0</p.DefaultElementValue>
-                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="813" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Left="[float]125" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]0 + 0i" ValueType="[Type]ComplexDouble" Width="[float]69" />
+                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="813" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Left="[float]121" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]0 + 0i" ValueType="[Type]ComplexDouble" Width="[float]66" />
                 </ArrayViewer>
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="805" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]809" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]178" Value="{ClusterBinding FieldName=Frequency\ Offset}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="806" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]810" Left="[float]110" RadixVisibility="[SMVisibility]Collapsed" Top="[float]178" Value="{ClusterBinding FieldName=Delay\ (sec)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -713,11 +713,13 @@ for Packet Header/Tail</PathElement>
                 </ComboboxSelector>
                 <Label Id="1375" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]1374" Left="[float]5" Locked="[bool]True" Text="[string]Synchronization Method" Top="[float]2" Visible="[bool]True" />
                 <ComboboxSelector AllowDifferentText="[bool]False" AllowUndefinedValueEntry="[bool]True" BaseName="[string]Combo Box" Height="[float]22" Id="1376" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]1377" Left="[float]5" Top="[float]115" Value="{ClusterBinding FieldName=Symbol\ Timing\ Recovery\ Method}" ValueType="[Type]String" VisualMode="[SelectorVisualMode]ComboBoxStyle" Width="[float]140" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-                    <ComboboxSelectorInfo DisplayValue="[string]MT Align to Ideal Symbols" Id="1383" IsEnabled="[bool]True" Value="[string]MT Align to Ideal Symbols" ValueType="[Type]String" />
-                    <ComboboxSelectorInfo DisplayValue="[string]Max Energy" Id="1384" IsEnabled="[bool]True" Value="[string]Max Energy" ValueType="[Type]String" />
-                    <ComboboxSelectorInfo DisplayValue="[string]Early-Late Gate" Id="1385" IsEnabled="[bool]True" Value="[string]Early-Late Gate" ValueType="[Type]String" />
-                    <ComboboxSelectorInfo DisplayValue="[string]Gardner" Id="1386" IsEnabled="[bool]True" Value="[string]Gardner" ValueType="[Type]String" />
-                    <ComboboxSelectorInfo DisplayValue="[string]Fixed Offset" Id="1387" IsEnabled="[bool]True" Value="[string]Fixed Offset" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]MT Align to Ideal Symbols" Id="2999" IsEnabled="[bool]True" Value="[string]MT Align to Ideal Symbols" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Max Energy" Id="3000" IsEnabled="[bool]True" Value="[string]Max Energy" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Early-Late Gate" Id="3001" IsEnabled="[bool]True" Value="[string]Early-Late Gate" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Gardner" Id="3002" IsEnabled="[bool]True" Value="[string]Gardner" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Fixed Offset" Id="3003" IsEnabled="[bool]True" Value="[string]Fixed Offset" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Student Max Energy" Id="3004" IsEnabled="[bool]True" Value="[string]Student Max Energy" ValueType="[Type]String" />
+                    <ComboboxSelectorInfo DisplayValue="[string]Student Early-Late Gate" Id="3005" IsEnabled="[bool]True" Value="[string]Student Early-Late Gate" ValueType="[Type]String" />
                 </ComboboxSelector>
                 <Label Id="1377" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]1376" Left="[float]5" Locked="[bool]True" Text="[string]Symbol Timing Recovery Method" Top="[float]92" Visible="[bool]True" />
                 <ComboboxSelector AllowDifferentText="[bool]False" AllowUndefinedValueEntry="[bool]True" BaseName="[string]Combo Box" Height="[float]22" Id="1378" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]1379" Left="[float]5" Top="[float]160" Value="{ClusterBinding FieldName=Frame\ Detection\ Method}" ValueType="[Type]String" VisualMode="[SelectorVisualMode]ComboBoxStyle" Width="[float]140" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -732,7 +734,7 @@ for Packet Header/Tail</PathElement>
             <Rectangle Fill="[SMSolidColorBrush]#ffe0e0e0" Height="[float]464" Id="1531" Left="[float]241" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]10.6527767" RadiusY="[float]12.7794123" Stroke="[SMSolidColorBrush]#ff055eae" StrokeThickness="[float]1" Top="[float]566" Width="[float]844" xmlns="http://www.ni.com/PlatformFramework" />
             <Text Font="[SMFont]0,24," Foreground="[SMColor]#ffffffff" Id="1532" Left="[float]613" Text="[string]Output" TextWrapping="[TextWrapping]NoWrap" Top="[float]519" xmlns="http://www.ni.com/PlatformFramework" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="1533" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2937" Left="[float]804" RadixVisibility="[SMVisibility]Collapsed" Top="[float]973" Value="{DataItemBinding Id=2943}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-            <NumericText BaseName="[string]Numeric" Height="[float]22" Id="1534" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2938" Left="[float]804" RadixVisibility="[SMVisibility]Collapsed" Top="[float]901" Value="{DataItemBinding Id=2944}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <NumericText BaseName="[string]Numeric" Height="[float]22" Id="1534" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2938" Left="[float]804" RadixBase="[RadixBase]Decimal" RadixVisibility="[SMVisibility]Collapsed" Top="[float]901" Value="{DataItemBinding Id=2944}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]100" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="1535" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2939" Left="[float]804" Top="[float]829" Value="{DataItemBinding Id=2945}" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
             <Cluster BaseName="[string]Error Out" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]Error" Height="[float]167" Id="1536" Label="[UIModel]2940" Left="[float]932" Top="[float]829" Value="{DataItemBinding Id=2946}" Width="[float]138">
                 <LVCheckBox Content="[string]" ContentVisibility="[Visibility]Collapsed" Height="[float]17" Id="1537" IsReadOnly="[bool]True" Label="[UIModel]1538" Left="[float]5" Top="[float]32" Value="{ClusterBinding FieldName=status}" Width="[float]19" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -758,10 +760,10 @@ for Packet Header/Tail</PathElement>
                             <PlotRenderer Id="1582" PointFill="[SMSolidColorBrush]#ffa08bb0" PointShape="[PointShape]Rectangle" PointSize="[SMSize]5, 5" />
                             <PlotRenderer Id="1583" PointFill="[SMSolidColorBrush]#ff7f7f7f" PointShape="[PointShape]Diamond" PointSize="[SMSize]5, 5" />
                             <PlotRenderer Id="1584" PointFill="[SMSolidColorBrush]#ff3c0726" PointShape="[PointShape]Cross" PointSize="[SMSize]5, 5" />
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="1585" Label="[string]Time" MajorDivisions="[UIModel]2914" Orientation="[SMOrientation]Horizontal" Range="[IRange]-1, 0.9, System.Double" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="1585" Label="[string]Time" MajorDivisions="[UIModel]2914" Orientation="[SMOrientation]Horizontal" Range="[IRange]-0.9, 0.9, System.Double" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="2914" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitVisibleLoosely" Id="1586" Label="[string]Amplitude" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.9, 1, System.Double" ValueType="[Type]Double" />
+                            <Axis Adjuster="[RangeAdjuster]FitVisibleLoosely" Id="1586" Label="[string]Amplitude" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.9, 0.9, System.Double" ValueType="[Type]Double" />
                             <Plot HorizontalScale="[UIModel]1585" Id="1587" Label="[string]Plot" VerticalScale="[UIModel]1586" />
                             <Plot HorizontalScale="[UIModel]1585" Id="1588" Label="[string]Plot1" VerticalScale="[UIModel]1586" />
                             <Plot HorizontalScale="[UIModel]1585" Id="1589" Label="[string]Plot2" VerticalScale="[UIModel]1586" />
@@ -1805,7 +1807,7 @@ for Packet Header/Tail</PathElement>
                                 <RangeLabeledDivisions Id="2916" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2609" Label="[string]Amplitude" MajorDivisions="[UIModel]2917" MajorGridLines="[UIModel]2918" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 1, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="2917" />
+                                <RangeLabeledDivisions Id="2917" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="2918" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]2608" Id="2610" Label="[string]Plot" VerticalScale="[UIModel]2609" />
@@ -1923,7 +1925,7 @@ for Packet Header/Tail</PathElement>
                                 <GridLines Id="2920" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2711" Label="[string]Amplitude" MajorDivisions="[UIModel]2921" MajorGridLines="[UIModel]2922" Orientation="[SMOrientation]Vertical" Range="[IRange]-3, 4, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="2921" />
+                                <RangeLabeledDivisions Id="2921" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="2922" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]2710" Id="2712" Label="[string]Plot" VerticalScale="[UIModel]2711" />
@@ -2037,7 +2039,7 @@ for Packet Header/Tail</PathElement>
                                 <GridLines Id="2924" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2813" Label="[string]Amplitude" MajorDivisions="[UIModel]2925" MajorGridLines="[UIModel]2926" Orientation="[SMOrientation]Vertical" Range="[IRange]-3, 3, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="2925" />
+                                <RangeLabeledDivisions Id="2925" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="2926" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]2812" Id="2814" Label="[string]Plot" VerticalScale="[UIModel]2813" />
@@ -2152,7 +2154,7 @@ for Packet Header/Tail</PathElement>
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="2928" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2932" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]23" Value="{ClusterBinding FieldName=SNR(dB)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]99" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                 <ArrayViewer ArrayElement="[UIModel]2936" BaseName="[string]Array" Columns="[int]3" Dimensions="[int]1" Height="[float]36" Id="2929" Label="[UIModel]2933" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]72" Value="{ClusterBinding FieldName=Channel\ Estimate}" Width="[float]226" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                     <p.DefaultElementValue>0x0;0x0</p.DefaultElementValue>
-                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="2936" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]165" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]0 + 0i" ValueType="[Type]ComplexDouble" Width="[float]54" />
+                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="2936" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]53" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]31" Value="[ComplexDouble]0 + 0i" ValueType="[Type]ComplexDouble" Width="[float]54" />
                 </ArrayViewer>
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="2930" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2934" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]132" Value="{ClusterBinding FieldName=Freq.\ Offset}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]92" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="2931" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]2935" Left="[float]136" RadixVisibility="[SMVisibility]Collapsed" Top="[float]132" Value="{ClusterBinding FieldName=Delay}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]95" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
