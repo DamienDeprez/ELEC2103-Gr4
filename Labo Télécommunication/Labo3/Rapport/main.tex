@@ -50,21 +50,42 @@ The AWGN channel could distord the signal. But if we use one of the critical ass
 
 Dawnsampling reduces the sample rate, and the new one is $\frac{1}{MT_z}$, with a period of $MT_z$.
 
-\section{Programming}
+\section{Simulation}
 
 \begin{center}
 \includegraphics[width=.9\textwidth]{img/Timing-Static-Error}
-\captionof{figure}{\label{Error.VS.N}Timing Static Error vs RX Oversampling factor}
+\captionof{figure}{Timing Static Error vs RX Oversampling factor}
+\label{err_stat}
 \end{center}
 
-As we can see on the figure \ref{Error.VS.N}, the direct maximization of the output energy (Max Energy) is better than the indirect maximization (EL Gate). We can see both the direct and indirect maximization have an oscillation behavior.
+As we can see on the figure \ref{err_stat}, the direct maximization of the output energy (Max Energy) is better than the indirect maximization (EL Gate). We can see both the direct and indirect maximization have an oscillation behavior.
 
 \section{Lab Experiment}
 \subsection{What is the symbol rate of the system based on the parameters above?}
+
+We can compute the symbol rate as the follow
+\begin{equation}
+Sr =\frac{f_s}{M}
+\end{equation}
+$M$ is the \textbf{RX oversample factor} and $f_s$ is the \textbf{sample rate}. In this case we have:
+
+$$Sr = \frac{2*10^{6}}{2} = 10^6[symbols/s]$$
+       
 The symbol rate of the system is 1 Mega symbol per second.
+
 \subsection{Describe how the relationship between sampling error and oversample factor N manifests itself on the signal constellation}
 
+
+
+
+
+
+
+
+
+
 \subsection{For each of the oversample factors in the previous question, specify what value you set the RX sample rate}
+
 
 
 
