@@ -7,9 +7,129 @@
 
 \title{Projet ELEC Master 1 - Labo 3}
 \subtitle{Groupe 4}
-\author{Deprez Damine \and Bilal Ouachalih }
+\author{Deprez Damien \and Bilal Ouachalih }
 \date{10 octobre 2016}
 \maketitle
+
+The aim of this lab is to solve the problem of symbol timing recovery also known as symbol synchronization.
+
+\section{Pre-Lab}
+
+First, the model for the wireless communication channel is the following
+
+\begin{equation}
+z(t)=\alpha\exp^{j\phi} x(t-\tau_{d})+v(t)
+\label{equ1}
+\end{equation}
+
+with $\alpha$ which is the attenuation, $\phi$ is the phase shift and $tau_d$ is the delay.
+
+\subsection{Show that in the absence of noise, $\alpha$ and $\phi$ in the equation \ref{equ1} do not have any impact on the maximum output energy solution.} 
+
+If we compute the expression of output energy, we can write it like this
+
+\begin{equation}
+J(\tau)=\mathbb{E}\|y(nT+\tau)|^2
+\label{equ2}
+\end{equation}
+
+with $y[n]=\sqrt{E_x}\alpha\exp^{j\phi}s[n]+v[m]$.
+
+As we can see, if we maximize the equation \ref{equ2}, we take the module squarred of y[n]. Like the module of $\alpha\exp^{j\phi}$ is equal to one, and $\alpha$ which is a constant, this two values have no impact on the maximum output energy solution.
+
+\subsection{What are the two critical assumptions used to formulate the indirect maximization of the output energy?}
+
+On one hand, in the indirect maximization of the output energy, we want the local optima (points were the gradient is zero). The solution found by indirect maximization is the global maximum if the global maximum is the only point were the gradient is zero, in other words, there are no local extrema.
+    One the other hand,the other critical assumption is that the expectation of the derivative can be approximated by a time average over $P$ symbols.
+
+\subsection{Consider how the presence of the flat fading channel AWGN can impact this method}
+
+The AWGN channel could distord the signal. But if we use one of the critical assumption, and we choose a value for $P$ sufficiently high, we could neglect the impact of the AWGN channel.
+
+\subsection{After downsampling a sequence originally sampled at rate $\frac{1}{T_z}$ by a factor $M$ , what is the sample period of the resulting signal?}
+
+Dawnsampling reduces the sample rate, and the new one is $\frac{1}{MT_z}$, with a period of $MT_z$.
+
+\section{Simulation}
+
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/Timing-Static-Error}
+\captionof{figure}{Timing Static Error vs RX Oversampling factor}
+\label{err_stat}
+\end{center}
+
+As we can see on the figure \ref{err_stat}, the direct maximization of the output energy (Max Energy) is better than the indirect maximization (EL Gate). We can see both the direct and indirect maximization have an oscillation behavior.
+
+\section{Lab Experiment}
+\subsection{What is the symbol rate of the system based on the parameters above?}
+
+We can compute the symbol rate as the follow
+\begin{equation}
+Sr =\frac{f_s}{M}
+\end{equation}
+$M$ is the \textbf{RX oversample factor} and $f_s$ is the \textbf{sample rate}. In this case we have:
+
+$$Sr = \frac{2*10^{6}}{2} = 10^6[symbols/s]$$
+       
+The symbol rate of the system is 1 Mega symbol per second.
+
+\subsection{Describe how the relationship between sampling error and oversample factor N manifests itself on the signal constellation}
+
+
+
+
+
+
+
+
+
+
+\subsection{For each of the oversample factors in the previous question, specify what value you set the RX sample rate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
