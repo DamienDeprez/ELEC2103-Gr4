@@ -295,7 +295,7 @@
                     <TextNode AttachedTo="18" Bounds="97 310 28 16" Id="284" Text="Input" xmlns="http://www.ni.com/PlatformFramework" />
                     <TextNode AttachedTo="319" Bounds="1670 330 57 16" Id="330" Text="Error Code" xmlns="http://www.ni.com/PlatformFramework" />
                     <TextNode AttachedTo="322" Bounds="1670 360 117 16" Id="331" Text="Actual Equalizer Delay" xmlns="http://www.ni.com/PlatformFramework" />
-                    <CaseStructure Bounds="240 160 985 360" DataType="String" Default="334" Id="332" Selected="333" UserSelectorBounds="420 0 145 17">
+                    <CaseStructure Bounds="240 160 985 360" DataType="String" Default="334" Id="332" Selected="886" UserSelectorBounds="420 0 145 17">
                         <CaseStructure.Case Bounds="5 5 975 350" Id="333" Pattern="&quot;Indirect&quot;">
                             <Literal Bounds="190 70 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="347" xmlns="http://www.ni.com/MocCommon">
                                 <p.Data>-1</p.Data>
@@ -496,18 +496,106 @@
                             <Wire Id="677" Joints="N(670:334) h(276) v(-215) N(375:t)" xmlns="http://www.ni.com/PlatformFramework" />
                             <Wire Id="678" Joints="N(672:334) h(116) B(1) N(376:f) B(1) v(-225) N(374:x)" xmlns="http://www.ni.com/PlatformFramework" />
                         </CaseStructure.Case>
-                        <CaseStructure.Selector Bounds="-4 230 13 15" Docking="Left" Id="335" Terminals="332=666, 333, 334" />
-                        <CaseStructure.Tunnel Bounds="-4 150 13 10" Docking="Left" Id="336" Terminals="332=492, 333=450, 334=471" />
-                        <CaseStructure.Tunnel Bounds="-4 170 13 10" Docking="Left" Id="337" Terminals="332=479, 333=855, 334=466" />
-                        <CaseStructure.Tunnel Bounds="-4 325 13 10" Docking="Left" Id="338" Terminals="332=491, 333=875, 334=469" />
-                        <CaseStructure.Tunnel Bounds="976 95 13 10" Docking="Right" Id="342" Terminals="332=487, 333=433, 334=465" />
-                        <CaseStructure.Tunnel Bounds="976 180 13 10" Docking="Right" Id="343" Terminals="332=486, 333=432, 334=464" />
-                        <CaseStructure.Tunnel Bounds="976 190 13 10" Docking="Right" Id="344" Terminals="332=480, 333=431, 334=467" />
-                        <CaseStructure.Tunnel Bounds="976 140 13 10" Docking="Right" Id="345" Terminals="332=483, 333=428, 334=462" />
-                        <CaseStructure.Tunnel Bounds="976 45 13 10" Docking="Right" Id="346" Terminals="332=482, 333=693, 334=461" />
-                        <CaseStructure.Tunnel Bounds="-4 245 13 10" Docking="Left" Id="668" Terminals="332=667, 333=675, 334" />
-                        <CaseStructure.Tunnel Bounds="-4 260 13 10" Docking="Left" Id="670" Terminals="332=669, 333=676, 334=677" />
-                        <CaseStructure.Tunnel Bounds="-4 275 13 10" Docking="Left" Id="672" Terminals="332=671, 333=673, 334=678" />
+                        <CaseStructure.Case Bounds="5 5 975 350" Id="886" Pattern="&quot;Student Direct&quot;">
+                            <Literal Bounds="170 60 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="887" xmlns="http://www.ni.com/MocCommon">
+                                <p.Data>-1</p.Data>
+                                <NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+                            </Literal>
+                            <Literal Bounds="355 70 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="888" xmlns="http://www.ni.com/MocCommon">
+                                <p.Data>1</p.Data>
+                                <NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+                            </Literal>
+                            <Literal Bounds="345 240 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="889" xmlns="http://www.ni.com/MocCommon">
+                                <p.Data>0</p.Data>
+                                <NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
+                            </Literal>
+                            <IsEqual Bounds="225 45 30 30" Id="890" />
+                            <Select Bounds="440 40 40 40" Id="891" />
+                            <Select Bounds="410 240 40 40" Id="892" />
+                            <ForLoop Bounds="523 53 250 280" DiagramId="894" Id="893">
+                                <ForLoop.Iteration Bounds="35 215 15 15" Id="904" />
+                                <Add Bounds="75 200 30 30" Id="905" Terminals="o=906, c0t0v=908, c1t0v=907" />
+                                <Wire Id="906" Joints="N(905:o) h(20) v(-100) N(937:L2)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="907" Joints="N(904:Output) N(905:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="908" Joints="N(898:894) N(905:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="910" Joints="N(937:R3) N(903:894)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="911" Joints="N(937:R2) N(902:894)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="912" Joints="N(937:R0) N(901:894)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="913" Joints="N(900:894) h(114) v(-10) N(937:L1)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="914" Joints="N(899:894) N(937:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Wire Id="915" Joints="N(897:i0) N(937:L4)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <MethodCall Bounds="140 90 50 50" Id="937" Target="student_direct_equalizer\.gvi">
+                                    <p.MethodDeclaration>
+                                        <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+                                            <Parameter Id="L1" Desc="Modulation Parameters In" />
+                                            <Parameter Id="L0" Desc="Input" />
+                                            <Parameter Id="L2" Desc="Equalizer Delay" />
+                                            <Parameter Id="L4" Desc="error in (no error)" />
+                                            <Parameter Id="R1" Desc="Modulation Parameters Out" />
+                                            <Parameter Id="R0" Desc="Filter Estimate" />
+                                            <Parameter Id="R2" Desc="Mean-Squared Error" />
+                                            <Parameter Id="R3" Desc="Actual Equalizer Delay" />
+                                            <Parameter Id="R4" Desc="error out" />
+                                        </MethodDeclaration>
+                                    </p.MethodDeclaration>
+                                    <Terminal DataType="@-1669575334_0" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="ComplexDouble[]" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="Int32" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="Error" Direction="Input" Hotspot="0 45" Id="L4" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="@-1669575334_0" Direction="Output" Hotspot="50 15" Id="R1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="50 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="Double" Direction="Output" Hotspot="50 25" Id="R2" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="Int32" Direction="Output" Hotspot="50 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                    <Terminal DataType="Error" Direction="Output" Hotspot="50 45" Id="R4" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                </MethodCall>
+                                <Wire Id="941" Joints="N(937:R4) N(896:894)" xmlns="http://www.ni.com/PlatformFramework" />
+                                <ForLoop.Count Bounds="1 1 15 15" Docking="Left" Id="895" Terminals="893=930, 894" />
+                                <ForLoop.RightShiftRegister Bounds="240 132 13 10" Docking="Right" Id="896" Terminals="893=926, 894=941" />
+                                <ForLoop.LeftShiftRegister Bounds="-5 132 13 10" Docking="Left" Id="897" RightRegister="896" Terminals="o0=927, i0=915" />
+                                <ForLoop.Tunnel Bounds="-5 202 13 10" Docking="Left" Id="898" Terminals="893=929, 894=908" />
+                                <ForLoop.Tunnel Bounds="-5 92 13 10" Docking="Left" Id="899" Terminals="893=928, 894=914" />
+                                <ForLoop.Tunnel Bounds="-5 112 13 10" Docking="Left" Id="900" Terminals="893=925, 894=913" />
+                                <ForLoop.Tunnel AutoIndex="True" Bounds="240 92 13 10" Docking="Right" Id="901" Terminals="893=924, 894=912" />
+                                <ForLoop.Tunnel AutoIndex="True" Bounds="240 112 13 10" Docking="Right" Id="902" Terminals="893=922, 894=911" />
+                                <ForLoop.Tunnel AutoIndex="True" Bounds="240 122 13 10" Docking="Right" Id="903" Terminals="893=923, 894=910" />
+                            </ForLoop>
+                            <ArrayMaxAndMin Bounds="855 105 40 40" Id="917" />
+                            <Comment Bounds="235 285 222 42" Id="918" xmlns="http://www.ni.com/MocCommon">
+                                <p.Text>"choose correct inputs corresponding \nto equalization method"</p.Text>
+                            </Comment>
+                            <Comment Bounds="45 5 167 42" Id="919" xmlns="http://www.ni.com/MocCommon">
+                                <p.Text>"if delay=-1, then optimize \nover possible delay values"</p.Text>
+                            </Comment>
+                            <Wire Id="920" Joints="N(917:min value) h(25) v(-85) N(346:886)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="921" Joints="N(917:min index(es\)) N(345:886)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="922" Joints="N(902:893) h(54) v(-60) N(917:array)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="923" Joints="N(903:893) N(343:886)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="924" Joints="N(901:893) h(17) v(-55) N(342:886)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="925" Joints="N(337:886) N(900:893)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="926" Joints="N(896:893) N(344:886)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="927" Joints="N(338:886) h(146) v(-135) N(897:o0)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="928" Joints="N(336:886) N(899:893)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="929" Joints="N(892:s? t:f) N(898:893)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="930" Joints="N(891:s? t:f) N(895:893)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="931" Joints="N(889:Out) N(892:t)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="932" Joints="N(890:x = y?) h(80) B(1) N(891:s) B(1) v(200) N(892:s)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="933" Joints="N(888:Out) N(891:f)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="934" Joints="N(887:Out) N(890:y)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="935" Joints="N(670:886) h(276) v(-215) N(891:t)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="936" Joints="N(672:886) h(116) B(1) N(892:f) B(1) v(-225) N(890:x)" xmlns="http://www.ni.com/PlatformFramework" />
+                        </CaseStructure.Case>
+                        <CaseStructure.Selector Bounds="-4 230 13 15" Docking="Left" Id="335" Terminals="332=666, 333, 334, 886" />
+                        <CaseStructure.Tunnel Bounds="-4 150 13 10" Docking="Left" Id="336" Terminals="332=492, 333=450, 334=471, 886=928" />
+                        <CaseStructure.Tunnel Bounds="-4 170 13 10" Docking="Left" Id="337" Terminals="332=479, 333=855, 334=466, 886=925" />
+                        <CaseStructure.Tunnel Bounds="-4 325 13 10" Docking="Left" Id="338" Terminals="332=491, 333=875, 334=469, 886=927" />
+                        <CaseStructure.Tunnel Bounds="976 95 13 10" Docking="Right" Id="342" Terminals="332=487, 333=433, 334=465, 886=924" />
+                        <CaseStructure.Tunnel Bounds="976 180 13 10" Docking="Right" Id="343" Terminals="332=486, 333=432, 334=464, 886=923" />
+                        <CaseStructure.Tunnel Bounds="976 190 13 10" Docking="Right" Id="344" Terminals="332=480, 333=431, 334=467, 886=926" />
+                        <CaseStructure.Tunnel Bounds="976 140 13 10" Docking="Right" Id="345" Terminals="332=483, 333=428, 334=462, 886=921" />
+                        <CaseStructure.Tunnel Bounds="976 45 13 10" Docking="Right" Id="346" Terminals="332=482, 333=693, 334=461, 886=920" />
+                        <CaseStructure.Tunnel Bounds="-4 245 13 10" Docking="Left" Id="668" Terminals="332=667, 333=675, 334, 886" />
+                        <CaseStructure.Tunnel Bounds="-4 260 13 10" Docking="Left" Id="670" Terminals="332=669, 333=676, 334=677, 886=935" />
+                        <CaseStructure.Tunnel Bounds="-4 275 13 10" Docking="Left" Id="672" Terminals="332=671, 333=673, 334=678, 886=936" />
                     </CaseStructure>
                     <ArrayIndex Bounds="1355 280 40 40" Id="404" Rank="2" Terminals="array=487, c0t0v=483, c0t1v, c0t2v=485" />
                     <ArrayIndex Bounds="1405 340 40 30" Id="405" Terminals="array=486, c0t0v=483, c0t1v=484" />

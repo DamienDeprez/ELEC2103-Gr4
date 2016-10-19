@@ -3,6 +3,7 @@
     <SourceModelFeatureSet>
         <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
         <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
         <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
@@ -79,13 +80,14 @@
                 <Terminal DataType="Int32" Direction="Output" Hotspot="50 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
             </CreateSpecialComplexMatrix>
             <Wire Id="128" Joints="N(18:Value) h(5) v(-45) h(205) N(127:T1)" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="650 540 40 15" DataItem="129" Id="131" Label="133">
-                <Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
-            </DataAccessor>
-            <TextNode AttachedTo="131" Bounds="585 540 60 16" Id="133" Text="matrix type" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="134" Joints="N(131:Value) h(5) v(-65) N(127:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="134" Joints="N(138:Out) h(5) v(-65) N(127:L0)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="135" Joints="N(127:R1) h(10) v(80) N(30:Value)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="136" Joints="N(86:Value) h(425) v(65) N(97:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Literal Bounds="650 540 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="138" Label="139" xmlns="http://www.ni.com/MocCommon">
+                <p.Data>2</p.Data>
+                <NumericBehavior Interpretation="Exact" />
+            </Literal>
+            <TextNode AttachedTo="138" Bounds="650 540 0 0" Id="139" Text="matrix type" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <ArrayViewer ArrayElement="[UIModel]16" BaseName="[string]Array" Columns="[int]4" Dimensions="[int]1" Height="[float]36" Id="19" Label="[UIModel]32" Left="[float]266" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]36" Value="{DataItemBinding Id=17}" Width="[float]342" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
@@ -121,8 +123,6 @@
                 <Label Id="104" LabelOwner="[UIModel]103" Left="[float]5" Locked="[bool]True" Text="[string]source" Top="[float]52" />
             </Cluster>
             <Label Id="105" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]98" Left="[float]559" Locked="[bool]True" Text="[string]Error Out" Top="[float]198" />
-            <NumericText BaseName="[string]Numeric" Height="[float]22" Id="132" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]137" Left="[float]442" Top="[float]329" Value="{DataItemBinding Id=129}" ValueType="[Type]Int32" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-            <Label Id="137" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]132" Left="[float]442" Locked="[bool]True" Text="[string]matrix type" Top="[float]306" />
         </CPFrontPanel>
         <DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="1" DataType="ComplexDouble[]" Id="17" Name="Row" />
         <DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" DataType="ComplexDouble[]" Id="23" Name="Column" />
@@ -144,9 +144,6 @@
                     <Field3>""</Field3>
                 </Cluster>
             </p.DefaultValue>
-        </DataItem>
-        <DataItem DataType="Int32" Id="129" Name="matrix type">
-            <p.DefaultValue>0</p.DefaultValue>
         </DataItem>
     </VirtualInstrument>
 </SourceFile>

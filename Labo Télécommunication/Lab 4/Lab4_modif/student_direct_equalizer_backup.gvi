@@ -221,44 +221,44 @@
             </Cluster>
         </FrontPanelUnplacedItems>
         <BlockDiagram Id="12">
-            <DataAccessor Bounds="-1190 930 40 15" DataItem="17" Id="18" Label="278">
+            <DataAccessor Bounds="-1220 820 40 15" DataItem="17" Id="18" Label="278">
                 <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-1055 1000 40 15" DataItem="108" Id="109" Label="281">
+            <DataAccessor Bounds="-920 995 40 15" DataItem="108" Id="109" Label="281">
                 <Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-885 1035 40 15" DataItem="214" Id="215" Label="286">
+            <DataAccessor Bounds="-760 1030 40 15" DataItem="214" Id="215" Label="286">
                 <Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-1240 850 40 15" DataItem="105" Id="106" Label="280">
+            <DataAccessor Bounds="-1290 865 40 15" DataItem="105" Id="106" Label="280">
                 <Terminal DataType="Int32" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="18" Bounds="-1223 930 28 16" Id="278" Text="Input" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="109" Bounds="-1153 1000 93 16" Id="281" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="215" Bounds="-840 1035 47 16" Id="286" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="106" Bounds="-1326 850 81 16" Id="280" Text="Equalizer Delay" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="-1445 870 40 15" DataItem="685" Id="687" Label="688">
+            <TextNode AttachedTo="18" Bounds="-1253 820 28 16" Id="278" Text="Input" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="109" Bounds="-1018 995 93 16" Id="281" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="215" Bounds="-715 1030 47 16" Id="286" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="106" Bounds="-1376 865 81 16" Id="280" Text="Equalizer Delay" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="-1445 975 40 15" DataItem="685" Id="687" Label="688">
                 <Terminal DataType="@-1669575334_0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="687" Bounds="-1588 870 138 16" Id="688" Text="Modulation Parameters In" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="-1395 820 40 15" DataItem="686" Id="689" Label="690">
+            <TextNode AttachedTo="687" Bounds="-1588 975 138 16" Id="688" Text="Modulation Parameters In" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="-1395 895 40 15" DataItem="686" Id="689" Label="690">
                 <Terminal DataType="@-1669575334_0" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="689" Bounds="-1350 820 148 16" Id="690" Text="Modulation Parameters Out" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="692" Joints="N(687:Value) h(5) B(1) N(302:instance in) B(1) v(-50) N(689:Value)" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="-885 1015 40 15" DataItem="208" Id="209" Label="284">
+            <TextNode AttachedTo="689" Bounds="-1350 895 148 16" Id="690" Text="Modulation Parameters Out" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="692" Joints="N(687:Value) h(5) B(1) N(302:instance in) B(1) v(-80) N(689:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="-760 1010 40 15" DataItem="208" Id="209" Label="284">
                 <Terminal DataType="Double" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-885 990 40 15" DataItem="120" Id="121" Label="282">
+            <DataAccessor Bounds="-760 985 40 15" DataItem="120" Id="121" Label="282">
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-1585 1110 40 15" DataItem="299" Id="300" Label="330">
+            <DataAccessor Bounds="-1585 1085 40 15" DataItem="299" Id="300" Label="330">
                 <Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="209" Bounds="-840 1015 108 16" Id="284" Text="Mean-Squared Error" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="121" Bounds="-840 990 75 16" Id="282" Text="Filter Estimate" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="300" Bounds="-1540 1110 57 16" Id="330" Text="Error Code" xmlns="http://www.ni.com/PlatformFramework" />
-            <PropertyNode Bounds="-1395 870 150 90" HasErrorTerminals="False" Id="302" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=692~0:5, instance out~150:5, c0t0v=784~150:35, c1t0v=766~150:50, c2t0v~150:65, c3t0v~150:80" VerticalChunkCount="4">
+            <TextNode AttachedTo="209" Bounds="-715 1010 108 16" Id="284" Text="Mean-Squared Error" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="121" Bounds="-715 985 75 16" Id="282" Text="Filter Estimate" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="300" Bounds="-1540 1085 57 16" Id="330" Text="Error Code" xmlns="http://www.ni.com/PlatformFramework" />
+            <PropertyNode Bounds="-1395 975 150 90" HasErrorTerminals="False" Id="302" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=692~0:5, instance out~150:5, c0t0v=744~150:35, c1t0v=766~150:50, c2t0v~150:65, c3t0v~150:80" VerticalChunkCount="4">
                 <p.PropertyItem IsWrite="False">
                     <PathElement>Channel Estimation/Equalization Parameters</PathElement>
                     <PathElement>Equalizer Length</PathElement>
@@ -277,11 +277,11 @@ for Packet Header/Tail</PathElement>
                     <PathElement>Channel Estimation/Equalization Parameters</PathElement>
                 </p.PropertyItem>
             </PropertyNode>
-            <DataAccessor Bounds="-1585 1085 40 15" DataItem="211" Id="212" Label="285">
+            <DataAccessor Bounds="-1145 920 40 15" DataItem="211" Id="212" Label="285">
                 <Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="212" Bounds="-1540 1085 117 16" Id="285" Text="Actual Equalizer Delay" xmlns="http://www.ni.com/PlatformFramework" />
-            <MethodCall Bounds="-935 1005 40 40" Id="693" Target="student_LLSE\.gvi">
+            <TextNode AttachedTo="212" Bounds="-1100 920 117 16" Id="285" Text="Actual Equalizer Delay" xmlns="http://www.ni.com/PlatformFramework" />
+            <MethodCall Bounds="-810 1000 40 40" Id="693" Target="student_LLSE\.gvi">
                 <p.MethodDeclaration>
                     <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
                         <Parameter Id="L3" Desc="Error In" />
@@ -295,15 +295,30 @@ for Packet Header/Tail</PathElement>
                 <Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
                 <Terminal DataType="ComplexDouble[,]" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
-                <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
-                <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
-                <Terminal DataType="Double" Direction="Output" Hotspot="40 15" Id="R1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+                <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+                <Terminal DataType="Double" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
             </MethodCall>
             <Wire Id="695" Joints="N(693:R0) h(5) v(-15) N(121:Value)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="696" Joints="N(693:R3) N(215:Value)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="697" Joints="N(693:R1) N(209:Value)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="732" Joints="N(18:Value) h(20) B(1) N(750:array) B(1) v(-60) N(787:array)" xmlns="http://www.ni.com/PlatformFramework" />
-            <MethodCall Bounds="-995 970 40 40" Id="694" Target="student_toeplitz\.gvi">
+            <ForLoop Bounds="-1142 753 230 135" DiagramId="703" Id="702">
+                <ForLoop.Iteration Bounds="40 85 15 15" Id="705" />
+                <Add Bounds="75 75 30 30" Id="713" Terminals="o=736, c0t0v=715, c1t0v=714" />
+                <Wire Id="714" Joints="N(705:Output) h(10) v(5) N(713:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="715" Joints="N(716:703) N(713:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="735" Joints="N(733:703) N(770:array)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="736" Joints="N(713:o) N(770:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="737" Joints="N(770:c0t1v) N(738:703)" xmlns="http://www.ni.com/PlatformFramework" />
+                <ArrayIndex Bounds="160 65 40 30" Id="770" Terminals="array=735, c0t0v=736, c0t1v=737" />
+                <ForLoop.Count Bounds="1 1 15 15" Docking="Left" Id="704" Terminals="702=745, 703" />
+                <ForLoop.Tunnel Bounds="-5 77 13 10" Docking="Left" Id="716" Terminals="702=729, 703=715" />
+                <ForLoop.Tunnel Bounds="-5 67 13 10" Docking="Left" Id="733" Terminals="702=732, 703=735" />
+                <ForLoop.Tunnel AutoIndex="True" Bounds="220 87 13 10" Docking="Right" Id="738" Terminals="702=739, 703=737" />
+            </ForLoop>
+            <Wire Id="729" Joints="N(106:Value) h(30) B(1) N(742:y) B(1) v(15) h(60) B(4) v(-50) N(716:702) B(4) v(65) h(120) v(20) N(750:index0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="732" Joints="N(18:Value) h(30) B(1) N(733:702) B(1) v(115) h(110) v(10) N(750:array)" xmlns="http://www.ni.com/PlatformFramework" />
+            <MethodCall Bounds="-870 935 40 40" Id="694" Target="student_toeplitz\.gvi">
                 <p.MethodDeclaration>
                     <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
                         <Parameter Id="L3" Desc="Error In" />
@@ -316,38 +331,33 @@ for Packet Header/Tail</PathElement>
                 <Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
-                <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
-                <Terminal DataType="ComplexDouble[,]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" xmlns="http://www.ni.com/PlatformFramework" />
+                <Terminal DataType="ComplexDouble[,]" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
             </MethodCall>
-            <ArraySize Bounds="-1235 950 40 20" Id="740" />
-            <Subtract Bounds="-1175 850 30 30" Id="742" />
-            <Divide Bounds="-1175 960 30 30" Id="746" />
+            <Wire Id="739" Joints="N(738:702) h(34) v(95) N(694:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ArraySize Bounds="-1215 955 40 20" Id="740" />
+            <Subtract Bounds="-1210 850 30 30" Id="742" />
+            <Wire Id="744" Joints="N(302:c0t0v) h(5) v(-85) B(2) N(773:x) B(2) v(-70) N(742:x)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="745" Joints="N(742:x-y) h(10) v(-105) N(704:702)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Divide Bounds="-1145 965 30 30" Id="746" />
             <Wire Id="747" Joints="N(740:size(s\)) N(746:x)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Literal Bounds="-1235 975 40 15" DataType="Double" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="748" xmlns="http://www.ni.com/MocCommon">
+            <Literal Bounds="-1215 980 40 15" DataType="Double" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="748" xmlns="http://www.ni.com/MocCommon">
                 <p.Data>0x4000000000000000</p.Data>
                 <NumericBehavior Interpretation="Exact" ValueFormatter="LV:G6" />
             </Literal>
             <Wire Id="749" Joints="N(748:Out) N(746:y)" xmlns="http://www.ni.com/PlatformFramework" />
-            <ArraySubset Bounds="-1060 930 40 40" Id="750" Terminals="array=732, subarray=758, index0=793, length0=757" />
-            <ToLongInteger Bounds="-1115 970 30 10" Id="754" />
+            <ArraySubset Bounds="-1035 945 40 40" Id="750" Terminals="array=732, subarray=758, index0=729, length0=757" />
+            <ToLongInteger Bounds="-1090 975 30 10" Id="754" />
             <Wire Id="755" Joints="N(746:x/y) N(754:number)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="757" Joints="N(754:32bit integer) h(20) B(1) v(-10) N(750:length0) B(1) v(85) N(764:length0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="758" Joints="N(750:subarray) h(10) v(50) N(694:L1)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="759" Joints="N(109:Value) N(694:L3)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="760" Joints="N(694:R3) h(5) v(35) N(693:L3)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="761" Joints="N(694:R0) h(15) v(35) N(693:L0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <ArraySubset Bounds="-1060 1025 40 40" Id="764" Terminals="array=766, subarray=769, index0, length0=757" />
-            <Wire Id="766" Joints="N(302:c1t0v) h(5) v(35) B(2) N(740:array) B(2) v(75) N(764:array)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="757" Joints="N(754:32bit integer) h(20) B(1) N(750:length0) B(1) v(75) N(764:length0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="758" Joints="N(750:subarray) N(694:L1)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="759" Joints="N(109:Value) h(5) v(-30) N(694:L3)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="760" Joints="N(694:R3) h(5) v(65) N(693:L3)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="761" Joints="N(694:R0) h(15) v(65) N(693:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ArraySubset Bounds="-1035 1020 40 40" Id="764" Terminals="array=766, subarray=769, index0, length0=757" />
+            <Wire Id="766" Joints="N(302:c1t0v) h(15) B(1) N(764:array) B(1) v(-65) N(740:array)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="769" Joints="N(764:subarray) N(693:L2)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Increment Bounds="-1175 890 30 30" Id="773" />
-            <Wire Id="784" Joints="N(302:c0t0v) h(65) B(1) N(773:x) B(1) v(-35) N(742:y)" xmlns="http://www.ni.com/PlatformFramework" />
-            <ArraySubset Bounds="-1120 870 40 40" Id="787" Terminals="array=732, subarray=797, index0=789, length0=802" />
-            <Wire Id="789" Joints="N(742:x-y) h(5) v(30) N(787:index0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="793" Joints="N(106:Value) h(10) B(1) N(742:x) B(1) v(70) h(125) v(30) N(750:index0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Reverse1DArray Bounds="-1060 870 40 20" Id="795" />
-            <Wire Id="796" Joints="N(795:reversed array) h(20) v(100) N(694:L0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="797" Joints="N(787:subarray) N(795:array)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="802" Joints="N(773:x+1) N(787:length0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Increment Bounds="-1210 910 30 30" Id="773" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <ArrayViewer ArrayElement="[UIModel]16" BaseName="[string]Array" Dimensions="[int]1" Height="[float]36" Id="19" Label="[UIModel]223" Left="[float]161" Orientation="[SMOrientation]Horizontal" Top="[float]36" Value="{DataItemBinding Id=17}" Width="[float]129" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
