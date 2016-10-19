@@ -252,12 +252,12 @@
             <DataAccessor Bounds="-885 990 40 15" DataItem="120" Id="121" Label="282">
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="-1585 1110 40 15" DataItem="299" Id="300" Label="330">
+            <DataAccessor Bounds="-1585 1120 40 15" DataItem="299" Id="300" Label="330">
                 <Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
             <TextNode AttachedTo="209" Bounds="-840 1015 108 16" Id="284" Text="Mean-Squared Error" xmlns="http://www.ni.com/PlatformFramework" />
             <TextNode AttachedTo="121" Bounds="-840 990 75 16" Id="282" Text="Filter Estimate" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="300" Bounds="-1540 1110 57 16" Id="330" Text="Error Code" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="300" Bounds="-1540 1120 57 16" Id="330" Text="Error Code" xmlns="http://www.ni.com/PlatformFramework" />
             <PropertyNode Bounds="-1395 870 150 90" HasErrorTerminals="False" Id="302" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=692~0:5, instance out~150:5, c0t0v=784~150:35, c1t0v=766~150:50, c2t0v~150:65, c3t0v~150:80" VerticalChunkCount="4">
                 <p.PropertyItem IsWrite="False">
                     <PathElement>Channel Estimation/Equalization Parameters</PathElement>
@@ -341,13 +341,13 @@ for Packet Header/Tail</PathElement>
             <Wire Id="769" Joints="N(764:subarray) N(693:L2)" xmlns="http://www.ni.com/PlatformFramework" />
             <Increment Bounds="-1175 890 30 30" Id="773" />
             <Wire Id="784" Joints="N(302:c0t0v) h(65) B(1) N(773:x) B(1) v(-35) N(742:y)" xmlns="http://www.ni.com/PlatformFramework" />
-            <ArraySubset Bounds="-1120 870 40 40" Id="787" Terminals="array=732, subarray=797, index0=789, length0=802" />
+            <ArraySubset Bounds="-1120 870 40 40" Id="787" Terminals="array=732, subarray=797, index0=789, length0=805" />
             <Wire Id="789" Joints="N(742:x-y) h(5) v(30) N(787:index0)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="793" Joints="N(106:Value) h(10) B(1) N(742:x) B(1) v(70) h(125) v(30) N(750:index0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="793" Joints="N(106:Value) h(10) B(1) N(742:x) B(1) v(-10) h(-400) v(245) N(212:Value) B(1) v(70) h(125) v(30) N(750:index0)" xmlns="http://www.ni.com/PlatformFramework" />
             <Reverse1DArray Bounds="-1060 870 40 20" Id="795" />
             <Wire Id="796" Joints="N(795:reversed array) h(20) v(100) N(694:L0)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="797" Joints="N(787:subarray) N(795:array)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="802" Joints="N(773:x+1) N(787:length0)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="805" Joints="N(773:x+1) N(787:length0)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <ArrayViewer ArrayElement="[UIModel]16" BaseName="[string]Array" Dimensions="[int]1" Height="[float]36" Id="19" Label="[UIModel]223" Left="[float]161" Orientation="[SMOrientation]Horizontal" Top="[float]36" Value="{DataItemBinding Id=17}" Width="[float]129" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
