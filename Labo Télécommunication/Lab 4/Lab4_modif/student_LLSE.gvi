@@ -55,15 +55,14 @@
             <TextNode AttachedTo="30" Bounds="420 695 54 16" Id="45" Text="x.estimate" xmlns="http://www.ni.com/PlatformFramework" />
             <TextNode AttachedTo="18" Bounds="17 685 8 16" Id="43" Text="A" xmlns="http://www.ni.com/PlatformFramework" />
             <TextNode AttachedTo="24" Bounds="17 715 8 16" Id="44" Text="b" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="35 1045 40 15" DataItem="92" Id="93" Label="102">
+            <DataAccessor Bounds="30 1040 40 15" DataItem="92" Id="93" Label="102">
                 <Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="93" Bounds="-9 1045 39 16" Id="102" Text="Error In" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="860 1025 40 15" DataItem="103" Id="104" Label="113">
+            <TextNode AttachedTo="93" Bounds="-14 1040 39 16" Id="102" Text="Error In" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="860 1040 40 15" DataItem="103" Id="104" Label="113">
                 <Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="104" Bounds="905 1025 49 16" Id="113" Text="Error Out" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="171" Joints="N(93:Value) h(780) v(-20) N(104:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="104" Bounds="905 1040 49 16" Id="113" Text="Error Out" xmlns="http://www.ni.com/PlatformFramework" />
             <SolveComplexLinearEquationsSingleRightHand Bounds="225 685 50 50" Id="203" Target="Solve\ Complex\ Linear\ Equations\ \(single\ right\ hand\)\.gvi">
                 <p.MethodDeclaration>
                     <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -136,6 +135,14 @@
             <Square Bounds="660 820 30 30" Id="293" />
             <Wire Id="294" Joints="N(290:abs(x\)) N(293:x)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="295" Joints="N(293:x^2) N(33:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="296" Joints="N(203:R3) h(250) v(355) N(297:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <PropertyNode Bounds="610 1040 150 45" HasErrorTerminals="False" Id="297" InstanceDataType="Error" Template="List" Terminals="instance in=300~0:5, instance out=298~150:5, c0t0v=296~0:35">
+                <p.PropertyItem IsWrite="True">
+                    <PathElement>code</PathElement>
+                </p.PropertyItem>
+            </PropertyNode>
+            <Wire Id="298" Joints="N(297:instance out) N(104:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="300" Joints="N(93:Value) N(297:instance in)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <ArrayViewer ArrayElement="[UIModel]16" BaseName="[string]Array" Columns="[int]3" Dimensions="[int]2" Height="[float]156" Id="19" Label="[UIModel]38" Left="[float]127" Orientation="[SMOrientation]Horizontal" Rows="[int]6" Top="[float]162" Value="{DataItemBinding Id=17}" Width="[float]271" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
