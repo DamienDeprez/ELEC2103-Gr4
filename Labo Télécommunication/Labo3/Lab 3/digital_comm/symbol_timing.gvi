@@ -392,7 +392,13 @@
                             <Wire Id="641" Joints="N(636:R2) h(415) v(15) N(622:311)" xmlns="http://www.ni.com/PlatformFramework" />
                         </CaseStructure.Case>
                         <CaseStructure.Case Bounds="5 5 615 175" Id="842" Pattern="&quot;Student Early-Late Gate&quot;">
-                            <MethodCall Bounds="210 25 40 40" Id="843" Target="student_align_ELgate\.gvi">
+                            <Wire Id="844" Joints="N(315:842) h(196) v(-5) N(850:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="845" Joints="N(323:842) h(191) v(-5) h(10) N(850:L1)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="846" Joints="N(850:R0) h(15) v(10) h(346) v(-5) N(316:842)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="847" Joints="N(850:R1) v(5) h(10) v(5) h(351) v(5) N(324:842)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="848" Joints="N(850:R2) v(5) h(15) v(5) h(346) v(10) N(622:842)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="849" Joints="N(320:842) N(321:842)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <MethodCall Bounds="205 15 40 40" Id="850" Target="student_align_ELgate\.gvi">
                                 <p.MethodDeclaration>
                                     <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
                                         <Parameter Id="L1" Desc="Modulation Parameters In" />
@@ -412,12 +418,6 @@
                                 <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                                 <Terminal DataType="Int32" Direction="Output" Hotspot="40 25" Id="R2" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                             </MethodCall>
-                            <Wire Id="844" Joints="N(315:842) h(196) v(5) N(843:L0)" xmlns="http://www.ni.com/PlatformFramework" />
-                            <Wire Id="845" Joints="N(323:842) h(199) v(-5) N(843:L1)" xmlns="http://www.ni.com/PlatformFramework" />
-                            <Wire Id="846" Joints="N(843:R0) h(356) v(-5) N(316:842)" xmlns="http://www.ni.com/PlatformFramework" />
-                            <Wire Id="847" Joints="N(843:R1) h(356) v(5) N(324:842)" xmlns="http://www.ni.com/PlatformFramework" />
-                            <Wire Id="848" Joints="N(843:R2) h(356) v(10) N(622:842)" xmlns="http://www.ni.com/PlatformFramework" />
-                            <Wire Id="849" Joints="N(320:842) N(321:842)" xmlns="http://www.ni.com/PlatformFramework" />
                         </CaseStructure.Case>
                         <CaseStructure.Case Bounds="5 5 615 175" Id="312" Pattern="&quot;Gardner&quot;">
                             <Wire Id="449" Joints="N(617:R1) h(426) v(10) N(324:312)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -481,17 +481,17 @@
                             <Wire Id="463" Joints="N(333:c0t0v) h(85) v(-10) N(334:inArray)" xmlns="http://www.ni.com/PlatformFramework" />
                             <Wire Id="464" Joints="N(334:outArray) N(335:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
                         </CaseStructure.Case>
-                        <CaseStructure.Selector Bounds="-4 75 13 15" Docking="Left" Id="314" Terminals="308=478, 309, 310, 311, 312, 313, 834, 842" />
-                        <CaseStructure.Tunnel Bounds="-4 25 13 10" Docking="Left" Id="315" Terminals="308=479, 309=436, 310=830, 311=447, 312=455, 313=460, 834=837, 842=844" />
-                        <CaseStructure.Tunnel Bounds="616 25 13 10" Docking="Right" Id="316" Terminals="308=472, 309=435, 310=831, 311=448, 312=450, 313=461, 834=839, 842=846" />
-                        <CaseStructure.Tunnel Bounds="-4 120 13 10" Docking="Left" Id="318" Terminals="308=612, 309=428, 310, 311, 312, 313, 834, 842" />
-                        <CaseStructure.Tunnel Bounds="-4 105 13 10" Docking="Left" Id="319" Terminals="308=473, 309=426, 310, 311, 312, 313, 834, 842" />
-                        <CaseStructure.Tunnel Bounds="-4 155 13 10" Docking="Left" Id="320" Terminals="308=469, 309=427, 310=439, 311=445, 312=453, 313=458, 834=835, 842=849" />
-                        <CaseStructure.Tunnel Bounds="616 155 13 10" Docking="Right" Id="321" Terminals="308=470, 309=425, 310=439, 311=445, 312=452, 313=458, 834=835, 842=849" />
-                        <CaseStructure.Tunnel Bounds="-4 90 13 10" Docking="Left" Id="322" Terminals="308=611, 309, 310, 311, 312, 313=457, 834, 842" />
-                        <CaseStructure.Tunnel Bounds="-4 45 13 10" Docking="Left" Id="323" Terminals="308=616, 309=424, 310=829, 311=443, 312=454, 313=456, 834=838, 842=845" />
-                        <CaseStructure.Tunnel Bounds="616 45 13 10" Docking="Right" Id="324" Terminals="308=465, 309=424, 310=832, 311=444, 312=449, 313=456, 834=840, 842=847" />
-                        <CaseStructure.Tunnel Bounds="616 60 13 10" Docking="Right" Id="622" Terminals="308=474, 309=630, 310=833, 311=641, 312=451, 313=457, 834=841, 842=848" />
+                        <CaseStructure.Selector Bounds="-4 75 13 15" Docking="Left" Id="314" Terminals="308=478, 309, 834, 310, 311, 842, 312, 313" />
+                        <CaseStructure.Tunnel Bounds="-4 25 13 10" Docking="Left" Id="315" Terminals="308=479, 309=436, 834=837, 310=830, 311=447, 842=844, 312=455, 313=460" />
+                        <CaseStructure.Tunnel Bounds="616 25 13 10" Docking="Right" Id="316" Terminals="308=472, 309=435, 834=839, 310=831, 311=448, 842=846, 312=450, 313=461" />
+                        <CaseStructure.Tunnel Bounds="-4 120 13 10" Docking="Left" Id="318" Terminals="308=612, 309=428, 834, 310, 311, 842, 312, 313" />
+                        <CaseStructure.Tunnel Bounds="-4 105 13 10" Docking="Left" Id="319" Terminals="308=473, 309=426, 834, 310, 311, 842, 312, 313" />
+                        <CaseStructure.Tunnel Bounds="-4 155 13 10" Docking="Left" Id="320" Terminals="308=469, 309=427, 834=835, 310=439, 311=445, 842=849, 312=453, 313=458" />
+                        <CaseStructure.Tunnel Bounds="616 155 13 10" Docking="Right" Id="321" Terminals="308=470, 309=425, 834=835, 310=439, 311=445, 842=849, 312=452, 313=458" />
+                        <CaseStructure.Tunnel Bounds="-4 90 13 10" Docking="Left" Id="322" Terminals="308=611, 309, 834, 310, 311, 842, 312, 313=457" />
+                        <CaseStructure.Tunnel Bounds="-4 45 13 10" Docking="Left" Id="323" Terminals="308=616, 309=424, 834=838, 310=829, 311=443, 842=845, 312=454, 313=456" />
+                        <CaseStructure.Tunnel Bounds="616 45 13 10" Docking="Right" Id="324" Terminals="308=465, 309=424, 834=840, 310=832, 311=444, 842=847, 312=449, 313=456" />
+                        <CaseStructure.Tunnel Bounds="616 60 13 10" Docking="Right" Id="622" Terminals="308=474, 309=630, 834=841, 310=833, 311=641, 842=848, 312=451, 313=457" />
                     </CaseStructure>
                     <PropertyNode Bounds="15 135 150 90" HasErrorTerminals="False" Id="410" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=615~0:5, instance out=616~150:5, c0t0v=478~150:35, c1t0v=611~150:50, c2t0v=473~150:65, c3t0v=612~150:80" VerticalChunkCount="4">
                         <p.PropertyItem IsWrite="False">

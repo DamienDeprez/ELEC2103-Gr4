@@ -77,7 +77,29 @@
                     <ProjectDataItem AssociatedItemIdentifier="664" Id="663" />
                     <ProjectDataItem AssociatedItemIdentifier="666" Id="665" />
                     <ProjectDataItem AssociatedItemIdentifier="668" Id="667" />
-                    <ProjectFolderDataItem AssociatedItemIdentifier="722" FolderName="Data" Id="722" />
+                    <ProjectFolderDataItem AssociatedItemIdentifier="722" FolderName="Data" Id="722">
+                        <ProjectFolderDataItem AssociatedItemIdentifier="766" FolderName="2016-10-20 122649 214" Id="766">
+                            <ProjectDataItem AssociatedItemIdentifier="765" Id="767" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="769" FolderName="2016-10-20 122716 846" Id="769">
+                            <ProjectDataItem AssociatedItemIdentifier="768" Id="770" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="772" FolderName="2016-10-20 122800 417" Id="772">
+                            <ProjectDataItem AssociatedItemIdentifier="771" Id="773" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="775" FolderName="2016-10-20 122820 392" Id="775">
+                            <ProjectDataItem AssociatedItemIdentifier="774" Id="776" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="778" FolderName="2016-10-20 122847 020" Id="778">
+                            <ProjectDataItem AssociatedItemIdentifier="777" Id="779" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="781" FolderName="2016-10-20 122927 635" Id="781">
+                            <ProjectDataItem AssociatedItemIdentifier="780" Id="782" />
+                        </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="784" FolderName="2016-10-20 125344 753" Id="784">
+                            <ProjectDataItem AssociatedItemIdentifier="783" Id="785" />
+                        </ProjectFolderDataItem>
+                    </ProjectFolderDataItem>
                     <ProjectDataItem AssociatedItemIdentifier="744" Id="745" />
                 </ProjectRootItem>
             </ProjectExplorer>
@@ -480,6 +502,13 @@
             <NullTarget />
         </Target>
         <Target Bindings="Envoy,DefinitionReference,DataDepot,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,EmbeddedReference,ScopingEnvoy,NameScopingEnvoy" DocumentTypeIdentifier="DataDepot" Id="14" Name="DataDepot">
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="765" Name="Received\ Constellation\ \(765\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122649 214\Received Constellation (765).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="768" Name="Received\ Constellation\ \(768\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122716 846\Received Constellation (768).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="771" Name="Received\ Constellation\ \(771\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122800 417\Received Constellation (771).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="774" Name="Received\ Constellation\ \(774\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122820 392\Received Constellation (774).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="777" Name="Received\ Constellation\ \(777\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122847 020\Received Constellation (777).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="780" Name="Received\ Constellation\ \(780\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 122927 635\Received Constellation (780).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="783" Name="Signal\ Constellation\ \(783\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-10-20 125344 753\Signal Constellation (783).data" />
             <DataDepot />
         </Target>
     </Project>

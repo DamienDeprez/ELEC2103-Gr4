@@ -273,7 +273,6 @@
                         <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                         <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                     </MethodCall>
-                    <Wire Id="610" Joints="N(1084:R0) N(608:L0)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="612" Joints="N(1084:R1) N(608:L1)" xmlns="http://www.ni.com/PlatformFramework" />
                     <MethodCall Bounds="725 265 40 40" Id="613" Target="decode\.gviprotected">
                         <p.MethodDeclaration>
@@ -294,7 +293,6 @@
                         <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                     </MethodCall>
                     <Wire Id="616" Joints="N(608:R1) N(613:L1)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="617" Joints="N(608:R0) h(10) B(1) N(613:L0) B(1) v(-40) N(625:L2)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="618" Joints="N(608:R3) N(613:L3)" xmlns="http://www.ni.com/PlatformFramework" />
                     <MethodCall Bounds="810 380 40 40" Id="619" Target="error_detect\.gviprotected">
                         <p.MethodDeclaration>
@@ -333,7 +331,7 @@
                     <Comment Bounds="390 25 627 55" Id="49" xmlns="http://www.ni.com/MocCommon">
                         <p.Text>"1.Determine the number of data symbols and get the key bit sequence and training sequence from the queue\n2. Process baseband signal\n3. Plot the symbol constellation and eye diagram for recovered symbols"</p.Text>
                     </Comment>
-                    <Comment Bounds="885 215 122 28" Id="47" xmlns="http://www.ni.com/MocCommon">
+                    <Comment Bounds="805 215 122 28" Id="47" xmlns="http://www.ni.com/MocCommon">
                         <p.Text>recovered symbols</p.Text>
                     </Comment>
                     <Wire Id="634" Joints="N(625:R0) N(660:Value)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -381,7 +379,9 @@
                         <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="25 40" Id="B1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                     </MethodCall>
                     <Wire Id="1088" Joints="N(1084:R3) N(608:L3)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="1091" Joints="N(585:R0) h(30) B(1) N(599:L0) B(1) v(-15) h(95) v(15) N(1084:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="1091" Joints="N(585:R0) h(30) B(1) N(599:L0) B(1) v(-15) h(85) B(4) v(-25) N(625:L2) B(4) v(15) N(1084:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="1092" Joints="N(608:R0) N(613:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="1094" Joints="N(1084:R0) N(608:L0)" xmlns="http://www.ni.com/PlatformFramework" />
                 </CaseStructure.Case>
                 <CaseStructure.Case Bounds="5 5 1300 600" Id="23" Pattern="Error">
                     <Wire Id="99" Joints="N(24:23) h(926) v(50) N(25:23)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -488,7 +488,7 @@
             <Label Id="317" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]316" Left="[float]817" Locked="[bool]True" Text="[string]Offset" Top="[float]188" />
             <ArrayViewer ArrayElement="[UIModel]341" BaseName="[string]Array" Columns="[int]7" Dimensions="[int]1" Height="[float]36" Id="340" IsFixedSize="[bool]False" Label="[UIModel]342" Left="[float]92" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]204" Value="{DataItemBinding Id=129}" Width="[float]324" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                 <p.DefaultElementValue>0</p.DefaultElementValue>
-                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="341" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]243" Name="[string]Child" Top="[float]7" Value="[sbyte]0" ValueType="[Type]Int8" Width="[float]36" />
+                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="341" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]205" Name="[string]Child" Top="[float]31" Value="[sbyte]0" ValueType="[Type]Int8" Width="[float]36" />
             </ArrayViewer>
             <Label Id="342" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]340" Left="[float]92" Locked="[bool]True" Text="[string]Key Bit Sequence" Top="[float]181" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="343" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]344" Left="[float]698" RadixVisibility="[SMVisibility]Collapsed" Top="[float]211" Value="{DataItemBinding Id=130}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />

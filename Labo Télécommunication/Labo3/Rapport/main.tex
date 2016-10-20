@@ -53,7 +53,7 @@ Dawnsampling reduces the sample rate, and the new one is $\frac{1}{MT_z}$, with 
 \section{Simulation}
 
 \begin{center}
-\includegraphics[width=.9\textwidth]{img/Timing-Static-Error}
+\includegraphics[width=.9\textwidth]{img/index}
 \captionof{figure}{Timing Static Error vs RX Oversampling factor}
 \label{err_stat}
 \end{center}
@@ -75,19 +75,48 @@ The symbol rate of the system is 1 Mega symbol per second.
 
 \subsection{Describe how the relationship between sampling error and oversample factor N manifests itself on the signal constellation}
 
+\begin{center}
+\includegraphics[width=.7\textwidth]{img/ConstellationN2-MaxEnergy}
+\captionof{figure}{Constellation for an oversampling of 2}
+\label{const_2}
+\end{center}
 
 
+\begin{center}
+\includegraphics[width=.7\textwidth]{img/ConstellationN4-MaxEnergy}
+\captionof{figure}{Constellation for an oversampling of 4}
+\label{const_4}
+\end{center}
 
+\begin{center}
+\includegraphics[width=.7\textwidth]{img/ConstellationN10-MaxEnergy}
+\captionof{figure}{Constellation for an oversampling of 10}
+\label{const_10}
+\end{center}
 
+\begin{center}
+\includegraphics[width=.7\textwidth]{img/ConstellationN20-MaxEnergy}
+\captionof{figure}{Constellation for an oversampling of 20}
+\label{const_20}
+\end{center}
 
+As we can see on the figures \ref{const_2},\ref{const_4},\ref{const_10}, \ref{const_20}, when we increase the value of N, we obtain a much better constellation.
 
+In fact, for bigger value of N, and a fixed size of symbols (500), we make an average on shortest packet of symbols, more time which increase the precision of the delay we are looking for.
 
-
+At the end, the sample error decrease when the oversampling factor increase.
 
 \subsection{For each of the oversample factors in the previous question, specify what value you set the RX sample rate}
 
+First we use the following formula
 
+\begin{equation}
+T_s=N*T_N in [Symbol/s]
+\end{equation}
 
+with N which is the oversampling factor and $T_n$, the sampling rate. In fact, the symbol rate must remain constant.
+
+So, for $T_N$=1M symbol/s and $N= 2, 4, 10, 20$, we have the corresponding symbol rate is $2M, 4M, 10M, 20M$.
 
 
 
