@@ -345,10 +345,10 @@
                     <Comment Bounds="485 385 111 28" Id="51" xmlns="http://www.ni.com/MocCommon">
                         <p.Text>key bit sequence</p.Text>
                     </Comment>
-                    <Comment Bounds="15 140 433 42" Id="48" xmlns="http://www.ni.com/MocCommon">
+                    <Comment Bounds="15 140 434 42" Id="48" xmlns="http://www.ni.com/MocCommon">
                         <p.Text>"1.Determine the number of data symbols, the symbol rate, the overhead \noffset, and get the key bit sequence and training sequence from the queue"</p.Text>
                     </Comment>
-                    <Comment Bounds="880 150 415 28" Id="52" xmlns="http://www.ni.com/MocCommon">
+                    <Comment Bounds="880 150 416 28" Id="52" xmlns="http://www.ni.com/MocCommon">
                         <p.Text>3. Plot the symbol constellation and eye diagram for recovered symbols</p.Text>
                     </Comment>
                     <Wire Id="1079" Joints="N(566:22) h(5) B(1) N(558:L1) B(1) v(260) h(726) N(592:B0)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -379,9 +379,9 @@
                         <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="25 40" Id="B1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                     </MethodCall>
                     <Wire Id="1088" Joints="N(1084:R3) N(608:L3)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="1091" Joints="N(585:R0) h(30) B(1) N(599:L0) B(1) v(-15) h(85) B(4) v(-25) N(625:L2) B(4) v(15) N(1084:L0)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="1092" Joints="N(608:R0) N(613:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="1092" Joints="N(608:R0) h(10) B(1) N(613:L0) B(1) v(-40) N(625:L2)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="1094" Joints="N(1084:R0) N(608:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="1095" Joints="N(585:R0) h(30) B(1) N(599:L0) B(1) v(-15) h(85) v(15) N(1084:L0)" xmlns="http://www.ni.com/PlatformFramework" />
                 </CaseStructure.Case>
                 <CaseStructure.Case Bounds="5 5 1300 600" Id="23" Pattern="Error">
                     <Wire Id="99" Joints="N(24:23) h(926) v(50) N(25:23)" xmlns="http://www.ni.com/PlatformFramework" />
