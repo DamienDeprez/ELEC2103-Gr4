@@ -22,12 +22,12 @@ your VI do if the initial element of each array is different?}
 For instance, if I enter the following value in the toeplitz.vi, here is what we have\\
 \begin{itemize}
 \item If the row is $\begin{pmatrix}1 & 2 & 3\\ \end{pmatrix}$
-	  and the column is $\begin{pmatrix}1\\4\\6 \end{pmatrix}$
+	  and the column is $\begin{pmatrix}1\\4\\6 \end{pmatrix}$,
  	  the Toeplitz matrix is $\begin{pmatrix}1 & 2 & 3\\4 & 1 & 2\\6 & 4 & 1
       \end{pmatrix}$\\
 
 \item Now, If the row is $\begin{pmatrix}2 & 3 & 5\\ \end{pmatrix}$
-	  and the column is $\begin{pmatrix}1\\4\\6 \end{pmatrix}$
+	  and the column is $\begin{pmatrix}1\\4\\6 \end{pmatrix}$,
  	  the Toeplitz matrix is $\begin{pmatrix}1 & 3 & 5\\4 & 1 & 3\\6 & 4 & 1
       \end{pmatrix}$.\newline \\ As we can see, the first value of the column     	  has the priority in the Toeplitz matrix.
 
@@ -45,7 +45,7 @@ Vary SNR from 0 dB to 14 dB in increments of 2 dB}
 
 
 As we can see on the figure \ref{BER}, the bit-error rate is decreasing when the SNR increase(in absolute value).
-Moreover, the erro is much less with an equalizer length of 6 then  of 1
+Moreover, the error is much less with an equalizer length of 6 then  of 1
 
 
 \subsection{What happens to the received signal constellation when you set the equalizer length to one?}
@@ -57,7 +57,7 @@ After a little bit of thinking, we can make the assumption that if we increase t
 \label{equ1}
 \end{equation}
 
-As we can see in the equation \ref{equ1}, we are estimating the parameter $f$, the filter which is being used to remove the interference symbol of the received signal coming from the channel canal. And if we increase the size of terms for the filter, we will have a better result. Now, we can validate that assumption thanks to the simulation. Here is the result.
+As we can see in the equation \ref{equ1}, we are estimating the parameter $f$, the filter which is being used to remove the interference symbol of the received signal coming from the channel canal. And if we increase the size of terms for the filter, we will have a better result. Now, we can validate that assumption thanks to the simulation. Here is the results.
 
 \begin{figure}[ht]
     \begin{minipage}[b]{0.48\linewidth}
@@ -133,16 +133,6 @@ On the figure \ref{usrp}, we can observe 2 things:
 
 \item Second, the amplitude has decreased. In fact, in theory, for a QAM constellation, the magnitude is $\approx 0.7 [dB]$. On the figure \ref{usrp}, we have a magnitude of $\approx 0.4 [dB]$. We can deduce that we have an attenuation due to the canal, in other word a loss of power of the signal.
 
-
-
 \end{itemize}
-
-
-   
-
-
-
-
-
 
 \end{document}
