@@ -1,0 +1,87 @@
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%%\input{lib.tex}
+\title{LELEC2103 - Projet 3 in Electricity}
+\subtitle[\ldots]{Result of the lab 3 and lab 4}
+\author[D. Deprez\and B. Ouachalih]{Damien Deprez\and Bilal Ouachalih}
+\institute{EPL}
+\date{28th october 2016}
+
+\begin{document}
+
+% TITLE PAGE
+{
+	\setbeamertemplate{headline}{}  
+	\setbeamertemplate{footline}{}
+	\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[noframenumbering]
+		\titlepage
+	\end{frame}
+} 
+
+% TABLE OF CONTENTS
+{
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{headline}{}
+	\begin{frame}[noframenumbering]{Plan de la présentation}
+		\tableofcontents
+	\end{frame}
+}
+
+\section{Lab 3}
+\subsection{Purpose of the lab}
+\begin{frame}
+\frametitle{Lab 4 : Reminder}
+
+Channel canal
+
+\begin{equation}
+z(t)=\alpha\exp^{j\phi} x(t-\tau_{d})+v(t)
+\label{equ1}
+\end{equation}
+
+Symbol timing
+
+\begin{itemize}
+
+\item Direct maximisation of the output energy
+\begin{equation}
+J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} \|r(pT+\frac{kT}{M})|^2
+\end{equation}
+
+\item Indirect maximisation of the output energy
+\begin{equation}
+\hat{k}= arg\min J_{\delta}[k]
+\end{equation}
+
+\end{itemize}
+
+\end{frame}
+\subsection{Timing Static Error}
+\begin{frame}
+
+\frametitle{Timing Static error VS RX Oversampling factor}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{img/Timing-Static-Error.png}
+\end{figure}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
