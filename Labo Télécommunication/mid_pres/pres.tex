@@ -38,24 +38,48 @@
 \section{Symbol timing recovery}
 
 \subsection{Maximum Energy}
+
+\begin{frame}
+\frametitle{Maximum Energy}
+
+\begin{itemize}
+\item The received signal after filtering is 
+\begin{equation}
+y[n] = \sqrt{E_x}\alpha e^{j\phi} [s[n]g(\tau_d)+\sum_{m \neq n} s[m] g((m-n)T-\tau_d)]+ v[n]
+\end{equation}
+with $\tau_d$ is the symbol interference
+
+\item The output energy is given by
+\begin{equation}
+J(\tau) = E|(y(nT+\tau)|^2= \alpha^2 E_x \sum_m |g(mT+\tau-\tau_d)|^2 + \sigma_v ^2
+\end{equation}
+
+We define $\hat{\tau}=argmax_{\tau} J(\tau)$
+
+\end{itemize}   
+
+\end{frame}
+
+
 \subsubsection{Direct Maximum Energy}
 \begin{frame}
-\frametitle{}
-
-Channel canal
-
-\begin{equation}
-z(t)=\alpha\exp^{j\phi} x(t-\tau_{d})+v(t)
-\label{equ1}
-\end{equation}
+\frametitle{Direct Maximum Energy}
 
 \begin{itemize}
 
-\item Direct maximisation of the output energy
+\item In descrete time, we have $\hat{\tau} = \frac{kT}{M} \ \ \ k \in  [0..M-1]$ and so
+		
+\begin{equation} 
+J[k] = E|r(nT+\frac{kT}{M})|^2
+\end{equation}
+
+\item For P symbols
 \begin{equation}
 J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} |r(pT+\frac{kT}{M})|^2
 \label{equ1}
 \end{equation}
+
+We have the maximum energy for $\hat{k}=argmax\ J_{approx}[k]$
 
 
 \end{itemize}
@@ -65,11 +89,25 @@ J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} |r(pT+\frac{kT}{M})|^2
 \subsubsection{Earlygate}
 
 \begin{frame}
+\frametitle{Earlygate}
 
-Indirect maximisation of the output energy
+\begin{itemize}
+
+\item We will try to find the maximum by canceling the derivative
+
+\begin{equation}
+\frac{d}{d\tau} J(\tau)  \simeq \frac{1}{P} \sum_{p=0}^{P-1} 2Re(r(pT+\tau)(r^*(pT+\tau+\delta)-r^*(pT+\tau-\delta)))
+\end{equation}
+
+We take $\delta$ multiple of $T/M$, here equal to one
+
+\item At the end, we obtain  
+
 \begin{equation}
 \hat{k}= {arg\min}_{k=0,..,M-1} J_{\delta}[k]
 \end{equation}
+
+\end{itemize}
 
 \end{frame}
 
@@ -105,38 +143,5 @@ Indirect maximisation of the output energy
 \end{figure}
 
 \end{frame}
-\begin{frame}
-\frametitle{Effect of M on the Max Energy method}
-
-\begin{itemize}
-
-\item If M is increasing => Result at the receiver  is better. Why ?
-
-\item In equation \ref{equ1}, if M is incresing, 
-
-
-
-\end{itemize}
-
-
-
-\end{frame}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \end{document}
