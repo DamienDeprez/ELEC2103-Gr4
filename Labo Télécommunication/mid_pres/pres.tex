@@ -35,10 +35,12 @@
 	\end{frame}
 }
 
-\section{Lab 3}
-\subsection{Purpose of the lab}
+\section{Symbol timing recovery}
+
+\subsection{Maximum Energy}
+\subsubsection{Direct Maximum Energy}
 \begin{frame}
-\frametitle{Lab 4 : Reminder}
+\frametitle{}
 
 Channel canal
 
@@ -47,32 +49,85 @@ z(t)=\alpha\exp^{j\phi} x(t-\tau_{d})+v(t)
 \label{equ1}
 \end{equation}
 
-Symbol timing
-
 \begin{itemize}
 
 \item Direct maximisation of the output energy
 \begin{equation}
-J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} \|r(pT+\frac{kT}{M})|^2
+J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} |r(pT+\frac{kT}{M})|^2
+\label{equ1}
 \end{equation}
 
-\item Indirect maximisation of the output energy
-\begin{equation}
-\hat{k}= arg\min J_{\delta}[k]
-\end{equation}
 
 \end{itemize}
 
 \end{frame}
-\subsection{Timing Static Error}
+
+\subsubsection{Earlygate}
+
 \begin{frame}
 
+Indirect maximisation of the output energy
+\begin{equation}
+\hat{k}= {arg\min}_{k=0,..,M-1} J_{\delta}[k]
+\end{equation}
+
+\end{frame}
+
+\subsection{Result}
+\subsubsection{Timing Static Error}
+\begin{frame}
 \frametitle{Timing Static error VS RX Oversampling factor}
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{img/Timing-Static-Error.png}
 \end{figure}
 
 \end{frame}
+
+\subsubsection{Constellation}
+
+\begin{frame}
+\frametitle{Impact of the oversampling factor at the receiver}
+
+\begin{figure}
+   \begin{minipage}[c]{.46\linewidth}
+   \centering
+   {\large Constellation for N=2}
+            \tiny
+      \includegraphics[width=1\textwidth]{img/ConstellationN2-MaxEnergy.png}
+      
+   \end{minipage} \hfill
+   \begin{minipage}[c]{.46\linewidth}
+   \centering
+   {\large Constellation for N=20}
+            \tiny
+      \includegraphics[width=1\textwidth]{img/ConstellationN20-MaxEnergy.png}
+   \end{minipage}
+\end{figure}
+
+\end{frame}
+\begin{frame}
+\frametitle{Effect of M on the Max Energy method}
+
+\begin{itemize}
+
+\item If M is increasing => Result at the receiver  is better. Why ?
+
+\item In equation \ref{equ1}, if M is incresing, 
+
+
+
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
 
 
 
