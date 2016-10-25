@@ -135,7 +135,7 @@
             <Square Bounds="660 820 30 30" Id="293" />
             <Wire Id="294" Joints="N(290:abs(x\)) N(293:x)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="295" Joints="N(293:x^2) N(33:Value)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="296" Joints="N(203:R3) h(250) v(355) N(297:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="296" Joints="N(203:R3) h(195) v(355) N(297:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
             <PropertyNode Bounds="610 1040 150 45" HasErrorTerminals="False" Id="297" InstanceDataType="Error" Template="List" Terminals="instance in=300~0:5, instance out=298~150:5, c0t0v=296~0:35">
                 <p.PropertyItem IsWrite="True">
                     <PathElement>code</PathElement>
