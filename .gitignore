@@ -203,3 +203,10 @@ TSWLatexianTemp*
 # Metadata
 *.aliases
 *.lvlps
+
+#==============
+#   Jupyter
+#=============
+
+*.ipynb_checkpoints/
+*.zip
