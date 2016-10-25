@@ -74,8 +74,43 @@ J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} \|r(pT+\frac{kT}{M})|^2
 
 \end{frame}
 
-
-
+\section{Channel Estimation and Equalization}
+\subsection{Purpose of the lab}
+\begin{frame}
+Channel canal
+\begin{equation}
+z(t) = \alpha_0 e^{j\phi_0}x(t-\tau_0) + \alpha_1 e^{j\phi_1}x(t-\tau_1) + v(t)
+\end{equation}
+Direct Least-Squares Equalizer
+\begin{equation}
+t[n] = \sum_{l=0}^{L_f} {f_{n_d}[l]y[n + n_d -l ]}
+\end{equation}
+\end{frame}
+\subsection{Result}
+\subsubsection{Effect of the equalizer length}
+\begin{frame}
+\frametitle{Impact of the equlizer length at the reciever}
+\begin{minipage}[c]{0.46\linewidth}
+\centering 
+{Constellation for $L_f + 1 = 2$}
+\includegraphics[width=\textwidth]{img/ISI-2}
+\end{minipage}
+\begin{minipage}[c]{0.46\linewidth}
+\centering 
+{Constellation for $L_f + 1 = 6$}
+\includegraphics[width=\textwidth]{img/ISI-6}
+\end{minipage}
+\end{frame}
+\subsubsection{Effect of the noise}
+\begin{frame}
+\frametitle{Impact of the noise at the reciever}
+\includegraphics[width=.9\linewidth]{img/SNR}
+\end{frame}
+\subsubsection{Experiment on the USRP}
+\begin{frame}
+\frametitle{Experiment on the USRP}
+\includegraphics[width=.9\linewidth]{img/USRP-Rotate}
+\end{frame}
 
 
 
