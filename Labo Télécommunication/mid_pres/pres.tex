@@ -162,16 +162,29 @@ We take $\delta$ multiple of $T/M$, here equal to one
 \end{frame}
 
 \section{Channel Estimation and Equalization}
-\subsection{Purpose of the lab}
 \begin{frame}
-Channel canal
+\frametitle{Channel Estimation and Equalization}
+\begin{itemize}
+\item The recieved signal after matched filtering is
 \begin{equation}
-z(t) = \alpha_0 e^{j\phi_0}x(t-\tau_0) + \alpha_1 e^{j\phi_1}x(t-\tau_1) + v(t)
+y[n] = h[0]s[n] + \sum_{m \neq n}^{L}{s[m]h[n-m]} + v[n]
 \end{equation}
-Direct Least-Squares Equalizer
+\item Reduce the channel effect on the signal = equalization (apply "inverse filter")
+\item Equalization need to known the channel responses = channel estimation
+\item The channel estimation and the signal equalization use a least-square approximation methode -> very expensive
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Direct least-square equalization}
+\begin{itemize}
+\item Direct method : found the equalizer directly from the training data
 \begin{equation}
-t[n] = \sum_{l=0}^{L_f} {f_{n_d}[l]y[n + n_d -l ]}
+t[n] = \sum_{l=0}^{L_f}{f_{n_d}[l]y[n+n_d-l]}, n = 0,1,...,N_t
 \end{equation}
+with $L_f$ the lenght of the filter and $n_d$ the delay of the filter
+
+\end{itemize}
 \end{frame}
 \subsection{Result}
 \subsubsection{Effect of the equalizer length}
