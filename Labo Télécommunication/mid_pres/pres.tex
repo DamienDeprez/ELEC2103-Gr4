@@ -1,0 +1,214 @@
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%%\input{lib.tex}
+\title{LELEC2103 - Projet 3 in Electricity}
+\subtitle[\ldots]{Result of the lab 3 and lab 4}
+\author[D. Deprez\and B. Ouachalih]{Damien Deprez\and Bilal Ouachalih}
+\institute{EPL}
+\date{28th october 2016}
+
+\begin{document}
+
+% TITLE PAGE
+{
+	\setbeamertemplate{headline}{}  
+	\setbeamertemplate{footline}{}
+	\setbeamertemplate{navigation symbols}{}
+	\begin{frame}[noframenumbering]
+		\titlepage
+	\end{frame}
+} 
+
+% TABLE OF CONTENTS
+{
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{headline}{}
+	\begin{frame}[noframenumbering]{Plan de la présentation}
+		\tableofcontents
+	\end{frame}
+}
+
+\section{Symbol timing recovery}
+
+\subsection{Maximum Energy}
+
+\begin{frame}
+\frametitle{Maximum Energy}
+
+\begin{itemize}
+\item The received signal after filtering is 
+\begin{equation}
+y[n] = \sqrt{E_x}\alpha e^{j\phi} \left[s[n]g(\tau_d)+\sum_{m \neq n} s[m] g((m-n)T-\tau_d)\right]+ v[n]
+\end{equation}
+with $\tau_d$ is the symbol interference
+
+\item The output energy is given by
+\begin{equation}
+J(\tau) = E|(y(nT+\tau)|^2= \alpha^2 E_x \sum_m |g(mT+\tau-\tau_d)|^2 + \sigma_v ^2
+\end{equation}
+
+We define $\hat{\tau}=argmax_{\tau} J(\tau)$
+
+\end{itemize}   
+
+\end{frame}
+
+
+\subsubsection{Direct Maximum Energy}
+\begin{frame}
+\frametitle{Direct Maximum Energy}
+
+\begin{itemize}
+
+\item In descrete time, we have $\hat{\tau} = \frac{kT}{M} \ \ \ k \in  [0..M-1]$ and so
+		
+\begin{equation} 
+J[k] = E|r(nT+\frac{kT}{M})|^2
+\end{equation}
+
+\item For P symbols
+\begin{equation}
+J_{approx}[k] = \frac{1}{P} \sum \limits_{p=0}^{P-1} |r(pT+\frac{kT}{M})|^2
+\label{equ1}
+\end{equation}
+
+We have the maximum energy for $\hat{k}=argmax\ J_{approx}[k]$
+
+
+\end{itemize}
+
+\end{frame}
+
+\subsubsection{Earlygate}
+
+\begin{frame}
+\frametitle{Earlygate}
+
+\begin{itemize}
+
+\item We will try to find the maximum by canceling the derivative
+
+\begin{equation}
+\frac{d}{d\tau} J(\tau)  \simeq \frac{1}{P} \sum_{p=0}^{P-1} 2Re\lbrace y(pT+\tau)(y^*(pT+\tau+\delta)-y^*(pT+\tau-\delta))\rbrace
+\end{equation}
+
+We take $\delta$ multiple of $T/M$, here equal to one
+
+\item At the end, we obtain  
+
+\begin{equation}
+\hat{k}= {arg\min}_{k=0,..,M-1} J_{\delta}[k]
+\end{equation}
+
+\end{itemize}
+
+\end{frame}
+
+\subsection{Result}
+\subsubsection{Timing Static Error}
+\begin{frame}
+\frametitle{Timing Static error VS RX Oversampling factor}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{img/Timing-Static-Error.png}
+\end{figure}
+
+\end{frame}
+
+\subsubsection{Constellation}
+
+\begin{frame}
+\frametitle{Impact of the oversampling factor at the receiver}
+
+\begin{figure}
+   \begin{minipage}[c]{.46\linewidth}
+   \centering
+   {\large Constellation for N=2}
+            \tiny
+      \includegraphics[width=1\textwidth]{img/ConstellationN2-MaxEnergy.png}
+      
+   \end{minipage} \hfill
+   \begin{minipage}[c]{.46\linewidth}
+   \centering
+   {\large Constellation for N=20}
+            \tiny
+      \includegraphics[width=1\textwidth]{img/ConstellationN20-MaxEnergy.png}
+   \end{minipage}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Effect of M on the Max Energy method}
+
+\begin{itemize}
+
+\item If M is increasing => Result at the receiver  is better. Why ?
+
+\item In equation \ref{equ1}, if M is incresing, 
+
+
+
+\end{itemize}
+
+
+
+\end{frame}
+
+\section{Channel Estimation and Equalization}
+\begin{frame}
+\frametitle{Channel Estimation and Equalization}
+\begin{itemize}
+\item The recieved signal after matched filtering is
+\begin{equation}
+y[n] = h[0]s[n] + \sum_{m \neq n}^{L}{s[m]h[n-m]} + v[n]
+\end{equation}
+\item Reduce the channel effect on the signal = equalization (apply "inverse filter")
+\item Equalization need to known the channel responses = channel estimation
+\item The channel estimation and the signal equalization use a least-square approximation methode -> very expensive
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Direct least-square equalization}
+\begin{itemize}
+\item Direct method : found the equalizer directly from the training data
+\begin{equation}
+t[n] = \sum_{l=0}^{L_f}{f_{n_d}[l]y[n+n_d-l]}, n = 0,1,...,N_t
+\end{equation}
+with $L_f$ the lenght of the filter and $n_d$ the delay of the filter
+
+\end{itemize}
+\end{frame}
+\subsection{Result}
+\subsubsection{Effect of the equalizer length}
+\begin{frame}
+\frametitle{Impact of the equlizer length at the reciever}
+\begin{minipage}[c]{0.46\linewidth}
+\centering 
+{Constellation for $L_f + 1 = 2$}
+\includegraphics[width=\textwidth]{img/ISI-2}
+\end{minipage}
+\begin{minipage}[c]{0.46\linewidth}
+\centering 
+{Constellation for $L_f + 1 = 6$}
+\includegraphics[width=\textwidth]{img/ISI-6}
+\end{minipage}
+\end{frame}
+\subsubsection{Effect of the noise}
+\begin{frame}
+\frametitle{Impact of the noise at the reciever}
+\includegraphics[width=.9\linewidth]{img/SNR}
+\end{frame}
+\subsubsection{Experiment on the USRP}
+\begin{frame}
+\frametitle{Experiment on the USRP}
+\includegraphics[width=.9\linewidth]{img/USRP-Rotate}
+\end{frame}
+\end{document}
