@@ -45,9 +45,9 @@
 \begin{itemize}
 \item The received signal after filtering is 
 \begin{equation}
-y[n] = \sqrt{E_x}\alpha e^{j\phi} \left[s[n]g(\tau_d)+\sum_{m \neq n} s[m] g((m-n)T-\tau_d)\right]+ v[n]
+y[n] = \sqrt{E_x}\alpha e^{j\phi} [s[n]g(\tau_d)+\sum_{m \neq n} s[m] g((m-n)T-\tau_d)]+ v[n]
 \end{equation}
-with $\tau_d$ is the symbol interference
+with $\tau_d$ which is the delay in the channel we want to estimate
 
 \item The output energy is given by
 \begin{equation}
@@ -96,7 +96,7 @@ We have the maximum energy for $\hat{k}=argmax\ J_{approx}[k]$
 \item We will try to find the maximum by canceling the derivative
 
 \begin{equation}
-\frac{d}{d\tau} J(\tau)  \simeq \frac{1}{P} \sum_{p=0}^{P-1} 2Re\lbrace y(pT+\tau)(y^*(pT+\tau+\delta)-y^*(pT+\tau-\delta))\rbrace
+\frac{d}{d\tau} J(\tau)  \simeq \frac{1}{P} \sum_{p=0}^{P-1} 2Re(r(pT+\tau)(r^*(pT+\tau+\delta)-r^*(pT+\tau-\delta)))
 \end{equation}
 
 We take $\delta$ multiple of $T/M$, here equal to one
@@ -144,22 +144,14 @@ We take $\delta$ multiple of $T/M$, here equal to one
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Effect of M on the Max Energy method}
-
-\begin{itemize}
-
-\item If M is increasing => Result at the receiver  is better. Why ?
-
-\item In equation \ref{equ1}, if M is incresing, 
-
-
-
-\end{itemize}
-
-
-
-\end{frame}
+% TABLE OF CONTENTS
+{
+	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{headline}{}
+	\begin{frame}[noframenumbering]{Plan de la présentation}
+		\tableofcontents
+	\end{frame}
+}
 
 \section{Channel Estimation and Equalization}
 \begin{frame}
