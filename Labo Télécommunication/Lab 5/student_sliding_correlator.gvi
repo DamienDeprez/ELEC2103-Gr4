@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="227" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -128,35 +129,35 @@
             </Cluster>
         </FrontPanelUnplacedItems>
         <BlockDiagram Id="12">
-            <DataAccessor Bounds="245 935 40 15" DataItem="114" Id="115" Label="179">
+            <DataAccessor Bounds="275 935 40 15" DataItem="114" Id="115" Label="179">
                 <Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="1285 935 40 15" DataItem="135" Id="136" Label="183">
+            <DataAccessor Bounds="1390 935 40 15" DataItem="135" Id="136" Label="183">
                 <Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="245 645 40 15" DataItem="14" Id="15" Label="177">
+            <DataAccessor Bounds="230 455 40 15" DataItem="14" Id="15" Label="177">
                 <Terminal DataType="@1785820191_0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="115" Bounds="147 935 93 16" Id="179" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="136" Bounds="1330 935 47 16" Id="183" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="15" Bounds="104 645 136 16" Id="177" Text="Input Complex Waveform" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="245 805 40 15" DataItem="402" Id="403" Label="404">
+            <TextNode AttachedTo="115" Bounds="177 935 93 16" Id="179" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="136" Bounds="1435 935 47 16" Id="183" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="15" Bounds="89 455 136 16" Id="177" Text="Input Complex Waveform" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="225 545 40 15" DataItem="402" Id="403" Label="404">
                 <Terminal DataType="@-730128646_0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="403" Bounds="115 805 125 16" Id="404" Text="Modulation Parameters" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="1285 865 40 15" DataItem="129" Id="130" Label="181">
+            <TextNode AttachedTo="403" Bounds="95 545 125 16" Id="404" Text="Modulation Parameters" xmlns="http://www.ni.com/PlatformFramework" />
+            <DataAccessor Bounds="1165 850 40 15" DataItem="129" Id="130" Label="181">
                 <Terminal DataType="Int32" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="1285 790 40 15" DataItem="126" Id="127" Label="180">
+            <DataAccessor Bounds="1250 540 40 15" DataItem="126" Id="127" Label="180">
                 <Terminal DataType="ComplexDouble[]" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="1285 820 40 15" DataItem="132" Id="133" Label="182">
+            <DataAccessor Bounds="1305 625 40 15" DataItem="132" Id="133" Label="182">
                 <Terminal DataType="Double" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="130" Bounds="1330 865 69 16" Id="181" Text="Frame Offset" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="127" Bounds="1330 790 38 16" Id="180" Text="Output" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="133" Bounds="1330 820 90 16" Id="182" Text="Frequency Offset" xmlns="http://www.ni.com/PlatformFramework" />
-            <PropertyNode Bounds="310 805 150 75" HasErrorTerminals="False" Id="414" InstanceDataType="@-730128646_0" Template="List" Terminals="instance in=416~0:5, instance out~150:5, c0t0v~150:35, c1t0v~150:50, c2t0v~150:65" VerticalChunkCount="3">
+            <TextNode AttachedTo="130" Bounds="1210 850 69 16" Id="181" Text="Frame Offset" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="127" Bounds="1295 540 38 16" Id="180" Text="Output" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="133" Bounds="1350 625 90 16" Id="182" Text="Frequency Offset" xmlns="http://www.ni.com/PlatformFramework" />
+            <PropertyNode Bounds="290 545 150 75" HasErrorTerminals="False" Id="414" InstanceDataType="@-730128646_0" Template="List" Terminals="instance in=416~0:5, instance out~150:5, c0t0v~150:35, c1t0v=513~150:50, c2t0v=482~150:65" VerticalChunkCount="3">
                 <p.PropertyItem IsWrite="False">
                     <PathElement>Control Information
 for Packet Header/Tail</PathElement>
@@ -172,7 +173,114 @@ for Packet Header/Tail</PathElement>
                     <PathElement>Correct Frequency Offset</PathElement>
                 </p.PropertyItem>
             </PropertyNode>
-            <Wire Id="416" Joints="N(403:Value) N(414:instance in)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="416" Joints="N(403:Value) h(20) B(1) N(414:instance in) B(1) v(75) h(160) v(-20) N(491:478)" xmlns="http://www.ni.com/PlatformFramework" />
+            <CaseStructure Bounds="625 460 440 210" Default="479" Id="478" Selected="480" UserSelectorBounds="179 0 82 17">
+                <CaseStructure.Case Bounds="5 5 430 200" Id="479" Pattern="False" />
+                <CaseStructure.Case Bounds="5 5 430 200" Id="480" Pattern="True">
+                    <MethodCall Bounds="25 125 40 40" Id="485" Target="moose\.gviprotected">
+                        <p.MethodDeclaration>
+                            <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+                                <Parameter Id="L1" Desc="Modulation Parameters" />
+                                <Parameter Id="L0" Desc="input" />
+                                <Parameter Id="R0" Desc="output" />
+                                <Parameter Id="R3" Desc="frequency offset" />
+                            </MethodDeclaration>
+                        </p.MethodDeclaration>
+                        <Terminal DataType="@-1669575334_0" Direction="Input" Hotspot="0 15" Id="L1" xmlns="http://www.ni.com/PlatformFramework" />
+                        <Terminal DataType="ComplexDouble[]" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+                        <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                        <Terminal DataType="Double" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                    </MethodCall>
+                    <Wire Id="486" Joints="N(485:R3) N(487:480)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="490" Joints="N(491:480) N(485:L1)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="497" Joints="N(496:480) h(16) v(80) N(485:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Rotate1DArray Bounds="150 65 40 30" Id="558" />
+                    <Wire Id="559" Joints="N(485:R0) h(78) v(-60) N(558:array)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="560" Joints="N(561:480) h(-286) v(-15) N(558:n)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="563" Joints="N(558:array (last n elements first\)) N(564:480)" xmlns="http://www.ni.com/PlatformFramework" />
+                </CaseStructure.Case>
+                <CaseStructure.Selector Bounds="-4 20 13 15" Docking="Left" Id="481" Terminals="478=482, 479, 480" />
+                <CaseStructure.Tunnel Bounds="431 160 13 10" DefaultIfUnwired="True" Docking="Right" Id="487" Terminals="478=488, 479, 480=486" />
+                <CaseStructure.Tunnel Bounds="-4 140 13 10" Docking="Left" Id="491" Terminals="478=416, 479, 480=490" />
+                <CaseStructure.Tunnel Bounds="-4 50 13 10" Docking="Left" Id="496" Terminals="478=495, 479, 480=497" />
+                <CaseStructure.Tunnel Bounds="431 105 13 10" Docking="Right" Id="561" Terminals="478=554, 479, 480=560" />
+                <CaseStructure.Tunnel Bounds="431 70 13 10" DefaultIfUnwired="True" Docking="Right" Id="564" Terminals="478=565, 479, 480=563" />
+            </CaseStructure>
+            <Wire Id="482" Joints="N(414:c2t0v) h(36) v(-125) N(481:478)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="488" Joints="N(487:478) h(231) v(5) N(133:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="489" Joints="N(115:Value) h(5) v(170) h(1065) v(-170) N(136:Value)" xmlns="http://www.ni.com/PlatformFramework" />
+            <PropertyNode Bounds="290 455 150 75" HasErrorTerminals="False" Id="493" InstanceDataType="@1785820191_0" Template="List" Terminals="instance in=494~0:5, instance out~150:5, c0t0v=495~150:35, c1t0v~150:50, c2t0v~150:65" VerticalChunkCount="3">
+                <p.PropertyItem IsWrite="False">
+                    <PathElement>Y</PathElement>
+                </p.PropertyItem>
+                <p.PropertyItem IsWrite="False">
+                    <PathElement>dt</PathElement>
+                </p.PropertyItem>
+                <p.PropertyItem IsWrite="False">
+                    <PathElement>t0</PathElement>
+                </p.PropertyItem>
+            </PropertyNode>
+            <Wire Id="494" Joints="N(15:Value) N(493:instance in)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="495" Joints="N(493:c0t0v) h(5) v(10) h(40) B(3) h(95) B(4) h(36) v(15) N(496:478) B(4) N(530:498) B(3) v(50) N(509:array)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ForLoop Bounds="448 688 520 345" DiagramId="499" Id="498">
+                <ForLoop.Iteration Bounds="5 315 15 15" Id="501" />
+                <ForLoop Bounds="73 48 260 223" DiagramId="503" Id="502">
+                    <ForLoop.Iteration Bounds="5 200 15 15" Id="505" />
+                    <Comment Bounds="10 160 33 28" Id="507" xmlns="http://www.ni.com/MocCommon">
+                        <p.Text>k</p.Text>
+                    </Comment>
+                    <ArrayIndex Bounds="65 60 40 30" Id="526" Terminals="array=527, c0t0v=537, c0t1v=542" />
+                    <Wire Id="527" Joints="N(528:503) v(59) N(526:array)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Add Bounds="35 120 30 30" Id="532" Terminals="o=537, c0t0v=538, c1t0v=539" />
+                    <Wire Id="537" Joints="N(532:o) h(5) v(-40) h(-10) v(-10) N(526:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="538" Joints="N(534:503) N(532:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="539" Joints="N(505:Output) h(5) v(-65) N(532:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Multiply Bounds="190 90 30 30" Id="540" Terminals="o=543, c0t0v=542, c1t0v=541" />
+                    <Wire Id="541" Joints="N(524:503) h(177) v(5) N(540:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="542" Joints="N(526:c0t1v) h(80) v(10) N(540:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="543" Joints="N(540:o) N(544:503)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <ForLoop.Count Bounds="1 1 15 15" Docking="Left" Id="504" Terminals="502=518, 503" />
+                    <ForLoop.Tunnel AutoIndex="True" Bounds="-5 102 13 10" Docking="Left" Id="524" Terminals="502=523, 503=541" />
+                    <ForLoop.Tunnel Bounds="52 -5 10 13" Docking="Top" Id="528" Terminals="502=529, 503=527" />
+                    <ForLoop.Tunnel Bounds="-5 122 13 10" Docking="Left" Id="534" Terminals="502=533, 503=538" />
+                    <ForLoop.Tunnel AutoIndex="True" Bounds="250 102 13 10" Docking="Right" Id="544" Terminals="502=546, 503=543" />
+                </ForLoop>
+                <Comment Bounds="15 270 33 28" Id="506" xmlns="http://www.ni.com/MocCommon">
+                    <p.Text>n</p.Text>
+                </Comment>
+                <Wire Id="518" Joints="N(517:499) v(22) h(-12) v(27) N(504:502)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="523" Joints="N(522:499) h(52) v(10) N(524:502)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="529" Joints="N(530:499) N(528:502)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="533" Joints="N(501:Output) h(10) v(-145) N(534:502)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Comment Bounds="45 15 43 28" Id="508" xmlns="http://www.ni.com/MocCommon">
+                    <p.Text>Nt-1</p.Text>
+                </Comment>
+                <AddArrayElements Bounds="360 140 30 30" Id="545" />
+                <Wire Id="546" Joints="N(544:502) N(545:numeric array)" xmlns="http://www.ni.com/PlatformFramework" />
+                <AbsoluteValue Bounds="415 140 30 30" Id="547" />
+                <Wire Id="548" Joints="N(545:sum) N(547:x)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Square Bounds="450 140 30 30" Id="549" />
+                <Wire Id="550" Joints="N(547:abs(x\)) N(549:x)" xmlns="http://www.ni.com/PlatformFramework" />
+                <Wire Id="551" Joints="N(549:x^2) N(552:499)" xmlns="http://www.ni.com/PlatformFramework" />
+                <ForLoop.Count Bounds="1 1 15 15" Docking="Left" Id="500" Terminals="498=511, 499" />
+                <ForLoop.Tunnel Bounds="62 -5 10 13" Docking="Top" Id="517" Terminals="498=516, 499=518" />
+                <ForLoop.Tunnel Bounds="-5 142 13 10" Docking="Left" Id="522" Terminals="498=521, 499=523" />
+                <ForLoop.Tunnel Bounds="127 -5 10 13" Docking="Top" Id="530" Terminals="498=495, 499=529" />
+                <ForLoop.Tunnel AutoIndex="True" Bounds="510 152 13 10" Docking="Right" Id="552" Terminals="498=555, 499=551" />
+            </ForLoop>
+            <ArraySize Bounds="505 545 40 20" Id="509" />
+            <Wire Id="511" Joints="N(509:size(s\)) h(5) v(10) h(-117) v(125) N(500:498)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ArraySize Bounds="460 630 40 20" Id="512" />
+            <Wire Id="513" Joints="N(414:c1t0v) h(15) v(40) B(2) h(-85) v(200) N(519:x + iy) B(2) N(512:array)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Decrement Bounds="525 630 30 30" Id="514" />
+            <Wire Id="515" Joints="N(512:size(s\)) N(514:x)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="516" Joints="N(514:x-1) h(5) v(30) h(-45) N(517:498)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ComplexConjugate Bounds="375 820 30 30" Id="519" />
+            <Wire Id="521" Joints="N(519:x - iy) N(522:498)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ArrayMaxAndMin Bounds="1090 840 40 40" Id="553" />
+            <Wire Id="554" Joints="N(553:max index(es\)) h(13) B(1) N(130:Value) B(1) v(-285) N(561:478)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="555" Joints="N(552:498) N(553:array)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="565" Joints="N(564:478) h(174) v(10) N(127:Value)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <Cluster AutoArrange="[AutoArrange]ArrangeVertically" BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1785820191_0" Height="[float]161" Id="16" Label="[UIModel]144" Left="[float]238" Top="[float]33" Value="{DataItemBinding Id=14}" Width="[float]152">
@@ -677,6 +785,205 @@ for Packet Header/Tail</PathElement>
                                         <ComplexDouble />
                                     </DereferenceType>
                                 </VariableArray>
+                            </DataType>
+                        </Field>
+                    </Members>
+                </Class>
+            </p.TypeReference>
+            <p.TypeReference TypeId="-1669575334_0">
+                <Class Id="1" Name="" Cluster="">
+                    <ClosedGenericParameters />
+                    <GenericTypeDefinition>
+                        <Void />
+                    </GenericTypeDefinition>
+                    <BaseType>
+                        <Void />
+                    </BaseType>
+                    <Interfaces />
+                    <Members>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Modulation Type">
+                            <DataType>
+                                <String />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Control Information&#xA;for Packet Header/Tail">
+                            <DataType>
+                                <Class Id="2" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Training Sequence (derived)">
+                                            <DataType>
+                                                <VariableArray>
+                                                    <DereferenceType>
+                                                        <ComplexDouble />
+                                                    </DereferenceType>
+                                                </VariableArray>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Zero Pad Length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="RX Oversample Factor">
+                            <DataType>
+                                <Int32 />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Synchronization Options">
+                            <DataType>
+                                <Class Id="3" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Synchronization Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Fixed Offset">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Symbol Timing Recovery Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Frame Detection Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Correct Frequency Offset">
+                                            <DataType>
+                                                <Boolean />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Number of Data Symbols (Derived)">
+                            <DataType>
+                                <Int32 />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="RX Sample Rate">
+                            <DataType>
+                                <Double />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Pulse Shaping Parameters">
+                            <DataType>
+                                <Class Id="4" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Modulation Type">
+                                            <DataType>
+                                                <Enumeration Name="Enum">
+                                                    <Members>
+                                                        <EnumerationMember Value="0" Name="FSK" />
+                                                        <EnumerationMember Value="1" Name="PSK" />
+                                                        <EnumerationMember Value="2" Name="QAM" />
+                                                        <EnumerationMember Value="3" Name="MSK" />
+                                                        <EnumerationMember Value="4" Name="PAM" />
+                                                        <EnumerationMember Value="5" Name="ASK" />
+                                                    </Members>
+                                                    <DataType>
+                                                        <UInt16 />
+                                                    </DataType>
+                                                </Enumeration>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Pulse Shaping Filter">
+                                            <DataType>
+                                                <Enumeration Name="Enum">
+                                                    <Members>
+                                                        <EnumerationMember Value="0" Name="none" />
+                                                        <EnumerationMember Value="1" Name="Raised Cosine" />
+                                                        <EnumerationMember Value="2" Name="Root Raised Cos" />
+                                                        <EnumerationMember Value="3" Name="Gaussian" />
+                                                    </Members>
+                                                    <DataType>
+                                                        <UInt16 />
+                                                    </DataType>
+                                                </Enumeration>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Filter Parameter">
+                                            <DataType>
+                                                <Double />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Filter Length (Symbols)">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Channel Estimation/Equalization Parameters">
+                            <DataType>
+                                <Class Id="5" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Equalization Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Channel Estimate Length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Equalizer Length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Equalizer Delay">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
                             </DataType>
                         </Field>
                     </Members>

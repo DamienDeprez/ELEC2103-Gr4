@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="221" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -66,7 +66,7 @@
                     <TextNode AttachedTo="133" Bounds="595 150 90 16" Id="182" Text="Frequency Offset" xmlns="http://www.ni.com/PlatformFramework" />
                     <TextNode AttachedTo="127" Bounds="595 110 38 16" Id="180" Text="Output" xmlns="http://www.ni.com/PlatformFramework" />
                     <TextNode AttachedTo="130" Bounds="595 130 69 16" Id="181" Text="Frame Offset" xmlns="http://www.ni.com/PlatformFramework" />
-                    <CaseStructure Bounds="180 55 334 190" DataType="String" Default="192" Id="191" Selected="192" UserSelectorBounds="27 0 280 17">
+                    <CaseStructure Bounds="180 55 334 190" DataType="String" Default="192" Id="191" Selected="510" UserSelectorBounds="28 0 279 17">
                         <CaseStructure.Case Bounds="5 5 324 180" Id="192" Pattern="&quot;Sliding Correlator&quot;, Default">
                             <Wire Id="228" Joints="N(202:192) h(96) v(70) N(336:L2)" xmlns="http://www.ni.com/PlatformFramework" />
                             <Wire Id="229" Joints="N(197:192) N(336:L3)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -95,6 +95,35 @@
                                 <Terminal DataType="Double" Direction="Output" Hotspot="40 25" Id="R2" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                                 <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                             </MethodCall>
+                        </CaseStructure.Case>
+                        <CaseStructure.Case Bounds="5 5 324 180" Id="510" Pattern="&quot;Sliding correclator student&quot;">
+                            <Wire Id="511" Joints="N(202:510) h(96) v(70) h(43) v(-60) N(519:L2)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="512" Joints="N(197:510) h(143) v(-60) N(519:L3)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="514" Joints="N(519:R2) h(10) v(60) h(60) v(-55) N(200:510)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="515" Joints="N(519:R3) v(60) N(201:510)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="517" Joints="N(196:510) h(116) v(70) h(20) v(-60) N(519:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <MethodCall Bounds="150 65 40 40" Id="519" Target="student_sliding_correlator\.gvi">
+                                <p.MethodDeclaration>
+                                    <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+                                        <Parameter Id="L2" Desc="Modulation Parameters" />
+                                        <Parameter Id="L0" Desc="Input Complex Waveform" />
+                                        <Parameter Id="L3" Desc="error in (no error)" />
+                                        <Parameter Id="R0" Desc="Output" />
+                                        <Parameter Id="R1" Desc="Frame Offset" />
+                                        <Parameter Id="R2" Desc="Frequency Offset" />
+                                        <Parameter Id="R3" Desc="error out" />
+                                    </MethodDeclaration>
+                                </p.MethodDeclaration>
+                                <Terminal DataType="@-730128646_0" Direction="Input" Hotspot="0 25" Id="L2" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="@1785820191_0" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="Error" Direction="Input" Hotspot="0 35" Id="L3" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="Int32" Direction="Output" Hotspot="40 15" Id="R1" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="Double" Direction="Output" Hotspot="40 25" Id="R2" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                                <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
+                            </MethodCall>
+                            <Wire Id="528" Joints="N(519:R0) h(30) v(-15) N(198:510)" xmlns="http://www.ni.com/PlatformFramework" />
+                            <Wire Id="529" Joints="N(519:R1) h(25) v(60) h(30) v(-65) N(199:510)" xmlns="http://www.ni.com/PlatformFramework" />
                         </CaseStructure.Case>
                         <CaseStructure.Case Bounds="5 5 324 180" Id="193" Pattern="&quot;Self Reference w/ Power Normalization&quot;">
                             <Wire Id="235" Joints="N(202:193) h(96) v(60) N(343:L1)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -162,15 +191,15 @@
                                 <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                             </MethodCall>
                         </CaseStructure.Case>
-                        <CaseStructure.Selector Bounds="-4 110 13 15" Docking="Left" Id="195" Terminals="191=257, 192, 193, 194" />
-                        <CaseStructure.Tunnel Bounds="-4 60 13 10" Docking="Left" Id="196" Terminals="191=259, 192=234, 193=241, 194=250" />
-                        <CaseStructure.Tunnel Bounds="-4 160 13 10" Docking="Left" Id="197" Terminals="191=251, 192=229, 193=236, 194=245" />
-                        <CaseStructure.Tunnel Bounds="325 55 13 10" Docking="Right" Id="198" Terminals="191=255, 192=233, 193=240, 194=249" />
-                        <CaseStructure.Tunnel Bounds="325 75 13 10" Docking="Right" Id="199" Terminals="191=254, 192=230, 193=239, 194=248" />
-                        <CaseStructure.Tunnel Bounds="325 95 13 10" Docking="Right" Id="200" Terminals="191=253, 192=231, 193=238, 194=247" />
-                        <CaseStructure.Tunnel Bounds="325 160 13 10" Docking="Right" Id="201" Terminals="191=252, 192=232, 193=237, 194=246" />
-                        <CaseStructure.Tunnel Bounds="-4 80 13 10" Docking="Left" Id="202" Terminals="191=509, 192=228, 193=235, 194=243" />
-                        <CaseStructure.Tunnel Bounds="-4 125 13 10" Docking="Left" Id="203" Terminals="191=256, 192, 193, 194=242" />
+                        <CaseStructure.Selector Bounds="-4 110 13 15" Docking="Left" Id="195" Terminals="191=257, 192, 193, 194, 510" />
+                        <CaseStructure.Tunnel Bounds="-4 60 13 10" Docking="Left" Id="196" Terminals="191=259, 192=234, 193=241, 194=250, 510=517" />
+                        <CaseStructure.Tunnel Bounds="-4 160 13 10" Docking="Left" Id="197" Terminals="191=251, 192=229, 193=236, 194=245, 510=512" />
+                        <CaseStructure.Tunnel Bounds="325 55 13 10" Docking="Right" Id="198" Terminals="191=255, 192=233, 193=240, 194=249, 510=528" />
+                        <CaseStructure.Tunnel Bounds="325 75 13 10" Docking="Right" Id="199" Terminals="191=254, 192=230, 193=239, 194=248, 510=529" />
+                        <CaseStructure.Tunnel Bounds="325 95 13 10" Docking="Right" Id="200" Terminals="191=253, 192=231, 193=238, 194=247, 510=514" />
+                        <CaseStructure.Tunnel Bounds="325 160 13 10" Docking="Right" Id="201" Terminals="191=252, 192=232, 193=237, 194=246, 510=515" />
+                        <CaseStructure.Tunnel Bounds="-4 80 13 10" Docking="Left" Id="202" Terminals="191=509, 192=228, 193=235, 194=243, 510=511" />
+                        <CaseStructure.Tunnel Bounds="-4 125 13 10" Docking="Left" Id="203" Terminals="191=256, 192, 193, 194=242, 510" />
                     </CaseStructure>
                     <PropertyNode Bounds="15 135 150 60" HasErrorTerminals="False" Id="209" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=508~0:5, instance out=509~150:5, c0t0v=257~150:35, c1t0v=256~150:50" VerticalChunkCount="2">
                         <p.PropertyItem IsWrite="False">
@@ -642,6 +671,205 @@ for Packet Header/Tail</PathElement>
                                             </DataType>
                                         </Field>
                                         <Field FieldAccessPolicy="ReadWrite" Name="Equalizer Delay">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                    </Members>
+                </Class>
+            </p.TypeReference>
+            <p.TypeReference TypeId="-730128646_0">
+                <Class Id="1" Name="" Cluster="">
+                    <ClosedGenericParameters />
+                    <GenericTypeDefinition>
+                        <Void />
+                    </GenericTypeDefinition>
+                    <BaseType>
+                        <Void />
+                    </BaseType>
+                    <Interfaces />
+                    <Members>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Modulation Type">
+                            <DataType>
+                                <String />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Control Information&#xA;for Packet Header/Tail">
+                            <DataType>
+                                <Class Id="2" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Training Sequence (derived)">
+                                            <DataType>
+                                                <VariableArray>
+                                                    <DereferenceType>
+                                                        <ComplexDouble />
+                                                    </DereferenceType>
+                                                </VariableArray>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Zero Pad Length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="RX oversample factor">
+                            <DataType>
+                                <Int32 />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Synchronization Options">
+                            <DataType>
+                                <Class Id="3" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Synchronization Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Fixed Offset">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Symbol Timing Recovery Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Frame Detection Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Correct Frequency Offset">
+                                            <DataType>
+                                                <Boolean />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Number of Data Symbols (Derived)">
+                            <DataType>
+                                <Int32 />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="RX Sample Rate">
+                            <DataType>
+                                <Double />
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Pulse Shaping Parameters">
+                            <DataType>
+                                <Class Id="4" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Modulation Type">
+                                            <DataType>
+                                                <Enumeration Name="Enum">
+                                                    <Members>
+                                                        <EnumerationMember Value="0" Name="FSK" />
+                                                        <EnumerationMember Value="1" Name="PSK" />
+                                                        <EnumerationMember Value="2" Name="QAM" />
+                                                        <EnumerationMember Value="3" Name="MSK" />
+                                                        <EnumerationMember Value="4" Name="PAM" />
+                                                        <EnumerationMember Value="5" Name="ASK" />
+                                                    </Members>
+                                                    <DataType>
+                                                        <UInt16 />
+                                                    </DataType>
+                                                </Enumeration>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Pulse Shaping Filter">
+                                            <DataType>
+                                                <Enumeration Name="Enum">
+                                                    <Members>
+                                                        <EnumerationMember Value="0" Name="none" />
+                                                        <EnumerationMember Value="1" Name="Raised Cosine" />
+                                                        <EnumerationMember Value="2" Name="Root Raised Cos" />
+                                                        <EnumerationMember Value="3" Name="Gaussian" />
+                                                    </Members>
+                                                    <DataType>
+                                                        <UInt16 />
+                                                    </DataType>
+                                                </Enumeration>
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Filter Parameter">
+                                            <DataType>
+                                                <Double />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Filter Length (Symbols)">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                    </Members>
+                                </Class>
+                            </DataType>
+                        </Field>
+                        <Field FieldAccessPolicy="ReadWrite" Name="Channel Estimation/Equalization Parameters">
+                            <DataType>
+                                <Class Id="5" Name="" Cluster="">
+                                    <ClosedGenericParameters />
+                                    <GenericTypeDefinition>
+                                        <Void />
+                                    </GenericTypeDefinition>
+                                    <BaseType>
+                                        <Void />
+                                    </BaseType>
+                                    <Interfaces />
+                                    <Members>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="Equalization Method">
+                                            <DataType>
+                                                <String />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="channel estimate length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="equalizer length">
+                                            <DataType>
+                                                <Int32 />
+                                            </DataType>
+                                        </Field>
+                                        <Field FieldAccessPolicy="ReadWrite" Name="equalizer delay">
                                             <DataType>
                                                 <Int32 />
                                             </DataType>
