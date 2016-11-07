@@ -170,7 +170,7 @@ y[n] = h[0]s[n] + \sum_{m \neq n}^{L}{s[m]h[n-m]} + v[n]
 \begin{frame}
 \frametitle{Direct least-square equalization}
 \begin{itemize}
-\item Direct method : found the equalizer directly from the training data
+\item Direct method : find the equalizer directly from the training data
 \begin{equation}
 t[n] = \sum_{l=0}^{L_f}{f_{n_d}[l]y[n+n_d-l]}, n = 0,1,...,N_t
 \end{equation}
@@ -181,7 +181,7 @@ with $L_f$ the lenght of the filter and $n_d$ the delay of the filter
 \subsection{Result}
 \subsubsection{Effect of the equalizer length}
 \begin{frame}
-\frametitle{Impact of the equlizer length at the reciever}
+\frametitle{Impact of the equalizer length at the receiver}
 \begin{minipage}[c]{0.46\linewidth}
 \centering 
 {Constellation for $L_f + 1 = 2$}
@@ -195,7 +195,7 @@ with $L_f$ the lenght of the filter and $n_d$ the delay of the filter
 \end{frame}
 \subsubsection{Effect of the noise}
 \begin{frame}
-\frametitle{Impact of the noise at the reciever}
+\frametitle{Impact of the noise at the receiver}
 \includegraphics[width=.9\linewidth]{img/SNR}
 \end{frame}
 \subsubsection{Experiment on the USRP}
