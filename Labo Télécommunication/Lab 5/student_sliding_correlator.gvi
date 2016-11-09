@@ -177,13 +177,11 @@ for Packet Header/Tail</PathElement>
             <CaseStructure Bounds="625 460 440 210" Default="479" Id="478" Selected="479" UserSelectorBounds="179 0 82 17">
                 <CaseStructure.Case Bounds="5 5 430 200" Id="479" Pattern="False">
                     <ArraySubset Bounds="185 75 40 40" Id="654" Terminals="array=717, subarray=655, index0=656, length0" />
-                    <Wire Id="655" Joints="N(654:subarray) h(40) B(1) h(156) v(-5) N(633:479) B(1) v(50) h(-140) v(15) N(725:L0)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="655" Joints="N(654:subarray) h(35) B(1) h(161) v(-5) N(633:479) B(1) v(-10) h(-130) v(75) N(728:L0)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="656" Joints="N(561:479) h(-5) v(10) h(-246) v(-20) N(654:index0)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="690" Joints="N(491:479) h(5) v(25) h(111) v(-10) N(725:L1)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="691" Joints="N(644:479) h(346) N(641:479)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="692" Joints="N(725:R3) h(5) v(5) h(5) v(5) h(236) v(-20) N(672:479)" xmlns="http://www.ni.com/PlatformFramework" />
                     <Wire Id="717" Joints="N(496:479) h(5) v(30) N(654:array)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <MethodCall Bounds="135 140 40 40" Id="725" Target="moose\.gviprotected">
+                    <MethodCall Bounds="135 140 40 40" Id="728" Target="moose\.gviprotected">
                         <p.MethodDeclaration>
                             <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
                                 <Parameter Id="L1" Desc="Modulation Parameters" />
@@ -197,6 +195,8 @@ for Packet Header/Tail</PathElement>
                         <Terminal DataType="ComplexDouble[]" Direction="Output" Hotspot="40 5" Id="R0" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                         <Terminal DataType="Double" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                     </MethodCall>
+                    <Wire Id="729" Joints="N(491:479) h(5) v(15) N(728:L1)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="731" Joints="N(728:R3) h(246) v(-10) N(672:479)" xmlns="http://www.ni.com/PlatformFramework" />
                 </CaseStructure.Case>
                 <CaseStructure.Case Bounds="5 5 430 200" Id="480" Pattern="True">
                     <ArraySubset Bounds="215 80 40 40" Id="566" Terminals="array=716, subarray=722, index0=571, length0" />
@@ -227,13 +227,13 @@ for Packet Header/Tail</PathElement>
                     <Wire Id="724" Joints="N(720:R2) h(10) v(40) N(672:480)" xmlns="http://www.ni.com/PlatformFramework" />
                 </CaseStructure.Case>
                 <CaseStructure.Selector Bounds="-4 20 13 15" Docking="Left" Id="481" Terminals="478=482, 479, 480" />
-                <CaseStructure.Tunnel Bounds="-4 140 13 10" Docking="Left" Id="491" Terminals="478=416, 479=690, 480=723" />
+                <CaseStructure.Tunnel Bounds="-4 140 13 10" Docking="Left" Id="491" Terminals="478=416, 479=729, 480=723" />
                 <CaseStructure.Tunnel Bounds="-4 50 13 10" Docking="Left" Id="496" Terminals="478=495, 479=717, 480=716" />
                 <CaseStructure.Tunnel Bounds="431 110 13 10" Docking="Right" Id="561" Terminals="478=554, 479=656, 480=571" />
                 <CaseStructure.Tunnel Bounds="431 75 13 10" DefaultIfUnwired="True" Docking="Right" Id="633" Terminals="478=634, 479=655, 480=721" />
                 <CaseStructure.Tunnel Bounds="350 201 10 13" DefaultIfUnwired="True" Docking="Bottom" Id="641" Terminals="478=647, 479=691, 480=662" />
                 <CaseStructure.Tunnel Bounds="-4 125 13 10" Docking="Left" Id="644" Terminals="478=646, 479=691, 480=662" />
-                <CaseStructure.Tunnel Bounds="431 165 13 10" DefaultIfUnwired="True" Docking="Right" Id="672" Terminals="478=673, 479=692, 480=724" />
+                <CaseStructure.Tunnel Bounds="431 165 13 10" DefaultIfUnwired="True" Docking="Right" Id="672" Terminals="478=673, 479=731, 480=724" />
             </CaseStructure>
             <Wire Id="482" Joints="N(414:c2t0v) h(156) v(-100) N(481:478)" xmlns="http://www.ni.com/PlatformFramework" />
             <PropertyNode Bounds="165 410 150 75" HasErrorTerminals="False" Id="493" InstanceDataType="@1785820191_0" Template="List" Terminals="instance in=494~0:5, instance out~150:5, c0t0v=495~150:35, c1t0v~150:50, c2t0v~150:65" VerticalChunkCount="3">
