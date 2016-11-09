@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="2" ListViewIconCrop="0 0 50 50" xmlns="http://www.ni.com/PlatformFramework">
@@ -696,12 +696,12 @@
                 <TabItem Header="[string]Received Signal" Id="766">
                     <Canvas Height="[float]446" Id="767" Left="[float]6" Top="[float]25" Width="[float]487" xmlns="http://www.ni.com/PlatformFramework">
                         <Graph BaseName="[string]Graph" BorderThickness="[SMThickness]1,1,1,1" DataSource="{DataItemBinding Id=297}" Height="[float]192" Id="399" Label="[UIModel]407" Left="[float]4" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]27" Width="[float]479" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="400" Label="[string]Time" MajorDivisions="[UIModel]403" MajorGridLines="[UIModel]813" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 0.001999749999999832, System.Double" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="400" Label="[string]Time" MajorDivisions="[UIModel]403" MajorGridLines="[UIModel]813" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 0.00031980000000000777, System.Double" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="403" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="813" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="401" Label="[string]Amplitude" MajorDivisions="[UIModel]811" MajorGridLines="[UIModel]812" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.2, 0.2, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="811" />
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="401" Label="[string]Amplitude" MajorDivisions="[UIModel]811" MajorGridLines="[UIModel]812" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.5, 0.5, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                                <RangeLabeledDivisions Id="811" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="812" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]400" Id="402" Label="[string]Plot" VerticalScale="[UIModel]401" />
@@ -711,12 +711,12 @@
                         <GraphTools Graph="[UIModel]399" Id="406" Left="[float]9" Top="[float]226" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                         <Label Id="407" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]399" Left="[float]4" Locked="[bool]True" Text="[string]I Data" Top="[float]4" Visible="[bool]True" xmlns="http://www.ni.com/LabVIEW.VI" />
                         <Graph BaseName="[string]Graph" BorderThickness="[SMThickness]1,1,1,1" DataSource="{DataItemBinding Id=298}" Height="[float]192" Id="408" Label="[UIModel]416" Left="[float]4" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]248" Width="[float]479" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="409" Label="[string]Time" MajorDivisions="[UIModel]412" MajorGridLines="[UIModel]816" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 0.001999749999999832, System.Double" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="409" Label="[string]Time" MajorDivisions="[UIModel]412" MajorGridLines="[UIModel]816" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 0.00031980000000000777, System.Double" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="412" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="816" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="410" Label="[string]Amplitude" MajorDivisions="[UIModel]814" MajorGridLines="[UIModel]815" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.16, 0.16, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="814" />
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="410" Label="[string]Amplitude" MajorDivisions="[UIModel]814" MajorGridLines="[UIModel]815" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.60000000000000009, 0.5, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                                <RangeLabeledDivisions Id="814" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="815" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]409" Id="411" Label="[string]Plot" VerticalScale="[UIModel]410" />
@@ -747,7 +747,7 @@
                                 <GridLines Id="2496" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="775" Label="[string]Amplitude" MajorDivisions="[UIModel]2494" MajorGridLines="[UIModel]2495" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.8, 0.8, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="2494" />
+                                <RangeLabeledDivisions Id="2494" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="2495" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]774" Id="776" Label="[string]Plot" VerticalScale="[UIModel]775" />
@@ -763,7 +763,7 @@
                                 <GridLines Id="819" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="785" Label="[string]Amplitude" MajorDivisions="[UIModel]817" MajorGridLines="[UIModel]818" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.2, 0.2, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="817" />
+                                <RangeLabeledDivisions Id="817" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="818" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]784" Id="786" Label="[string]Plot" VerticalScale="[UIModel]785" />
@@ -2263,7 +2263,7 @@
                                 <GridLines Id="822" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="392" Label="[string]Amplitude" MajorDivisions="[UIModel]820" MajorGridLines="[UIModel]821" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 0.016, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="820" />
+                                <RangeLabeledDivisions Id="820" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="821" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]391" Id="393" Label="[string]Plot" VerticalScale="[UIModel]392" />

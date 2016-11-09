@@ -40,19 +40,19 @@
         <DiagramUnplacedItems Id="10" />
         <FrontPanelUnplacedItems Id="11" />
         <BlockDiagram Id="12">
-            <DataAccessor Bounds="310 280 40 15" DataItem="114" Id="115" Label="179">
+            <DataAccessor Bounds="175 200 40 15" DataItem="114" Id="115" Label="179">
                 <Terminal DataType="Error" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="310 180 40 15" DataItem="14" Id="15" Label="177">
+            <DataAccessor Bounds="175 100 40 15" DataItem="14" Id="15" Label="177">
                 <Terminal DataType="@1785820191_0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <DataAccessor Bounds="1080 280 40 15" DataItem="135" Id="136" Label="183">
+            <DataAccessor Bounds="945 200 40 15" DataItem="135" Id="136" Label="183">
                 <Terminal DataType="Error" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="115" Bounds="212 280 93 16" Id="179" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="15" Bounds="169 180 136 16" Id="177" Text="Input Complex Waveform" xmlns="http://www.ni.com/PlatformFramework" />
-            <TextNode AttachedTo="136" Bounds="1125 280 47 16" Id="183" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
-            <CaseStructure Bounds="365 60 701 280" DataType="Error" Id="184" Selected="185" UserSelectorBounds="300 0 100 17">
+            <TextNode AttachedTo="115" Bounds="77 200 93 16" Id="179" Text="error in (no error)" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="15" Bounds="34 100 136 16" Id="177" Text="Input Complex Waveform" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="136" Bounds="990 200 47 16" Id="183" Text="error out" xmlns="http://www.ni.com/PlatformFramework" />
+            <CaseStructure Bounds="230 -20 701 280" DataType="Error" Id="184" Selected="185" UserSelectorBounds="300 0 100 17">
                 <CaseStructure.Case Bounds="5 5 691 270" Id="185" Pattern="No Error">
                     <DataAccessor Bounds="550 150 40 15" DataItem="132" Id="133" Label="182">
                         <Terminal DataType="Double" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
@@ -96,7 +96,7 @@
                                 <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                             </MethodCall>
                         </CaseStructure.Case>
-                        <CaseStructure.Case Bounds="5 5 324 180" Id="510" Pattern="&quot;Sliding correclator student&quot;">
+                        <CaseStructure.Case Bounds="5 5 324 180" Id="510" Pattern="&quot;Sliding correllation student&quot;">
                             <Wire Id="511" Joints="N(202:510) h(96) v(70) h(43) v(-60) N(519:L2)" xmlns="http://www.ni.com/PlatformFramework" />
                             <Wire Id="512" Joints="N(197:510) h(143) v(-60) N(519:L3)" xmlns="http://www.ni.com/PlatformFramework" />
                             <Wire Id="514" Joints="N(519:R2) h(10) v(60) h(60) v(-55) N(200:510)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -191,15 +191,15 @@
                                 <Terminal DataType="Error" Direction="Output" Hotspot="40 35" Id="R3" Usage="Optional" xmlns="http://www.ni.com/PlatformFramework" />
                             </MethodCall>
                         </CaseStructure.Case>
-                        <CaseStructure.Selector Bounds="-4 110 13 15" Docking="Left" Id="195" Terminals="191=257, 192, 193, 194, 510" />
-                        <CaseStructure.Tunnel Bounds="-4 60 13 10" Docking="Left" Id="196" Terminals="191=259, 192=234, 193=241, 194=250, 510=517" />
-                        <CaseStructure.Tunnel Bounds="-4 160 13 10" Docking="Left" Id="197" Terminals="191=251, 192=229, 193=236, 194=245, 510=512" />
-                        <CaseStructure.Tunnel Bounds="325 55 13 10" Docking="Right" Id="198" Terminals="191=255, 192=233, 193=240, 194=249, 510=528" />
-                        <CaseStructure.Tunnel Bounds="325 75 13 10" Docking="Right" Id="199" Terminals="191=254, 192=230, 193=239, 194=248, 510=529" />
-                        <CaseStructure.Tunnel Bounds="325 95 13 10" Docking="Right" Id="200" Terminals="191=253, 192=231, 193=238, 194=247, 510=514" />
-                        <CaseStructure.Tunnel Bounds="325 160 13 10" Docking="Right" Id="201" Terminals="191=252, 192=232, 193=237, 194=246, 510=515" />
-                        <CaseStructure.Tunnel Bounds="-4 80 13 10" Docking="Left" Id="202" Terminals="191=509, 192=228, 193=235, 194=243, 510=511" />
-                        <CaseStructure.Tunnel Bounds="-4 125 13 10" Docking="Left" Id="203" Terminals="191=256, 192, 193, 194=242, 510" />
+                        <CaseStructure.Selector Bounds="-4 110 13 15" Docking="Left" Id="195" Terminals="191=257, 192, 510, 193, 194" />
+                        <CaseStructure.Tunnel Bounds="-4 60 13 10" Docking="Left" Id="196" Terminals="191=259, 192=234, 510=517, 193=241, 194=250" />
+                        <CaseStructure.Tunnel Bounds="-4 160 13 10" Docking="Left" Id="197" Terminals="191=251, 192=229, 510=512, 193=236, 194=245" />
+                        <CaseStructure.Tunnel Bounds="325 55 13 10" Docking="Right" Id="198" Terminals="191=255, 192=233, 510=528, 193=240, 194=249" />
+                        <CaseStructure.Tunnel Bounds="325 75 13 10" Docking="Right" Id="199" Terminals="191=254, 192=230, 510=529, 193=239, 194=248" />
+                        <CaseStructure.Tunnel Bounds="325 95 13 10" Docking="Right" Id="200" Terminals="191=253, 192=231, 510=514, 193=238, 194=247" />
+                        <CaseStructure.Tunnel Bounds="325 160 13 10" Docking="Right" Id="201" Terminals="191=252, 192=232, 510=515, 193=237, 194=246" />
+                        <CaseStructure.Tunnel Bounds="-4 80 13 10" Docking="Left" Id="202" Terminals="191=509, 192=228, 510=511, 193=235, 194=243" />
+                        <CaseStructure.Tunnel Bounds="-4 125 13 10" Docking="Left" Id="203" Terminals="191=256, 192, 510, 193, 194=242" />
                     </CaseStructure>
                     <PropertyNode Bounds="15 135 150 60" HasErrorTerminals="False" Id="209" InstanceDataType="@-1669575334_0" Template="List" Terminals="instance in=508~0:5, instance out=509~150:5, c0t0v=257~150:35, c1t0v=256~150:50" VerticalChunkCount="2">
                         <p.PropertyItem IsWrite="False">
@@ -237,10 +237,10 @@ for Packet Header/Tail</PathElement>
             <Wire Id="261" Joints="N(115:Value) N(187:184)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="264" Joints="N(15:Value) N(188:184)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="265" Joints="N(190:184) N(136:Value)" xmlns="http://www.ni.com/PlatformFramework" />
-            <DataAccessor Bounds="310 200 40 15" DataItem="501" Id="503" Label="504">
+            <DataAccessor Bounds="175 120 40 15" DataItem="501" Id="503" Label="504">
                 <Terminal DataType="@-1669575334_0" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
             </DataAccessor>
-            <TextNode AttachedTo="503" Bounds="167 200 138 16" Id="504" Text="Modulation Parameters In" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="503" Bounds="32 120 138 16" Id="504" Text="Modulation Parameters In" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="507" Joints="N(503:Value) N(189:184)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
