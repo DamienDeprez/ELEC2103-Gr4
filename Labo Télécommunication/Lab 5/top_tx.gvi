@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="2" ListViewIconCrop="0 0 50 50" xmlns="http://www.ni.com/PlatformFramework">
@@ -457,12 +457,12 @@
                 <TabItem Header="[string]Eye Diagram" Id="326">
                     <Canvas Height="[float]438" Id="329" Left="[float]6" Top="[float]25" Width="[float]611" xmlns="http://www.ni.com/PlatformFramework">
                         <Graph BaseName="[string]Graph" BorderThickness="[SMThickness]1,1,1,1" DataSource="{DataItemBinding Id=201}" Height="[float]400" Id="332" Label="[UIModel]333" Left="[float]5" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]33" Width="[float]600" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
-                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="347" Label="[string]Time" MajorDivisions="[UIModel]356" MajorGridLines="[UIModel]583" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 4.1E-05, System.Double" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitExactly" Id="347" Label="[string]Time" MajorDivisions="[UIModel]356" MajorGridLines="[UIModel]583" Orientation="[SMOrientation]Horizontal" Range="[IRange]-2.6427427954334171E-19, 2.0249999999999998E-05, System.Double" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="356" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="583" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="348" Label="[string]Amplitude" MajorDivisions="[UIModel]581" MajorGridLines="[UIModel]582" Orientation="[SMOrientation]Vertical" Range="[IRange]-1.1, 1.2000000000000002, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="581" />
+                                <RangeLabeledDivisions Id="581" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="582" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]347" Id="349" Label="[string]Plot" VerticalScale="[UIModel]348" />
@@ -583,7 +583,7 @@
                                 <GridLines Id="595" />
                             </Axis>
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="354" Label="[string]Amplitude" MajorDivisions="[UIModel]593" MajorGridLines="[UIModel]594" Orientation="[SMOrientation]Vertical" Range="[IRange]-1.1, 1.2000000000000002, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
-                                <RangeLabeledDivisions Id="593" />
+                                <RangeLabeledDivisions Id="593" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="594" />
                             </Axis>
                             <Plot HorizontalScale="[UIModel]353" Id="355" Label="[string]Plot" VerticalScale="[UIModel]354" />
@@ -652,9 +652,9 @@
             <TabControl BaseName="[string]Tab" Height="[float]325" Id="428" IncludeInCapture="[bool]False" Label="[UIModel]433" Left="[float]190" SelectedIndex="{DataItemBinding Id=426}" Top="[float]76" Width="[float]417" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                 <TabItem Header="[string]HW Parameters" Id="429">
                     <Canvas Height="[float]295" Id="431" Left="[float]6" Top="[float]25" Width="[float]405" xmlns="http://www.ni.com/PlatformFramework">
-                        <Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1976405295_0" Height="[float]263" Id="534" Label="[UIModel]549" Left="[float]1" Top="[float]0" Value="{DataItemBinding Id=551}" Width="[float]141" xmlns="http://www.ni.com/LabVIEW.VI">
+                        <Cluster BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1976405295_0" Height="[float]263" Id="534" Label="[UIModel]549" Left="[float]1" Top="[float]0" Value="{DataItemBinding Id=551}" Width="[float]211" xmlns="http://www.ni.com/LabVIEW.VI">
                             <StringControl AcceptsReturn="[bool]True" BaseName="[string]String" Height="[float]22" HorizontalScrollBarVisibility="[ScrollBarVisibility]Hidden" Id="535" IsReadOnly="[bool]False" Label="[UIModel]539" Left="[float]5" Text="{ClusterBinding FieldName=Active\ Antenna}" Top="[float]75" VerticalScrollBarVisibility="[ScrollBarVisibility]Auto" Width="[float]90" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
-                            <NumericText BaseName="[string]Numeric" Height="[float]22" Id="536" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]540" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]125" Value="{ClusterBinding FieldName=Carrier\ Frequency\ (Hz)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]83" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+                            <NumericText BaseName="[string]Numeric" Height="[float]22" Id="536" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]540" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]125" Value="{ClusterBinding FieldName=Carrier\ Frequency\ (Hz)}" ValueFormatter="[string]LV:G20" ValueType="[Type]Double" Width="[float]114" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="537" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]541" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]175" Value="{ClusterBinding FieldName=Gain\ (dB)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                             <EnumSelector AllowUndefinedValueEntry="[bool]False" BaseName="[string]Enum" Height="[float]22" Id="538" InteractionMode="[SelectorInteractionModes]ArrowKeys, Keyboard, MouseClick, ScrollWheel, ButtonClicks" IsTypeAheadEnabled="[bool]True" Label="[UIModel]542" Left="[float]5" Top="[float]225" Value="{ClusterBinding FieldName=Generation\ Mode}" ValueType="[Type]UInt16" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]90" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                                 <EnumSelectorInfo DisplayValue="[string]Single Shot" Id="687" IsEnabled="[bool]True" Value="[ushort]0" ValueType="[Type]UInt16" />
