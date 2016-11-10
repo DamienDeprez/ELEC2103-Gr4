@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SourceFile xmlns="http://www.ni.com/PlatformFramework">
     <SourceModelFeatureSet>
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
-        <ParsableNamespace AssemblyFileVersion="3.0.0.50009" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Common Language Components" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/MocCommon" Version="3.0.0.49152" />
     </SourceModelFeatureSet>
     <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
         <Icon Id="2" ListViewIconCrop="0 0 50 50" xmlns="http://www.ni.com/PlatformFramework">
@@ -486,9 +486,9 @@
             <Label Id="315" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]314" Left="[float]579" Locked="[bool]True" Text="[string]Bit-Error Rate" Top="[float]188" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="316" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]317" Left="[float]817" Top="[float]211" Value="{DataItemBinding Id=127}" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
             <Label Id="317" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]316" Left="[float]817" Locked="[bool]True" Text="[string]Offset" Top="[float]188" />
-            <ArrayViewer ArrayElement="[UIModel]341" BaseName="[string]Array" Columns="[int]7" Dimensions="[int]1" Height="[float]36" Id="340" IsFixedSize="[bool]False" Label="[UIModel]342" Left="[float]92" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]204" Value="{DataItemBinding Id=129}" Width="[float]324" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+            <ArrayViewer ArrayElement="[UIModel]341" BaseName="[string]Array" Columns="[int]9" Dimensions="[int]1" Height="[float]36" Id="340" IsFixedSize="[bool]False" Label="[UIModel]342" Left="[float]92" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]204" Value="{DataItemBinding Id=129}" Width="[float]400" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                 <p.DefaultElementValue>0</p.DefaultElementValue>
-                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="341" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]281" Name="[string]Child" Top="[float]7" Value="[sbyte]0" ValueType="[Type]Int8" Width="[float]36" />
+                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="341" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]319" Name="[string]Child" Top="[float]7" Value="[sbyte]1" ValueType="[Type]Int8" Width="[float]36" />
             </ArrayViewer>
             <Label Id="342" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]340" Left="[float]92" Locked="[bool]True" Text="[string]Key Bit Sequence" Top="[float]181" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="343" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]344" Left="[float]698" RadixVisibility="[SMVisibility]Collapsed" Top="[float]211" Value="{DataItemBinding Id=130}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
