@@ -1,0 +1,64 @@
+\documentclass[frenchb, oneside, headings=normal]{scrartcl}
+
+\input{lib.tex}
+
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+\begin{document}
+
+\title{Projet ELEC Master 1 - Labo 5}
+\subtitle{Groupe 4}
+\author{Deprez Damien \and Bilal Ouachalih }
+\date{18 november 2016}
+\maketitle
+
+The purpose of this lab is to correct the frequency offset and the delay due to the channel.
+
+\section{Questions of the Pre-Lab}
+
+\subsection{Describe what happens to the error rate of your system
+when the estimate for the delay in the channel is off by more than one
+symbol time}
+
+First, we modified a little bit the scheme os the SlidingCorrelation.vi. In fact, we have added a controller to make an error on the delay and watch what happened. Here is the result
+
+  \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0}
+    %\captionof{figure}{\label{fig1}}
+    
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0}
+       % \captionof{figure}{\label{fig2}}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
+    %\captionof{figure}{\label{fig3}}
+    
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
+       % \captionof{figure}{\label{fig4}}
+    \end{minipage}
+    
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
+    %\captionof{figure}{\label{fig5}
+    
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.6]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
+        %\captionof{figure}{\label{fig6}}
+    \end{minipage}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
