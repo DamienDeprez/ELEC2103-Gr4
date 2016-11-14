@@ -16,43 +16,99 @@ The purpose of this lab is to correct the frequency offset and the delay due to 
 
 \section{Questions of the Pre-Lab}
 
-\subsection{Describe what happens to the error rate of your system
-when the estimate for the delay in the channel is off by more than one
-symbol time}
+\subsection{Describe what happens to the error rate of your system when the estimate for the delay in the channel is off by more than one symbol time}
 
-First, we modified a little bit the scheme os the SlidingCorrelation.vi. In fact, we have added a controller to make an error on the delay and watch what happened. Here is the result
+First, we modified a little bit the schematic of the SlidingCorrelation.vi. In fact, we have added a controller to make an error on the delay to let us observe what happened. Here is the result\\
 
+\begin{figure}[!ht]
   \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0}
-    %\captionof{figure}{\label{fig1}}
-    
+        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
+    \caption{Error rate for a delay+0 in AWGN}
+    \label{fig1}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0}
-       % \captionof{figure}{\label{fig2}}
+         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_1.png}
+          \caption{Error rate for a delay+1 in AWGN}
+          \label{fig2}
     \end{minipage}
+\end{figure}
+
+\begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
-    %\captionof{figure}{\label{fig3}}
-    
+        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_2.png}
+     \caption{Error rate for a delay+2 in AWGN}
+     \label{fig3}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
-       % \captionof{figure}{\label{fig4}}
-    \end{minipage}
-    
+         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_3.PNG}
+          \caption{Error rate for a delay+3 in AWGN}
+          \label{fig4}
+    \end{minipage}  
+
+\end{figure}
+\begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.55]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
-    %\captionof{figure}{\label{fig5}
-    
+        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_4.PNG}
+     \caption{Error rate for a delay+4 in AWGN}
+     \label{fig5}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.6]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
-        %\captionof{figure}{\label{fig6}}
+         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
+ \caption{Error rate for a delay+5 in AWGN}\label{fig6}
     \end{minipage}
+\end{figure}
+
+As we can seen on figure \ref{fig1},\ref{fig2},\ref{fig3} and \ref{fig4}, we have the error rate which is yet acceptable for a added delay of 0 to 3. But on figure \ref{fig5} and \ref{fig6}, when we add to the estimated delay, 4, we have a bit error rate of $\simeq 0.5$, which is very bad. Which means that one bit on two is not welle placed.
+
+\subsection{Describe what happens to the received constellation if you do not correct for the 201 Hz frequency offset}
+
+When we set the controller of the frequency offset on FALSE, we don't correct the error of frequency anymore, and we obtain the following result
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.7]{img/test_offset_201hz_OFF.PNG}
+\caption{Constellation for a frequency offset of $201$ Hz without correction}
+\label{freq_correct_off}
+\end{figure}
+
+On the figure \ref{freq_correct_off}, we can see  that we don't have a nice constellation with 4 clear points in the 4 corner, but multiple point distributed on a portion of circle. 
 
 
+\newpage
 
+\subsection{what are the range of frequency offsets that you can estimate/correct using the Moose algorithm?}
+
+If we based our observation on waht is said in the book, we can determine the range of frequency to have a good work of the Moose.vi. In fact, we have this condition
+
+\begin{equation}
+|\epsilon| \leq \frac{1}{2*N_t} = \frac{1}{2*44} = 0.01136
+\end{equation}
+
+Or in an other form 
+
+\begin{equation}
+|f_e| \leq \frac{1}{2*T*N_t} = \frac{1}{2*1e-6*44} \simeq 11 kHz
+\end{equation}\\
+
+So, if have a frequency offset greater then $11 kHz$, the Moose method will not work anymore. In order the check if we are write, we wade two simulation. The first one with a frequency offset of $10 kHz$ and an other with $12 kHz$, and the result is interesting.\\
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.45]{img/test_Offset_10k_OK_limitMooseCheck.png}
+     \caption{Simulation with a frequency offset of $10 kHz$}
+     \label{MooseLimit1}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.45]{img/test_Offset_12k_OK_limitMooseCheck.png}
+\caption{Simulation with a frequency offset of $12 kHz$}
+ \label{MooseLimit2}
+    \end{minipage}
+\end{figure}
+
+On the figure \ref{MooseLimit1} and \ref{MooseLimit2}, the result speaks of himself. Moose method doesn't work anymore above $\simeq 11 kHz$.
+
+
+\section{Question of the lab}
 
 
 
