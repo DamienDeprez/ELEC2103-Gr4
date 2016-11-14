@@ -82,15 +82,17 @@ If we based our observation on waht is said in the book, we can determine the ra
 
 \begin{equation}
 |\epsilon| \leq \frac{1}{2*N_t} = \frac{1}{2*44} = 0.01136
+\label{cdt1}
 \end{equation}
 
 Or in an other form 
 
 \begin{equation}
 |f_e| \leq \frac{1}{2*T*N_t} = \frac{1}{2*1e-6*44} \simeq 11 kHz
+\label{cdt2}
 \end{equation}\\
 
-So, if have a frequency offset greater then $11 kHz$, the Moose method will not work anymore. In order the check if we are write, we wade two simulation. The first one with a frequency offset of $10 kHz$ and an other with $12 kHz$, and the result is interesting.\\
+So, if we have a frequency offset greater then $11 kHz$, the Moose method will not work anymore. In order the check if we are write, we wade two simulation. The first one with a frequency offset of $10 kHz$ and an other with $12 kHz$, and the result is interesting.\\
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
@@ -107,10 +109,51 @@ So, if have a frequency offset greater then $11 kHz$, the Moose method will not 
 
 On the figure \ref{MooseLimit1} and \ref{MooseLimit2}, the result speaks of himself. Moose method doesn't work anymore above $\simeq 11 kHz$.
 
+\section{Question of the Lab}
 
-\section{Question of the lab}
+\subsection{Before changing any of the settings, calculate an average value (using five runs or so) of the inherent offset between the transmitter and receiver.}
 
+\textbf{Si tu sais le faire Damien avec les valeurs que tu as prises au labo}
 
+\subsection{Based on the system parameters, what is the range of frequency offsets that can be estimated by your frequency offset estimation algorithm?}
+
+Like in the previous section, we use the equation \ref{cdt1} and \ref{cdt2}, to determine the range of frequency. In the case of USRP transmission, the range of admissible frequency offset is between $0$ and $2272 Hz$.
+
+\newpage
+
+\subsection{Let fM be the maximum correctable frequency offset of your system (i.e., as calculated in the previous question). Modify the carrier frequency of your transmitter so that you will cause an effective offset of 0.80fM at the receiver. What is the new value of the carrier frequency at your transmitter?}
+
+If we make a test with the USRP, and we add to the carrier frequency $0.8*f_m=0.8*2272=1818 Hz$, we obtained the following result
+
+\begin{figure}[!ht]
+  \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.5]{img/USRP_carrieroffset_227.PNG}
+    \caption{Result for a frequency offset of $227 Hz$}
+    \label{fig8}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.5]{img/USRP_carrieroffset_1818.PNG}
+          \caption{Result for a frequency offset of $1818 Hz$}
+          \label{fig9}
+    \end{minipage}
+\end{figure}
+
+On figures \ref{fig8} and \ref{fig9}, We can observe that, more we increase the frequency offset near the maximum one, more the point on the constellation are not perfectly centered in the 4 corner of the figure.
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.7]{img/USRP_value_227.PNG}
+     \caption{Result data for a frequency offset of $1818 Hz$}
+     \label{fig10}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.7]{img/USRP_value_1818.PNG}
+          \caption{Result data for a frequency offset of $1818 Hz$}
+          \label{fig11}
+    \end{minipage}  
+\end{figure}
+
+The figures \ref{fig10} and \ref{fig11} show the result given by the $top_RX.vi$, and show that, the frequency offset inserted at the transmitter is very similar to the one he measure at the receiver. Which means, that the channel itself doesn't introduce a significative error in frequency, but more in the delay.
 
 
 
