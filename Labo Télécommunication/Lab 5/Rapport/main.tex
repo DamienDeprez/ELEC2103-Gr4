@@ -23,7 +23,7 @@ First, we modified a little bit the schematic of the SlidingCorrelation.vi. In f
 
 \begin{center}
 	\begin{tabular}{c|c|c}
-		 Equalizer Lenght & Correct delay + error & BER\\
+		 Equalizer Length & Correct delay + error & BER\\
 		\hline
 		 4& 3 & 0.074\\
 		  & 4 & 0.5 \\
@@ -78,7 +78,7 @@ First, we modified a little bit the schematic of the SlidingCorrelation.vi. In f
 \end{figure}
 \end{comment}
 
-As we can in the table \ref{BER_equ_length_4}, that when the error we intentionally add in the delay equal $L-1$, with the length of the equalizer, we have a BER of $\simeq 0.5$. Which means that one symbol on two is not well placed. Here is an illustration of that phenomena.
+As we can in the table \ref{BER_equ_length_4}, that when the delay plus the error we intentionally add equal $L-1$, with L the length of the equalizer, we have a BER of $\simeq 0.5$. Which means that one symbol on two is not well placed. Here is an illustration of that phenomena.
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
@@ -107,7 +107,7 @@ When we set the controller of the frequency offset on FALSE, we don't correct th
 
 On the figure \ref{freq_correct_off}, we can see  that we don't have a nice constellation with 4 clear points in the 4 corner, but multiple points distributed on a portion of circle.
 
-\subsection{what are the range of frequency offsets that you can estimate/correct using the Moose algorithm?}
+\subsection{What are the range of frequency offsets that you can estimate/correct using the Moose algorithm?}
 
 If we based our observation on what is said in the book, we can determine the range of frequency to have a good work of the Moose method. In fact, we have this condition
 
@@ -163,9 +163,7 @@ The average offset between the transmitter and receiver is $3.96$ \si{\hertz}.
 
 \subsection{Based on the system parameters, what is the range of frequency offsets that can be estimated by your frequency offset estimation algorithm?}
 
-Like in the previous section, we use the equation \ref{cdt1} and \ref{cdt2}, to determine the range of frequency. In the case of USRP transmission, the range of admissible frequency offset is between $0$ and $2272 Hz$.
-
-
+Like in the previous section, we use the equation \ref{cdt1} and \ref{cdt2}, to determine the range of frequency. In the case of USRP transmission, the range of admissible frequency offset is between $0$ and $2272 \si{\hertz}$.
 
 \subsection{Let fM be the maximum correctable frequency offset of your system (i.e., as calculated in the previous question). Modify the carrier frequency of your transmitter so that you will cause an effective offset of 0.80fM at the receiver. What is the new value of the carrier frequency at your transmitter?}
 
@@ -200,7 +198,7 @@ On figures \ref{fig8} and \ref{fig9}, We can observe that, more we increase the 
 \end{figure}
 
 The figures \ref{fig10} and \ref{fig11} show the result given by the topRX.vi, and show that, the frequency offset inserted at the transmitter is very similar to the one he measure at the receiver. Which means, that the channel itself doesn't introduce a significative error in frequency, but more in the delay.
-
+\newpage
 \section{Self referenced frame synchronization}
 
 We are going to explore another algorithm more robust to frequency offset. In fact, the presented before, like said in previous question, "break" under large frequency offset.
@@ -222,7 +220,7 @@ If we study the following equation
 \hat{d}=argmax \frac{\sum_{n=L}^{N_t-1} y(n+d+N_t)+y(n+d)^*}{\sqrt{\sum_{n=L}^{N_t-1} |y(n+d)|^2}\sqrt{\sum_{n=L}^{N_t-1} |y(n+d+N_t)|^2}}
 \end{equation}\\
 
-We can see that, if we develop the numerator, we can prove that it is independant of $\epsilon$ (the frequency offset). In fact, by the expression \ref{equ}, we have\\
+We can see that, if we develop the numerator, we can prove that it is independant of $\epsilon$ (the frequency offset). In fact, by the expression \ref{equ}, we have
 
 \begin{equation}
 y[n+d]^*= \alpha \exp^{-j2\pi \epsilon (n+d)}t[n+d-D]^*
@@ -244,29 +242,29 @@ The 3 impairements are\\
 
 \begin{itemize}
 
-\item \textbf{The frequency offset}: If we have a frequency offset, the correlation of the received training sequence will be less effective.
+\item \textbf{The frequency offset}, if we have a frequency offset, the correlation of the received training sequence will be less effective.
 
-\item \textbf{the noise} :can make the calcul of the correlation difficult because, we will receive a sequence corrupted by noise.
+\item \textbf{the noise} can make the calcul of the correlation difficult because, we will receive a sequence corrupted by noise.
 
-\item \textbf{the intersymbol interference}: If we have some symbols shifted and near another, the correllation will be less effective.
+\item \textbf{the intersymbol interference}, if we have some symbols shifted and near another, the correllation will be less effective.
 \end{itemize}
 
 \subsection{Under large frequency offsets, the correlation based detector “breaks”. What property of the training sequence breaks down under large frequency offsets?}
 
-We know that the training sequence has a very good correlation. But, with the correlation based detector, the Moose algorithm has a maximum admissible frequency offset. If this frequency become too large, the property of good correlation of the training sequence will be no more fulfilled.
+We know that the training sequence has a very good correlation. But, with the correlation based detector, the Moose algorithm has a maximum admissible frequency offset. If the offset become too large, the property of good correlation of the training sequence will be no more fulfilled. In fact, in case of too large offset, the symbol will be too far away, and the correlation with the training sequence will have no more sense.
 
 \subsection{In the self referenced frame synchronization method, is it still critical that the periodic training sequence have good autocorrelation properties? If so, why?}
 
-I think we can't say that it's no more critical that the periodic training sequence must still have good autocorrelation properties. In fact, when we try the new algorithm with largest range of error in frequency, we can see that there is still a limit to the span of frequency offset we can consider. But, the range is larger the with the former method. When we try to determine the maximum one, we begin to have bad result around $22.5$ \si{\kilo\hertz}.
+I think we can't say that it's no more critical that the periodic training sequence must still have good autocorrelation properties. In faimit frequency of the Moose algorithm. When we try the new algorithm with larger offset, we can see that there is still a limit to the span of frequency we can consider. But, the range is larger then with the former method. In fact,we have bad result around $22.5$ \si{\kilo\hertz}.
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.9]{img/NewMethodLimit_22k.PNG}
+        \centering \includegraphics[scale=0.65]{img/NewMethodLimit_22k.PNG}
      \caption{Measured data for a frequency offset of $22 \si{\kilo\hertz}$}
      \label{fig10}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.9]{img/NewMethodLimit_23k}
+         \centering \includegraphics[scale=0.7]{img/NewMethodLimit_23k}
           \caption{Mesured data for a frequency offset of $23 \si{\kilo\hertz}$}
           \label{fig11}
     \end{minipage}  
