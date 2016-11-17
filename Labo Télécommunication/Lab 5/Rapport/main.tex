@@ -4,6 +4,7 @@
 
 \usepackage{epstopdf}
 \usepackage{wrapfig}
+\usepackage{verbatim}
 \begin{document}
 
 \title{Projet ELEC Master 1 - Labo 5}
@@ -18,8 +19,26 @@ The purpose of this lab is to correct the frequency offset and the delay due to 
 
 \subsection{Describe what happens to the error rate of your system when the estimate for the delay in the channel is off by more than one symbol time}
 
-First, we modified a little bit the schematic of the SlidingCorrelation.vi. In fact, we have added a controller to make an error on the delay to let us observe what happened. Here is the result\\
+First, we modified a little bit the schematic of the SlidingCorrelation.vi. In fact, we have added a controller to make an error on the delay to let us observe what happen. Here is the result\\
 
+\begin{center}
+	\begin{tabular}{c|c|c}
+		 Equalizer Lenght & Correct delay + error & BER\\
+		\hline
+		 4& 3 & 0.074\\
+		  & 4 & 0.5 \\
+		  \hline
+		 5 & 4  & 0  \\
+		   & 5  & 0.488  \\
+		  \hline
+		6 & 5  & 0 \\
+		 &  6  & 0.504 \\   
+	\end{tabular}
+	\captionof{table}{Effect of the error introduced in the delay on the BER}
+	\label{BER_equ_length_4}
+    \end{center}
+
+\begin{comment}
 \begin{figure}[!ht]
   \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_0.png}
@@ -57,8 +76,23 @@ First, we modified a little bit the schematic of the SlidingCorrelation.vi. In f
  \caption{Error rate for a delay+5 in AWGN}\label{fig6}
     \end{minipage}
 \end{figure}
+\end{comment}
 
-As we can seen on figure \ref{fig1},\ref{fig2},\ref{fig3} and \ref{fig4}, we have the error rate which is yet acceptable for a added delay of 0 to 3. But on figure \ref{fig5} and \ref{fig6}, when we add to the estimated delay, 4, we have a bit error rate of $\simeq 0.5$, which is very bad. Which means that one bit on two is not welle placed.
+As we can in the table \ref{BER_equ_length_4}, that when the error we intentionally add in the delay equal $L-1$, with the length of the equalizer, we have a BER of $\simeq 0.5$. Which means that one symbol on two is not well placed. Here is an illustration of that phenomena.
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_4.PNG}
+     \caption{Error rate for a delay+4 in AWGN}
+     \label{fig5}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
+ \caption{Error rate for a delay+5 in AWGN}\label{fig6}
+    \end{minipage}
+\end{figure}
+
+%%As we can seen on figure \ref{fig1},\ref{fig2},\ref{fig3} and \ref{fig4}, we have the error rate which is yet acceptable for an added delay of 0 to 3. But on figure \ref{fig5} and \ref{fig6}, when we add to the estimated delay, 4, we have a bit error rate of $\simeq 0.5$, which is very bad. Which means that one bit on two is not well placed. 
 
 \subsection{Describe what happens to the received constellation if you do not correct for the 201 Hz frequency offset}
 
@@ -67,18 +101,15 @@ When we set the controller of the frequency offset on FALSE, we don't correct th
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.7]{img/test_offset_201hz_OFF.PNG}
-\caption{Constellation for a frequency offset of $201$ Hz without correction}
+\caption{Constellation for a frequency offset of $201 \si{\hertz}$ without correction}
 \label{freq_correct_off}
 \end{figure}
 
-On the figure \ref{freq_correct_off}, we can see  that we don't have a nice constellation with 4 clear points in the 4 corner, but multiple point distributed on a portion of circle. 
-
-
-\newpage
+On the figure \ref{freq_correct_off}, we can see  that we don't have a nice constellation with 4 clear points in the 4 corner, but multiple points distributed on a portion of circle.
 
 \subsection{what are the range of frequency offsets that you can estimate/correct using the Moose algorithm?}
 
-If we based our observation on waht is said in the book, we can determine the range of frequency to have a good work of the Moose.vi. In fact, we have this condition
+If we based our observation on what is said in the book, we can determine the range of frequency to have a good work of the Moose method. In fact, we have this condition
 
 \begin{equation}
 |\epsilon| \leq \frac{1}{2*N_t} = \frac{1}{2*44} = 0.01136
@@ -88,33 +119,33 @@ If we based our observation on waht is said in the book, we can determine the ra
 Or in an other form 
 
 \begin{equation}
-|f_e| \leq \frac{1}{2*T*N_t} = \frac{1}{2*1e-6*44} \simeq 11 kHz
+|f_e| \leq \frac{1}{2*T*N_t} = \frac{1}{2*1e-6*44} \simeq 11 \si{\kilo\hertz}
 \label{cdt2}
 \end{equation}\\
 
-So, if we have a frequency offset greater then $11 kHz$, the Moose method will not work anymore. In order the check if we are write, we wade two simulation. The first one with a frequency offset of $10 kHz$ and an other with $12 kHz$, and the result is interesting.\\
+So, if we have a frequency offset greater then $11 \si{\kilo\hertz}$, the Moose method will not work anymore. In order to check if we are right, we made two simulations. The first one with a frequency offset of $10 \si{\kilo\hertz}$ and an other with $12 \si{\kilo\hertz}$, and the result is interesting.\\
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.45]{img/test_Offset_10k_OK_limitMooseCheck.png}
-     \caption{Simulation with a frequency offset of $10 kHz$}
+     \caption{Simulation with a frequency offset of $10 \si{\kilo\hertz}$}
      \label{MooseLimit1}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
          \centering \includegraphics[scale=0.45]{img/test_Offset_12k_OK_limitMooseCheck.png}
-\caption{Simulation with a frequency offset of $12 kHz$}
+\caption{Simulation with a frequency offset of $12 \si{\kilo\hertz}$}
  \label{MooseLimit2}
     \end{minipage}
 \end{figure}
 
-On the figure \ref{MooseLimit1} and \ref{MooseLimit2}, the result speaks of himself. Moose method doesn't work anymore above $\simeq 11 kHz$.
+On the figure \ref{MooseLimit1} and \ref{MooseLimit2}, the result speaks of himself. Moose method doesn't work anymore above $\simeq 11 \si{\kilo\hertz}$.
 
 \section{Question of the Lab}
 
 \subsection{Before changing any of the settings, calculate an average value (using five runs or so) of the inherent offset between the transmitter and receiver.}
 
-%\textbf{Si tu sais le faire Damien avec les valeurs que tu as prises au labo}
-We run five times the reciever programm and we obtains the following result 
+We run five times the receiver program and we obtain the following result
+ 
 \begin{center}
 	\begin{tabular}{c|c}
 		run & frequency offset [\si{\hertz}]\\
@@ -126,6 +157,7 @@ We run five times the reciever programm and we obtains the following result
 		5 & -1.158\\
 	\end{tabular}
 \end{center}
+
 The average offset between the transmitter and receiver is $3.96$ \si{\hertz}. 
 
 
@@ -133,21 +165,21 @@ The average offset between the transmitter and receiver is $3.96$ \si{\hertz}.
 
 Like in the previous section, we use the equation \ref{cdt1} and \ref{cdt2}, to determine the range of frequency. In the case of USRP transmission, the range of admissible frequency offset is between $0$ and $2272 Hz$.
 
-\newpage
+
 
 \subsection{Let fM be the maximum correctable frequency offset of your system (i.e., as calculated in the previous question). Modify the carrier frequency of your transmitter so that you will cause an effective offset of 0.80fM at the receiver. What is the new value of the carrier frequency at your transmitter?}
 
-If we make a test with the USRP, and we add to the carrier frequency $0.8*f_m=0.8*2272=1818 Hz$, we obtained the following result
+If we make a test with the USRP, and we add to the carrier frequency $0.8*f_m=0.8*2272=1818 \si{\hertz}$, we obtained the following result
 
 \begin{figure}[!ht]
   \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.7]{img/USRP_carrieroffset_227.PNG}
-    \caption{Result for a frequency offset of $227 Hz$}
+    \caption{Result for a frequency offset of $227 \si{\hertz}$}
     \label{fig8}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
          \centering \includegraphics[scale=0.7]{img/USRP_carrieroffset_1818.PNG}
-          \caption{Result for a frequency offset of $1818 Hz$}
+          \caption{Result for a frequency offset of $1818 \si{\hertz}$}
           \label{fig9}
     \end{minipage}
 \end{figure}
@@ -157,21 +189,87 @@ On figures \ref{fig8} and \ref{fig9}, We can observe that, more we increase the 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.7]{img/USRP_value_227.PNG}
-     \caption{Result data for a frequency offset of $227 Hz$}
+     \caption{Result data for a frequency offset of $227 \si{\hertz}$}
      \label{fig10}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
          \centering \includegraphics[scale=0.7]{img/USRP_value_1818.PNG}
-          \caption{Result data for a frequency offset of $1818 Hz$}
+          \caption{Result data for a frequency offset of $1818 \si{\hertz}$}
           \label{fig11}
     \end{minipage}  
 \end{figure}
 
 The figures \ref{fig10} and \ref{fig11} show the result given by the topRX.vi, and show that, the frequency offset inserted at the transmitter is very similar to the one he measure at the receiver. Which means, that the channel itself doesn't introduce a significative error in frequency, but more in the delay.
 
+\section{Self referenced frame synchronization}
 
+We are going to explore another algorithm more robust to frequency offset. In fact, the presented before, like said in previous question, "break" under large frequency offset.
 
+First, let's consider the following received sequence
 
+\begin{equation}
+y[n] = 	\alpha \exp^{j2\pi \epsilon n}t[n-D]
+\label{equ} 
+\end{equation}
 
+where $t[n]$ is the transmitted sequence, $\alpha$ is a complex scalar and D is the delay 	introduced by the channel.
+
+\subsection{Why the self referenced frame detector works better than the correlation based detector under large frequency offsets.}
+
+If we study the following equation
+
+\begin{equation}
+\hat{d}=argmax \frac{\sum_{n=L}^{N_t-1} y(n+d+N_t)+y(n+d)^*}{\sqrt{\sum_{n=L}^{N_t-1} |y(n+d)|^2}\sqrt{\sum_{n=L}^{N_t-1} |y(n+d+N_t)|^2}}
+\end{equation}\\
+
+We can see that, if we develop the numerator, we can prove that it is independant of $\epsilon$ (the frequency offset). In fact, by the expression \ref{equ}, we have\\
+
+\begin{equation}
+y[n+d]^*= \alpha \exp^{-j2\pi \epsilon (n+d)}t[n+d-D]^*
+\end{equation}
+\begin{equation}
+y[n+d+N_t]= \alpha \exp^{j2\pi \epsilon (n+d+N_t)}t[n+d+N_t-D]
+\end{equation}
+\begin{equation}
+|y[n+d+N_t]*y[n+d]^*| = \alpha^2*|t[n+d-D]t[n+d+N_t-D]|
+\label{equ2}
+\end{equation} 	
+
+We take the module of $y[n+d+N_t]*y[n+d]^*$ because y can be complex. And in the equation \ref{equ2}, we have no more $\epsilon$ appearing.
+At the end, we can conclude that, for this method, the estimation of the delay will not depend of the frequency offset. 
+
+\subsection{Name three impairments in a real wireless system which impact the accuracy of the correlation based detection method.}
+
+The 3 impairements are\\ 
+
+\begin{itemize}
+
+\item \textbf{The frequency offset}: If we have a frequency offset, the correlation of the received training sequence will be less effective.
+
+\item \textbf{the noise} :can make the calcul of the correlation difficult because, we will receive a sequence corrupted by noise.
+
+\item \textbf{the intersymbol interference}: If we have some symbols shifted and near another, the correllation will be less effective.
+\end{itemize}
+
+\subsection{Under large frequency offsets, the correlation based detector “breaks”. What property of the training sequence breaks down under large frequency offsets?}
+
+We know that the training sequence has a very good correlation. But, with the correlation based detector, the Moose algorithm has a maximum admissible frequency offset. If this frequency become too large, the property of good correlation of the training sequence will be no more fulfilled.
+
+\subsection{In the self referenced frame synchronization method, is it still critical that the periodic training sequence have good autocorrelation properties? If so, why?}
+
+I think we can't say that it's no more critical that the periodic training sequence must still have good autocorrelation properties. In fact, when we try the new algorithm with largest range of error in frequency, we can see that there is still a limit to the span of frequency offset we can consider. But, the range is larger the with the former method. When we try to determine the maximum one, we begin to have bad result around $22.5$ \si{\kilo\hertz}.
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.9]{img/NewMethodLimit_22k.PNG}
+     \caption{Measured data for a frequency offset of $22 \si{\kilo\hertz}$}
+     \label{fig10}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.9]{img/NewMethodLimit_23k}
+          \caption{Mesured data for a frequency offset of $23 \si{\kilo\hertz}$}
+          \label{fig11}
+    \end{minipage}  
+\end{figure}
 
 \end{document}

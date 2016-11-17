@@ -330,12 +330,12 @@ for Packet Header/Tail</PathElement>
             <Add Bounds="1265 545 30 30" Id="782" Terminals="o=793, c0t0v=789, c1t0v=796" />
             <Wire Id="789" Joints="N(553:max index(es\)) h(13) v(-120) B(2) N(782:c0t0v) B(2) v(-135) N(773:x)" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="793" Joints="N(782:o) h(5) v(-20) h(-65) v(130) N(561:478)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Literal Bounds="1155 560 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="794" Label="795" xmlns="http://www.ni.com/MocCommon">
+            <Literal Bounds="1100 565 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="794" Label="795" xmlns="http://www.ni.com/MocCommon">
                 <p.Data>0</p.Data>
                 <NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
             </Literal>
-            <TextNode AttachedTo="794" Bounds="1155 560 0 0" Id="795" Text="input 1" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="796" Joints="N(794:Out) N(782:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <TextNode AttachedTo="794" Bounds="1100 565 0 0" Id="795" Text="input 1" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="796" Joints="N(794:Out) h(5) v(-5) N(782:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <Cluster AutoArrange="[AutoArrange]ArrangeVertically" BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1785820191_0" Height="[float]161" Id="16" Label="[UIModel]144" Left="[float]238" Top="[float]33" Value="{DataItemBinding Id=14}" Width="[float]152">
