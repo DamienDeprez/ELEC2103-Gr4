@@ -229,7 +229,7 @@ y[n+d]^*= \alpha \exp^{-j2\pi \epsilon (n+d)}t[n+d-D]^*
 y[n+d+N_t]= \alpha \exp^{j2\pi \epsilon (n+d+N_t)}t[n+d+N_t-D]
 \end{equation}
 \begin{equation}
-|y[n+d+N_t]*y[n+d]^*| = \alpha^2*|t[n+d-D]t[n+d+N_t-D]|
+|y[n+d+N_t]*y[n+d]^*| = \alpha^2*|t[n+d+N_t-D]t[n+d-D]^*|
 \label{equ2}
 \end{equation} 	
 
@@ -238,15 +238,15 @@ At the end, we can conclude that, for this method, the estimation of the delay w
 
 \subsection{Name three impairments in a real wireless system which impact the accuracy of the correlation based detection method.}
 
-The 3 impairements are\\ 
+The 3 impairements are 
 
 \begin{itemize}
 
-\item \textbf{The frequency offset}, if we have a frequency offset, the correlation of the received training sequence will be less effective.
+\item If we have a \textbf{frequency offset}, the correlation of the received training sequence will be less effective.
 
-\item \textbf{the noise} can make the calcul of the correlation difficult because, we will receive a sequence corrupted by noise.
+\item \textbf{The noise} can make the calcul of the correlation difficult because, we will receive a sequence corrupted by noise.
 
-\item \textbf{the intersymbol interference}, if we have some symbols shifted and near another, the correllation will be less effective.
+\item If we have \textbf{the intersymbol interference (ISI)}, the correlation will be corrupted because we will have imperfection in the symbol of the received signal y of equation \ref{equ}.
 \end{itemize}
 
 \subsection{Under large frequency offsets, the correlation based detector “breaks”. What property of the training sequence breaks down under large frequency offsets?}
@@ -255,16 +255,16 @@ We know that the training sequence has a very good correlation. But, with the co
 
 \subsection{In the self referenced frame synchronization method, is it still critical that the periodic training sequence have good autocorrelation properties? If so, why?}
 
-I think we can't say that it's no more critical that the periodic training sequence must still have good autocorrelation properties. In faimit frequency of the Moose algorithm. When we try the new algorithm with larger offset, we can see that there is still a limit to the span of frequency we can consider. But, the range is larger then with the former method. In fact,we have bad result around $22.5$ \si{\kilo\hertz}.
+We can't say that it's no more critical that the training sequence must still have good autocorrelation properties. When we try the new algorithm with larger offset, we have still a limit to the span of offset. In fact,we have bad result around $22.5$ \si{\kilo\hertz}. But, the range is larger then with the former method.
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.65]{img/NewMethodLimit_22k.PNG}
+        \centering \includegraphics[scale=0.9]{img/NewMethodLimit_22k.PNG}
      \caption{Measured data for a frequency offset of $22 \si{\kilo\hertz}$}
      \label{fig10}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.7]{img/NewMethodLimit_23k}
+         \centering \includegraphics[scale=0.9]{img/NewMethodLimit_23k}
           \caption{Mesured data for a frequency offset of $23 \si{\kilo\hertz}$}
           \label{fig11}
     \end{minipage}  
