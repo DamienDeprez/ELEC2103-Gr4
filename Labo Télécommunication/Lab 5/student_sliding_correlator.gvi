@@ -174,7 +174,7 @@ for Packet Header/Tail</PathElement>
                 </p.PropertyItem>
             </PropertyNode>
             <Wire Id="416" Joints="N(403:Value) h(5) B(1) N(491:478) B(1) v(-180) N(414:instance in)" xmlns="http://www.ni.com/PlatformFramework" />
-            <CaseStructure Bounds="1255 625 225 235" Default="479" Id="478" Selected="480" UserSelectorBounds="72 0 82 17">
+            <CaseStructure Bounds="1255 625 225 235" Default="479" Id="478" Selected="479" UserSelectorBounds="72 0 82 17">
                 <CaseStructure.Case Bounds="5 5 215 225" Id="479" Pattern="False">
                     <ArraySubset Bounds="75 15 40 40" Id="654" Terminals="array=754, subarray=655, index0=656, length0" />
                     <Wire Id="655" Joints="N(654:subarray) h(40) B(1) h(50) v(140) N(633:479) B(1) v(140) N(732:L0)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -205,7 +205,7 @@ for Packet Header/Tail</PathElement>
                 <CaseStructure.Case Bounds="5 5 215 225" Id="480" Pattern="True">
                     <ArraySubset Bounds="65 15 40 40" Id="566" Terminals="array=762, subarray=722, index0=571, length0" />
                     <Wire Id="571" Joints="N(561:480) N(566:index0)" xmlns="http://www.ni.com/PlatformFramework" />
-                    <Wire Id="662" Joints="N(644:480) N(641:480)" xmlns="http://www.ni.com/PlatformFramework" />
+                    <Wire Id="662" Joints="N(644:480) h(5) v(5) h(197) v(-5) N(641:480)" xmlns="http://www.ni.com/PlatformFramework" />
                     <MethodCall Bounds="160 155 40 40" Id="720" Target="student_moose\.gvi">
                         <p.MethodDeclaration>
                             <MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
@@ -298,8 +298,8 @@ for Packet Header/Tail</PathElement>
                 <ForLoop.Tunnel AutoIndex="True" Bounds="470 147 13 10" Docking="Right" Id="552" Terminals="498=555, 499=551" />
                 <ForLoop.Tunnel Bounds="-5 107 13 10" Docking="Left" Id="760" Terminals="498=769, 499=759" />
             </ForLoop>
-            <ArraySize Bounds="530 450 40 20" Id="509" />
-            <Wire Id="511" Joints="N(509:size(s\)) h(15) v(50) N(500:498)" xmlns="http://www.ni.com/PlatformFramework" />
+            <ArraySize Bounds="525 450 40 20" Id="509" />
+            <Wire Id="511" Joints="N(509:size(s\)) h(20) v(50) N(500:498)" xmlns="http://www.ni.com/PlatformFramework" />
             <ArraySize Bounds="375 640 40 20" Id="512" />
             <Decrement Bounds="485 620 30 30" Id="514" />
             <Wire Id="516" Joints="N(514:x-1) N(517:498)" xmlns="http://www.ni.com/PlatformFramework" />
@@ -320,22 +320,22 @@ for Packet Header/Tail</PathElement>
             </Literal>
             <TextNode AttachedTo="736" Bounds="260 600 0 0" Id="737" Text="element" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
             <Wire Id="738" Joints="N(736:Out) N(734:element)" xmlns="http://www.ni.com/PlatformFramework" />
-            <BuildArray Bounds="480 470 40 20" ConcatenateInputs="True" Id="739" Terminals="outArray=769, c0t0v=771, c1t0v=772" VerticalChunkCount="2" />
+            <BuildArray Bounds="495 495 40 20" ConcatenateInputs="True" Id="739" Terminals="outArray=769, c0t0v=771, c1t0v=772" VerticalChunkCount="2" />
             <Wire Id="746" Joints="N(414:c1t0v) h(15) B(1) N(519:x + iy) B(1) v(-20) N(512:array)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="769" Joints="N(739:outArray) h(5) B(1) h(50) B(2) h(665) v(175) N(755:478) B(2) v(145) N(760:498) B(1) v(-20) N(509:array)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="771" Joints="N(493:c0t0v) N(739:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="772" Joints="N(734:outArray) h(75) v(-120) N(739:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="769" Joints="N(739:outArray) h(40) B(1) h(665) v(150) N(755:478) B(1) v(-25) h(-55) v(-20) N(509:array) B(1) v(120) N(760:498)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="771" Joints="N(493:c0t0v) h(20) v(25) N(739:c0t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="772" Joints="N(734:outArray) h(75) v(-95) N(739:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
             <Subtract Bounds="1255 410 30 30" Id="773" />
             <Wire Id="779" Joints="N(773:x-y) N(130:Value)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Add Bounds="1265 545 30 30" Id="782" Terminals="o=793, c0t0v=789, c1t0v=796" />
-            <Wire Id="789" Joints="N(553:max index(es\)) h(13) v(-120) B(2) N(782:c0t0v) B(2) v(-135) N(773:x)" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="793" Joints="N(782:o) h(5) v(-20) h(-65) v(130) N(561:478)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Add Bounds="1185 550 30 30" Id="782" Terminals="o=793, c0t0v=789, c1t0v=796" />
+            <Wire Id="789" Joints="N(553:max index(es\)) h(5) v(-85) h(-25) v(-30) B(4) N(782:c0t0v) B(4) v(-10) h(25) v(-130) N(773:x)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="793" Joints="N(782:o) h(10) v(105) N(561:478)" xmlns="http://www.ni.com/PlatformFramework" />
             <Literal Bounds="1100 565 40 15" DataType="Int32" Facade="NationalInstruments.MocCommon.Modeling.INumericBehavior" Id="794" Label="795" xmlns="http://www.ni.com/MocCommon">
                 <p.Data>0</p.Data>
                 <NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
             </Literal>
             <TextNode AttachedTo="794" Bounds="1100 565 0 0" Id="795" Text="input 1" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
-            <Wire Id="796" Joints="N(794:Out) h(5) v(-5) N(782:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
+            <Wire Id="796" Joints="N(794:Out) N(782:c1t0v)" xmlns="http://www.ni.com/PlatformFramework" />
         </BlockDiagram>
         <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
             <Cluster AutoArrange="[AutoArrange]ArrangeVertically" BaseName="[string]Cluster" BorderThickness="[SMThickness]1,1,1,1" ClusterType="[Type]@1785820191_0" Height="[float]161" Id="16" Label="[UIModel]144" Left="[float]238" Top="[float]33" Value="{DataItemBinding Id=14}" Width="[float]152">
@@ -359,7 +359,7 @@ for Packet Header/Tail</PathElement>
             </Cluster>
             <ArrayViewer ArrayElement="[UIModel]125" BaseName="[string]Array" Columns="[int]1" Dimensions="[int]1" Height="[float]36" Id="128" Label="[UIModel]147" Left="[float]415" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]33" Value="{DataItemBinding Id=126}" Width="[float]114" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                 <p.DefaultElementValue>0x0;0x0</p.DefaultElementValue>
-                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="125" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]53" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]2.8776980798284059E-15 - 1.7994494783124539E-14i" ValueType="[Type]ComplexDouble" Width="[float]54" />
+                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="125" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]53" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]31" Value="[ComplexDouble]0 + 0i" ValueType="[Type]ComplexDouble" Width="[float]54" />
             </ArrayViewer>
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="131" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]148" Left="[float]415" Top="[float]98" Value="{DataItemBinding Id=129}" ValueType="[Type]Int32" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="134" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]149" Left="[float]415" RadixVisibility="[SMVisibility]Collapsed" Top="[float]164" Value="{DataItemBinding Id=132}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
