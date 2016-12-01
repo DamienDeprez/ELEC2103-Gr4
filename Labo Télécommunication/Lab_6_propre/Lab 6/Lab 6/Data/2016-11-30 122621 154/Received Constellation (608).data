@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile xmlns="http://www.ni.com/PlatformFramework">
+    <SourceModelFeatureSet>
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+    </SourceModelFeatureSet>
+    <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
+        <Icon Id="2" ListViewIconCrop="0 0 50 50" xmlns="http://www.ni.com/PlatformFramework">
+            <IconPanel Height="[float]50" Id="3" Width="[float]50">
+                <IconTemplate ClipMargin="[SMThickness]3,3,3,3" Id="4" TemplateName="Gray">
+                    <Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="5" IsHitTestVisible="[bool]False" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" />
+                    <Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="6" IsHitTestVisible="[bool]False" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" />
+                    <FileNameText FileNameText="[bool]True" Font="[SMFont]0,6," HorizontalAlignment="[HorizontalAlignment]Left" Id="7" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Received Constellation (608)" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" VerticalAlignment="[VerticalAlignment]Top" />
+                </IconTemplate>
+                <Canvas Background="[SMSolidColorBrush]#00ffffff" ClipToBounds="[bool]True" Id="8" Margin="[SMThickness]3,3,3,3" />
+            </IconPanel>
+        </Icon>
+        <ConnectorPane Height="50" Id="9" ListViewHeight="30" ListViewWidth="150" Width="50" xmlns="http://www.ni.com/PlatformFramework">
+            <ConnectorPaneTerminal />
+            <ConnectorPaneTerminal Hotspot="0 15" />
+            <ConnectorPaneTerminal Hotspot="0 25" />
+            <ConnectorPaneTerminal Hotspot="0 35" />
+            <ConnectorPaneTerminal Hotspot="0 45" />
+            <ConnectorPaneTerminal Hotspot="15 0" />
+            <ConnectorPaneTerminal Hotspot="25 0" />
+            <ConnectorPaneTerminal Hotspot="35 0" />
+            <ConnectorPaneTerminal Hotspot="50 5" />
+            <ConnectorPaneTerminal Hotspot="50 15" />
+            <ConnectorPaneTerminal Hotspot="50 25" />
+            <ConnectorPaneTerminal Hotspot="50 35" />
+            <ConnectorPaneTerminal Hotspot="50 45" />
+            <ConnectorPaneTerminal Hotspot="15 50" />
+            <ConnectorPaneTerminal Hotspot="25 50" />
+            <ConnectorPaneTerminal Hotspot="35 50" />
+        </ConnectorPane>
+        <MethodDocumentation xmlns="http://www.ni.com/PlatformFramework" />
+        <DiagramUnplacedItems Id="10">
+            <DataAccessor Bounds="670 220 40 15" DataItem="2868" Id="2869" Label="2870">
+                <Terminal DataType="@125217053_0" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+            </DataAccessor>
+            <TextNode AttachedTo="2869" Bounds="715 220 120 16" Id="2870" Text="Received Constellation" xmlns="http://www.ni.com/PlatformFramework" />
+        </DiagramUnplacedItems>
+        <FrontPanelUnplacedItems Id="11" />
+        <BlockDiagram Id="12" />
+        <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
+            <Graph BaseName="[string]Graph" BorderThickness="[SMThickness]1,1,1,1" DataSource="{DataItemBinding Id=2868}" Height="[float]400" Id="2847" Label="[UIModel]2867" Left="[float]780" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]95" Width="[float]600" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+                <PlotRenderer Id="2848" PointFill="[SMSolidColorBrush]#ff7b161a" PointShape="[PointShape]Ellipse" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2849" PointFill="[SMSolidColorBrush]#ff205326" PointShape="[PointShape]Rectangle" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2850" PointFill="[SMSolidColorBrush]#ffe2b683" PointShape="[PointShape]Diamond" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2851" PointFill="[SMSolidColorBrush]#ffb7ac1f" PointShape="[PointShape]Cross" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2852" PointFill="[SMSolidColorBrush]#ffaedcef" PointShape="[PointShape]Ellipse" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2853" PointFill="[SMSolidColorBrush]#ffa08bb0" PointShape="[PointShape]Rectangle" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2854" PointFill="[SMSolidColorBrush]#ff7f7f7f" PointShape="[PointShape]Diamond" PointSize="[SMSize]5, 5" />
+                <PlotRenderer Id="2855" PointFill="[SMSolidColorBrush]#ff3c0726" PointShape="[PointShape]Cross" PointSize="[SMSize]5, 5" />
+                <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2856" Label="[string]Time" MajorDivisions="[UIModel]2860" MajorGridLines="[UIModel]2861" Orientation="[SMOrientation]Horizontal" Range="[IRange]-1.2000000000000002, 1.2000000000000002, System.Double" ValueType="[Type]Double">
+                    <RangeLabeledDivisions Id="2860" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
+                    <GridLines Id="2861" />
+                </Axis>
+                <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2857" Label="[string]Amplitude" MajorDivisions="[UIModel]2862" MajorGridLines="[UIModel]2863" Orientation="[SMOrientation]Vertical" Range="[IRange]-1.2000000000000002, 1.2000000000000002, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                    <RangeLabeledDivisions Id="2862" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
+                    <GridLines Id="2863" />
+                </Axis>
+                <Plot HorizontalScale="[UIModel]2856" Id="2858" Label="[string]Plot" VerticalScale="[UIModel]2857" />
+                <Plot HorizontalScale="[UIModel]2856" Id="2859" Label="[string]Plot1" VerticalScale="[UIModel]2857" />
+            </Graph>
+            <PlotLegend Graph="[UIModel]2847" Height="[float]28" Id="2864" Left="[float]1387" Top="[float]95" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <CursorLegend DefaultCursorForeground="[SMSolidColorBrush]#ff000000" Graph="[UIModel]2847" Height="[float]102" Id="2865" Left="[float]785" Top="[float]524" Visible="[bool]False" Width="[float]251" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <GraphTools Graph="[UIModel]2847" Id="2866" Left="[float]785" Top="[float]502" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <Label Id="2867" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]2847" Left="[float]780" Locked="[bool]True" Text="[string]Received Constellation" Top="[float]72" Visible="[bool]False" />
+        </CPFrontPanel>
+        <DataItem DataType="@125217053_0" Id="2843" Name="Data">
+            <p.DefaultValue>
+                <Array Lengths="2">
+                    <Rank1>
+                        <Elem>
+                            <Cluster>
+                                <Field1>
+                                    <Array Lengths="250">
+                                        <Elements>0x3FE135028FFB4268,0x3FF07D1B9423CC78,0x3FEDFB040074BC04,0x3FD7A88E0A972037,0x3FD48A9F0921AE5E,0xBFF185DDE46B7816,0xBFEF59F6D8C9DEE5,0xBFD898224A4FE8B9,0x3FF01056CE13C8CD,0x3FD88E66BB3DC2FE,0xBFDCC87C4C2CD326,0xBFDB1D9D4D8B1FE9,0xBFD4E72E3F5162EE,0x3FEF6603E215F53D,0xBFF0373B06F37F8F,0x3FEFEBC92798E469,0x3FD2110CA1CAFCCF,0xBFEF37BA0FFC3860,0x3FEEEAB3CBF4490E,0x3FEA783D1A5B13BA,0xBFF004F1CDEE936D,0xBFD78DF8E1B529EB,0xBFD85F7CFD6D73F0,0xBFD4B14E3ACA93D5,0x3FD49E7BE8B1E517,0xBFEC12BC85BAD897,0x3FEA10AA62516BD0,0xBFECF896CD40B67A,0xBFEA566C39C1961F,0xBFE86E565B5D4530,0x3FEA4EC25C5A024B,0xBFE8E02EC72F9B2F,0x3FEBA1E51B49BAAE,0xBFE9D028E22A7257,0x3FE06DEB25D0FE42,0x3FDEF0C8E6DC54D0,0x3FDF30C938896B81,0xBFDF76B7C12292CB,0x3FE28D1EEAD9A6A4,0x3FEB0FD013D20D8D,0xBFE9E8C9729B6B2F,0x3FEE458E714F38A8,0x3FEAFAC1A89D6850,0x3FDF28ADD07C8DD8,0x3FE94E3051E31A08,0xBFEFB7F6FCD57CF2,0xBFEB60A653715C62,0x3FEEFA63D144436C,0x3FEC5C2A55A84E8B,0xBFDF0E8A5E4BAFE4,0xBFDCADA04610642C,0xBFD92D2EFB9B7B57,0x3FF072FB7C108C74,0x3FDE12D50D1F2C87,0x3FEF5C5E2E72B5D2,0x3FEB20E0E6E8873F,0xBFF16D539D2139A9,0x3FDCBEFB88E69681,0xBFE2487BDF03DF69,0xBFEFAE7B9A902A18,0xBFF2240F6407FA63,0x3F8B92A9BA09E299,0x3FAD60F38E87C035,0xBFF0DC1F7BF22624,0x3F83C0A4D80C880E,0x3FBF91E07FB7CEE9,0xBF9336D05D0CCA9A,0x3F90CB4F835E5298,0x3FBDF384997E6E04,0x3FF162C81EE75702,0xBFAE6D5D42D40A0F,0x3F7D9B5C3E4C07E9,0x3FF0BFA3D6F7A9EF,0xBFA58F6F65D87CF9,0x3FF09271289B40C5,0xBFBA1B9861B9152E,0xBF9E476CF12A7981,0x3FEDA295DDF4A980,0xBFF2AE92E4FCE8AD,0xBFF058DD77230C4A,0x3FA38595651AC9F7,0x3FECDE34A568C738,0xBFF148578DB36D4E,0xBFACE07419414946,0xBFEE8E9172E3AA4C,0x3F9D4130FE82D5D7,0x3FAFDE101F07F427,0x3FB19FAC27F736EC,0x3FED854146EE0C00,0x3FE9A49A942DFF89,0xBFF07A85FE8DC0F3,0xBFEEC78E1D728C5F,0xBFC1E6DFF5C134C8,0xBFCA12C0D11754FC,0xBFF068A3FDD29FA2,0xBFEF220FF8ADBD22,0xBFEDEB98682E3D8A,0xBFECB868F8CF2C96,0xBFEAA5803B62E34E,0x3FD3E85F1F00ED2D,0x3FD119E601A62F6A,0x3FF0D3AE07600F34,0x3FED9FDB89A219D8,0x3F9408D049C1BD09,0xBFF1C150AB24BFD3,0xBFF03C1308DE86C9,0xBFB9C64B6E66506C,0xBFBAE85F81195B82,0x3FAE32E7FE339507,0xBFF0BEFC8575BC77,0xBFB1D43C48BCFFB1,0xBFF08DCBFE01057A,0xBFA8C72C2BBEC409,0xBFEF781A88525EBB,0x3FCBCF9C2DEC5A19,0x3FC6A0B1769A8120,0x3FF266DCC2560B73,0xBFC266480DEB352C,0x3FB6DFC76F1F0AB8,0xBFBDF162B5C9E966,0xBFF1A5B7B9541CE8,0xBFEDB6733EF6A7B5,0x3FF2D70A3D5421ED,0xBFD18D8D2B9A168B,0x3FD905B2FB51554C,0x3FD8153730DE455E,0x3FF1BE2D427E98A2,0x3FEFB0D4C62F3457,0x3FD1C0428DBDF5BE,0x3FEFE9DF3C002C67,0x3FEBCCFA7015533D,0xBFDB0895132126A3,0x3FED1D42D87B3ED5,0xBFE0B132A2C8E9CE,0xBFF0C25709D6D2FC,0xBFD24EE15741C90D,0x3FEDDDBF94E9BE5F,0xBFEFD6AB08A8B45D,0x3FEFF5B5883414C6,0x3FD0021878774590,0xBFDA471908F3B0C9,0xBFD8265870F40D28,0xBFECA731459C7534,0x3FD99C891B3DEE3B,0x3FD622D8691179FE,0x3FEA56F832BB0F16,0xBFED55BDAFFC65BD,0x3FD36FDCA51F4DD0,0xBFD13ED745EF75D2,0x3FD1FE5F63C53949,0x3FEBD5413316BF0E,0xBFD31D6214577E9B,0xBFCA5351FBBEF640,0x3FC4FB7439C8BFBB,0xBFED0B295C71514E,0x3FD0FA34E2FDC2A9,0x3FC97998C3E27158,0xBFC7533B2B108032,0xBFC28E91F261D98A,0x3FCB994E750041FA,0x3FC865BA0FEACE47,0x3FC7FD1BBFD230F7,0x3FC0A48ECF06605C,0xBFEF8C1AC61AC33F,0xBFC02D1398C8B383,0xBFC296A60BCA5967,0x3FD2822DAA505A99,0x3FD3F15C8BF0D14C,0x3FF07DE0BD838C6C,0x3FCD2749859F91E4,0x3FCEE877181BF5C5,0xBFD03CBF708AACFD,0x3FF12AEB27788B33,0x3FEF2AA9EE4DB307,0x3FC51AA81DDF9DFF,0xBFD8B140C1C3D91D,0x3FCBF05D34D550EF,0xBFDBD6DAB407C388,0xBFF2504B1AF37CB8,0xBFD2080803C7E593,0xBFE418DA2ED59B1B,0xBFE80019A31E3F05,0x3FF0EA818DCDED86,0x3FEC3EA249B3FD09,0xBFE430451D3E81BB,0x3FE6BBCB8FA3D76D,0xBFEA2F0F28FD1C5A,0x3FE8AF4CEB182CCB,0x3FEBD42BAD757DAB,0xBFE2CAB33176BB94,0x3FEDF87E1ED30AF8,0x3FE46ABF3B5993BB,0xBFE8BF78F807B602,0x3FEC4902922D94FA,0x3FE6EE0CAA63C20C,0x3FE484BB31402BB5,0xBFE5D4FA1EFF03EF,0x3FE819F9BE113B1B,0x3FE670A57BC4D8F0,0xBFEA70E67755B965,0xBFE5438B6A795818,0xBFE702184BB9E417,0xBFE5F1FF4B2ACD46,0xBFE351517AFB4E89,0x3FEACE242F132B65,0xBFE059A2FBBD8821,0x3FEA793573389009,0x3FE2BB80A32ADDB6,0xBFE0FDDC31FDCEE9,0x3FE8D947396F9DEE,0xBFE5ADE0AE8679A4,0x3FE477CFEC55FC86,0x3FEA284DEDAD8CD8,0x3FE90D863DE4D153,0x3FE80D9508FD17D5,0x3FDBC5929F33C983,0xBFE16212AF5A73B1,0x3FE8F7DF44DD73A9,0xBFE203DCC45EE578,0x3FDE78412B515CF4,0xBFE1BB3DD44A64F2,0x3FEA70E01A61FE54,0xBFE236FA4BCEA830,0x3FE9A2DAE8E8B48E,0xBFE4FF894CFE80A3,0xBFE282248E20F506,0xBFE302F8B80B958C,0xBFE307559D415142,0xBFEA65D9440DC871,0xBFDF6E5AD2B51FB1,0x3FED90AE941ADA4B,0xBFE324A77F3AA945,0x3FEB97A7F658BC51,0xBFECAE0600292F62,0xBFE0D077F3C1D841,0x3FEE45BFA2FA7204,0xBFE450AFDF760F13,0x3FE59FE23460C9DD,0xBFEB7E676F799F5F,0x3FEFF8D8BAB67A52,0x3FE37E10EC736D01,0x3FE15530A778C4A1,0x3FDE00116DC910D9,0xBFE52069394ADB0A,0xBFEDFBF697BF1D8F,0x3FE249BDA1D64D1A,0xBFE0387B876CDF9A,0x3FEEEF1FABD67CDF,0x3FEC1E508AF99EF4,0x3FD8D69E4A90F911</Elements>
+                                    </Array>
+                                </Field1>
+                                <Field2>
+                                    <Array Lengths="250">
+                                        <Elements>0x3FF0D79FEB8A089C,0xBFDE56CFF283D586,0xBFDA5943D9FE50ED,0x3FF0E97F220B5CD7,0x3FEDE6401F6D73DD,0x3FD7A6BC6F5CACBC,0x3FD47C11255679A2,0xBFF191B6FFBFA39D,0xBFDBD49D976E2219,0x3FED588D262A50D9,0xBFF10B3E772805B3,0xBFF018BFE14FE995,0xBFEEF095857422E9,0xBFD293EF83266F9D,0x3FDC2DF3F4AEB473,0xBFD59307E29E0740,0x3FEFD86952D18B72,0x3FD3FF0BDA5FE199,0xBFDA9E37E46A4E4F,0xBFD898A765F4E964,0x3FD3A6721CAF8824,0xBFEEBA19B6808825,0xBFECDAC5208849E2,0xBFE9F7CB3CAA9A18,0x3FEF32AEB6ADF29D,0x3FD739116ABA4977,0xBFD5997465497761,0x3FD7D5DFA71866D5,0x3FD5E233803E2E64,0x3FD5995E7A468D31,0xBFD86D3E60952040,0x3FDBD5C3122981BA,0xBFD9FF48C324E21D,0x3FE080A5F335046B,0x3FEA0F7F0EE738B6,0x3FEA10075732A7F2,0x3FE750FE4CE87C18,0xBFEC5898CA3663D9,0x3FE98021957489AD,0xBFE28FF43B76B68C,0x3FDF8101042E8398,0xBFE2CC4403A64F43,0xBFDDFC9200861198,0x3FEBA3DD9AF7C5ED,0xBFE1AFE33D9666B5,0x3FDE60FC8E664DBF,0x3FD8AB9AECFB5CC6,0xBFE289F696A270C0,0xBFE1CDA984E3B827,0xBFEF5D3A16321E2B,0xBFEDE8BA9F0FF782,0xBFED779B71F86C47,0xBFD5AFFE8500339F,0x3FF117DB0A15C9E2,0xBFDB5601A0DBB95B,0xBFD9EC2C0DBF4299,0x3FE159BD73188317,0x3FEEDB53C08F7DC0,0xBFF0813EA46B6D87,0x3FE01C7CBC54F639,0x3FADE414912A3DFA,0xBFF0AC4C030E82EE,0x3FF30787EC0B21EF,0x3F80DE4607099C0F,0xBFF11C864D5BE56D,0x3FF1349C54D62A08,0xBFF27CD3D25E16E1,0xBFEF4D3AD27838E5,0x3FF1C7AE32F17706,0xBFBD8C1E3FD58DC1,0xBFF17403B46243EF,0xBFEFFF663FA96F41,0x3FB4BB06B2CBAD2A,0xBFEE12EB5940BB50,0x3FC6E7430E14748C,0x3FF2C848532104A4,0x3FF05994862F1F1F,0xBFA5782299B6207F,0xBF94A79DF171AC00,0xBFB2BA3DFB57745C,0xBFEEFE79EEF2E20C,0x3FACDE1CC0F58E18,0x3F8BF48FFB36D726,0xBFECF91944F69002,0x3FBBB8D08B65D639,0xBFEA5B0470262F29,0x3FF144CDF586A0C6,0x3FED169FF65C8389,0xBFB1DEC6E2A45718,0xBFAB73337AECA309,0x3FB41781F348040B,0x3FACE1430BD772AB,0xBFEDC52E9226AB78,0xBFEA8302FBBFC196,0x3FD07F930ECCD213,0x3FCC9A543C97727B,0x3FCD46825777AAD4,0x3FCC69F184812307,0x3FCF82AE72910805,0x3FF066C89D442E1D,0x3FED653818A3332A,0xBFD0749A380FC1D7,0xBFC309D494A7250D,0x3FEF1032E47DC9C4,0x3FACE6D14C4A7EA9,0x3FAFE01DEF6E9BA7,0xBFF19153F086EAFF,0xBFEE060AC865DD88,0x3FF16172A8D51E8E,0x3FAE38F5CA7DEF3F,0xBFF10484FC8CEC08,0x3FBFDA44685F9C8D,0xBFF0241D1E46415E,0x3FD03E805BE50421,0x3FF231CD0EDB20A9,0x3FF0F88E29E0A277,0xBFCD1607BE27F9B7,0xBFF23AC51CD86D96,0x3FF1A5C8E6B61D2B,0xBFF269DF83E911CE,0xBFD5F72A1C08442D,0xBFD08E6628AA464B,0x3FD51F1A3460D4E9,0x3FEF5F7612E14D72,0xBFF2C28FE24B4E86,0xBFEF201E524323B6,0x3FD84A1662829E30,0x3FD22137F065B539,0xBFEF4E8531D4E3DF,0x3FDB6B2072185673,0x3FD9205BF4A97156,0x3FF073F5E8139329,0x3FD53BC5D064A20C,0x3FEDC4BDFF1EEB85,0xBFDA0FA439E6139C,0x3FEED3CACD7F8961,0x3FCC97309176DAC4,0xBFDAABD46E867D61,0x3FD1611B15F3C5B3,0xBFEF316FEEB5A59A,0x3FEE8C4E8BC135F6,0x3FE95CE96A314BF8,0xBFE0059C3F2332C5,0xBFF011C2D944D1DC,0xBFEC70583CAD8C7C,0x3FD2AE158A0D688C,0xBFD6DA6E66FEF913,0xBFEB3CBD3E4633EC,0x3FEB360C852C2A86,0xBFED4F14C92D6B0D,0x3FD05C77EBF20F32,0x3FEBDAF965824B3B,0x3FE81F47D4011DD0,0xBFF0640B1D0C6644,0xBFD09888F81502BE,0xBFEF9BC14E4A55A1,0xBFEB9DD47C2EB4A0,0x3FF06816920A3EA3,0x3FEA7DBF641AF357,0xBFF1D20083693540,0xBFF01CD598F7723C,0xBFEF3DFD5F120C57,0xBFED08E54938C0C3,0xBFA50D900E430646,0x3FF134D5F4C0CEB3,0x3FED2B4426E4F864,0xBFF1E2D1FB798276,0xBFEEDC75F98B09DD,0x3FD14CE80D51E59E,0xBFF071CB433A360E,0xBFEBA0042623DE05,0x3FF27A50DA17CF82,0x3FD272D828792DA4,0x3FD0ACAE04B20DBB,0xBFEFDCADA3D6BB5A,0x3FF1856CD180E498,0xBFF0A19F6DFD89F8,0x3FF22A1107AE0552,0xBFD396C0BA01994E,0x3FF1C5F5EEA49EBE,0x3FEA058031E53CC9,0xBFE628576DA54F43,0x3FE620D45FEB5E51,0x3FE31B8472FAB19B,0x3FE7059B220753BD,0xBFEFD71ADCC9DCAA,0xBFE63070E0171E59,0xBFE94B48DF80867E,0x3FE70B5684AA2B65,0x3FE8723C6077061A,0x3FE16E291BD5FD83,0xBFECE35E40A642F8,0xBFE57FBDC82362C5,0x3FE4AD7E996612F4,0xBFEBB0FABDDD3A67,0xBFE74F1E93B2B84B,0x3FE9346858A2EDFE,0xBFE8E8DD2A376A26,0x3FE593057A2AAA51,0xBFE591EF8EB841BF,0x3FE8EEB569DD7E49,0xBFE5A80968DB8289,0xBFE2EC8AAA307833,0xBFDFE3CB9E28B219,0x3FE7F6B10B598058,0x3FE7A91405079C4F,0x3FE1ED46C63AA5D7,0xBFE588FD6BF616CE,0x3FE995330BC8DF27,0x3FE1B351B3EF9EF4,0xBFE081F022F9231A,0xBFE43731FCDEA602,0x3FE4B2290897E612,0x3FE1C57CB70D9D86,0x3FDFB3109BC7A6BD,0xBFE74AB87FE5B5EA,0x3FEDE80B1474E075,0x3FE256FBEC6C729F,0x3FE9DE2D088B4755,0xBFEA3DA06E1760CA,0x3FEE95BC2C7191A7,0x3FE20C77DB1D379C,0x3FEBDE577786B713,0x3FE11DE1C12E5025,0x3FEC13A1DDB6AACD,0x3FEACB56594727B5,0x3FEAA7C292DF93FA,0x3FE84D119B09EA87,0xBFE4915806475E5C,0x3FEBA54E9150D843,0x3FE24BD99153D301,0x3FE8BD2AB7EF9DFA,0x3FE04A744E311B72,0xBFE681DE7BD5181F,0x3FEBD4A5FD19DAB9,0x3FE29CBA9A3E5928,0x3FE6C1E14AB8C8BD,0xBFF127CA2C3E96D1,0xBFE56A472E89A98A,0x3FE62EE83F2084F6,0x3FF1253705F29930,0x3FEFA61CFB238125,0x3FEC4CA32B112D9F,0xBFEF1608BA67572D,0x3FE31139B18E19E2,0x3FEB34D451F69AB9,0xBFF0B0CBDCAF9D92,0xBFE041E8A761D4DD,0xBFDB939347E4E438,0x3FEF31B116B95458</Elements>
+                                    </Array>
+                                </Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>
+                                    <Array Lengths="16">
+                                        <Elements>0x3FE135028FFB4268,0x3FD2110CA1CAFCCF,0x3FEBA1E51B49BAAE,0x3FEC5C2A55A84E8B,0x3F83C0A4D80C880E,0x3FA38595651AC9F7,0xBFEDEB98682E3D8A,0xBFA8C72C2BBEC409,0x3FD1C0428DBDF5BE,0x3FD622D8691179FE,0x3FC865BA0FEACE47,0x3FCBF05D34D550EF,0xBFE8BF78F807B602,0xBFE0FDDC31FDCEE9,0xBFE4FF894CFE80A3,0x3FE37E10EC736D01</Elements>
+                                    </Array>
+                                </Field1>
+                                <Field2>
+                                    <Array Lengths="16">
+                                        <Elements>0x3FF0D79FEB8A089C,0x3FEFD86952D18B72,0xBFD9FF48C324E21D,0xBFE1CDA984E3B827,0xBFF11C864D5BE56D,0xBFEEFE79EEF2E20C,0x3FCD46825777AAD4,0xBFF0241D1E46415E,0xBFEF4E8531D4E3DF,0xBFEC70583CAD8C7C,0xBFF01CD598F7723C,0xBFF0A19F6DFD89F8,0xBFE57FBDC82362C5,0x3FE995330BC8DF27,0x3FEC13A1DDB6AACD,0x3FF1253705F29930</Elements>
+                                    </Array>
+                                </Field2>
+                            </Cluster>
+                        </Elem>
+                    </Rank1>
+                </Array>
+            </p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="String" Id="2844" Name="DisplayName">
+            <p.DefaultValue>Received Constellation_f_800hz_N_64</p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="String" Id="2845" Name="Source">
+            <p.DefaultValue>top_ofdm_rx.gvi</p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="Timestamp" Id="2846" Name="Timestamp">
+            <p.DefaultValue>63616105581;2845557847322288013;Utc</p.DefaultValue>
+        </DataItem>
+        <DataItem AdaptToDiagramType="True" CallIndex="3" DataType="@125217053_0" Id="2868" Name="ControlSettings" />
+        <DataItem DataType="String" Id="2871" Name="ControlName">
+            <p.DefaultValue>Received Constellation</p.DefaultValue>
+        </DataItem>
+        <DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+            <p.TypeReference TypeId="125217053_0">
+                <VariableArray>
+                    <DereferenceType>
+                        <Class Id="1" Name="" Cluster="">
+                            <ClosedGenericParameters />
+                            <GenericTypeDefinition>
+                                <Void />
+                            </GenericTypeDefinition>
+                            <BaseType>
+                                <Void />
+                            </BaseType>
+                            <Interfaces />
+                            <Members>
+                                <Field FieldAccessPolicy="ReadWrite" Name="Element 1">
+                                    <DataType>
+                                        <VariableArray>
+                                            <DereferenceType>
+                                                <Double />
+                                            </DereferenceType>
+                                        </VariableArray>
+                                    </DataType>
+                                </Field>
+                                <Field FieldAccessPolicy="ReadWrite" Name="Element 2">
+                                    <DataType>
+                                        <VariableArray>
+                                            <DereferenceType>
+                                                <Double />
+                                            </DereferenceType>
+                                        </VariableArray>
+                                    </DataType>
+                                </Field>
+                            </Members>
+                        </Class>
+                    </DereferenceType>
+                </VariableArray>
+            </p.TypeReference>
+        </DataTypeReferenceTable>
+    </VirtualInstrument>
+</SourceFile>
