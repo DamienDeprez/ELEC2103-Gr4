@@ -182,7 +182,6 @@ And, we can deduce that $H[0]\neq H[N/2]$ for at least $l_1\neq l_2$
 
 \newpage
 
-
 \section{Frequency selectivity of Wireless Channel}
 
 \subsection{How is the impact of a frequency offset in OFDM systems different from that of single carrier systems? In particular, how is the impact on the signal constellation different?}
@@ -206,84 +205,27 @@ with T the sample period and N the FFT size. Finally, we obtain the following re
 
 \subsection{Which of the systems (i.e., $N = 1024$ or $64$) is more severely impacted by a $200 Hz$ frequency offset? Why?}
 
+The most impacted system is the one with $\textbf{N=1024}$. In fact, the symbols have less space in the frequency domain which cause a error called \textit{Inter Carrier Interference(ICI)}, and also phase shift. It is equivalent to the \textit{Inter Symbol Interference (ISI)} in single-carrier systems.
 
+\subsection{Discuss this relationship between the effect of symbol timing error in single carrier systems and frequency offset in OFDM systems}
 
+\begin{enumerate}
+\item In single-carrier system, we have Inter Symbol Interference due to a \textbf{delay} introduced by the channel in the transmitted signal. The delay become a much bigger issue if the symbols are sent rapidlyone after another. This introduced errors give rise to a rotation off all the symbols on the constellation of the same value.
 
+\item In multicarrier System, we have the same kind of problem but in the frequency domain due to the \textbf{frequencies offsets} introduced by the channel, N times different. This gives rise to a rotation of the symbol, but all the symbol will not be modified by the same error. This is due to the fact that we don't have the same delay for all the subcarriers.
 
-
-\subsection{Discuss this relationship between the effect of symbol timing error in single carrier systems and frequency offset in OFDM systems.}
-
-
+\end{enumerate}
 
 \section{More question}
 
 \subsection{What is the effective data rate of the OFDM system in lab?}
 
-\subsection{Discuss why or why not you might use an OFDM system in a wideband and narrowband system respectively.}
+\subsection{Discuss why or why not you might use an OFDM system in a wideband and narrowband system respectively}
 
-\subsection{Name at least three parameters of OFDM systems which contribute to this flexibility and comment on how they do so.}
-
-
+\subsection{Name at least three parameters of OFDM systems which contribute to this flexibility and comment on how they do so}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{comment}
-\begin{figure}[!ht]
-    \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_4.PNG}
-     \caption{Error rate for a delay+4 in AWGN}
-     \label{fig5}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
- \caption{Error rate for a delay+5 in AWGN}\label{fig6}
-    \end{minipage}
-\end{figure}
-\end{comment}
-
-
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[scale=0.7]{img/test_offset_201hz_OFF.PNG}
-%\caption{Constellation for a frequency offset of $201 \si{\hertz}$ without correction}
-%\label{freq_correct_off}
-%\end{figure}
-
-%\begin{center}
-%	\begin{tabular}{c|c}
-%		Run & Frequency offset [\si{\hertz}]\\
-%		\hline
-%	\end{tabular}
-%\end{center}
 
 
 \end{document}
