@@ -1,0 +1,220 @@
+\documentclass[frenchb, oneside, headings=normal]{scrartcl}
+
+\input{lib.tex}
+
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\begin{document}
+
+\title{Projet ELEC Master 1 - Labo 6}
+\subtitle{Groupe 4}
+\author{Deprez Damien \and Bilal Ouachalih }
+\date{2 december 2016}
+\maketitle
+
+The purpose of this lab is to study the OFDM (\textit{\textbf{orthogonal frequency division multiplexing}}) modulation. An interpretation is that OFDM devides a frequency selective channel into N flat fadding subchannels. We can see that as N parallel flat fadding channels multiplexed in the frequency domain. The cyclic prefix is used to avoid intersymbol interference (\textbf{ISI}).
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.8]{img/operation_ofdm.png}
+\caption{Representation of what's being done by the OFDM modulation}
+\label{fig1}
+\end{figure}
+
+\section{Pre-lab}
+
+In the first part of the lab, we have implemented an OFDM modulator  and the corresponding demodulator. First, at the transmitter side
+
+\begin{itemize}
+
+\item We have a sequence of $N-K$ symbols where N is the number of subcarriers and K is the number of null subcarrier.
+
+\item \textbf{Null symbols} are inserted into groups of $N-K$ transmit suymbols.
+
+\item We have an \textbf{IFFT} of the previous symbols.
+
+\item Then, a \textbf{cyclic prefix} of length $L_c$ is added at the transmitter.
+
+\end{itemize}
+
+Second, at the receiver side
+
+\begin{itemize}
+
+\item The receiver consider block of $N+L_c$ without regarding the first $L_c$ samples of each block.
+
+\item Then, we take back the \textbf{FFT} of the N symbols.
+
+\end{itemize}
+
+This previous 'operations' are represented on the block diagam on the figure \ref{fig2} and \ref{fig3}.
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.9]{img/OFDDM_modulator.png}
+     \caption{Block diagram of the OFDM modulator}
+     \label{fig2}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.9]{img/OFDDM_demodulator.png}
+ \caption{Block diagram of the OFDM demodulator}\label{fig3}
+    \end{minipage}
+\end{figure}
+
+
+\section{Lab experiment}
+
+\subsection{what is the respective OFDM symbol rate in the narrowband and wideband systems you have set up ?}
+
+For $N=64$, and $L_c=8$
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		  & Narrowband & Wideband\\
+		  \hline
+	Tx Sample rate & 4 $MSample/s$ & 20 $MSample/s$ \\	  
+	Tx Oversample factor & 20 & 4\\
+	\textbf{ODFM symbol rate} &  $\textbf{2777.77 symbol/s}$ & $\textbf{69444.44 symbol/s}$ \\ 
+	\end{tabular}
+	\label{tab1}
+\end{center}
+
+We simply have calculated the OFDM symbol rate by using the following formula
+
+\begin{equation}
+OFDM~symbol~rate = \frac{Tx~sample~rate}{N*L_c*Tx~oversample~factor}
+\end{equation}
+
+We can directly see that the symbol period is greater in a narrowband channel the in an wideband channel. (important for the future question). 
+
+\subsection{What are the effective lengths of the narrowband and wideband channels respectively?}
+
+If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power delay in both case (narrow and wideband channel), we can deduce the effective length of the channel. The effective length is of $\textbf{2.5e-7~s}$ and $\textbf{1e-7~s}$ respectively for the narrowband and wideband channel.
+
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.45]{img/power_delay_narrow.png}
+     \caption{Power delay of the narrowband channel}
+     \label{fig4}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.45]{img/power_delay_wideband.png}
+ \caption{Power delay of the wideband channel}\label{fig5}
+    \end{minipage}
+\end{figure}
+
+
+\subsection{Describe the frequency responses of each channel.}
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.45]{img/channel_response_narrow.png}
+     \caption{Response of a narrowband channel}
+     \label{fig2}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.45]{img/channel_response_wideband.png}
+ \caption{Response of a wideband channel}\label{fig3}
+    \end{minipage}
+\end{figure}
+
+
+We can characterize a flat or a frequency-selective channel by comparing the bandwidth of the signal with the bandwidth of the channel (or the symbol period and the effective length).\\
+
+\begin{itemize}
+\item For a flat channel, we have that \textbf{Symbol period > Effective length of the channel}.
+\item For a frequency-selective channel, we have just the inverse, \textbf{Symbol period < Effective length of the channel}.
+
+\end{itemize}
+
+By using the value computed in the previous question, we can deduce that
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		  & Narrowband & Wideband\\
+		  \hline
+	Tx Sample rate & 4 $MSample/s$ & 20 $MSample/s$ \\	  
+	Tx Oversample factor & 20 & 4\\
+	\textbf{Symbol period} &  $\textbf{5e-6~s}$ & $\textbf{2e-7~s}$ \\ 
+	\textbf{Delay spread}  &  $\textbf{2.5e-7~s}$ & $\textbf{1e-7~s}$ \\
+	\end{tabular}
+	\label{tab1}
+\end{center} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_4.PNG}
+     \caption{Error rate for a delay+4 in AWGN}
+     \label{fig5}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.45]{img/Sliding_correletaion_OFF_AWGN_5dB_shift_bit_5.PNG}
+ \caption{Error rate for a delay+5 in AWGN}\label{fig6}
+    \end{minipage}
+\end{figure}
+\end{comment}
+
+
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[scale=0.7]{img/test_offset_201hz_OFF.PNG}
+%\caption{Constellation for a frequency offset of $201 \si{\hertz}$ without correction}
+%\label{freq_correct_off}
+%\end{figure}
+
+%\begin{center}
+%	\begin{tabular}{c|c}
+%		Run & Frequency offset [\si{\hertz}]\\
+%		\hline
+%	\end{tabular}
+%\end{center}
+
+
+\end{document}
