@@ -15,7 +15,6 @@
 
 The purpose of this lab is to study the OFDM (\textit{\textbf{orthogonal frequency division multiplexing}}) modulation. An interpretation is that OFDM devides a frequency selective channel into N flat fadding subchannels. We can see that as N parallel flat fadding channels multiplexed in the frequency domain. The cyclic prefix is used to avoid intersymbol interference (\textbf{ISI}).
 
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.8]{img/operation_ofdm.png}
@@ -63,7 +62,6 @@ This previous 'operations' are represented on the block diagam on the figure \re
     \end{minipage}
 \end{figure}
 
-
 \section{Lab experiment}
 
 \subsection{what is the respective OFDM symbol rate in the narrowband and wideband systems you have set up ?}
@@ -84,15 +82,14 @@ For $N=64$, and $L_c=8$
 We simply have calculated the OFDM symbol rate by using the following formula
 
 \begin{equation}
-OFDM~symbol~rate = \frac{Tx~sample~rate}{N*L_c*Tx~oversample~factor}
+OFDM~symbol~rate = \frac{Tx~sample~rate}{(N+L_c)*Tx~oversample~factor}
 \end{equation}
 
 We can directly see that the symbol period is greater in a narrowband channel the in an wideband channel. (important for the future question). 
 
 \subsection{What are the effective lengths of the narrowband and wideband channels respectively?}
 
-If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power delay in both case (narrow and wideband channel), we can deduce the effective length of the channel. The effective length is of $\textbf{2.5e-7~s}$ and $\textbf{1e-7~s}$ respectively for the narrowband and wideband channel.
-
+If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power delay in both case (narrow and wideband channel), we can deduce the effective length of the channel. The effective length are of $\textbf{2.5e-7~s}$ and $\textbf{1e-7~s}$ respectively for the narrowband and wideband channel.
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
@@ -105,8 +102,6 @@ If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power
  \caption{Power delay of the wideband channel}\label{fig5}
     \end{minipage}
 \end{figure}
-
-
 \subsection{Describe the frequency responses of each channel.}
 
 \begin{figure}[!ht]
@@ -121,12 +116,11 @@ If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power
     \end{minipage}
 \end{figure}
 
-
 We can characterize a flat or a frequency-selective channel by comparing the bandwidth of the signal with the bandwidth of the channel (or the symbol period and the effective length).\\
 
 \begin{itemize}
-\item For a flat channel, we have that \textbf{Symbol period > Effective length of the channel}.
-\item For a frequency-selective channel, we have just the inverse, \textbf{Symbol period < Effective length of the channel}.
+\item For a flat channel, we have that \textbf{Bandwidth of channel > Bandwidth of the symbol}.
+\item For a frequency-selective channel, we have just the inverse, \textbf{Bandwidth of channel < Bandwidth of the symbol}. 
 
 \end{itemize}
 
@@ -138,21 +132,96 @@ By using the value computed in the previous question, we can deduce that
 		  \hline
 	Tx Sample rate & 4 $MSample/s$ & 20 $MSample/s$ \\	  
 	Tx Oversample factor & 20 & 4\\
-	\textbf{Symbol period} &  $\textbf{5e-6~s}$ & $\textbf{2e-7~s}$ \\ 
-	\textbf{Delay spread}  &  $\textbf{2.5e-7~s}$ & $\textbf{1e-7~s}$ \\
+	\hline
+	\textbf{Bandwidth of the channel} &   & \\
+    \textbf{Bandwidth of the symbol} & $\textbf{0.2~MHz}$ & $\textbf{5~Mhz}$\\
+        \hline
+                                     & \color{red} \textbf{Flat}  & \color{red} \textbf{Frequency-selective}\\                               
 	\end{tabular}
 	\label{tab1}
-\end{center} 
+\end{center}
+
+Another thing we can see from the channel response, is that we have a big attenuation at $0 Hz$. Which means that the zero frequency or DC is commonly nulled due to RF distortion at DC. 
+
+\subsection{Show that in an OFDM system, when $L_h$ = 0 the frequency response of the channel is necessarily flat fading, and when $L_h > 0$, the channel is frequency-selective}
+
+We consider the multipath channel model in absence of noise 
+\begin{equation}
+y[n]=\sum_{l=0}^{L_h} h[l]x[n-l] 
+\end{equation}
+
+\begin{enumerate}
+
+\item If $L_h=0$, we can rewrite the expression above as
+\begin{equation}
+y[n]=h[0]x[n]
+\end{equation}
+And we want to show that the frequency response is the same for all subchannels. ($H[n]=H[m]~\forall n,m$)
+\begin{equation}
+H[k]=h[0]\exp^{\frac{-2\pi jk*\color{red} 0}{N}}=h[0]~\forall k
+\end{equation} 
+
+\item if $L_h>0$, we will want to show that $H[n] \neq H[m]$ for at least one different n, m.
+
+First, we take the Fourrier transform of h[l].
+\begin{equation}
+H[k]=\sum_{l=0}^{L_h} h[l]\exp^{\frac{-2\pi jkl}{N}}~\forall k
+\end{equation}
+
+Now, we are going to consider 2 values of k. (0 and N/2)
+\begin{equation}
+H[0]=\sum_{l_1=0}^{L_h} h[l_1]*1=\sum_{l_1=0}^{L_h} h[l_1]\\
+\end{equation}
+\begin{equation}
+H[N/2]=\sum_{l_2=0}^{L_h} h[l_2]\exp^{\frac{-2\pi jNl_2}{2N}}=\sum_{l_2=0}^{L_h} h[l_2]\exp^{-\pi jl_2}=\sum_{l_2=0}^{L_h} (-1)^{l2}~h[l_2]\\
+\end{equation}
+
+And, we can deduce that $H[0]\neq H[N/2]$ for at least $l_1\neq l_2$
+
+\end{enumerate}
+
+\newpage
+
+
+\section{Frequency selectivity of Wireless Channel}
+
+\subsection{How is the impact of a frequency offset in OFDM systems different from that of single carrier systems? In particular, how is the impact on the signal constellation different?}
+
+\subsection{What is the subcarrier spacing $\Delta_c$ of your system when $N = 1024$ and $64$ respectively?}
+
+We use the following equation
+\begin{equation}
+\Delta_c=\frac{1}{NT}
+\end{equation}
+with T the sample period and N the FFT size. Finally, we obtain the following result
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		  & $N=64$ & $N=1024$\\
+		  \hline
+	$\Delta_c$ & $\textbf{15625~kHz}$ & $\textbf{976.56 kHz}$ \\
+	\end{tabular}
+	\label{tab3}
+\end{center}
+
+\subsection{Which of the systems (i.e., $N = 1024$ or $64$) is more severely impacted by a $200 Hz$ frequency offset? Why?}
 
 
 
 
 
 
+\subsection{Discuss this relationship between the effect of symbol timing error in single carrier systems and frequency offset in OFDM systems.}
 
 
 
+\section{More question}
 
+\subsection{What is the effective data rate of the OFDM system in lab?}
+
+\subsection{Discuss why or why not you might use an OFDM system in a wideband and narrowband system respectively.}
+
+\subsection{Name at least three parameters of OFDM systems which contribute to this flexibility and comment on how they do so.}
 
 
 
