@@ -830,7 +830,7 @@
                             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="431" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]437" Left="[float]5" Top="[float]70" Value="{ClusterBinding FieldName=Length\ of\ CP\ (Lc)}" ValueType="[Type]Int32" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                             <ArrayViewer ArrayElement="[UIModel]442" BaseName="[string]Array" Columns="[int]4" Dimensions="[int]1" Height="[float]36" Id="432" Label="[UIModel]438" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]115" Value="{ClusterBinding FieldName=Null\ Tones}" Width="[float]342" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                                 <p.DefaultElementValue>0</p.DefaultElementValue>
-                                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="442" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Left="[float]53" Name="[string]Child" Top="[float]8" Value="[uint]0" ValueType="[Type]UInt32" Width="[float]69" />
+                                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="442" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Left="[float]195" Name="[string]Child" Top="[float]8" Value="[uint]32" ValueType="[Type]UInt32" Width="[float]69" />
                             </ArrayViewer>
                             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="433" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]439" Left="[float]5" Top="[float]174" Value="{ClusterBinding FieldName=Number\ of\ OFDM\ Symbols\ (derived)}" ValueType="[Type]Int32" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="434" InteractionMode="[NumericTextBoxInteractionModes]ArrowKeys, ScrollWheel, ButtonClicks, TextInput" Label="[UIModel]440" Left="[float]5" Top="[float]219" Value="{ClusterBinding FieldName=Training\ Sequence\ FFT\ size}" ValueType="[Type]Int32" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -867,7 +867,7 @@
                                 <RangeLabeledDivisions Id="583" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="1806" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="581" Label="[string]Amplitude" MajorDivisions="[UIModel]1804" MajorGridLines="[UIModel]1805" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.8, 0.8, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="581" Label="[string]Amplitude" MajorDivisions="[UIModel]1804" MajorGridLines="[UIModel]1805" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.8, 0.9, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="1804" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="1805" />
                             </Axis>
@@ -883,7 +883,7 @@
                                 <RangeLabeledDivisions Id="595" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="678" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="593" Label="[string]Amplitude" MajorDivisions="[UIModel]676" MajorGridLines="[UIModel]677" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.17, 0.14, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="593" Label="[string]Amplitude" MajorDivisions="[UIModel]676" MajorGridLines="[UIModel]677" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.09, 0.03, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="676" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="677" />
                             </Axis>
@@ -2024,7 +2024,7 @@
                                 <RangeLabeledDivisions Id="424" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="658" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="422" Label="[string]Amplitude" MajorDivisions="[UIModel]656" MajorGridLines="[UIModel]657" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.11, 0.04, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="422" Label="[string]Amplitude" MajorDivisions="[UIModel]656" MajorGridLines="[UIModel]657" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.14, 0.17, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="656" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="657" />
                             </Axis>
@@ -2039,7 +2039,7 @@
                                 <RangeLabeledDivisions Id="619" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="655" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="617" Label="[string]Amplitude" MajorDivisions="[UIModel]653" MajorGridLines="[UIModel]654" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.17, 0.14, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
+                            <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="617" Label="[string]Amplitude" MajorDivisions="[UIModel]653" MajorGridLines="[UIModel]654" Orientation="[SMOrientation]Vertical" Range="[IRange]-0.09, 0.03, System.Double" ScaleKind="[RangeScaleKind]Linear" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="653" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                                 <GridLines Id="654" />
                             </Axis>
@@ -2057,7 +2057,7 @@
                             <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="403" Label="[string]Time" MajorDivisions="[UIModel]406" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 1.9999999999999998E-05, System.Double" ValueType="[Type]Double">
                                 <RangeLabeledDivisions Id="406" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
                             </Axis>
-                            <Axis Adjuster="[RangeAdjuster]FitVisibleLoosely" Id="404" Label="[string]Amplitude" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 0.013000000000000001, System.Double" ValueType="[Type]Double" />
+                            <Axis Adjuster="[RangeAdjuster]FitVisibleLoosely" Id="404" Label="[string]Amplitude" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 0.012, System.Double" ValueType="[Type]Double" />
                             <Plot HorizontalScale="[UIModel]403" Id="405" Label="[string]Plot" VerticalScale="[UIModel]404" />
                         </Graph>
                         <PlotLegend Graph="[UIModel]402" Height="[float]28" Id="407" Left="[float]608" Top="[float]19" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -2089,7 +2089,7 @@
             <Label Id="355" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]354" Left="[float]772" Locked="[bool]True" Text="[string]Packet Detected" Top="[float]528" />
             <ArrayViewer ArrayElement="[UIModel]387" BaseName="[string]Array" Columns="[int]14" Dimensions="[int]1" Height="[float]36" Id="386" Label="[UIModel]388" Left="[float]137" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]585" Value="{DataItemBinding Id=305}" Width="[float]590" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                 <p.DefaultElementValue>0</p.DefaultElementValue>
-                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="387" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]395" Name="[string]Child" Top="[float]7" Value="[byte]0" ValueType="[Type]UInt8" Width="[float]36" />
+                <NumericText BaseName="[string]Numeric" Height="[float]22" Id="387" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]129" Name="[string]Child" Top="[float]7" Value="[byte]1" ValueType="[Type]UInt8" Width="[float]36" />
             </ArrayViewer>
             <Label Id="388" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]386" Left="[float]137" Locked="[bool]True" Text="[string]Key Bit Sequence" Top="[float]562" />
             <NumericText BaseName="[string]Numeric" Height="[float]22" Id="362" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]363" Left="[float]137" RadixVisibility="[SMVisibility]Collapsed" Top="[float]656" Value="{DataItemBinding Id=300}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]169" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
@@ -2114,7 +2114,7 @@
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="392" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]396" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]23" Value="{ClusterBinding FieldName=SNR(dB)}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]99" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                 <ArrayViewer ArrayElement="[UIModel]400" BaseName="[string]Array" Columns="[int]6" Dimensions="[int]1" Height="[float]36" Id="393" Label="[UIModel]397" Left="[float]5" Orientation="[SMOrientation]Horizontal" Rows="[int]1" Top="[float]72" Value="{ClusterBinding FieldName=Channel\ Estimate}" Width="[float]394" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
                     <p.DefaultElementValue>0x0;0x0</p.DefaultElementValue>
-                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="400" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]165" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]-0.0012711737977494778 - 0.0024135459708836417i" ValueType="[Type]ComplexDouble" Width="[float]54" />
+                    <NumericText BaseName="[string]Numeric" Height="[float]22" Id="400" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Left="[float]53" Name="[string]Child" RadixVisibility="[SMVisibility]Collapsed" Top="[float]7" Value="[ComplexDouble]-0.079322990371458763 - 0.075538112388952014i" ValueType="[Type]ComplexDouble" Width="[float]54" />
                 </ArrayViewer>
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="394" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]398" Left="[float]5" RadixVisibility="[SMVisibility]Collapsed" Top="[float]132" Value="{ClusterBinding FieldName=Freq.\ Offset}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]92" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
                 <NumericText BaseName="[string]Numeric" Height="[float]22" Id="395" InteractionMode="[NumericTextBoxInteractionModes]ReadOnly" Label="[UIModel]399" Left="[float]136" RadixVisibility="[SMVisibility]Collapsed" Top="[float]132" Value="{ClusterBinding FieldName=Delay}" ValueFormatter="[string]LV:G6" ValueType="[Type]Double" Width="[float]95" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />

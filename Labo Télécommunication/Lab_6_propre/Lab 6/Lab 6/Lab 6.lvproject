@@ -156,6 +156,9 @@
                         <ProjectFolderDataItem AssociatedItemIdentifier="625" FolderName="2016-12-01 084853 398" Id="625">
                             <ProjectDataItem AssociatedItemIdentifier="624" Id="626" />
                         </ProjectFolderDataItem>
+                        <ProjectFolderDataItem AssociatedItemIdentifier="632" FolderName="2016-12-01 131819 482" Id="632">
+                            <ProjectDataItem AssociatedItemIdentifier="631" Id="633" />
+                        </ProjectFolderDataItem>
                     </ProjectFolderDataItem>
                     <ProjectDataItem AssociatedItemIdentifier="524" Id="523" />
                     <ProjectDataItem AssociatedItemIdentifier="526" Id="525" />
@@ -634,6 +637,7 @@
             <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="614" Name="Received\ Constellation\ \(614\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-11-30 125450 289\Received Constellation (614).data" />
             <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="621" Name="Power\ Delay\ Profile\ \(621\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-12-01 084800 762\Power Delay Profile (621).data" />
             <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="624" Name="Graph\ \(624\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-12-01 084853 398\Graph (624).data" />
+            <SourceFileReference Bindings="DataDepotItem,ProjectDefaultCopyPasteServiceOptOut,ProjectDefaultDragDropServiceOptOut,Envoy,DefinitionReference,NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.LabVIEW.VI.Modeling.VirtualInstrument" Id="631" Name="Power\ Delay\ Profile\ \(631\)\.data" OverridingDocumentTypeIdentifier="DataDepotItem" StoragePath="Data\2016-12-01 131819 482\Power Delay Profile (631).data" />
             <DataDepot />
         </Target>
     </Project>
