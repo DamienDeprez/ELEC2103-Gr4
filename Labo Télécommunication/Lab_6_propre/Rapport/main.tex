@@ -240,21 +240,20 @@ The most impacted system is the one with $\textbf{N=1024}$. In fact, the symbols
 \section{More question}
 
 \subsection{What is the effective data rate of the OFDM system in lab?}
-
+%TODO answer to the question
+The effective data rate of the OFDM system is given by the following formula
+$$OFDM~symbol~rate = \frac{1/T}{(N + L_C + K)} $$
 \subsection{Discuss why or why not you might use an OFDM system in a wideband and narrowband system respectively}
 
 As deduced from the previous question, we know that a wideband system is frequency-selective and a narrowband system is flat. Like, an OFDM system is useful to devide a frequency-selective channel into N flat subchannels. Thus, an OFDM system will be used on a wideband channel instead of a narrowband channel.
 However, the single-carrier system will be used on a flat channel, which corresponds to a narrowband channel.
 
 \subsection{Name at least three parameters of OFDM systems which contribute to this flexibility and comment on how they do so}
-
+%TODO add comment 
 \begin{enumerate}
-
-\item N
-\item $L_C$
-\item $1/T$
-
-
+\item N This parameter modify the space in the frequency domain between symbols.   This space can cause an Inter Carrier Interference if it's too small.
+\item $L_C$ This parameter modify the length cyclic prefix. When the length cyclic prefix is changed, the data rate of the OFDM system change. 
+\item $1/T$ 
 \end{enumerate}
 
 
