@@ -64,7 +64,7 @@ This previous 'operations' are represented on the block diagam on the figure \re
 
 \section{Lab experiment}
 
-\subsection{what is the respective OFDM symbol rate in the narrowband and wideband systems you have set up ?}
+\subsection{What is the respective OFDM symbol rate in the narrowband and wideband systems you have set up ?}
 
 For $N=64$, and $L_c=8$
 
@@ -116,6 +116,7 @@ If we take a look on the figure \ref{fig4} and \ref{fig5} representing the power
     \end{minipage}
 \end{figure}
 
+\begin{comment}
 We can characterize a flat or a frequency-selective channel by comparing the bandwidth of the signal with the bandwidth of the channel (or the symbol period and the effective length).\\
 
 \begin{itemize}
@@ -123,6 +124,7 @@ We can characterize a flat or a frequency-selective channel by comparing the ban
 \item For a frequency-selective channel, we have just the inverse, \textbf{Bandwidth of channel < Bandwidth of the symbol}. 
 
 \end{itemize}
+\end{comment}
 
 By using the value computed in the previous question, we can deduce that
 
@@ -133,14 +135,12 @@ By using the value computed in the previous question, we can deduce that
 	Tx Sample rate & 4 $MSample/s$ & 20 $MSample/s$ \\	  
 	Tx Oversample factor & 20 & 4\\
 	\hline
-	\textbf{Bandwidth of the channel} &   & \\
-    \textbf{Bandwidth of the symbol} & $\textbf{0.2~MHz}$ & $\textbf{5~Mhz}$\\
-        \hline
-                                     & \color{red} \textbf{Flat}  & \color{red} \textbf{Frequency-selective}\\                               
+     & \color{red} \textbf{Flat}  & \color{red} \textbf{Frequency-selective}\\                               
 	\end{tabular}
 	\label{tab1}
 \end{center}
-
+%TODO {Question sur frequency-selective channel}
+Based on our observation of graph \ref{fig3} and \ref{fig4}, we see that the frequency response in narrowband is flat, because we have only one peak on the graph of the power delay, but in wideband channel, we have 2 peaks on the power delay, which tell us that it's frequency-selective.
 Another thing we can see from the channel response, is that we have a big attenuation at $0 Hz$. Which means that the zero frequency or DC is commonly nulled due to RF distortion at DC. 
 
 \subsection{Show that in an OFDM system, when $L_h$ = 0 the frequency response of the channel is necessarily flat fading, and when $L_h > 0$, the channel is frequency-selective}
@@ -186,6 +186,25 @@ And, we can deduce that $H[0]\neq H[N/2]$ for at least $l_1\neq l_2$
 
 \subsection{How is the impact of a frequency offset in OFDM systems different from that of single carrier systems? In particular, how is the impact on the signal constellation different?}
 
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.58]{img/multicarrier_200hz.png}
+     \caption{OFDM with a frequency offset of 200 Hz}
+     \label{fig6}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.5]{img/SingleCarrier_Offset_200}
+ \caption{Single-carrier systems with a frequency offset of 200 Hz}\label{fig7}
+    \end{minipage}
+\end{figure}
+
+\begin{enumerate}
+
+\item On the figure \ref{fig6}, we consider a OFDM system. Like, the channel response is frequency-selective, the attenuation is not the same on each symbol.
+
+\item  On the figure \ref{fig7}, we have a single-carrier system, whith a constant attenuation, which can be seen on the figure by a aligned line.
+\end{enumerate}
+
 \subsection{What is the subcarrier spacing $\Delta_c$ of your system when $N = 1024$ and $64$ respectively?}
 
 We use the following equation
@@ -203,6 +222,8 @@ with T the sample period and N the FFT size. Finally, we obtain the following re
 	\label{tab3}
 \end{center}
 
+As we can see with the value above, the subcarrier spacing is much larger in a narrowband channel then in a wideband channel. So, in the frequency domain, we have more inter carrier frequency in wideband then in narrowband because the symbols have less space for $N=1024$.
+
 \subsection{Which of the systems (i.e., $N = 1024$ or $64$) is more severely impacted by a $200 Hz$ frequency offset? Why?}
 
 The most impacted system is the one with $\textbf{N=1024}$. In fact, the symbols have less space in the frequency domain which cause a error called \textit{Inter Carrier Interference(ICI)}, and also phase shift. It is equivalent to the \textit{Inter Symbol Interference (ISI)} in single-carrier systems.
@@ -210,19 +231,31 @@ The most impacted system is the one with $\textbf{N=1024}$. In fact, the symbols
 \subsection{Discuss this relationship between the effect of symbol timing error in single carrier systems and frequency offset in OFDM systems}
 
 \begin{enumerate}
-\item In single-carrier system, we have Inter Symbol Interference due to a \textbf{delay} introduced by the channel in the transmitted signal. The delay become a much bigger issue if the symbols are sent rapidlyone after another. This introduced errors give rise to a rotation off all the symbols on the constellation of the same value.
+\item In single-carrier system, we have Inter Symbol Interference due to a \textbf{delay} introduced by the channel in the transmitted signal. The delay become a much bigger issue if the symbols are sent rapidly one after another. This introduced errors give rise to a rotation off all the symbols on the constellation of the same value.
 
-\item In multicarrier System, we have the same kind of problem but in the frequency domain due to the \textbf{frequencies offsets} introduced by the channel, N times different. This gives rise to a rotation of the symbol, but all the symbol will not be modified by the same error. This is due to the fact that we don't have the same delay for all the subcarriers.
+\item In a multi-carrier System, we have the same kind of problem but in the frequency domain due to the \textbf{frequencies offsets} introduced by the channel, N times different. This gives rise to a rotation of the symbol, but all the symbol will not be modified by the same error. This is due to the fact that we don't have the same delay for all the sub-carriers.
 
 \end{enumerate}
 
 \section{More question}
 
 \subsection{What is the effective data rate of the OFDM system in lab?}
-
+%TODO answer to the question
+The effective data rate of the OFDM system is given by the following formula
+$$OFDM~symbol~rate = \frac{1/T}{(N + L_C + K)} $$
 \subsection{Discuss why or why not you might use an OFDM system in a wideband and narrowband system respectively}
 
+As deduced from the previous question, we know that a wideband system is frequency-selective and a narrowband system is flat. Like, an OFDM system is useful to devide a frequency-selective channel into N flat subchannels. Thus, an OFDM system will be used on a wideband channel instead of a narrowband channel.
+However, the single-carrier system will be used on a flat channel, which corresponds to a narrowband channel.
+
 \subsection{Name at least three parameters of OFDM systems which contribute to this flexibility and comment on how they do so}
+%TODO add comment 
+\begin{enumerate}
+\item N This parameter modify the space in the frequency domain between symbols.   This space can cause an Inter Carrier Interference if it's too small.
+\item $L_C$ This parameter modify the length cyclic prefix. When the length cyclic prefix is changed, the data rate of the OFDM system change. 
+\item $1/T$ 
+\end{enumerate}
+
 
 
 
