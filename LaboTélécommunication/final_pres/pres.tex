@@ -85,31 +85,187 @@
 	\end{frame}
 }
 
-\section{Channel Estimation and Equalization}
+\section{OFDM modulation}
 \begin{frame}
-\frametitle{Channel Estimation and Equalization}
+\frametitle{Modulation}
+
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.6]{img/OFDDM_modulator.png}
+     \caption{Block diagram of the OFDM modulator}
+     \label{fig2}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}  
+    \centering  
+    \begin{itemize}
+    \item[$\bullet$] N : number of subcarriers
+    \item[$\bullet$] K : number of null subcarriers
+    \item[$\bullet$] $L_c$ : cyclic prefix (against ISI)
+    \item[$\bullet$] Block-based modulation technique
+    \end{itemize}
+        
+    \end{minipage}
+\end{figure}
+\begin{equation}
+w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Demodulation}
+\begin{figure}[!ht]
+         \centering \includegraphics[scale=0.75]{img/OFDDM_demodulator.png}
+ \caption{Block diagram of the OFDM demodulator}\label{fig3}  
+\end{figure}
+\begin{equation}  
+ y[n]=\sum_{l=0}^{L} h[l]w[n-l]+v[n]
+ \end{equation}
+\end{frame}
+
+\subsection{Experiment using OFDM}
+\subsubsection{Results}
+
+\begin{frame}
+\frametitle{Symbol rate}
+\begin{center}
+	\begin{tabular}{c|c|c}
+		  & Narrowband & Wideband\\
+		  \hline
+	Tx Sample rate & 4 $MSample/s$ & 20 $MSample/s$ \\	  
+	Tx Oversample factor & 20 & 4\\
+	\textbf{ODFM symbol rate} &  $\textbf{2777.77 symbol/s}$ & $\textbf{69444.44 symbol/s}$ \\ 
+	\hline
+     & \color{red} \textbf{Flat}  & \color{red} \textbf{Frequency-selective}\\                               
+	\end{tabular}
+	\label{tab1}
+\end{center}
+\begin{itemize}
+\item[$\bullet$] Larger symbol rate in wideband than in narrrowband.
+\item[$\bullet$] Flat-fading : Always the same attenuation on the signal
+\item[$\bullet$] Frequency-selective : Different attenuation on the signal
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
+\frametitle{Power delay of the channels}
 
-
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.35]{img/power_delay_narrow.png}
+     \label{fig4}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.35]{img/power_delay_wideband.png}
+    \end{minipage}
+\end{figure}
+\begin{itemize}
+\item[$\bullet$] Narrowband power delay < Wideband power delay  
+\end{itemize}
 \end{frame}
-\subsection{Result}
-\subsubsection{Effect of the equalizer length}
+\subsubsection{Narrowband VS Wideband Channel}
 \begin{frame}
-\frametitle{Impact of the equalizer length at the receiver}
+\frametitle{Frequency response of each channels}
 
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.33]{img/channel_response_narrow.png}
+     \label{fig2}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.33]{img/channel_response_wideband.png}
+    \end{minipage}
+\end{figure}
+\begin{itemize}
+\item[$\bullet$] Flat response in narrowband
+\item[$\bullet$] Frequency-selective response in wideband 
+\item[$\bullet$] No DC component due to RF distorsion
+\end{itemize}
 
 \end{frame}
-\subsubsection{Effect of the noise}
+\subsection{Frequency selectivity of wireless channel}
 \begin{frame}
-\frametitle{Impact of the noise at the receiver}
+\frametitle{Frequency-selectivity of the channel}
 
+\begin{figure}[!ht]
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.41]{img/multicarrier_200hz.png}
+     \label{fig6}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.35]{img/SingleCarrier_Offset_200}
+\label{fig7}
+    \end{minipage}
+\end{figure}
+
+\begin{itemize}
+\item[$\bullet$] In OFDM, differents attenuations on each symbols (Frequency-selective)
+\end{itemize}
 \end{frame}
-\subsubsection{Experiment on the USRP}
+
 \begin{frame}
-\frametitle{Experiment on the USRP}
+\frametitle{N=64 VS N=1024}
+The subcarrier spacing is defined like
+\begin{equation}
+\Delta_c=\frac{1}{NT} 
+\end{equation}
+with T the sample period and N the FFT size
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		  & $N=64$ & $N=1024$\\
+		  \hline
+	$\Delta_c$ & $\textbf{15625~kHz}$ & $\textbf{976.56 kHz}$ \\
+	\end{tabular}
+	\label{tab3}
+\end{center}
+
+\begin{itemize}
+
+\item[$\bullet$] Less subcarrier spacing for larger N
+\item[$\bullet$] Effect : ICI (inter-carrier interference)
+\end{itemize}
+
 
 \end{frame}
+
+
+
+\section{Multi-carrier VS Single-carrier modulation}
+
+\begin{frame}
+\frametitle{Multi VS Single carrier}
+\begin{minipage}[t]{0.48\linewidth}
+OFDM
+\begin{itemize}
+\item[$\bullet$] {\color{red} ICI}
+\item[$\bullet$] {\color{red} Frequency offset}
+\item[$\bullet$] For frequency-selective channel
+\item[$\bullet$] Need more power
+%%\item[$\bullet$] Less complexity
+
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+Single-carrier
+\begin{itemize}
+\item[$\bullet$] {\color{red} ISI}
+\item[$\bullet$] {\color{red} Delay} 
+\item[$\bullet$] For flat channel
+\item[$\bullet$] Need less power 
+
+\end{itemize}
+
+\end{minipage}
+
+
+
+
+
+\end{frame}
+
+
+
+
+
 \end{document}
