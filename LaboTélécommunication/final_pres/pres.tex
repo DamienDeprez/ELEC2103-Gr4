@@ -41,18 +41,7 @@
 
 \begin{frame}
 \frametitle{Base}
-\begin{itemize}
-\item The received signal is
-\begin{equation}
-y[n] = hs[n-d] + v[n]
-\end{equation}
-with $h$ the channel coefficient and $d$ the frame offset.
-\item The correlation with the training sequence is given by
-\begin{equation}
-R[n] = \left| \sum_{k=0}^{N_t-1} t^*[k]y[n+k] \right|^2
-\end{equation}
-with $\{t[n]\}_0^{N_t-1}$ is the known training sequence. In the lab, it's 4 length 11 Barker Sequence
-\end{itemize}
+
 
 \end{frame}
 
@@ -124,6 +113,9 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
 
 \begin{frame}
 \frametitle{Demodulation}
+
+\textbf{OFDM} : Devides a frequency-selective channel into N AWGN channels
+
 \begin{figure}[!ht]
          \centering \includegraphics[scale=0.75]{img/OFDDM_demodulator.png}
  \caption{Block diagram of the OFDM demodulator}\label{fig3}  
@@ -131,6 +123,8 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
 \begin{equation}  
  y[n]=\sum_{l=0}^{L} h[l]w[n-l]+v[n]
  \end{equation}
+ 
+
 \end{frame}
 
 \subsection{Experiment using OFDM}
@@ -210,7 +204,7 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
 \end{figure}
 
 \begin{itemize}
-\item[$\bullet$] In OFDM, differents attenuations on each symbols (Frequency-selective)
+\item[$\bullet$] In OFDM, differents attenuations on each symbols due to mulipath(Frequency-selective channel)
 \end{itemize}
 \end{frame}
 
@@ -237,10 +231,7 @@ with T the sample period and N the FFT size
 \item[$\bullet$] Effect : ICI (inter-carrier interference)
 \end{itemize}
 
-
 \end{frame}
-
-
 
 \section{Multi-carrier VS Single-carrier modulation}
 
@@ -251,8 +242,9 @@ OFDM
 \begin{itemize}
 \item[$\bullet$] {\color{red} ICI}
 \item[$\bullet$] {\color{red} Frequency offset}
-\item[$\bullet$] For frequency-selective channel
+\item[$\bullet$] For frequency-selective channel (due to multipath)
 \item[$\bullet$] Need more power
+\item[$\bullet$] Flexibility: $L_c$, 1/T, N
 %%\item[$\bullet$] Less complexity
 
 \end{itemize}
@@ -262,8 +254,8 @@ Single-carrier
 \begin{itemize}
 \item[$\bullet$] {\color{red} ISI}
 \item[$\bullet$] {\color{red} Delay} 
-\item[$\bullet$] For flat channel
-\item[$\bullet$] Need less power 
+\item[$\bullet$] For flat channel (for little symbol rate)
+\item[$\bullet$] Need less power (need less bandwidth) 
 
 \end{itemize}
 
