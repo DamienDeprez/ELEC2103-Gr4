@@ -41,7 +41,18 @@
 
 \begin{frame}
 \frametitle{Base}
-
+\begin{itemize}
+\item The received signal is
+\begin{equation}
+y[n] = hs[n-d] + v[n]
+\end{equation}
+with $h$ the channel coefficient and $d$ the frame offset.
+\item The correlation with the training sequence is given by
+\begin{equation}
+R[n] = \left| \sum_{k=0}^{N_t-1} t^*[k]y[n+k] \right|^2
+\end{equation}
+with $\{t[n]\}_0^{N_t-1}$ is the known training sequence. In the lab, it's 4 length 11 Barker Sequence
+\end{itemize}
 
 \end{frame}
 
