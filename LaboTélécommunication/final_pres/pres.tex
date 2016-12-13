@@ -107,7 +107,7 @@
     \end{minipage}
 \end{figure}
 \begin{equation}
-w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
+w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...,N+L_c-1
 \end{equation}
 \end{frame}
 
@@ -144,10 +144,14 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
 	\end{tabular}
 	\label{tab1}
 \end{center}
+
+
+%%$$y[n]=\sum_{l=0}^{L_h} h[l]x[n-l]~where~h[n]=0, \forall n \in (0,1,...,L_h)$$
+
 \begin{itemize}
-\item[$\bullet$] Larger symbol rate in wideband than in narrrowband.
-\item[$\bullet$] Flat-fading : Always the same attenuation on the signal
-\item[$\bullet$] Frequency-selective : Different attenuation on the signal
+\item[$\bullet$] Larger symbol rate in wideband than in narrowband.
+\item[$\bullet$] Flat-fading : Always the same attenuation on the signal ($L_h=0$)
+\item[$\bullet$] Frequency-selective : Different attenuation on the signal ($L_h \neq 0$)
 \end{itemize}
 
 \end{frame}
@@ -165,7 +169,7 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
     \end{minipage}
 \end{figure}
 \begin{itemize}
-\item[$\bullet$] Narrowband power delay < Wideband power delay  
+\item[$\bullet$] Narrowband power delay > Wideband power delay  
 \end{itemize}
 \end{frame}
 \subsubsection{Narrowband VS Wideband Channel}
@@ -204,7 +208,7 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}
 \end{figure}
 
 \begin{itemize}
-\item[$\bullet$] In OFDM, differents attenuations on each symbols due to mulipath(Frequency-selective channel)
+\item[$\bullet$] In OFDM, different attenuations on each symbols due to mulipath(Frequency-selective channel)
 \end{itemize}
 \end{frame}
 
@@ -235,6 +239,7 @@ with T the sample period and N the FFT size
 
 \section{Multi-carrier VS Single-carrier modulation}
 
+\subsection{Major point}
 \begin{frame}
 \frametitle{Multi VS Single carrier}
 \begin{minipage}[t]{0.48\linewidth}
@@ -245,7 +250,7 @@ OFDM
 \item[$\bullet$] For frequency-selective channel (due to multipath)
 \item[$\bullet$] Need more power
 \item[$\bullet$] Flexibility: $L_c$, 1/T, N
-%%\item[$\bullet$] Less complexity
+
 
 \end{itemize}
 \end{minipage}\hfill
@@ -255,20 +260,41 @@ Single-carrier
 \item[$\bullet$] {\color{red} ISI}
 \item[$\bullet$] {\color{red} Delay} 
 \item[$\bullet$] For flat channel (for little symbol rate)
-\item[$\bullet$] Need less power (need less bandwidth) 
+\item[$\bullet$] Need less power (less bandwidth) 
 
 \end{itemize}
 
 \end{minipage}
 
-
-
-
-
 \end{frame}
 
+\subsection{Flexibility of OFDM}
 
+\begin{frame}
+\frametitle{Influence of 3 parameters on OFDM modulation}
 
+\begin{enumerate}
+\item Increasing the number of subcarriers
 
+	\begin{itemize}
+		\item[$\bullet$] Make the channel less frequency-selective
+		\item[$\bullet$] More sensitive to frequency offset (bad BER)	
+	\end{itemize}
+	
+\item Increasing the bandwidth
+	\begin{itemize}
+		\item[$\bullet$] Make the channel more frequency-selective
+		\item[$\bullet$] Less sensitive to frequency offset
+	\end{itemize}
+
+\item The length of the cyclic path	
+	\begin{itemize}
+		\item[$\bullet$] Avoid ISI
+		\item[$\bullet$] Must be greater then $L_h$
+	\end{itemize}	
+
+\end{enumerate}
+
+\end{frame}
 
 \end{document}
