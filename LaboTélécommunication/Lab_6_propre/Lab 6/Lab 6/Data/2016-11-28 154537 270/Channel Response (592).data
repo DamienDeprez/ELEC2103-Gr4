@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile xmlns="http://www.ni.com/PlatformFramework">
+    <SourceModelFeatureSet>
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Virtual Instrument" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/LabVIEW.VI" Version="3.0.0.49154" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="Editor" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/PlatformFramework" Version="3.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="3.0.0.56744" FeatureSetName="LabVIEW Controls" MinimumParsableVersion="3.0.0.0" MinimumSemanticallyEquivalentVersion="3.0.0.0" Name="http://www.ni.com/Controls.LabVIEW.Design" Version="3.0.0.49152" />
+    </SourceModelFeatureSet>
+    <VirtualInstrument Id="1" xmlns="http://www.ni.com/LabVIEW.VI">
+        <Icon Id="2" ListViewIconCrop="0 0 50 50" xmlns="http://www.ni.com/PlatformFramework">
+            <IconPanel Height="[float]50" Id="3" Width="[float]50">
+                <IconTemplate ClipMargin="[SMThickness]3,3,3,3" Id="4" TemplateName="Gray">
+                    <Rectangle Fill="[SMSolidColorBrush]#ff727272" Id="5" IsHitTestVisible="[bool]False" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]4" RadiusY="[float]4" />
+                    <Rectangle Fill="[SMSolidColorBrush]#ffe5e5e5" Id="6" IsHitTestVisible="[bool]False" Margin="[SMThickness]1,1,1,1" MinHeight="[float]1" MinWidth="[float]1" RadiusX="[float]2.5" RadiusY="[float]2.5" Stroke="[SMSolidColorBrush]#fff2f2f2" />
+                    <FileNameText FileNameText="[bool]True" Font="[SMFont]0,6," HorizontalAlignment="[HorizontalAlignment]Left" Id="7" Margin="[SMThickness]2,2,2,2" SizeMode="[TextModelSizeMode]AutoFont" Text="[string]Channel Response(1c40feec-c42d-46e9-ab45-3e929f6d1800)" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" VerticalAlignment="[VerticalAlignment]Top" />
+                </IconTemplate>
+                <Canvas Background="[SMSolidColorBrush]#00ffffff" ClipToBounds="[bool]True" Id="8" Margin="[SMThickness]3,3,3,3" />
+            </IconPanel>
+        </Icon>
+        <ConnectorPane Height="50" Id="9" ListViewHeight="30" ListViewWidth="150" Width="50" xmlns="http://www.ni.com/PlatformFramework">
+            <ConnectorPaneTerminal />
+            <ConnectorPaneTerminal Hotspot="0 15" />
+            <ConnectorPaneTerminal Hotspot="0 25" />
+            <ConnectorPaneTerminal Hotspot="0 35" />
+            <ConnectorPaneTerminal Hotspot="0 45" />
+            <ConnectorPaneTerminal Hotspot="15 0" />
+            <ConnectorPaneTerminal Hotspot="25 0" />
+            <ConnectorPaneTerminal Hotspot="35 0" />
+            <ConnectorPaneTerminal Hotspot="50 5" />
+            <ConnectorPaneTerminal Hotspot="50 15" />
+            <ConnectorPaneTerminal Hotspot="50 25" />
+            <ConnectorPaneTerminal Hotspot="50 35" />
+            <ConnectorPaneTerminal Hotspot="50 45" />
+            <ConnectorPaneTerminal Hotspot="15 50" />
+            <ConnectorPaneTerminal Hotspot="25 50" />
+            <ConnectorPaneTerminal Hotspot="35 50" />
+        </ConnectorPane>
+        <MethodDocumentation xmlns="http://www.ni.com/PlatformFramework" />
+        <DiagramUnplacedItems Id="10">
+            <DataAccessor Bounds="670 280 40 15" DataItem="2033" Id="2034" Label="2035">
+                <Terminal DataType="@59557689_0" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+            </DataAccessor>
+            <TextNode AttachedTo="2034" Bounds="715 280 98 16" Id="2035" Text="Channel Response" xmlns="http://www.ni.com/PlatformFramework" />
+        </DiagramUnplacedItems>
+        <FrontPanelUnplacedItems Id="11" />
+        <BlockDiagram Id="12" />
+        <CPFrontPanel Height="[float]1600" Id="13" Width="[float]2000">
+            <Graph BaseName="[string]Graph" BorderThickness="[SMThickness]1,1,1,1" DataSource="{DataItemBinding Id=2033}" Height="[float]400" Id="2024" Label="[UIModel]2032" Left="[float]780" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]95" Width="[float]600" xmlns="http://www.ni.com/Controls.LabVIEW.Design">
+                <Axis Adjuster="[RangeAdjuster]FitLoosely" Id="2025" Label="[string]Time" MajorDivisions="[UIModel]2028" Orientation="[SMOrientation]Horizontal" Range="[IRange]-3000000, 3000000, System.Double" ValueType="[Type]Double">
+                    <RangeLabeledDivisions Id="2028" LabelPresenter="[string]LVRelativeSeconds:&gt;&gt;0.0#E+0" />
+                </Axis>
+                <Axis Adjuster="[RangeAdjuster]FitVisibleLoosely" Id="2026" Label="[string]Amplitude" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 0.11, System.Double" ValueType="[Type]Double" />
+                <Plot HorizontalScale="[UIModel]2025" Id="2027" Label="[string]Plot" VerticalScale="[UIModel]2026" />
+            </Graph>
+            <PlotLegend Graph="[UIModel]2024" Height="[float]28" Id="2029" Left="[float]1387" Top="[float]95" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <CursorLegend DefaultCursorForeground="[SMSolidColorBrush]#ff000000" Graph="[UIModel]2024" Height="[float]102" Id="2030" Left="[float]785" Top="[float]524" Visible="[bool]False" Width="[float]251" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <GraphTools Graph="[UIModel]2024" Id="2031" Left="[float]785" Top="[float]502" Visible="[bool]False" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+            <Label Id="2032" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]2024" Left="[float]780" Locked="[bool]True" Text="[string]Channel Response" Top="[float]72" Visible="[bool]False" />
+        </CPFrontPanel>
+        <DataItem DataType="@59557689_0" Id="2020" Name="Data">
+            <p.DefaultValue>
+                <Array Lengths="64">
+                    <Rank1>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC14312D000000000</Field1>
+                                <Field2>0x0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC1427A3980000000</Field1>
+                                <Field2>0x0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC141E1A300000000</Field1>
+                                <Field2>0x3FBB27D7ACD99DF1</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC141490C80000000</Field1>
+                                <Field2>0x3FBB00D1E287D5C6</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC140B07600000000</Field1>
+                                <Field2>0x3FBACCA3985E9371</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC14017DF80000000</Field1>
+                                <Field2>0x3FBA8DEFB0BF2858</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13EFE9200000000</Field1>
+                                <Field2>0x3FBA47F4A7FC05C4</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13DCD6500000000</Field1>
+                                <Field2>0x3FB9FE5494F023D7</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13C9C3800000000</Field1>
+                                <Field2>0x3FB9B4D0DB0D9B76</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13B6B0B00000000</Field1>
+                                <Field2>0x3FB96EFD57DA4551</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13A39DE00000000</Field1>
+                                <Field2>0x3FB92FF12C116A6E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13908B100000000</Field1>
+                                <Field2>0x3FB8F9FD705E7C94</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC137D78400000000</Field1>
+                                <Field2>0x3FB8CE7351EA50D0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC136A65700000000</Field1>
+                                <Field2>0x3FB8AD8263C4CC44</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC135752A00000000</Field1>
+                                <Field2>0x3FB896350C8D1853</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13443FD00000000</Field1>
+                                <Field2>0x3FB8868C59786442</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC13312D000000000</Field1>
+                                <Field2>0x3FB87BB76EF57F81</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC131E1A300000000</Field1>
+                                <Field2>0x3FB8725ECD070543</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC130B07600000000</Field1>
+                                <Field2>0x3FB866F9B09DA84B</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC12EFE9200000000</Field1>
+                                <Field2>0x3FB8562426D4FB48</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC12C9C3800000000</Field1>
+                                <Field2>0x3FB83CEE461D5E3A</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC12A39DE00000000</Field1>
+                                <Field2>0x3FB8191F7B19E04A</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC127D78400000000</Field1>
+                                <Field2>0x3FB7E96B1253782B</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC125752A00000000</Field1>
+                                <Field2>0x3FB7AD94A72163D0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC12312D000000000</Field1>
+                                <Field2>0x3FB76683C17120BF</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC120B07600000000</Field1>
+                                <Field2>0x3FB71645CE6FFD06</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC11C9C3800000000</Field1>
+                                <Field2>0x3FB6BFFD0B79CA35</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC117D78400000000</Field1>
+                                <Field2>0x3FB667BA59CA605A</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC11312D000000000</Field1>
+                                <Field2>0x3FB6123FD885FBA2</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC10C9C3800000000</Field1>
+                                <Field2>0x3FB5C4AB4DE22734</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC10312D000000000</Field1>
+                                <Field2>0x3FB5840A8D9A5B8E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0xC0F312D000000000</Field1>
+                                <Field2>0x3FB554E161611CC5</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x0</Field1>
+                                <Field2>0x0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x40F312D000000000</Field1>
+                                <Field2>0x3FB53786C02DD753</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x410312D000000000</Field1>
+                                <Field2>0x3FB54BCF48CF0224</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x410C9C3800000000</Field1>
+                                <Field2>0x3FB57637C0C45697</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x411312D000000000</Field1>
+                                <Field2>0x3FB5B3E41D3F2F65</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4117D78400000000</Field1>
+                                <Field2>0x3FB600C74C3A82B9</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x411C9C3800000000</Field1>
+                                <Field2>0x3FB658184C2C6D26</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4120B07600000000</Field1>
+                                <Field2>0x3FB6B4CDC1E5A692</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x412312D000000000</Field1>
+                                <Field2>0x3FB7120F76DEC814</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4125752A00000000</Field1>
+                                <Field2>0x3FB76B93A0329B5E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4127D78400000000</Field1>
+                                <Field2>0x3FB7BDE3D9C1C08E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x412A39DE00000000</Field1>
+                                <Field2>0x3FB80689D252BD32</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x412C9C3800000000</Field1>
+                                <Field2>0x3FB84425946DE848</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x412EFE9200000000</Field1>
+                                <Field2>0x3FB8766FBD8F2EB3</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4130B07600000000</Field1>
+                                <Field2>0x3FB89E2996D6E8AC</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4131E1A300000000</Field1>
+                                <Field2>0x3FB8BCFC847B7C86</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413312D000000000</Field1>
+                                <Field2>0x3FB8D54A176D090A</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413443FD00000000</Field1>
+                                <Field2>0x3FB8E9EE7D6DBD5C</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4135752A00000000</Field1>
+                                <Field2>0x3FB8FDF8312E93F0</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4136A65700000000</Field1>
+                                <Field2>0x3FB914598793106B</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4137D78400000000</Field1>
+                                <Field2>0x3FB92F9AA4B82318</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413908B100000000</Field1>
+                                <Field2>0x3FB95193DC5E0255</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413A39DE00000000</Field1>
+                                <Field2>0x3FB97B38C8904325</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413B6B0B00000000</Field1>
+                                <Field2>0x3FB9AC7AF3CE9B2D</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413C9C3800000000</Field1>
+                                <Field2>0x3FB9E447DBC4D10E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413DCD6500000000</Field1>
+                                <Field2>0x3FBA20A201483D4B</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x413EFE9200000000</Field1>
+                                <Field2>0x3FBA5ED0CD927B3D</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x414017DF80000000</Field1>
+                                <Field2>0x3FBA9BA053B0CDE1</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4140B07600000000</Field1>
+                                <Field2>0x3FBAD3A8E58FBE6E</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4141490C80000000</Field1>
+                                <Field2>0x3FBB0396F82998A9</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x4141E1A300000000</Field1>
+                                <Field2>0x3FBB286D5A34621D</Field2>
+                            </Cluster>
+                        </Elem>
+                        <Elem>
+                            <Cluster>
+                                <Field1>0x41427A3980000000</Field1>
+                                <Field2>0x0</Field2>
+                            </Cluster>
+                        </Elem>
+                    </Rank1>
+                </Array>
+            </p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="String" Id="2021" Name="DisplayName">
+            <p.DefaultValue>Channel Response_wideband_ch_2</p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="String" Id="2022" Name="Source">
+            <p.DefaultValue>top_ofdm_rx.gvi</p.DefaultValue>
+        </DataItem>
+        <DataItem DataType="Timestamp" Id="2023" Name="Timestamp">
+            <p.DefaultValue>63615944737;4995274993393733804;Utc</p.DefaultValue>
+        </DataItem>
+        <DataItem AdaptToDiagramType="True" DataType="@59557689_0" Id="2033" Name="ControlSettings" />
+        <DataItem DataType="String" Id="2036" Name="ControlName">
+            <p.DefaultValue>Channel Response</p.DefaultValue>
+        </DataItem>
+        <DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+            <p.TypeReference TypeId="59557689_0">
+                <VariableArray>
+                    <DereferenceType>
+                        <Class Id="1" Name="" Cluster="">
+                            <ClosedGenericParameters />
+                            <GenericTypeDefinition>
+                                <Void />
+                            </GenericTypeDefinition>
+                            <BaseType>
+                                <Void />
+                            </BaseType>
+                            <Interfaces />
+                            <Members>
+                                <Field FieldAccessPolicy="ReadWrite" Name="Element 1">
+                                    <DataType>
+                                        <Double />
+                                    </DataType>
+                                </Field>
+                                <Field FieldAccessPolicy="ReadWrite" Name="Element 2">
+                                    <DataType>
+                                        <Double />
+                                    </DataType>
+                                </Field>
+                            </Members>
+                        </Class>
+                    </DereferenceType>
+                </VariableArray>
+            </p.TypeReference>
+        </DataTypeReferenceTable>
+    </VirtualInstrument>
+</SourceFile>
