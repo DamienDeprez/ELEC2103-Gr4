@@ -7,6 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{caption}
 %%\input{lib.tex}
 \title{LELEC2103 - Projet 3 in Electricity}
 \subtitle[\ldots]{Result of the lab 5 and lab 6}
@@ -37,19 +38,46 @@
 
 \section{Frame detection and frequency offset correction}
 
-\subsection{Moose algorithm}
+\subsection{Frame detection}
 
 \begin{frame}
-\frametitle{Base}
-
+\frametitle{Frame detection}
+\begin{itemize}
+\item The received signal is
+\begin{equation}
+y[n] = hs[n-d] + v[n]
+\end{equation}
+with $h$ the channel coefficient and $d$ the frame offset.
+\item The correlation with the training sequence is given by
+\begin{equation}
+R[n] = \left| \sum_{k=0}^{N_t-1} t^*[k]y[n+k] \right|^2
+\end{equation}
+with $\{t[n]\}_0^{N_t-1}$ is the known training sequence. \\
+In the lab, it's 4 ength 11 Barker Sequence
+\item With the good correlation properties of the training sequence, the frame offset is given by 
+\begin{equation}
+\hat{d} = argmax_n{R[n]}
+\end{equation}
+\end{itemize}
 
 \end{frame}
 
 
-\subsubsection{Frequency estimation offset}
+\subsection{Frequency offset estimation}
 \begin{frame}
-\frametitle{Sliding correlator}
+\frametitle{Frequency offset estimation}
+\begin{itemize}
+\item The received signal is
+\begin{equation}
+y[n] = e^{j2\pi \epsilon n} \sum_{l=0}^{L}{h[l]s[n-l]+v[n]}
+\end{equation}
+with $\epsilon = f_0 T$ the offset.
+\item To estimate the offset, we use the Moose method.
+\begin{equation}
+\hat{\epsilon} = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t}
+\end{equation}
 
+\end{itemize}
 
 \end{frame}
 
@@ -57,22 +85,35 @@
 
 \begin{frame}
 \frametitle{Maximum frequency offset}
-
-
+\begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.35]{img/Moose_Limit_10k.png}
+     \captionof{figure}{\label{fig:Moose_10k}Frequency offset of 10kHz}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.35]{img/Moose_Limit_12k.png}
+         \captionof{figure}{\label{fig:Moose_12k}Frequency offset of 12kHz}
+    \end{minipage}
+\begin{itemize}
+\item The Moose method has a limit 
+\begin{equation}
+|\epsilon| \leq \frac{1}{2N_t}
+\end{equation}
+\end{itemize}
 \end{frame}
 
 \subsection{Result}
-\subsubsection{}
-\begin{frame}
-\frametitle{Timing Static error VS RX Oversampling factor}
-
-\end{frame}
-
 \subsubsection{Constellation}
 
 \begin{frame}
-\frametitle{Impact of the oversampling factor at the receiver}
-
+\frametitle{Result - Constellation}
+\begin{minipage}[b]{0.48\linewidth}
+        \centering \includegraphics[scale=0.35]{img/USRP_carrieroffset_227.png}
+     \captionof{figure}{\label{fig:USRP_227}USRP with Frequency offset of 227 Hz}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.48\linewidth}
+         \centering \includegraphics[scale=0.35]{img/USRP_carrieroffset_1818}
+         \captionof{figure}{\label{fig:Moose_1818}USRP with Frequency offset of 1818 Hz}
+    \end{minipage}
 
 \end{frame}
 
