@@ -47,13 +47,13 @@
 \begin{equation}
 y[n] = hs[n-d] + v[n]
 \end{equation}
-with $h$ the channel coefficient and $d$ the frame offset.
+with $h$, the channel coefficient and $d$ the frame offset.
 \item The correlation with the training sequence is given by
 \begin{equation}
 R[n] = \left| \sum_{k=0}^{N_t-1} t^*[k]y[n+k] \right|^2
 \end{equation}
 with $\{t[n]\}_0^{N_t-1}$ is the known training sequence. \\
-In the lab, it's 4 ength 11 Barker Sequence
+In the lab, it's 4 length 11 Barker Sequence
 \item With the good correlation properties of the training sequence, the frame offset is given by 
 \begin{equation}
 \hat{d} = argmax_n{R[n]}
@@ -86,11 +86,11 @@ with $\epsilon = f_0 T$ the offset.
 \begin{frame}
 \frametitle{Maximum frequency offset}
 \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.35]{img/Moose_Limit_10k.png}
+        \centering \includegraphics[scale=0.37]{img/Moose_Limit_10k.png}
      \captionof{figure}{\label{fig:Moose_10k}Frequency offset of 10kHz}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.35]{img/Moose_Limit_12k.png}
+         \centering \includegraphics[scale=0.37]{img/Moose_Limit_12k.png}
          \captionof{figure}{\label{fig:Moose_12k}Frequency offset of 12kHz}
     \end{minipage}
 \begin{itemize}
@@ -128,11 +128,11 @@ with $t[n]$ the transmitted signal and $D$ the delay
 \begin{frame}
 \frametitle{Result - Constellation}
 \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.35]{img/USRP_carrieroffset_227.png}
+        \centering \includegraphics[scale=0.37]{img/USRP_carrieroffset_227.png}
      \captionof{figure}{\label{fig:USRP_227}USRP with Frequency offset of 227 Hz}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.35]{img/USRP_carrieroffset_1818}
+         \centering \includegraphics[scale=0.37]{img/USRP_carrieroffset_1818}
          \captionof{figure}{\label{fig:Moose_1818}USRP with Frequency offset of 1818 Hz}
     \end{minipage}
 
@@ -148,6 +148,27 @@ with $t[n]$ the transmitted signal and $D$ the delay
 }
 
 \section{OFDM modulation}
+
+\begin{frame}
+\frametitle{Cyclic path}
+CP: take the last $L_c>L_h$ symbols of the block and send them at the beginning
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.55]{img/operation_ofdm.png}
+\label{fig1}
+\end{figure}
+Advantages:
+\begin{itemize}
+
+\item[$\bullet$] No ISI with adjacent symbols  
+\item[$\bullet$] Converts a linear to circular convolution
+
+
+\end{itemize}
+
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Modulation}
 
@@ -162,7 +183,6 @@ with $t[n]$ the transmitted signal and $D$ the delay
     \begin{itemize}
     \item[$\bullet$] N : number of subcarriers
     \item[$\bullet$] K : number of null subcarriers
-    \item[$\bullet$] $L_c$ : cyclic prefix (against ISI)
     \item[$\bullet$] Block-based modulation technique
     \end{itemize}
         
