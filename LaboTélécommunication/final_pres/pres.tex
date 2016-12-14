@@ -96,7 +96,28 @@ with $\epsilon = f_0 T$ the offset.
 \begin{itemize}
 \item The Moose method has a limit 
 \begin{equation}
-|\epsilon| \leq \frac{1}{2N_t}
+|f| \leq \frac{1}{2N_tT}
+\end{equation}
+\item In this case, the Moose limit is at 22 kHz. The limitation comme from the frame detection.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Combining Frame Detection and Frequency Offset Estimation}
+\begin{itemize}
+\item New algorithm more robust to the frequency offset.
+\item The received signal is 
+\begin{equation}
+y[n] = \alpha e^{j2\pi \epsilon n}t[n-D]
+\end{equation}
+with $t[n]$ the transmitted signal and $D$ the delay
+\item The delay is computed using the following formula : 
+\begin{equation}
+\hat{d}=argmax \frac{\sum_{n=L}^{N_t-1} y(n+d+N_t)y(n+d)^*}{\sqrt{\sum_{n=L}^{N_t-1} |y(n+d)|^2}\sqrt{\sum_{n=L}^{N_t-1} |y(n+d+N_t)|^2}}
+\end{equation}
+\item The developement of the numerator is given by
+\begin{equation}
+|y[n+d+N_t]*y[n+d]^*| = \alpha^2*|t[n+d+N_t-D]t[n+d-D]^*|
 \end{equation}
 \end{itemize}
 \end{frame}
