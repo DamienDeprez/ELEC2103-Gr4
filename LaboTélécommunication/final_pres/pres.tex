@@ -1,5 +1,5 @@
 \documentclass[11pt]{beamer}
-\usetheme{Warsaw}
+\usetheme{Boadilla}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
@@ -74,7 +74,7 @@ y[n] = e^{j2\pi \epsilon n} \sum_{l=0}^{L}{h[l]s[n-l]+v[n]}
 with $\epsilon = f_0 T$ the offset.
 \item To estimate the offset, we use the Moose method.
 \begin{equation}
-\hat{\epsilon} = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t}
+\hat{f} = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t T}
 \end{equation}
 
 \end{itemize}
