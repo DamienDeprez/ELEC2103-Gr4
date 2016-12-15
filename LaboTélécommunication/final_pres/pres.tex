@@ -74,7 +74,7 @@ y[n] = e^{j2\pi \epsilon n} \sum_{l=0}^{L}{h[l]s[n-l]+v[n]}
 with $\epsilon = f_0 T$ the offset.
 \item To estimate the offset, we use the Moose method.
 \begin{equation}
-\hat{\epsilon} = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t}
+\hat{f}_e = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t T}
 \end{equation}
 
 \end{itemize}
@@ -96,7 +96,7 @@ with $\epsilon = f_0 T$ the offset.
 \begin{itemize}
 \item The Moose method has a limit 
 \begin{equation}
-|f| \leq \frac{1}{2N_tT}
+|f_e| \leq \frac{1}{2N_tT}
 \end{equation}
 \item In this case, the Moose limit is at 22 kHz. The limitation comme from the frame detection.
 \end{itemize}
