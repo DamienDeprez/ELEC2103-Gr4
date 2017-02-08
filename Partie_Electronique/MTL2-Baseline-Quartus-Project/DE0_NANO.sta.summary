@@ -3,123 +3,123 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.959
-TNS   : -8.870
+Slack : -3.770
+TNS   : -33.582
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -1.774
-TNS   : -5.322
+Slack : -1.964
+TNS   : -17.676
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.347
+Slack : 0.358
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.372
+Slack : 0.474
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -4.401
-TNS   : -205.846
+Slack : -4.764
+TNS   : -223.841
 
 Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
-Slack : 17.285
+Slack : 16.913
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
-Slack : 2.205
+Slack : 2.594
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.669
+Slack : 4.043
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.592
+Slack : 9.593
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 14.898
+Slack : 14.899
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.522
-TNS   : -7.560
+Slack : -3.268
+TNS   : -29.113
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.659
-TNS   : -4.977
+Slack : -1.738
+TNS   : -15.642
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.308
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.331
+Slack : 0.436
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -3.810
-TNS   : -177.841
+Slack : -4.152
+TNS   : -194.849
 
 Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 17.593
+Slack : 17.243
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 1.961
+Slack : 2.318
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.221
+Slack : 3.560
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.591
+Slack : 9.592
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 14.895
+Slack : 14.894
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -1.525
-TNS   : -4.570
+Slack : -2.039
+TNS   : -18.134
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -0.769
-TNS   : -2.307
+Slack : -0.866
+TNS   : -7.794
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
 Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.193
+Slack : 0.255
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.380
-TNS   : -111.239
+Slack : -2.607
+TNS   : -122.527
 
 Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 18.396
+Slack : 18.164
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 1.272
+Slack : 1.489
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 2.125
+Slack : 2.330
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 9.257
+Slack : 9.271
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comb_5|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 14.932
+Slack : 14.933
 TNS   : 0.000
 
 ------------------------------------------------------------

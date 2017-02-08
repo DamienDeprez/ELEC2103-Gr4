@@ -76,7 +76,7 @@ always @(posedge iCLK)
 	else if (Gest_W)		ColorDataBfr <= 24'hCC33FF;		// Purple
 	else if (Gest_E)		ColorDataBfr <= 24'h33FF66;		// Green 
     else if (Gest_N)		ColorDataBfr <= 24'h177EE6;		// Blue
-    else if (Gest_S)		ColorDataBfr <= 24'hF0FFFF		// Azur
+    else if (Gest_S)		ColorDataBfr <= 24'hF0FFFF;		// Azur
 	else						ColorDataBfr <= ColorDataBfr;
 	
 always @(posedge iCLK)
