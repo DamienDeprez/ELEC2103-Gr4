@@ -52,15 +52,21 @@ module mtl_touch_controller(
 	output   Gest_E,					// Decoded gesture (sliding towards East)
 	output   Gest_N,					// Decoded gesture (sliding towards North)
 	output   Gest_S,						// Decoded gesture (sliding towards South)
-	output   Gest_Zoom 					// Decoded gesture (sliding Zoom)
+	output   Gest_Zoom, 					// Decoded gesture (sliding Zoom)
+	// Position
+	output logic x1,
+	output logic y1,
+	
+	output logic [9:0] reg_x1,
+	output logic [8:0] reg_y1
 );
 
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
 
-logic [9:0] reg_x1, reg_x2, reg_x3, reg_x4, reg_x5;
-logic [8:0] reg_y1, reg_y2, reg_y3, reg_y4, reg_y5;
+logic [9:0] reg_x2, reg_x3, reg_x4, reg_x5;
+logic [8:0] reg_y2, reg_y3, reg_y4, reg_y5;
 logic [1:0] reg_touch_count;
 logic [7:0] reg_gesture;
 logic			touch_ready;
@@ -141,6 +147,19 @@ touch_buffer 	touch_buffer_zoom_in (
 	.pulse (Gest_Zoom)
 );
 
+/*touch_buffer	touch_buffer_x1 (
+	.clk (iCLK),
+	.rst (iRST),
+	.trigger(touch_ready),
+	.pulse (x1)
+);
+
+touch_buffer	touch_buffer_y1 (
+	.clk (iCLK),
+	.rst (iRST),
+	.trigger(touch_ready),
+	.pulse (y1)
+);*/
 
 endmodule // mtl_touch_controller
 
@@ -188,5 +207,71 @@ module touch_buffer (
 	end
 
 	assign pulse = (count==32'd10000000); 
+	
+endmodule // touch_buffer
+
+module touch_buffer_x (
+	input  logic	clk,
+	input  logic	rst,
+	input  logic	trigger,
+	input  logic [9:0]   reg_x,
+	output logic [9:0]	pulse
+	);
+
+	logic active;
+	logic [31:0] count;
+	
+	always_ff @ (posedge clk) begin
+	
+		if (rst) begin
+			active <= 1'b0;
+			count <= 32'd0;
+		end else begin
+			if (trigger && !active)
+				active <= 1'b1;
+			else if (active && (count < 32'd25000000))
+				count <= count + 32'b1;
+			else if (count >= 32'd25000000) begin
+				active <= 1'b0;
+				count <= 32'd0;
+			end
+		end
+		
+	end
+
+	assign pulse = (count==32'd10000000)? reg_x:10'b0; 
+	
+endmodule // touch_buffer
+
+module touch_buffer_y (
+	input  logic	clk,
+	input  logic	rst,
+	input  logic	trigger,
+	input  logic [8:0]   reg_y,
+	output logic [8:0]	pulse
+	);
+
+	logic active;
+	logic [31:0] count;
+	
+	always_ff @ (posedge clk) begin
+	
+		if (rst) begin
+			active <= 1'b0;
+			count <= 32'd0;
+		end else begin
+			if (trigger && !active)
+				active <= 1'b1;
+			else if (active && (count < 32'd25000000))
+				count <= count + 32'b1;
+			else if (count >= 32'd25000000) begin
+				active <= 1'b0;
+				count <= 32'd0;
+			end
+		end
+		
+	end
+
+	assign pulse = (count==32'd10000000)? reg_y:9'b0; 
 	
 endmodule // touch_buffer

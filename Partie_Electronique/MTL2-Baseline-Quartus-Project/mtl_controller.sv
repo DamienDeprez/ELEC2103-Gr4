@@ -62,7 +62,10 @@ logic CLOCK_33, iCLOCK_33;						// 33MHz clocks for the MTL
 
 logic	newFrame, endFrame;
 
-logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom;
+logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom, Pos_x1, Pos_y1; // Predifined Gesture
+
+logic [9:0] x1Bfr, x1;
+logic [8:0] y1Bfr, y1;
 
 logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue} 
 
@@ -77,7 +80,7 @@ always @(posedge iCLK)
 	else if (Gest_E)		ColorDataBfr <= 24'h33FF66;		// Green 
     else if (Gest_N)		ColorDataBfr <= 24'h177EE6;		// Blue
     else if (Gest_S)		ColorDataBfr <= 24'hF0FFFF;		// Azur
-	 else if (Gest_Zoom) ColorDataBfr <= 24'hcc6900;      
+	 else if (Gest_Zoom) ColorDataBfr <= 24'hCC6900;      
 	else						ColorDataBfr <= ColorDataBfr;
 	
 always @(posedge iCLK)
@@ -85,6 +88,18 @@ always @(posedge iCLK)
 	else if (endFrame)	ColorData <= ColorDataBfr;			// Update the color displayed between 
 	else						ColorData <= ColorData;				// two frames to avoid glitches
 
+	
+always@(posedge iCLK)
+	if(iRST)	begin
+		x1 <= 10'b0;
+		y1 <= 9'b0;
+	end else if(endFrame) begin
+		if(Pos_x1) x1 <= x1Bfr;
+		if(Pos_y1) y1 <= y1Bfr;
+	end else begin
+		x1 <= x1;
+		y1 <= y1;
+	end
 //=============================================================================
 // Dedicated sub-controllers
 //=============================================================================
@@ -104,7 +119,10 @@ mtl_display_controller mtl_display_controller_inst (
 	.oLCD_G(MTL_G),				// Output LCD vertical sync
 	.oLCD_B(MTL_B),				// Output LCD red color data 
 	.oHD(MTL_HSD),					// Output LCD green color data 
-	.oVD(MTL_VSD)					// Output LCD blue color data  
+	.oVD(MTL_VSD),					// Output LCD blue color data  
+	
+	.iX1(x1Bfr),
+	.iY1(y1Bfr)
 );
 
 assign MTL_DCLK = iCLOCK_33;
@@ -125,7 +143,12 @@ mtl_touch_controller mtl_touch_controller_inst (
 	.Gest_E(Gest_E),								// Decoded gesture (sliding towards East)
 	.Gest_N(Gest_N),								// Decoded gesture (sliding towards North)
 	.Gest_S(Gest_S),									// Decoded gesture (sliding towards South)
-	.Gest_Zoom(Gest_Zoom)
+	.Gest_Zoom(Gest_Zoom),
+	.x1(Pos_x1),
+	.y1(Pos_y1),
+	
+	.reg_x1(x1Bfr),
+	.reg_y1(y1Bfr)
 );
 			
 

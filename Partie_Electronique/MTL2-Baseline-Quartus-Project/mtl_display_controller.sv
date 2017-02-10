@@ -51,7 +51,10 @@ module mtl_display_controller(
 	oVD,					// Output LCD vertical sync 
 	oLCD_R,				// Output LCD red color data 
 	oLCD_G,           // Output LCD green color data  
-	oLCD_B            // Output LCD blue color data  
+	oLCD_B,            // Output LCD blue color data  
+	
+	iX1,
+	iY1
 );
 						
 //============================================================================
@@ -82,6 +85,9 @@ output [7:0]	oLCD_R;
 output [7:0]	oLCD_G;
 output [7:0]	oLCD_B;
 
+input [9:0] iX1;
+input [8:0] iY1;
+
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
@@ -94,6 +100,8 @@ wire [7:0]	read_blue;
 wire			display_area, display_area_prev;
 reg			mhd;
 reg			mvd;
+
+logic isInRectangle;
 
 //=============================================================================
 // Structural coding
@@ -116,7 +124,10 @@ assign	display_area = ((x_cnt>(Horizontal_Blank-2)&&
 assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(x_cnt<(H_LINE-Horizontal_Front_Porch-2))&&
 						(y_cnt>(Vertical_Blank-1))&& 
-						(y_cnt<(V_LINE-Vertical_Front_Porch))));	
+						(y_cnt<(V_LINE-Vertical_Front_Porch))));
+					
+// Check if the current pixel position is in the rectangle
+assign isInRectangle = (iX1-20 < x_cnt && x_cnt < iX1+20) && (iY1-20 < y_cnt && y_cnt < iY1 + 20);
 						
 
 // Assigns the right color data.
@@ -128,9 +139,16 @@ always_ff @(posedge iCLK) begin
 		read_blue 	<= 8'b0;
 	// If we are in the active display area...
 	end else if (display_area) begin
-		read_red 	<= iColorData[23:16]; 
-		read_green 	<= iColorData[15:8]; 
-		read_blue 	<= iColorData[7:0];
+		if(isInRectangle) begin
+			read_red <= 8'b11111111;
+			read_blue <= 2'h00;
+			read_green <= 2'h00;
+		end
+		else begin
+			read_red 	<= iColorData[23:16]; 
+			read_green 	<= iColorData[15:8]; 
+			read_blue 	<= iColorData[7:0];
+		end
 	// If we aren't in the active display area, put at zero
 	// the color signals.
 	end else begin
