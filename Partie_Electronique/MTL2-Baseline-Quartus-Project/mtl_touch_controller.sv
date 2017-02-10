@@ -51,7 +51,8 @@ module mtl_touch_controller(
 	output   Gest_W,					// Decoded gesture (sliding towards West)
 	output   Gest_E,					// Decoded gesture (sliding towards East)
 	output   Gest_N,					// Decoded gesture (sliding towards North)
-	output   Gest_S						// Decoded gesture (sliding towards South)
+	output   Gest_S,						// Decoded gesture (sliding towards South)
+	output   Gest_Zoom 					// Decoded gesture (sliding Zoom)
 );
 
 //=============================================================================
@@ -131,6 +132,13 @@ touch_buffer 	touch_buffer_south (
 	.rst (iRST),
 	.trigger (touch_ready && (reg_gesture == 8'h18)),
 	.pulse (Gest_S)
+);
+
+touch_buffer 	touch_buffer_zoom_in (
+	.clk (iCLK),
+	.rst (iRST),
+	.trigger (touch_ready && (reg_gesture == 8'h48)),
+	.pulse (Gest_Zoom)
 );
 
 

@@ -54,7 +54,7 @@ R[n] = \left| \sum_{k=0}^{N_t-1} t^*[k]y[n+k] \right|^2
 \end{equation}
 with $\{t[n]\}_0^{N_t-1}$ is the known training sequence. \\
 In the lab, it's 4 length 11 Barker Sequence
-\item With the good correlation properties of the training sequence, the frame offset is given by 
+\item With the good correlation property of the training sequence, the frame offset is given by 
 \begin{equation}
 \hat{d} = argmax_n{R[n]}
 \end{equation}
@@ -74,7 +74,7 @@ y[n] = e^{j2\pi \epsilon n} \sum_{l=0}^{L}{h[l]s[n-l]+v[n]}
 with $\epsilon = f_0 T$ the offset.
 \item To estimate the offset, we use the Moose method.
 \begin{equation}
-\hat{f}_e = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t T}
+\hat{f} = \frac{\text{phase} \sum_{l=L}^{N_t-1}{y[l+N_t]y^*[l]}}{2\pi N_t T}
 \end{equation}
 
 \end{itemize}
@@ -96,9 +96,9 @@ with $\epsilon = f_0 T$ the offset.
 \begin{itemize}
 \item The Moose method has a limit 
 \begin{equation}
-|f_e| \leq \frac{1}{2N_tT}
+|f| \leq \frac{1}{2N_tT}
 \end{equation}
-\item In this case, the Moose limit is at 22 kHz. The limitation comme from the frame detection.
+\item In this case, the Moose limit is at 22 kHz. The limitation comes from the frame detection.
 \end{itemize}
 \end{frame}
 
@@ -115,7 +115,7 @@ with $t[n]$ the transmitted signal and $D$ the delay
 \begin{equation}
 \hat{d}=argmax \frac{\sum_{n=L}^{N_t-1} y(n+d+N_t)y(n+d)^*}{\sqrt{\sum_{n=L}^{N_t-1} |y(n+d)|^2}\sqrt{\sum_{n=L}^{N_t-1} |y(n+d+N_t)|^2}}
 \end{equation}
-\item The developement of the numerator is given by
+\item The development of the numerator is given by
 \begin{equation}
 |y[n+d+N_t]*y[n+d]^*| = \alpha^2*|t[n+d+N_t-D]t[n+d-D]^*|
 \end{equation}
@@ -151,7 +151,7 @@ with $t[n]$ the transmitted signal and $D$ the delay
 
 \begin{frame}
 \frametitle{Cyclic path}
-CP: take the last $L_c>L_h$ symbols of the block and send them at the beginning
+CP: Take the last $L_c>L_h$ symbols of the block and send them at the beginning
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.55]{img/operation_ofdm.png}
@@ -160,9 +160,8 @@ CP: take the last $L_c>L_h$ symbols of the block and send them at the beginning
 Advantages:
 \begin{itemize}
 
-\item[$\bullet$] No ISI with adjacent symbols  
-\item[$\bullet$] Converts a linear to circular convolution
-
+\item[$\bullet$] No ISI with adjacents symbols  
+\item[$\bullet$] Converts a linear convolution to a circular
 
 \end{itemize}
 
@@ -196,7 +195,7 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...
 \begin{frame}
 \frametitle{Demodulation}
 
-\textbf{OFDM} : Devides a frequency-selective channel into N AWGN channels
+\textbf{OFDM} : Devide a frequency-selective channel into N AWGN channels
 
 \begin{figure}[!ht]
          \centering \includegraphics[scale=0.75]{img/OFDDM_demodulator.png}
@@ -226,10 +225,10 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...
 	\end{tabular}
 	\label{tab1}
 \end{center}
-
-
-%%$$y[n]=\sum_{l=0}^{L_h} h[l]x[n-l]~where~h[n]=0, \forall n \in (0,1,...,L_h)$$
-
+Multipath channel:	
+\begin{equation}
+y[n]=\sum_{l=0}^{L_h} h[l]x[n-l]~where~h[n]=0, \forall n \in (0,1,...,L_h)
+\end{equation}
 \begin{itemize}
 \item[$\bullet$] Larger symbol rate in wideband than in narrowband.
 \item[$\bullet$] Flat-fading : Always the same attenuation on the signal ($L_h=0$)
@@ -240,19 +239,20 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...
 
 \begin{frame}
 \frametitle{Power delay of the channels}
-
-\begin{figure}[!ht]
+ 
+Power delay : give the intensity of the received signal through a multipath channel. 
+  
+\begin{figure}[ht]
     \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.35]{img/power_delay_narrow.png}
-     \label{fig4}
+        \caption{Narrowband channel}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
          \centering \includegraphics[scale=0.35]{img/power_delay_wideband.png}
+         \caption{Wideband channel}
     \end{minipage}
 \end{figure}
-\begin{itemize}
-\item[$\bullet$] Narrowband power delay > Wideband power delay  
-\end{itemize}
+
 \end{frame}
 \subsubsection{Narrowband VS Wideband Channel}
 \begin{frame}
@@ -260,11 +260,12 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...
 
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
-        \centering \includegraphics[scale=0.33]{img/channel_response_narrow.png}
-     \label{fig2}
+        \centering \includegraphics[scale=0.38]{img/channel_response_narrow.png}
+		  \caption{Narrowband channel}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
-         \centering \includegraphics[scale=0.33]{img/channel_response_wideband.png}
+         \centering \includegraphics[scale=0.38]{img/channel_response_wideband.png}
+         \caption{Wideband channel}
     \end{minipage}
 \end{figure}
 \begin{itemize}
@@ -281,11 +282,11 @@ w[n]=\frac{1}{N} \sum_{m=0}^{N-1} s[m]\exp^{j2\pi\frac{m(n-L_c)}{N}}~for~n=0,...
 \begin{figure}[!ht]
     \begin{minipage}[b]{0.48\linewidth}
         \centering \includegraphics[scale=0.41]{img/multicarrier_200hz.png}
-     \label{fig6}
+        \caption{OFDM constellation}
     \end{minipage}\hfill
     \begin{minipage}[b]{0.48\linewidth}
          \centering \includegraphics[scale=0.35]{img/SingleCarrier_Offset_200}
-\label{fig7}
+         \caption{Single-carrier constellation}
     \end{minipage}
 \end{figure}
 
@@ -321,7 +322,7 @@ with T the sample period and N the FFT size
 
 \section{Multi-carrier VS Single-carrier modulation}
 
-\subsection{Major point}
+\subsection{Major points}
 \begin{frame}
 \frametitle{Multi VS Single carrier}
 \begin{minipage}[t]{0.48\linewidth}
@@ -372,7 +373,7 @@ Single-carrier
 \item The length of the cyclic path	
 	\begin{itemize}
 		\item[$\bullet$] Avoid ISI
-		\item[$\bullet$] Must be greater then $L_h$
+		\item[$\bullet$] Must be greater than $L_h$
 	\end{itemize}	
 
 \end{enumerate}

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for DE0_NANO
-Wed Feb  8 19:57:11 2017
-Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+Thu Feb 09 16:48:41 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
 
 
 ---------------------
@@ -58,24 +58,24 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                    ;
-+------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb  8 19:57:11 2017      ;
-; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
-; Revision Name                      ; DE0_NANO                                   ;
-; Top-level Entity Name              ; DE0_NANO                                   ;
-; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 1,004                                      ;
-;     Total combinational functions  ; 719                                        ;
-;     Dedicated logic registers      ; 604                                        ;
-; Total registers                    ; 604                                        ;
-; Total pins                         ; 148                                        ;
-; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total PLLs                         ; 1                                          ;
-+------------------------------------+--------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Feb 09 16:48:40 2017       ;
+; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
+; Revision Name                      ; DE0_NANO                                    ;
+; Top-level Entity Name              ; DE0_NANO                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,102                                       ;
+;     Total combinational functions  ; 817                                         ;
+;     Dedicated logic registers      ; 646                                         ;
+; Total registers                    ; 646                                         ;
+; Total pins                         ; 148                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
++------------------------------------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -170,7 +170,7 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
+; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -179,28 +179,27 @@ agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processors 2-4         ; < 0.1%      ;
-;     Processors 5-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                               ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                           ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
-; mtl_touch_controller.sv          ; yes             ; User SystemVerilog HDL File  ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_touch_controller.sv   ;         ;
-; mtl_display_controller.sv        ; yes             ; User SystemVerilog HDL File  ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv ;         ;
-; mtl_controller.sv                ; yes             ; User SystemVerilog HDL File  ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_controller.sv         ;         ;
-; i2c_touch_config.v               ; yes             ; User Verilog HDL File        ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/i2c_touch_config.v        ;         ;
-; DE0_NANO.sv                      ; yes             ; User SystemVerilog HDL File  ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.sv               ;         ;
-; MTL_PLL.v                        ; yes             ; User Wizard-Generated File   ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/MTL_PLL.v                 ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; /home/damien/altera/15.0/quartus/libraries/megafunctions/altpll.tdf                                    ;         ;
-; aglobal150.inc                   ; yes             ; Megafunction                 ; /home/damien/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc                                ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; /home/damien/altera/15.0/quartus/libraries/megafunctions/stratix_pll.inc                               ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; /home/damien/altera/15.0/quartus/libraries/megafunctions/stratixii_pll.inc                             ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /home/damien/altera/15.0/quartus/libraries/megafunctions/cycloneii_pll.inc                             ;         ;
-; db/MTL_PLL_altpll.v              ; yes             ; Auto-Generated Megafunction  ; /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v       ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; mtl_touch_controller.sv          ; yes             ; User SystemVerilog HDL File  ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_touch_controller.sv   ;         ;
+; mtl_display_controller.sv        ; yes             ; User SystemVerilog HDL File  ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv ;         ;
+; mtl_controller.sv                ; yes             ; User SystemVerilog HDL File  ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/mtl_controller.sv         ;         ;
+; i2c_touch_config.v               ; yes             ; User Verilog HDL File        ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/i2c_touch_config.v        ;         ;
+; DE0_NANO.sv                      ; yes             ; User SystemVerilog HDL File  ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.sv               ;         ;
+; MTL_PLL.v                        ; yes             ; User Wizard-Generated File   ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/MTL_PLL.v                 ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/altpll.tdf                                   ;         ;
+; aglobal150.inc                   ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/aglobal150.inc                               ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/stratix_pll.inc                              ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/stratixii_pll.inc                            ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/15.0/quartus/libraries/megafunctions/cycloneii_pll.inc                            ;         ;
+; db/mtl_pll_altpll.v              ; yes             ; Auto-Generated Megafunction  ; Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/mtl_pll_altpll.v       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -208,20 +207,20 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,004          ;
+; Estimated Total logic elements              ; 1,102          ;
 ;                                             ;                ;
-; Total combinational functions               ; 719            ;
+; Total combinational functions               ; 817            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 373            ;
-;     -- 3 input functions                    ; 56             ;
-;     -- <=2 input functions                  ; 290            ;
+;     -- 4 input functions                    ; 400            ;
+;     -- 3 input functions                    ; 91             ;
+;     -- <=2 input functions                  ; 326            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 525            ;
-;     -- arithmetic mode                      ; 194            ;
+;     -- normal mode                          ; 592            ;
+;     -- arithmetic mode                      ; 225            ;
 ;                                             ;                ;
-; Total registers                             ; 604            ;
-;     -- Dedicated logic registers            ; 604            ;
+; Total registers                             ; 646            ;
+;     -- Dedicated logic registers            ; 646            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 148            ;
@@ -232,9 +231,9 @@ agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 547            ;
-; Total fan-out                               ; 4407           ;
-; Average fan-out                             ; 2.62           ;
+; Maximum fan-out                             ; 586            ;
+; Total fan-out                               ; 4817           ;
+; Average fan-out                             ; 2.64           ;
 +---------------------------------------------+----------------+
 
 
@@ -243,20 +242,21 @@ agreement for further details.
 +------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                 ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                           ; Library Name ;
 +------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |DE0_NANO                                                  ; 719 (1)           ; 604 (0)      ; 0           ; 0            ; 0       ; 0         ; 148  ; 0            ; |DE0_NANO                                                                                                                                                                                     ; work         ;
-;    |mtl_controller:comb_5|                                 ; 690 (21)          ; 577 (18)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5                                                                                                                                                               ; work         ;
+; |DE0_NANO                                                  ; 817 (1)           ; 646 (0)      ; 0           ; 0            ; 0       ; 0         ; 148  ; 0            ; |DE0_NANO                                                                                                                                                                                     ; work         ;
+;    |mtl_controller:comb_5|                                 ; 788 (31)          ; 619 (24)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5                                                                                                                                                               ; work         ;
 ;       |MTL_PLL:MTL_PLL_inst|                               ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst                                                                                                                                          ; work         ;
 ;          |altpll:altpll_component|                         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component                                                                                                                  ; work         ;
 ;             |MTL_PLL_altpll:auto_generated|                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated                                                                                    ; work         ;
-;       |mtl_display_controller:mtl_display_controller_inst| ; 63 (63)           ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst                                                                                                            ; work         ;
-;       |mtl_touch_controller:mtl_touch_controller_inst|     ; 606 (0)           ; 501 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst                                                                                                                ; work         ;
+;       |mtl_display_controller:mtl_display_controller_inst| ; 65 (65)           ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst                                                                                                            ; work         ;
+;       |mtl_touch_controller:mtl_touch_controller_inst|     ; 692 (0)           ; 534 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst                                                                                                                ; work         ;
 ;          |i2c_touch_config:i2c_touch_config_inst|          ; 256 (113)         ; 369 (297)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst                                                                         ; work         ;
 ;             |i2c_master_byte_ctrl:byte_controller|         ; 143 (46)          ; 72 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller                                    ; work         ;
 ;                |i2c_master_bit_ctrl:bit_controller|        ; 97 (97)           ; 47 (47)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller ; work         ;
 ;          |touch_buffer:touch_buffer_east|                  ; 87 (87)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east                                                                                 ; work         ;
 ;          |touch_buffer:touch_buffer_north|                 ; 87 (87)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north                                                                                ; work         ;
 ;          |touch_buffer:touch_buffer_south|                 ; 87 (87)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south                                                                                ; work         ;
-;          |touch_buffer:touch_buffer_west|                  ; 89 (89)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west                                                                                 ; work         ;
+;          |touch_buffer:touch_buffer_west|                  ; 88 (88)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west                                                                                 ; work         ;
+;          |touch_buffer:touch_buffer_zoom_in|               ; 87 (87)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_zoom_in                                                                              ; work         ;
 ;    |reset_delay:reset_delay_inst|                          ; 28 (28)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|reset_delay:reset_delay_inst                                                                                                                                                        ; work         ;
 +------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -337,31 +337,35 @@ Encoding Type:  One-Hot
 ; Register name                                                                                                           ; Reason for Removal                                                                                                             ;
 +-------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|txr[1..3,7] ; Stuck at GND due to stuck port data_in                                                                                         ;
-; mtl_controller:comb_5|ColorDataBfr[3,4,22,23]                                                                           ; Merged with mtl_controller:comb_5|ColorDataBfr[0]                                                                              ;
-; mtl_controller:comb_5|ColorDataBfr[2,5,6,9,12,13]                                                                       ; Merged with mtl_controller:comb_5|ColorDataBfr[1]                                                                              ;
-; mtl_controller:comb_5|ColorDataBfr[11,14,20]                                                                            ; Merged with mtl_controller:comb_5|ColorDataBfr[10]                                                                             ;
+; mtl_controller:comb_5|ColorDataBfr[3,4]                                                                                 ; Merged with mtl_controller:comb_5|ColorDataBfr[0]                                                                              ;
+; mtl_controller:comb_5|ColorDataBfr[2,5,6,9,12]                                                                          ; Merged with mtl_controller:comb_5|ColorDataBfr[1]                                                                              ;
+; mtl_controller:comb_5|ColorDataBfr[20]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[10]                                                                             ;
+; mtl_controller:comb_5|ColorDataBfr[14]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[11]                                                                             ;
 ; mtl_controller:comb_5|ColorDataBfr[21]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[15]                                                                             ;
 ; mtl_controller:comb_5|ColorDataBfr[17]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[16]                                                                             ;
-; mtl_controller:comb_5|ColorData[3,4,22,23]                                                                              ; Merged with mtl_controller:comb_5|ColorData[0]                                                                                 ;
-; mtl_controller:comb_5|ColorData[2,5,6,9,12,13]                                                                          ; Merged with mtl_controller:comb_5|ColorData[1]                                                                                 ;
-; mtl_controller:comb_5|ColorData[11,14,20]                                                                               ; Merged with mtl_controller:comb_5|ColorData[10]                                                                                ;
+; mtl_controller:comb_5|ColorDataBfr[23]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[22]                                                                             ;
+; mtl_controller:comb_5|ColorData[3,4]                                                                                    ; Merged with mtl_controller:comb_5|ColorData[0]                                                                                 ;
+; mtl_controller:comb_5|ColorData[2,5,6,9,12]                                                                             ; Merged with mtl_controller:comb_5|ColorData[1]                                                                                 ;
+; mtl_controller:comb_5|ColorData[20]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[10]                                                                                ;
+; mtl_controller:comb_5|ColorData[14]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[11]                                                                                ;
 ; mtl_controller:comb_5|ColorData[21]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[15]                                                                                ;
 ; mtl_controller:comb_5|ColorData[17]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[16]                                                                                ;
+; mtl_controller:comb_5|ColorData[23]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[22]                                                                                ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[1]                                    ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[0]                               ;
-; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[3,6]                                ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[2]                             ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[4]                                    ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[2]                             ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[5]                                    ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[7]                             ;
-; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[3,4]                                 ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[0]                              ;
-; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[6,7]                                  ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[0]                              ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[7]                                    ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[6]                               ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[2,5,6]                               ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
-; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[1,4,5]                              ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[1,4]                                ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[6]                                  ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[3]                             ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[3,4]                                 ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[0]                              ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|txr[5,6]    ; Merged with mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|txr[4] ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~14  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~15  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~16  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~17  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[7..9]   ; Lost fanout                                                                                                                    ;
-; Total Number of Removed Registers = 58                                                                                  ;                                                                                                                                ;
+; Total Number of Removed Registers = 49                                                                                  ;                                                                                                                                ;
 +-------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -370,12 +374,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 604   ;
-; Number of registers using Synchronous Clear  ; 41    ;
+; Total registers                              ; 646   ;
+; Number of registers using Synchronous Clear  ; 47    ;
 ; Number of registers using Synchronous Load   ; 16    ;
 ; Number of registers using Asynchronous Clear ; 180   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 497   ;
+; Number of registers using Clock Enable       ; 534   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -397,30 +401,31 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|dcnt[2]                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[5]                                         ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[3] ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                                                                                                          ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorData[0]                                                                                                                                                             ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|cnt[8]     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|oREG_GESTURE[6]                                                                    ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south|count[4]                                                                                  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north|count[18]                                                                                 ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east|count[14]                                                                                  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west|count[14]                                                                                  ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorDataBfr[19]                                                                                                                                                         ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|read_cnt[4]                                                                        ;
-; 7:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[6]                                                                             ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd[3]                                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd                                      ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Selector25                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[1]                                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[0]                                          ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[16] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[0]                                                                                                          ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorData[16]                                                                                                                                                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|cnt[10]     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[5]  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|oREG_GESTURE[0]                                                                     ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_zoom_in|count[4]                                                                                 ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south|count[6]                                                                                   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north|count[11]                                                                                  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east|count[12]                                                                                   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west|count[13]                                                                                   ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorDataBfr[22]                                                                                                                                                          ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|read_cnt[3]                                                                         ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[1]                                                                              ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd[3]                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd                                       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Selector25                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------+
@@ -1503,31 +1508,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 148                         ;
-; cycloneiii_ff         ; 604                         ;
+; cycloneiii_ff         ; 646                         ;
 ;     CLR               ; 61                          ;
 ;     CLR SCLR          ; 11                          ;
 ;     CLR SLD           ; 16                          ;
-;     ENA               ; 399                         ;
+;     ENA               ; 432                         ;
 ;     ENA CLR           ; 76                          ;
 ;     ENA CLR SCLR      ; 16                          ;
-;     ENA SCLR          ; 6                           ;
-;     SCLR              ; 8                           ;
-;     plain             ; 11                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 14                          ;
 ; cycloneiii_io_obuf    ; 66                          ;
-; cycloneiii_lcell_comb ; 719                         ;
-;     arith             ; 194                         ;
-;         2 data inputs ; 193                         ;
+; cycloneiii_lcell_comb ; 817                         ;
+;     arith             ; 225                         ;
+;         2 data inputs ; 224                         ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 525                         ;
+;     normal            ; 592                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 33                          ;
-;         2 data inputs ; 63                          ;
-;         3 data inputs ; 55                          ;
-;         4 data inputs ; 373                         ;
+;         1 data inputs ; 35                          ;
+;         2 data inputs ; 66                          ;
+;         3 data inputs ; 90                          ;
+;         4 data inputs ; 400                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 3.64                        ;
+; Average LUT depth     ; 3.71                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1545,10 +1550,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Wed Feb  8 19:56:57 2017
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+    Info: Processing started: Thu Feb 09 16:48:26 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE0_NANO -c DE0_NANO
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file mtl_touch_controller.sv
     Info (12023): Found entity 1: mtl_touch_controller
     Info (12023): Found entity 2: touch_buffer
@@ -1560,10 +1565,10 @@ Info (12021): Found 3 design units, including 3 entities, in source file i2c_tou
     Info (12023): Found entity 1: i2c_touch_config
     Info (12023): Found entity 2: i2c_master_byte_ctrl
     Info (12023): Found entity 3: i2c_master_bit_ctrl
-Info (12021): Found 2 design units, including 2 entities, in source file DE0_NANO.sv
+Info (12021): Found 2 design units, including 2 entities, in source file de0_nano.sv
     Info (12023): Found entity 1: DE0_NANO
     Info (12023): Found entity 2: reset_delay
-Info (12021): Found 1 design units, including 1 entities, in source file MTL_PLL.v
+Info (12021): Found 1 design units, including 1 entities, in source file mtl_pll.v
     Info (12023): Found entity 1: MTL_PLL
 Critical Warning (10846): Verilog HDL Instantiation warning at DE0_NANO.sv(171): instance has no name
 Info (12127): Elaborating entity "DE0_NANO" for the top level hierarchy
@@ -1676,7 +1681,7 @@ Info (12133): Instantiated megafunction "mtl_controller:comb_5|MTL_PLL:MTL_PLL_i
     Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/MTL_PLL_altpll.v
+Info (12021): Found 1 design units, including 1 entities, in source file db/mtl_pll_altpll.v
     Info (12023): Found entity 1: MTL_PLL_altpll
 Info (12128): Elaborating entity "MTL_PLL_altpll" for hierarchy "mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
@@ -1807,7 +1812,7 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|REG_GESTURE[5]"
     Info (17048): Logic cell "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|REG_GESTURE[1]"
     Info (17048): Logic cell "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|REG_GESTURE[0]"
-Info (144001): Generated suppressed messages file /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.map.smsg
+Info (144001): Generated suppressed messages file Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 13 input pin(s) that do not drive logic
@@ -1824,22 +1829,22 @@ Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "GPIO_2_IN[2]"
     Warning (15610): No output dependent on input pin "GPIO_0_IN[0]"
     Warning (15610): No output dependent on input pin "GPIO_0_IN[1]"
-Info (21057): Implemented 1163 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1262 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 67 output pins
     Info (21060): Implemented 65 bidirectional pins
-    Info (21061): Implemented 1014 logic cells
+    Info (21061): Implemented 1113 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 161 warnings
-    Info: Peak virtual memory: 1124 megabytes
-    Info: Processing ended: Wed Feb  8 19:57:11 2017
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:28
+    Info: Peak virtual memory: 706 megabytes
+    Info: Processing ended: Thu Feb 09 16:48:41 2017
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /mnt/Home/Projet-Elec-2103/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.map.smsg.
+The suppressed messages can be found in Z:/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.map.smsg.
 
 

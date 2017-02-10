@@ -62,7 +62,7 @@ logic CLOCK_33, iCLOCK_33;						// 33MHz clocks for the MTL
 
 logic	newFrame, endFrame;
 
-logic Gest_W, Gest_E, Gest_N, Gest_S;
+logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom;
 
 logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue} 
 
@@ -77,6 +77,7 @@ always @(posedge iCLK)
 	else if (Gest_E)		ColorDataBfr <= 24'h33FF66;		// Green 
     else if (Gest_N)		ColorDataBfr <= 24'h177EE6;		// Blue
     else if (Gest_S)		ColorDataBfr <= 24'hF0FFFF;		// Azur
+	 else if (Gest_Zoom) ColorDataBfr <= 24'hcc6900;      
 	else						ColorDataBfr <= ColorDataBfr;
 	
 always @(posedge iCLK)
@@ -123,7 +124,8 @@ mtl_touch_controller mtl_touch_controller_inst (
 	.Gest_W(Gest_W),								// Decoded gesture (sliding towards West)
 	.Gest_E(Gest_E),								// Decoded gesture (sliding towards East)
 	.Gest_N(Gest_N),								// Decoded gesture (sliding towards North)
-	.Gest_S(Gest_S)									// Decoded gesture (sliding towards South)
+	.Gest_S(Gest_S),									// Decoded gesture (sliding towards South)
+	.Gest_Zoom(Gest_Zoom)
 );
 			
 
