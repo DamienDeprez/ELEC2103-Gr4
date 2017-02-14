@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="dc09cfbca047d03edf02"/>
+    <hash md5_digest_80b="9f704415b1843698a58c"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="DE0_NANO.sof" usercode="0xFFFFFFFF"/>
@@ -21,7 +21,7 @@
         <parameter name="SLD_NODE_CRC_HIWORD" type="dec" value="41394"/>
         <parameter name="SLD_NODE_CRC_LOWORD" type="dec" value="50132"/>
         <parameter name="sld_incremental_routing" type="unknown" value="1"/>
-        <parameter name="sld_sample_depth" type="unknown" value="1024"/>
+        <parameter name="sld_sample_depth" type="unknown" value="2048"/>
         <parameter name="sld_segment_size" type="unknown" value="1024"/>
         <parameter name="sld_ram_block_type" type="unknown" value="AUTO"/>
         <parameter name="sld_state_bits" type="unknown" value="11"/>
@@ -34,9 +34,9 @@
         <parameter name="SLD_HPS_TRIGGER_OUT_ENABLED" type="dec" value="0"/>
         <parameter name="SLD_HPS_EVENT_ENABLED" type="dec" value="0"/>
         <parameter name="SLD_HPS_EVENT_ID" type="dec" value="0"/>
-        <parameter name="sld_advanced_trigger_entity" type="unknown" value="sld_reserved_DE0_NANO_auto_signaltap_0_1_889d,"/>
+        <parameter name="sld_advanced_trigger_entity" type="unknown" value="basic,1,"/>
         <parameter name="sld_trigger_level_pipeline" type="unknown" value="1"/>
-        <parameter name="sld_enable_advanced_trigger" type="unknown" value="1"/>
+        <parameter name="sld_enable_advanced_trigger" type="unknown" value="0"/>
         <parameter name="SLD_ADVANCED_TRIGGER_1" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_2" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_3" type="string" value="NONE"/>
@@ -47,8 +47,8 @@
         <parameter name="SLD_ADVANCED_TRIGGER_8" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_9" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_10" type="string" value="NONE"/>
-        <parameter name="sld_inversion_mask_length" type="unknown" value="24"/>
-        <parameter name="sld_inversion_mask" type="unknown" value="000000000000000000000000"/>
+        <parameter name="sld_inversion_mask_length" type="unknown" value="147"/>
+        <parameter name="sld_inversion_mask" type="unknown" value="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
         <parameter name="sld_power_up_trigger" type="unknown" value="0"/>
         <parameter name="SLD_STATE_FLOW_MGR_ENTITY" type="string" value="state_flow_mgr_entity.vhd"/>
         <parameter name="sld_state_flow_use_generated" type="unknown" value="0"/>

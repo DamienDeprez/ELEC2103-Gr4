@@ -57,19 +57,23 @@ module mtl_touch_controller(
 	output logic x1,
 	output logic y1,
 	
-	output logic [9:0] reg_x1,
-	output logic [8:0] reg_y1
+	output logic [9:0] reg_x1, reg_x2,
+	output logic [8:0] reg_y1, reg_y2
 );
 
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
 
-logic [9:0] reg_x2, reg_x3, reg_x4, reg_x5;
-logic [8:0] reg_y2, reg_y3, reg_y4, reg_y5;
+logic [9:0] reg_x3, reg_x4, reg_x5;
+logic [8:0] reg_y3, reg_y4, reg_y5;
 logic [1:0] reg_touch_count;
 logic [7:0] reg_gesture;
 logic			touch_ready;
+
+reg [9:0] x2_initial, x2_final;
+reg [8:0] y2_initial, y2_final;
+
 
 
 //=============================================================================

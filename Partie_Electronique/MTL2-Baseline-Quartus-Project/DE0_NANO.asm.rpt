@@ -1,6 +1,6 @@
 Assembler report for DE0_NANO
-Fri Feb 10 21:26:53 2017
-Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+Tue Feb 14 15:09:23 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
 
 
 ---------------------
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: DE0_NANO.sof
+  6. Assembler Device Options: E:/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Feb 10 21:26:53 2017 ;
+; Assembler Status      ; Successful - Tue Feb 14 15:09:23 2017 ;
 ; Revision Name         ; DE0_NANO                              ;
 ; Top-level Entity Name ; DE0_NANO                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -64,24 +64,24 @@ agreement for further details.
 +--------+------------------------+--------------+
 
 
-+---------------------------+
-; Assembler Generated Files ;
-+---------------------------+
-; File Name                 ;
-+---------------------------+
-; DE0_NANO.sof              ;
-+---------------------------+
++------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                      ;
++------------------------------------------------------------------------------------------------+
+; File Name                                                                                      ;
++------------------------------------------------------------------------------------------------+
+; E:/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.sof ;
++------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------+
-; Assembler Device Options: DE0_NANO.sof ;
-+----------------+-----------------------+
-; Option         ; Setting               ;
-+----------------+-----------------------+
-; Device         ; EP4CE22F17C6          ;
-; JTAG usercode  ; 0x0025CA8E            ;
-; Checksum       ; 0x0025CA8E            ;
-+----------------+-----------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: E:/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/DE0_NANO.sof ;
++----------------+---------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                 ;
++----------------+---------------------------------------------------------------------------------------------------------+
+; Device         ; EP4CE22F17C6                                                                                            ;
+; JTAG usercode  ; 0x00277D9A                                                                                              ;
+; Checksum       ; 0x00277D9A                                                                                              ;
++----------------+---------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -89,15 +89,15 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
-    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Fri Feb 10 21:26:52 2017
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
+    Info: Processing started: Tue Feb 14 15:09:21 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DE0_NANO -c DE0_NANO
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 894 megabytes
-    Info: Processing ended: Fri Feb 10 21:26:53 2017
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 618 megabytes
+    Info: Processing ended: Tue Feb 14 15:09:23 2017
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

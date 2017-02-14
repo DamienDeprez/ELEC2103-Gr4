@@ -62,10 +62,10 @@ logic CLOCK_33, iCLOCK_33;						// 33MHz clocks for the MTL
 
 logic	newFrame, endFrame;
 
-logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom, Pos_x1, Pos_y1; // Predifined Gesture
+logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom, Pos_x1, Pos_y1, Pos_x2, Pos_y2; // Predifined Gesture
 
-logic [9:0] x1Bfr, x1;
-logic [8:0] y1Bfr, y1;
+logic [9:0] x1Bfr, x1, x2Bfr, x2;
+logic [8:0] y1Bfr, y1, y2, y2Bfr;
 
 logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue} 
 
@@ -100,6 +100,18 @@ always@(posedge iCLK)
 		x1 <= x1;
 		y1 <= y1;
 	end
+	
+	always@(posedge iCLK)
+	if(iRST)	begin
+		x2 <= 10'b0;
+		y2 <= 9'b0;
+	end else if(endFrame) begin
+		if(Pos_x2) x2 <= x2Bfr;
+		if(Pos_y2) y2 <= y2Bfr;
+	end else begin
+		x2 <= x2;
+		y2 <= y2;
+	end
 //=============================================================================
 // Dedicated sub-controllers
 //=============================================================================
@@ -122,7 +134,9 @@ mtl_display_controller mtl_display_controller_inst (
 	.oVD(MTL_VSD),					// Output LCD blue color data  
 	
 	.iX1(x1Bfr),
-	.iY1(y1Bfr)
+	.iY1(y1Bfr),
+	.iX2(x2Bfr),
+	.iY2(y2Bfr)
 );
 
 assign MTL_DCLK = iCLOCK_33;
@@ -148,7 +162,9 @@ mtl_touch_controller mtl_touch_controller_inst (
 	.y1(Pos_y1),
 	
 	.reg_x1(x1Bfr),
-	.reg_y1(y1Bfr)
+	.reg_y1(y1Bfr),
+	.reg_x2(x2Bfr),
+	.reg_y2(y2Bfr)
 );
 			
 
