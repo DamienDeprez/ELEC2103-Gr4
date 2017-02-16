@@ -62,10 +62,10 @@ logic CLOCK_33, iCLOCK_33;						// 33MHz clocks for the MTL
 
 logic	newFrame, endFrame;
 
-logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom, Pos_x1, Pos_y1, Pos_x2, Pos_y2; // Predifined Gesture
+logic Gest_W, Gest_E, Gest_N, Gest_S, Gest_Zoom, Gest_Custom1; // Predifined Gesture
 
-logic [9:0] x1Bfr, x1, x2Bfr, x2;
-logic [8:0] y1Bfr, y1, y2, y2Bfr;
+logic [9:0] x1, x2, x3;
+logic [8:0] y1, y2, y3;
 
 logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue} 
 
@@ -76,11 +76,12 @@ logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue}
 
 always @(posedge iCLK)
 	if(iRST)					ColorDataBfr <= 24'd0;
+	else if (Gest_Custom1) ColorDataBfr <= 24'hFFCC33;
 	else if (Gest_W)		ColorDataBfr <= 24'hCC33FF;		// Purple
 	else if (Gest_E)		ColorDataBfr <= 24'h33FF66;		// Green 
     else if (Gest_N)		ColorDataBfr <= 24'h177EE6;		// Blue
     else if (Gest_S)		ColorDataBfr <= 24'hF0FFFF;		// Azur
-	 else if (Gest_Zoom) ColorDataBfr <= 24'hCC6900;      
+	 else if (Gest_Zoom) ColorDataBfr <= 24'hCC6900; 
 	else						ColorDataBfr <= ColorDataBfr;
 	
 always @(posedge iCLK)
@@ -89,29 +90,29 @@ always @(posedge iCLK)
 	else						ColorData <= ColorData;				// two frames to avoid glitches
 
 	
-always@(posedge iCLK)
-	if(iRST)	begin
-		x1 <= 10'b0;
-		y1 <= 9'b0;
-	end else if(endFrame) begin
-		if(Pos_x1) x1 <= x1Bfr;
-		if(Pos_y1) y1 <= y1Bfr;
-	end else begin
-		x1 <= x1;
-		y1 <= y1;
-	end
-	
-	always@(posedge iCLK)
-	if(iRST)	begin
-		x2 <= 10'b0;
-		y2 <= 9'b0;
-	end else if(endFrame) begin
-		if(Pos_x2) x2 <= x2Bfr;
-		if(Pos_y2) y2 <= y2Bfr;
-	end else begin
-		x2 <= x2;
-		y2 <= y2;
-	end
+//always@(posedge iCLK)
+//	if(iRST)	begin
+//		x1 <= 10'b0;
+//		y1 <= 9'b0;
+//	end else if(endFrame) begin
+//		if(Pos_x1) x1 <= x1Bfr;
+//		if(Pos_y1) y1 <= y1Bfr;
+//	end else begin
+//		x1 <= x1;
+//		y1 <= y1;
+//	end
+//	
+//	always@(posedge iCLK)
+//	if(iRST)	begin
+//		x2 <= 10'b0;
+//		y2 <= 9'b0;
+//	end else if(endFrame) begin
+//		if(Pos_x2) x2 <= x2Bfr;
+//		if(Pos_y2) y2 <= y2Bfr;
+//	end else begin
+//		x2 <= x2;
+//		y2 <= y2;
+//	end
 //=============================================================================
 // Dedicated sub-controllers
 //=============================================================================
@@ -133,10 +134,12 @@ mtl_display_controller mtl_display_controller_inst (
 	.oHD(MTL_HSD),					// Output LCD green color data 
 	.oVD(MTL_VSD),					// Output LCD blue color data  
 	
-	.iX1(x1Bfr),
-	.iY1(y1Bfr),
-	.iX2(x2Bfr),
-	.iY2(y2Bfr)
+	.iX1(x1),
+	.iY1(y1),
+	.iX2(x2),
+	.iY2(y2),
+	.iX3(x3),
+	.iY3(y3)
 );
 
 assign MTL_DCLK = iCLOCK_33;
@@ -158,13 +161,14 @@ mtl_touch_controller mtl_touch_controller_inst (
 	.Gest_N(Gest_N),								// Decoded gesture (sliding towards North)
 	.Gest_S(Gest_S),									// Decoded gesture (sliding towards South)
 	.Gest_Zoom(Gest_Zoom),
-	.x1(Pos_x1),
-	.y1(Pos_y1),
+	.Gest_Custom1(Gest_Custom1),
 	
-	.reg_x1(x1Bfr),
-	.reg_y1(y1Bfr),
-	.reg_x2(x2Bfr),
-	.reg_y2(y2Bfr)
+	.x1_1i(x1),
+	.x2_1i(x2),
+	.x2_1f(x3),
+	.y1_1i(y1),
+	.y2_1i(y2),
+	.y2_1f(y3)
 );
 			
 
