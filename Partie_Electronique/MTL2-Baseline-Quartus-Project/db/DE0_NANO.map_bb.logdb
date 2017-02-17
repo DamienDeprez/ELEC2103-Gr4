@@ -1,1 +1,5 @@
 v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2|mult_p5t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3|mult_l5t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0|mult_p5t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1|mult_l5t:auto_generated|mac_out2,

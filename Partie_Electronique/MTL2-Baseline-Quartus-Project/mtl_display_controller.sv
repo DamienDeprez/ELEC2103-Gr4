@@ -53,8 +53,8 @@ module mtl_display_controller(
 	oLCD_G,           // Output LCD green color data  
 	oLCD_B,            // Output LCD blue color data  
 	
-	iX1,
-	iY1
+	iX1, iX2, iX3,
+	iY1, iY2, iY3
 );
 						
 //============================================================================
@@ -85,8 +85,8 @@ output [7:0]	oLCD_R;
 output [7:0]	oLCD_G;
 output [7:0]	oLCD_B;
 
-input [9:0] iX1;
-input [8:0] iY1;
+input [9:0] iX1, iX2, iX3;
+input [8:0] iY1, iY2, iY3;
 
 //=============================================================================
 // REG/WIRE declarations
@@ -127,7 +127,9 @@ assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(y_cnt<(V_LINE-Vertical_Front_Porch))));
 					
 // Check if the current pixel position is in the rectangle
-assign isInRectangle = (iX1-20 < x_cnt && x_cnt < iX1+20) && (iY1-20 < y_cnt && y_cnt < iY1 + 20);
+assign isInRectangle1 = (iX1+20 < x_cnt && x_cnt < iX1+60) && (iY1 < y_cnt && y_cnt < iY1 + 40);
+assign isInRectangle2 = (iX2+20 < x_cnt && x_cnt < iX2+60) && (iY2 < y_cnt && y_cnt < iY2 + 40);
+assign isInRectangle3 = (iX3+20 < x_cnt && x_cnt < iX3+60) && (iY3 < y_cnt && y_cnt < iY3 + 40);
 						
 
 // Assigns the right color data.
@@ -139,10 +141,20 @@ always_ff @(posedge iCLK) begin
 		read_blue 	<= 8'b0;
 	// If we are in the active display area...
 	end else if (display_area) begin
-		if(isInRectangle) begin
+		if(isInRectangle1) begin
 			read_red <= 8'b11111111;
-			read_blue <= 2'h00;
-			read_green <= 2'h00;
+			read_blue <= 8'h00;
+			read_green <= 8'h00;
+		end
+		else if(isInRectangle2) begin
+			read_red <= 8'h00;
+			read_blue <= 8'hCC;
+			read_green <= 8'h55;
+		end
+		else if(isInRectangle3) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h00;
+			read_green <= 8'hCC;
 		end
 		else begin
 			read_red 	<= iColorData[23:16]; 

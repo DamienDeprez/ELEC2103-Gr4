@@ -53,24 +53,82 @@ module mtl_touch_controller(
 	output   Gest_N,					// Decoded gesture (sliding towards North)
 	output   Gest_S,						// Decoded gesture (sliding towards South)
 	output   Gest_Zoom, 					// Decoded gesture (sliding Zoom)
+	output	Gest_Custom1,
 	// Position
-	output logic x1,
-	output logic y1,
 	
-	output logic [9:0] reg_x1,
-	output logic [8:0] reg_y1
+	output logic [9:0] x1_1i, x2_1i, x2_1f,
+	output logic [8:0] y1_1i, y2_1i, y2_1f
 );
 
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
 
-logic [9:0] reg_x2, reg_x3, reg_x4, reg_x5;
-logic [8:0] reg_y2, reg_y3, reg_y4, reg_y5;
-logic [1:0] reg_touch_count;
+logic [9:0] reg_x1, reg_x2, reg_x3, reg_x4, reg_x5;
+logic [8:0] reg_y1, reg_y2, reg_y3, reg_y4, reg_y5;
+logic [3:0] reg_touch_count;
 logic [7:0] reg_gesture;
 logic			touch_ready;
 
+logic isGestCustom1; // set to 1 if the gesture is correct
+
+reg [9:0] x1_initial, x2_initial, x2_final;
+reg [8:0] y1_initial, y2_initial, y2_final;
+
+logic [31:0] current_distance, initial_distance;
+
+logic pulse1, pulse2;
+
+assign current_distance = (x1_initial - reg_x2)*(x1_initial - reg_x2) + (y1_initial - reg_y2)*(y1_initial - reg_y2);
+assign initial_distance = (x1_initial - x2_initial)*(x1_initial - x2_initial) + (y1_initial - y2_initial)*(y1_initial - y2_initial);
+
+assign x1_1i = x1_initial;
+assign y1_1i = y1_initial;
+
+assign x2_1i = x2_initial;
+assign y2_1i = y2_initial;
+
+assign x2_1f = x2_final;
+assign y2_1f = y2_final;
+
+pulseGenerator generator(
+	.clk(iCLK),
+	.reset(iRST),
+	.touch_count(reg_touch_count),
+	.pulse1to2(pulse1),
+	.pulse2to1(pulse2)
+	);
+	
+// set the initial point of the gesture
+always_ff @(posedge pulse1) begin
+	x1_initial <= reg_x1;
+	y1_initial <= reg_y1;
+	
+	x2_initial <= reg_x2;
+	y2_initial <= reg_y2;
+end
+
+ // set the final point of the gesture if it's correct
+always_ff @(posedge pulse2) begin
+	if(isGestCustom1) begin
+		x2_final <= reg_x2;
+		y2_final <= reg_y2;
+	end else begin
+		x2_final <= 10'b0;
+		y2_final <= 9'b0;
+	end
+end
+
+always_ff @(posedge touch_ready, posedge pulse1, posedge pulse2) begin
+	if(pulse1) 
+		isGestCustom1 <= 1'b1;
+	else if(pulse2)
+		isGestCustom1 <= 1'b0;
+	else
+		isGestCustom1 <= (x1_initial - 10'd10 <= reg_x1 && reg_x1 <= x1_initial + 10'd10) && // verifie que x1 ne bouge pas 
+						 (y1_initial - 9'd10 <= reg_y1 && reg_y1 <= y1_initial + 9'd10); // &&  // verifie que y1 ne bouge pas
+						 //(initial_distance - 32'd400 <= current_distance && current_distance <= initial_distance + 32'd400);
+end
 
 //=============================================================================
 // Structural coding
@@ -106,6 +164,7 @@ i2c_touch_config  i2c_touch_config_inst (
 );
 
 
+
 // These two modules are small buffers for the touch
 // controller outputs.
 // The first one is for the sliding "West" gesture,
@@ -115,51 +174,31 @@ i2c_touch_config  i2c_touch_config_inst (
 touch_buffer	touch_buffer_west (
 	.clk (iCLK),
 	.rst (iRST),
-	.trigger (touch_ready && (reg_gesture == 8'h1C)),
+	.trigger (touch_ready && (reg_touch_count == 4'd1)),
 	.pulse (Gest_W)
 );
 
 touch_buffer	touch_buffer_east (
 	.clk (iCLK),
 	.rst (iRST),
-	.trigger (touch_ready && (reg_gesture == 8'h14)),
+	.trigger (touch_ready && (reg_touch_count == 4'd2)),
 	.pulse (Gest_E)
 );
 
 touch_buffer 	touch_buffer_north (
 	.clk (iCLK),
 	.rst (iRST),
-	.trigger (touch_ready && (reg_gesture == 8'h10)),
+	.trigger (touch_ready && (reg_touch_count == 4'd3)),
 	.pulse (Gest_N)
 );
 
 touch_buffer 	touch_buffer_south (
 	.clk (iCLK),
 	.rst (iRST),
-	.trigger (touch_ready && (reg_gesture == 8'h18)),
+	.trigger (touch_ready && (reg_touch_count == 4'd4)),
 	.pulse (Gest_S)
 );
 
-touch_buffer 	touch_buffer_zoom_in (
-	.clk (iCLK),
-	.rst (iRST),
-	.trigger (touch_ready && (reg_gesture == 8'h48)),
-	.pulse (Gest_Zoom)
-);
-
-/*touch_buffer	touch_buffer_x1 (
-	.clk (iCLK),
-	.rst (iRST),
-	.trigger(touch_ready),
-	.pulse (x1)
-);
-
-touch_buffer	touch_buffer_y1 (
-	.clk (iCLK),
-	.rst (iRST),
-	.trigger(touch_ready),
-	.pulse (y1)
-);*/
 
 endmodule // mtl_touch_controller
 
@@ -210,68 +249,26 @@ module touch_buffer (
 	
 endmodule // touch_buffer
 
-module touch_buffer_x (
-	input  logic	clk,
-	input  logic	rst,
-	input  logic	trigger,
-	input  logic [9:0]   reg_x,
-	output logic [9:0]	pulse
+module pulseGenerator(
+	input clk,
+	input reset,
+	input [3:0] touch_count,
+	output pulse1to2, // pulse when touch_count go from 1 to 2
+	output pulse2to1 // pulse when touch_count go down from 2 to 1
 	);
-
-	logic active;
-	logic [31:0] count;
+	reg [3:0] touch_count_old;
+	reg [3:0] touch_count_actual;
 	
-	always_ff @ (posedge clk) begin
-	
-		if (rst) begin
-			active <= 1'b0;
-			count <= 32'd0;
-		end else begin
-			if (trigger && !active)
-				active <= 1'b1;
-			else if (active && (count < 32'd25000000))
-				count <= count + 32'b1;
-			else if (count >= 32'd25000000) begin
-				active <= 1'b0;
-				count <= 32'd0;
-			end
-		end
-		
+	always_ff @(posedge clk) begin
+		touch_count_old <= touch_count_actual;
+		touch_count_actual <= touch_count;
+		if(touch_count_old == 4'd1 && touch_count_actual == 4'd2)
+			pulse1to2 <= 1;
+		else
+			pulse1to2 <= 0;
+		if(touch_count_old == 4'd2 && touch_count_actual == 4'd1)
+			pulse2to1 <= 1;
+		else
+			pulse2to1 <= 0;
 	end
-
-	assign pulse = (count==32'd10000000)? reg_x:10'b0; 
-	
-endmodule // touch_buffer
-
-module touch_buffer_y (
-	input  logic	clk,
-	input  logic	rst,
-	input  logic	trigger,
-	input  logic [8:0]   reg_y,
-	output logic [8:0]	pulse
-	);
-
-	logic active;
-	logic [31:0] count;
-	
-	always_ff @ (posedge clk) begin
-	
-		if (rst) begin
-			active <= 1'b0;
-			count <= 32'd0;
-		end else begin
-			if (trigger && !active)
-				active <= 1'b1;
-			else if (active && (count < 32'd25000000))
-				count <= count + 32'b1;
-			else if (count >= 32'd25000000) begin
-				active <= 1'b0;
-				count <= 32'd0;
-			end
-		end
-		
-	end
-
-	assign pulse = (count==32'd10000000)? reg_y:9'b0; 
-	
-endmodule // touch_buffer
+endmodule 
