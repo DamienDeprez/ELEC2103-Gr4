@@ -560,8 +560,8 @@ iY3[8] => Add8.IN7
 
 
 |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst
-iCLK => iCLK.IN7
-iRST => iRST.IN6
+iCLK => iCLK.IN6
+iRST => iRST.IN5
 MTL_TOUCH_INT_n => _.IN1
 MTL_TOUCH_I2C_SDA <> i2c_touch_config:i2c_touch_config_inst.I2C_SDAT
 MTL_TOUCH_I2C_SCL <= i2c_touch_config:i2c_touch_config_inst.I2C_SCLK
@@ -569,7 +569,7 @@ Gest_W <= touch_buffer:touch_buffer_west.pulse
 Gest_E <= touch_buffer:touch_buffer_east.pulse
 Gest_N <= touch_buffer:touch_buffer_north.pulse
 Gest_S <= touch_buffer:touch_buffer_south.pulse
-Gest_Zoom <= touch_buffer:touch_buffer_zoom_in.pulse
+Gest_Zoom <= <GND>
 Gest_Custom1 <= <GND>
 x1_1i[0] <= x1_initial[0].DB_MAX_OUTPUT_PORT_TYPE
 x1_1i[1] <= x1_initial[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -1215,77 +1215,6 @@ pulse <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south
-clk => count[0].CLK
-clk => count[1].CLK
-clk => count[2].CLK
-clk => count[3].CLK
-clk => count[4].CLK
-clk => count[5].CLK
-clk => count[6].CLK
-clk => count[7].CLK
-clk => count[8].CLK
-clk => count[9].CLK
-clk => count[10].CLK
-clk => count[11].CLK
-clk => count[12].CLK
-clk => count[13].CLK
-clk => count[14].CLK
-clk => count[15].CLK
-clk => count[16].CLK
-clk => count[17].CLK
-clk => count[18].CLK
-clk => count[19].CLK
-clk => count[20].CLK
-clk => count[21].CLK
-clk => count[22].CLK
-clk => count[23].CLK
-clk => count[24].CLK
-clk => count[25].CLK
-clk => count[26].CLK
-clk => count[27].CLK
-clk => count[28].CLK
-clk => count[29].CLK
-clk => count[30].CLK
-clk => count[31].CLK
-clk => active.CLK
-rst => active.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-trigger => always0.IN1
-pulse <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_zoom_in
 clk => count[0].CLK
 clk => count[1].CLK
 clk => count[2].CLK

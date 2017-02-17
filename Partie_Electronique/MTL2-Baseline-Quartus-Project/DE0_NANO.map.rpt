@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE0_NANO
-Thu Feb 16 20:17:35 2017
+Thu Feb 16 20:24:18 2017
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -14,42 +14,37 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. Analysis & Synthesis IP Cores Summary
- 11. State Machine - |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state
- 12. State Machine - |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|c_state
- 13. Registers Protected by Synthesis
- 14. Registers Removed During Synthesis
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst
- 19. Source assignments for sld_signaltap:auto_signaltap_0
- 20. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst
- 21. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller
- 22. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller
- 23. Parameter Settings for User Entity Instance: mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component
- 24. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 25. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult0
- 26. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult1
- 27. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_divide:Div0
- 28. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_divide:Div1
- 29. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0
- 30. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1
- 31. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2
- 32. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3
- 33. altpll Parameter Settings by Entity Instance
- 34. lpm_mult Parameter Settings by Entity Instance
- 35. Port Connectivity Checks: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller"
- 36. Port Connectivity Checks: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst"
- 37. Port Connectivity Checks: "mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst"
- 38. Port Connectivity Checks: "reset_delay:reset_delay_inst"
- 39. SignalTap II Logic Analyzer Settings
- 40. Post-Synthesis Netlist Statistics for Top Partition
- 41. Elapsed Time Per Partition
- 42. Connections to In-System Debugging Instance "auto_signaltap_0"
- 43. Analysis & Synthesis Messages
- 44. Analysis & Synthesis Suppressed Messages
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state
+ 11. State Machine - |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|c_state
+ 12. Registers Protected by Synthesis
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst
+ 18. Source assignments for sld_signaltap:auto_signaltap_0
+ 19. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst
+ 20. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller
+ 21. Parameter Settings for User Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller
+ 22. Parameter Settings for User Entity Instance: mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component
+ 23. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 24. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult0
+ 25. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult1
+ 26. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_divide:Div1
+ 28. altpll Parameter Settings by Entity Instance
+ 29. lpm_mult Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller"
+ 31. Port Connectivity Checks: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst"
+ 32. Port Connectivity Checks: "mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst"
+ 33. Port Connectivity Checks: "reset_delay:reset_delay_inst"
+ 34. SignalTap II Logic Analyzer Settings
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -76,19 +71,19 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 16 20:17:35 2017      ;
+; Analysis & Synthesis Status        ; Successful - Thu Feb 16 20:24:18 2017      ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                      ; DE0_NANO                                   ;
 ; Top-level Entity Name              ; DE0_NANO                                   ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 4,187                                      ;
-;     Total combinational functions  ; 2,599                                      ;
-;     Dedicated logic registers      ; 2,392                                      ;
-; Total registers                    ; 2392                                       ;
+; Total logic elements               ; 3,916                                      ;
+;     Total combinational functions  ; 2,328                                      ;
+;     Dedicated logic registers      ; 2,351                                      ;
+; Total registers                    ; 2351                                       ;
 ; Total pins                         ; 148                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 200,704                                    ;
-; Embedded Multiplier 9-bit elements ; 8                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
 ; Total PLLs                         ; 1                                          ;
 +------------------------------------+--------------------------------------------+
 
@@ -300,8 +295,6 @@ agreement for further details.
 ; db/alt_u_div_a7f.tdf                                               ; yes             ; Auto-Generated Megafunction                  ; /media/damien/3B11B2B762CE4274/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/alt_u_div_a7f.tdf                                               ;             ;
 ; db/add_sub_7pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; /media/damien/3B11B2B762CE4274/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/add_sub_7pc.tdf                                                 ;             ;
 ; db/add_sub_8pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; /media/damien/3B11B2B762CE4274/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/add_sub_8pc.tdf                                                 ;             ;
-; db/mult_p5t.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; /media/damien/3B11B2B762CE4274/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/mult_p5t.tdf                                                    ;             ;
-; db/mult_l5t.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; /media/damien/3B11B2B762CE4274/Quartus_Project/ELEC2103-Gr4/Partie_Electronique/MTL2-Baseline-Quartus-Project/db/mult_l5t.tdf                                                    ;             ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
@@ -310,34 +303,34 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 4,187          ;
+; Estimated Total logic elements              ; 3,916          ;
 ;                                             ;                ;
-; Total combinational functions               ; 2599           ;
+; Total combinational functions               ; 2328           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 1097           ;
-;     -- 3 input functions                    ; 669            ;
-;     -- <=2 input functions                  ; 833            ;
+;     -- 4 input functions                    ; 1029           ;
+;     -- 3 input functions                    ; 547            ;
+;     -- <=2 input functions                  ; 752            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1814           ;
-;     -- arithmetic mode                      ; 785            ;
+;     -- normal mode                          ; 1694           ;
+;     -- arithmetic mode                      ; 634            ;
 ;                                             ;                ;
-; Total registers                             ; 2392           ;
-;     -- Dedicated logic registers            ; 2392           ;
+; Total registers                             ; 2351           ;
+;     -- Dedicated logic registers            ; 2351           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 148            ;
 ; Total memory bits                           ; 200704         ;
 ;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 8              ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Total PLLs                                  ; 1              ;
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 1550           ;
-; Total fan-out                               ; 18081          ;
-; Average fan-out                             ; 3.31           ;
+; Maximum fan-out                             ; 1511           ;
+; Total fan-out                               ; 17122          ;
+; Average fan-out                             ; 3.33           ;
 +---------------------------------------------+----------------+
 
 
@@ -346,13 +339,13 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                                             ; Library Name ;
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |DE0_NANO                                                                                           ; 2599 (2)          ; 2392 (0)     ; 200704      ; 8            ; 0       ; 4         ; 148  ; 0            ; |DE0_NANO                                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
-;    |mtl_controller:comb_5|                                                                          ; 1565 (28)         ; 728 (24)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5                                                                                                                                                                                                                                                                                                                                                                 ; work         ;
+; |DE0_NANO                                                                                           ; 2328 (2)          ; 2351 (0)     ; 200704      ; 0            ; 0       ; 0         ; 148  ; 0            ; |DE0_NANO                                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
+;    |mtl_controller:comb_5|                                                                          ; 1294 (21)         ; 687 (18)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5                                                                                                                                                                                                                                                                                                                                                                 ; work         ;
 ;       |MTL_PLL:MTL_PLL_inst|                                                                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst                                                                                                                                                                                                                                                                                                                                            ; work         ;
 ;          |altpll:altpll_component|                                                                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component                                                                                                                                                                                                                                                                                                                    ; work         ;
 ;             |MTL_PLL_altpll:auto_generated|                                                         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated                                                                                                                                                                                                                                                                                      ; work         ;
-;       |mtl_display_controller:mtl_display_controller_inst|                                          ; 270 (270)         ; 68 (68)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst                                                                                                                                                                                                                                                                                                              ; work         ;
-;       |mtl_touch_controller:mtl_touch_controller_inst|                                              ; 1267 (270)        ; 636 (58)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst                                                                                                                                                                                                                                                                                                                  ; work         ;
+;       |mtl_display_controller:mtl_display_controller_inst|                                          ; 266 (266)         ; 66 (66)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst                                                                                                                                                                                                                                                                                                              ; work         ;
+;       |mtl_touch_controller:mtl_touch_controller_inst|                                              ; 1007 (95)         ; 603 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst                                                                                                                                                                                                                                                                                                                  ; work         ;
 ;          |i2c_touch_config:i2c_touch_config_inst|                                                   ; 565 (140)         ; 403 (331)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst                                                                                                                                                                                                                                                                           ; work         ;
 ;             |i2c_master_byte_ctrl:byte_controller|                                                  ; 143 (46)          ; 72 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller                                                                                                                                                                                                                                      ; work         ;
 ;                |i2c_master_bit_ctrl:bit_controller|                                                 ; 97 (97)           ; 47 (47)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller                                                                                                                                                                                                   ; work         ;
@@ -374,20 +367,11 @@ agreement for further details.
 ;                   |mpar_add:padder|                                                                 ; 9 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder                                                                                                                                                                                                                         ; work         ;
 ;                      |lpm_add_sub:adder[0]|                                                         ; 9 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                                                                                                                                                                    ; work         ;
 ;                         |add_sub_bfh:auto_generated|                                                ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_bfh:auto_generated                                                                                                                                                                         ; work         ;
-;          |lpm_mult:Mult0|                                                                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0                                                                                                                                                                                                                                                                                                   ; work         ;
-;             |mult_p5t:auto_generated|                                                               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0|mult_p5t:auto_generated                                                                                                                                                                                                                                                                           ; work         ;
-;          |lpm_mult:Mult1|                                                                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1                                                                                                                                                                                                                                                                                                   ; work         ;
-;             |mult_l5t:auto_generated|                                                               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1|mult_l5t:auto_generated                                                                                                                                                                                                                                                                           ; work         ;
-;          |lpm_mult:Mult2|                                                                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2                                                                                                                                                                                                                                                                                                   ; work         ;
-;             |mult_p5t:auto_generated|                                                               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2|mult_p5t:auto_generated                                                                                                                                                                                                                                                                           ; work         ;
-;          |lpm_mult:Mult3|                                                                           ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3                                                                                                                                                                                                                                                                                                   ; work         ;
-;             |mult_l5t:auto_generated|                                                               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3|mult_l5t:auto_generated                                                                                                                                                                                                                                                                           ; work         ;
 ;          |pulseGenerator:generator|                                                                 ; 5 (5)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|pulseGenerator:generator                                                                                                                                                                                                                                                                                         ; work         ;
 ;          |touch_buffer:touch_buffer_east|                                                           ; 85 (85)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east                                                                                                                                                                                                                                                                                   ; work         ;
 ;          |touch_buffer:touch_buffer_north|                                                          ; 85 (85)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north                                                                                                                                                                                                                                                                                  ; work         ;
 ;          |touch_buffer:touch_buffer_south|                                                          ; 86 (86)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south                                                                                                                                                                                                                                                                                  ; work         ;
 ;          |touch_buffer:touch_buffer_west|                                                           ; 86 (86)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west                                                                                                                                                                                                                                                                                   ; work         ;
-;          |touch_buffer:touch_buffer_zoom_in|                                                        ; 85 (85)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_zoom_in                                                                                                                                                                                                                                                                                ; work         ;
 ;    |reset_delay:reset_delay_inst|                                                                   ; 28 (28)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|reset_delay:reset_delay_inst                                                                                                                                                                                                                                                                                                                                                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                               ; 121 (1)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                                                                      ; altera_sld   ;
 ;       |alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric| ; 120 (0)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE0_NANO|sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric                                                                                                                                                                                                                                                                          ; alt_sld_fab  ;
@@ -857,24 +841,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary        ;
-+---------------------------------------+-------------+
-; Statistic                             ; Number Used ;
-+---------------------------------------+-------------+
-; Simple Multipliers (9-bit)            ; 0           ;
-; Simple Multipliers (18-bit)           ; 4           ;
-; Embedded Multiplier Blocks            ; --          ;
-; Embedded Multiplier 9-bit elements    ; 8           ;
-; Signed Embedded Multipliers           ; 4           ;
-; Unsigned Embedded Multipliers         ; 0           ;
-; Mixed Sign Embedded Multipliers       ; 0           ;
-; Variable Sign Embedded Multipliers    ; 0           ;
-; Dedicated Input Shift Register Chains ; 0           ;
-+---------------------------------------+-------------+
-Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
-
-
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                                                                    ;
 +--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
@@ -1000,22 +966,19 @@ Encoding Type:  One-Hot
 ; Register name                                                                                                           ; Reason for Removal                                                                                                             ;
 +-------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|txr[1..3,7] ; Stuck at GND due to stuck port data_in                                                                                         ;
-; mtl_controller:comb_5|ColorDataBfr[3,4]                                                                                 ; Merged with mtl_controller:comb_5|ColorDataBfr[0]                                                                              ;
-; mtl_controller:comb_5|ColorDataBfr[2,5,6,9,12]                                                                          ; Merged with mtl_controller:comb_5|ColorDataBfr[1]                                                                              ;
-; mtl_controller:comb_5|ColorDataBfr[20]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[10]                                                                             ;
-; mtl_controller:comb_5|ColorDataBfr[14]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[11]                                                                             ;
+; mtl_controller:comb_5|ColorDataBfr[3,4,22,23]                                                                           ; Merged with mtl_controller:comb_5|ColorDataBfr[0]                                                                              ;
+; mtl_controller:comb_5|ColorDataBfr[2,5,6,9,12,13]                                                                       ; Merged with mtl_controller:comb_5|ColorDataBfr[1]                                                                              ;
+; mtl_controller:comb_5|ColorDataBfr[11,14,20]                                                                            ; Merged with mtl_controller:comb_5|ColorDataBfr[10]                                                                             ;
 ; mtl_controller:comb_5|ColorDataBfr[21]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[15]                                                                             ;
 ; mtl_controller:comb_5|ColorDataBfr[17]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[16]                                                                             ;
-; mtl_controller:comb_5|ColorDataBfr[23]                                                                                  ; Merged with mtl_controller:comb_5|ColorDataBfr[22]                                                                             ;
-; mtl_controller:comb_5|ColorData[3,4]                                                                                    ; Merged with mtl_controller:comb_5|ColorData[0]                                                                                 ;
-; mtl_controller:comb_5|ColorData[2,5,6,9,12]                                                                             ; Merged with mtl_controller:comb_5|ColorData[1]                                                                                 ;
-; mtl_controller:comb_5|ColorData[20]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[10]                                                                                ;
-; mtl_controller:comb_5|ColorData[14]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[11]                                                                                ;
+; mtl_controller:comb_5|ColorData[3,4,22,23]                                                                              ; Merged with mtl_controller:comb_5|ColorData[0]                                                                                 ;
+; mtl_controller:comb_5|ColorData[2,5,6,9,12,13]                                                                          ; Merged with mtl_controller:comb_5|ColorData[1]                                                                                 ;
+; mtl_controller:comb_5|ColorData[11,14,20]                                                                               ; Merged with mtl_controller:comb_5|ColorData[10]                                                                                ;
 ; mtl_controller:comb_5|ColorData[21]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[15]                                                                                ;
 ; mtl_controller:comb_5|ColorData[17]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[16]                                                                                ;
-; mtl_controller:comb_5|ColorData[23]                                                                                     ; Merged with mtl_controller:comb_5|ColorData[22]                                                                                ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[5]                                   ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
-; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[1]                                  ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[1,5]                                ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[1]                              ;
+; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[6]                                  ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[2]                             ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[6]                                   ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[2]                              ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[4]                                  ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[2]                              ;
 ; mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[4]                                   ; Merged with mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[0]                              ;
@@ -1025,7 +988,7 @@ Encoding Type:  One-Hot
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~16  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|c_state~17  ; Lost fanout                                                                                                                    ;
 ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[7..9]   ; Lost fanout                                                                                                                    ;
-; Total Number of Removed Registers = 42                                                                                  ;                                                                                                                                ;
+; Total Number of Removed Registers = 50                                                                                  ;                                                                                                                                ;
 +-------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1034,12 +997,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2392  ;
-; Number of registers using Synchronous Clear  ; 95    ;
+; Total registers                              ; 2351  ;
+; Number of registers using Synchronous Clear  ; 89    ;
 ; Number of registers using Synchronous Load   ; 86    ;
 ; Number of registers using Asynchronous Clear ; 908   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1301  ;
+; Number of registers using Clock Enable       ; 1264  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1081,21 +1044,21 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[1]                                          ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[6]                                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|sr[0]                                          ;
 ; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[15] ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorData[22]                                                                                                                                                             ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|cnt[2]      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[0]                                                                                                           ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_zoom_in|count[25]                                                                                ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south|count[24]                                                                                  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north|count[18]                                                                                  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east|count[16]                                                                                   ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west|count[21]                                                                                   ;
-; 6:1                ; 11 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[1]                                                                                                            ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorDataBfr[16]                                                                                                                                                          ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorData[18]                                                                                                                                                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|cnt[11]     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[5]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_red[4]                                                                                                            ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_blue[3]                                                                                                           ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_south|count[6]                                                                                   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_north|count[29]                                                                                  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_east|count[18]                                                                                   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|touch_buffer:touch_buffer_west|count[15]                                                                                   ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst|read_green[7]                                                                                                          ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|ColorDataBfr[1]                                                                                                                                                           ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|read_cnt[2]                                                                         ;
-; 7:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[6]                                                                              ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|cnt[3]                                                                              ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; Yes        ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd[2]                                    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|i2c_master_byte_ctrl:byte_controller|core_cmd                                       ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |DE0_NANO|mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Selector25                                                                          ;
@@ -2293,146 +2256,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; Parameter Name                                 ; Value        ; Type                                                                 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                         ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                       ;
-; LPM_WIDTHA                                     ; 11           ; Untyped                                                              ;
-; LPM_WIDTHB                                     ; 11           ; Untyped                                                              ;
-; LPM_WIDTHP                                     ; 22           ; Untyped                                                              ;
-; LPM_WIDTHR                                     ; 22           ; Untyped                                                              ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                                                              ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                                                              ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                                                              ;
-; LATENCY                                        ; 0            ; Untyped                                                              ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; USE_EAB                                        ; OFF          ; Untyped                                                              ;
-; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                                              ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                              ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                                  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                              ;
-; CBXI_PARAMETER                                 ; mult_p5t     ; Untyped                                                              ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                              ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; Parameter Name                                 ; Value        ; Type                                                                 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                         ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                       ;
-; LPM_WIDTHA                                     ; 10           ; Untyped                                                              ;
-; LPM_WIDTHB                                     ; 10           ; Untyped                                                              ;
-; LPM_WIDTHP                                     ; 20           ; Untyped                                                              ;
-; LPM_WIDTHR                                     ; 20           ; Untyped                                                              ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                                                              ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                                                              ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                                                              ;
-; LATENCY                                        ; 0            ; Untyped                                                              ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; USE_EAB                                        ; OFF          ; Untyped                                                              ;
-; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                                              ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                              ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                                  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                              ;
-; CBXI_PARAMETER                                 ; mult_l5t     ; Untyped                                                              ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                              ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; Parameter Name                                 ; Value        ; Type                                                                 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                         ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                       ;
-; LPM_WIDTHA                                     ; 11           ; Untyped                                                              ;
-; LPM_WIDTHB                                     ; 11           ; Untyped                                                              ;
-; LPM_WIDTHP                                     ; 22           ; Untyped                                                              ;
-; LPM_WIDTHR                                     ; 22           ; Untyped                                                              ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                                                              ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                                                              ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                                                              ;
-; LATENCY                                        ; 0            ; Untyped                                                              ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; USE_EAB                                        ; OFF          ; Untyped                                                              ;
-; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                                              ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                              ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                                  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                              ;
-; CBXI_PARAMETER                                 ; mult_p5t     ; Untyped                                                              ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                              ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; Parameter Name                                 ; Value        ; Type                                                                 ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                           ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                         ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                         ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                       ;
-; LPM_WIDTHA                                     ; 10           ; Untyped                                                              ;
-; LPM_WIDTHB                                     ; 10           ; Untyped                                                              ;
-; LPM_WIDTHP                                     ; 20           ; Untyped                                                              ;
-; LPM_WIDTHR                                     ; 20           ; Untyped                                                              ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                                                              ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                                                              ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                                                              ;
-; LATENCY                                        ; 0            ; Untyped                                                              ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                              ;
-; USE_EAB                                        ; OFF          ; Untyped                                                              ;
-; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                                              ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                              ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                              ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                                  ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                              ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                              ;
-; CBXI_PARAMETER                                 ; mult_l5t     ; Untyped                                                              ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                              ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                              ;
-+------------------------------------------------+--------------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +----------------------------------------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                                                       ;
 +-------------------------------+--------------------------------------------------------------------+
@@ -2455,7 +2278,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
 ; Name                                  ; Value                                                                                                                      ;
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-; Number of entity instances            ; 6                                                                                                                          ;
+; Number of entity instances            ; 2                                                                                                                          ;
 ; Entity Instance                       ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult0 ;
 ;     -- LPM_WIDTHA                     ; 12                                                                                                                         ;
 ;     -- LPM_WIDTHB                     ; 5                                                                                                                          ;
@@ -2474,50 +2297,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- LPM_REPRESENTATION             ; UNSIGNED                                                                                                                   ;
 ;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                         ;
 ;     -- INPUT_B_IS_CONSTANT            ; YES                                                                                                                        ;
-;     -- USE_EAB                        ; OFF                                                                                                                        ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                       ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                         ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                                                                         ;
-; Entity Instance                       ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0                                        ;
-;     -- LPM_WIDTHA                     ; 11                                                                                                                         ;
-;     -- LPM_WIDTHB                     ; 11                                                                                                                         ;
-;     -- LPM_WIDTHP                     ; 22                                                                                                                         ;
-;     -- LPM_REPRESENTATION             ; SIGNED                                                                                                                     ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- USE_EAB                        ; OFF                                                                                                                        ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                       ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                         ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                                                                         ;
-; Entity Instance                       ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1                                        ;
-;     -- LPM_WIDTHA                     ; 10                                                                                                                         ;
-;     -- LPM_WIDTHB                     ; 10                                                                                                                         ;
-;     -- LPM_WIDTHP                     ; 20                                                                                                                         ;
-;     -- LPM_REPRESENTATION             ; SIGNED                                                                                                                     ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- USE_EAB                        ; OFF                                                                                                                        ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                       ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                         ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                                                                         ;
-; Entity Instance                       ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult2                                        ;
-;     -- LPM_WIDTHA                     ; 11                                                                                                                         ;
-;     -- LPM_WIDTHB                     ; 11                                                                                                                         ;
-;     -- LPM_WIDTHP                     ; 22                                                                                                                         ;
-;     -- LPM_REPRESENTATION             ; SIGNED                                                                                                                     ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- USE_EAB                        ; OFF                                                                                                                        ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                       ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                         ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                                                                         ;
-; Entity Instance                       ; mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult3                                        ;
-;     -- LPM_WIDTHA                     ; 10                                                                                                                         ;
-;     -- LPM_WIDTHB                     ; 10                                                                                                                         ;
-;     -- LPM_WIDTHP                     ; 20                                                                                                                         ;
-;     -- LPM_REPRESENTATION             ; SIGNED                                                                                                                     ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                                                                                                         ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                                                                                                         ;
 ;     -- USE_EAB                        ; OFF                                                                                                                        ;
 ;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                                                                       ;
 ;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                                                                         ;
@@ -2589,34 +2368,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 208                         ;
-; cycloneiii_ff         ; 755                         ;
+; cycloneiii_ff         ; 714                         ;
 ;     CLR               ; 62                          ;
 ;     CLR SCLR          ; 11                          ;
 ;     CLR SLD           ; 16                          ;
-;     ENA               ; 432                         ;
+;     ENA               ; 399                         ;
 ;     ENA CLR           ; 110                         ;
 ;     ENA CLR SCLR      ; 16                          ;
-;     ENA SCLR          ; 10                          ;
-;     SCLR              ; 10                          ;
-;     plain             ; 88                          ;
+;     ENA SCLR          ; 6                           ;
+;     SCLR              ; 8                           ;
+;     plain             ; 86                          ;
 ; cycloneiii_io_obuf    ; 66                          ;
-; cycloneiii_lcell_comb ; 1594                        ;
-;     arith             ; 696                         ;
+; cycloneiii_lcell_comb ; 1323                        ;
+;     arith             ; 545                         ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 374                         ;
-;         3 data inputs ; 320                         ;
-;     normal            ; 898                         ;
-;         0 data inputs ; 38                          ;
-;         1 data inputs ; 53                          ;
-;         2 data inputs ; 201                         ;
-;         3 data inputs ; 95                          ;
-;         4 data inputs ; 511                         ;
-; cycloneiii_mac_mult   ; 4                           ;
-; cycloneiii_mac_out    ; 4                           ;
+;         2 data inputs ; 305                         ;
+;         3 data inputs ; 238                         ;
+;     normal            ; 778                         ;
+;         0 data inputs ; 34                          ;
+;         1 data inputs ; 49                          ;
+;         2 data inputs ; 197                         ;
+;         3 data inputs ; 55                          ;
+;         4 data inputs ; 443                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 26.60                       ;
-; Average LUT depth     ; 7.71                        ;
+; Average LUT depth     ; 7.22                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2625,7 +2402,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -2872,7 +2649,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Thu Feb 16 20:17:03 2017
+    Info: Processing started: Thu Feb 16 20:23:50 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE0_NANO -c DE0_NANO
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 3 design units, including 3 entities, in source file mtl_touch_controller.sv
@@ -2920,6 +2697,9 @@ Info (12128): Elaborating entity "mtl_controller" for hierarchy "mtl_controller:
 Info (12128): Elaborating entity "mtl_display_controller" for hierarchy "mtl_controller:comb_5|mtl_display_controller:mtl_display_controller_inst"
 Warning (10036): Verilog HDL or VHDL warning at mtl_display_controller.sv(100): object "display_area_prev" assigned a value but never read
 Info (12128): Elaborating entity "mtl_touch_controller" for hierarchy "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst"
+Warning (10036): Verilog HDL or VHDL warning at mtl_touch_controller.sv(78): object "current_distance" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at mtl_touch_controller.sv(78): object "initial_distance" assigned a value but never read
+Warning (10034): Output port "Gest_Zoom" at mtl_touch_controller.sv(55) has no driver
 Warning (10034): Output port "Gest_Custom1" at mtl_touch_controller.sv(56) has no driver
 Info (12128): Elaborating entity "pulseGenerator" for hierarchy "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|pulseGenerator:generator"
 Info (12128): Elaborating entity "i2c_touch_config" for hierarchy "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst"
@@ -3035,7 +2815,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cntr
     Info (12023): Found entity 1: cntr_33j
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
 Info (11170): Start IP generation for the debug fabric within sld_hub.
-Info (11172): 2017.02.16.20:17:20 Progress: Loading sld7325694e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2017.02.16.20:24:08 Progress: Loading sld7325694e/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -3058,15 +2838,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld7325694e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter
-Info (278001): Inferred 8 megafunctions from design logic
+Info (278001): Inferred 4 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Mult0"
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Mult1"
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Div0"
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Div1"
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|Mult0"
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|Mult1"
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|Mult2"
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|Mult3"
 Info (12130): Elaborated megafunction instantiation "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult0"
 Info (12133): Instantiated megafunction "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|lpm_mult:Mult0" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHA" = "12"
@@ -3104,32 +2880,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc
-Info (12130): Elaborated megafunction instantiation "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0"
-Info (12133): Instantiated megafunction "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult0" with the following parameter:
-    Info (12134): Parameter "LPM_WIDTHA" = "11"
-    Info (12134): Parameter "LPM_WIDTHB" = "11"
-    Info (12134): Parameter "LPM_WIDTHP" = "22"
-    Info (12134): Parameter "LPM_WIDTHR" = "22"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_p5t.tdf
-    Info (12023): Found entity 1: mult_p5t
-Info (12130): Elaborated megafunction instantiation "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1"
-Info (12133): Instantiated megafunction "mtl_controller:comb_5|mtl_touch_controller:mtl_touch_controller_inst|lpm_mult:Mult1" with the following parameter:
-    Info (12134): Parameter "LPM_WIDTHA" = "10"
-    Info (12134): Parameter "LPM_WIDTHB" = "10"
-    Info (12134): Parameter "LPM_WIDTHP" = "20"
-    Info (12134): Parameter "LPM_WIDTHR" = "20"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_l5t.tdf
-    Info (12023): Found entity 1: mult_l5t
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver
     Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver
@@ -3269,19 +3019,18 @@ Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "GPIO_2_IN[2]"
     Warning (15610): No output dependent on input pin "GPIO_0_IN[0]"
     Warning (15610): No output dependent on input pin "GPIO_0_IN[1]"
-Info (21057): Implemented 4467 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4189 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 68 output pins
     Info (21060): Implemented 65 bidirectional pins
-    Info (21061): Implemented 4207 logic cells
+    Info (21061): Implemented 3937 logic cells
     Info (21064): Implemented 98 RAM segments
     Info (21065): Implemented 1 PLLs
-    Info (21062): Implemented 8 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 167 warnings
-    Info: Peak virtual memory: 1191 megabytes
-    Info: Processing ended: Thu Feb 16 20:17:35 2017
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:01:15
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 170 warnings
+    Info: Peak virtual memory: 1188 megabytes
+    Info: Processing ended: Thu Feb 16 20:24:18 2017
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:01:04
 
 
 +------------------------------------------+
