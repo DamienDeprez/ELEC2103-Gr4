@@ -21,7 +21,7 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-*.pdf
+#*.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -210,3 +210,6 @@ TSWLatexianTemp*
 
 *.ipynb_checkpoints/
 *.zip
+
+*/db/*
+*/incremental_db/*
