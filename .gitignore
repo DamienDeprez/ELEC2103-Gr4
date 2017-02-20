@@ -211,5 +211,5 @@ TSWLatexianTemp*
 *.ipynb_checkpoints/
 *.zip
 
-db/
-incremental_db/
+*db/
+*incremental_db/
