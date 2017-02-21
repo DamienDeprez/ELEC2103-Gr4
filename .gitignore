@@ -211,5 +211,19 @@ TSWLatexianTemp*
 *.ipynb_checkpoints/
 *.zip
 
+#=============
+#  Quartus  
+#=============
 *db/
 *incremental_db/
+*.rtp
+*.cdf
+*.done
+*.smsg
+*.summary
+*.jdi
+*.pin
+*.sld
+*.sof
+*.bak
+*.qdf
