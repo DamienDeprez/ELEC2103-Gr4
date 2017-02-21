@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("/mnt/Home/ModelSim-Quartus/ELEC2103-Gr4/Partie_Electronique/Image-Transfert/DE0-Nano/") File("DE0_NANO.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("/home/bilal/Master_1/ELEC2103-Gr4/Image-Transfert/DE0-Nano/") File("DE0_NANO.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -252,7 +252,7 @@ module DE0_NANO(
 	/*  LCD controller  */
 	/********************/
 	
-	mtl_controller mtl_ctrl_inst(
+	mtl_controller mtl_ctrl_inst( 	
 		.iCLK_50(CLK_50),									// System clock (50MHz)
 		.iRST(dly_rst),									// System sync reset
 		.oCLK_33(CLK_33),									// MTL Clock (33 MHz, 0°)

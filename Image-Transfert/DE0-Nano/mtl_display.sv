@@ -1,4 +1,4 @@
-
+ 
 // --------------------------------------------------------------------
 // Copyright (c) 2007 by Terasic Technologies Inc. 
 // --------------------------------------------------------------------
@@ -47,6 +47,7 @@ module mtl_display(
 	input 		   iLoading,				// Input signal telling in which loading state is the system
 	input	 [31:0]	iREAD_DATA1,			// Input data 1 from SDRAM (RGB)
 	input	 [31:0]	iREAD_DATA2,			// Input data 2 from SDRAM (RGB)
+	//output 			oRead_Select,			// Select the data to read
 	output			oREAD_SDRAM_EN,		// SDRAM read control signal
 	output 			oNew_Frame,				// Output signal being a pulse when a new frame of the LCD begins
 	output 			oEnd_Frame,				// Output signal being a pulse when a frame of the LCD ends
@@ -169,10 +170,12 @@ module mtl_display(
 						read_red 	<= iREAD_DATA2[23:16];
 						read_green 	<= iREAD_DATA2[15:8];
 						read_blue 	<= iREAD_DATA2[7:0];
+						//oRead_Select <= 0;
 					end else begin
 						read_red 	<= (iREAD_DATA2[23:16]);
 						read_green 	<= (iREAD_DATA2[15:8]);
 						read_blue 	<= (iREAD_DATA2[7:0]);
+						//oRead_Select <= 1;
 					end
 			end
 		// If we aren't in the active display area, put at zero

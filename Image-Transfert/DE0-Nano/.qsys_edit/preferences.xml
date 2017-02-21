@@ -3,11 +3,12 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="47" />
+   <connections preferredWidth="143" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library,Library/University Program,Library/University Program/Generic IO,Project" />
- <window width="1100" height="800" x="49" y="52" />
+   expandedCategories="Project,Library/Basic Functions,Library/University Program/Clock,Library/Basic Functions/Simulation; Debug and Verification,Library/University Program,Library/Basic Functions/Simulation; Debug and Verification/Debug and Performance,Library/Processors and Peripherals/Embedded Processors,Library,Library/Processors and Peripherals,Library/Processors and Peripherals/Hard Processor Systems" />
+ <window width="1920" height="1056" x="0" y="24" />
+ <generation path="_PROJECT_NAME_" />
 </preferences>
