@@ -36,8 +36,9 @@ module MTL_custom_ip (
 		input  wire	   iSPI_CS,			// SPI chip select
 	    	input  wire 	   iSPI_MOSI,		// SPI MOSI (from Rasp-Pi)
 	 	output wire 	   oSPI_MISO		// SPI MISO (to Rasp-Pi)
+);
 
-	);
+
 
 
 
