@@ -1,0 +1,33 @@
+/*
+ * MTL.c
+ *
+ *  Created on: Feb 23, 2017
+ *      Author: bilal
+ */
+
+
+#include "system.h"
+#include <stdio.h>
+
+
+
+int main (void){
+
+	volatile int * MTL_controller = (int*) MTL_IP_0_BASE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

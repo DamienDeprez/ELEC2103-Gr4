@@ -135,10 +135,10 @@ module unsaved_mm_interconnect_0_router
     // during address decoding
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h1000 - 64'h800); 
-    localparam PAD1 = log2ceil(64'h9000 - 64'h8000); 
+    localparam PAD1 = log2ceil(64'hc000 - 64'h8000); 
     localparam PAD2 = log2ceil(64'h10008 - 64'h10000); 
-    localparam PAD3 = log2ceil(64'h10040 - 64'h10020); 
-    localparam PAD4 = log2ceil(64'h11008 - 64'h11000); 
+    localparam PAD3 = log2ceil(64'h11020 - 64'h11000); 
+    localparam PAD4 = log2ceil(64'h11068 - 64'h11060); 
     localparam PAD5 = log2ceil(64'h20400 - 64'h20000); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
@@ -204,7 +204,7 @@ module unsaved_mm_interconnect_0_router
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
-    // ( 0x8000 .. 0x9000 )
+    // ( 0x8000 .. 0xc000 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 18'h8000   ) begin
             src_channel = 6'b010000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
@@ -216,14 +216,14 @@ module unsaved_mm_interconnect_0_router
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
-    // ( 0x10020 .. 0x10040 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 18'h10020   ) begin
+    // ( 0x11000 .. 0x11020 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 18'h11000   ) begin
             src_channel = 6'b100000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
     end
 
-    // ( 0x11000 .. 0x11008 )
-    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 18'h11000  && read_transaction  ) begin
+    // ( 0x11060 .. 0x11068 )
+    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 18'h11060  && read_transaction  ) begin
             src_channel = 6'b000010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end

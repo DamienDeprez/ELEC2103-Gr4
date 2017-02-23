@@ -23,7 +23,7 @@
 			mtl_ip_0_conduit_end_7_export  : out   std_logic_vector(7 downto 0);                     -- export
 			mtl_ip_0_conduit_end_8_export  : out   std_logic_vector(12 downto 0);                    -- export
 			mtl_ip_0_conduit_end_9_export  : out   std_logic_vector(1 downto 0);                     -- export
-			mtl_ip_0_mtl_conduit_export    : inout std_logic                     := 'X';             -- export
+			mtl_ip_0_mtl_conduit_export    : out   std_logic;                                        -- export
 			reset_reset_n                  : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component unsaved;

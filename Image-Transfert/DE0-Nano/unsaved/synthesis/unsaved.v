@@ -27,7 +27,7 @@ module unsaved (
 		output wire [7:0]  mtl_ip_0_conduit_end_7_export,  //  mtl_ip_0_conduit_end_7.export
 		output wire [12:0] mtl_ip_0_conduit_end_8_export,  //  mtl_ip_0_conduit_end_8.export
 		output wire [1:0]  mtl_ip_0_conduit_end_9_export,  //  mtl_ip_0_conduit_end_9.export
-		inout  wire        mtl_ip_0_mtl_conduit_export,    //    mtl_ip_0_mtl_conduit.export
+		output wire        mtl_ip_0_mtl_conduit_export,    //    mtl_ip_0_mtl_conduit.export
 		input  wire        reset_reset_n                   //                   reset.reset_n
 	);
 
@@ -41,7 +41,7 @@ module unsaved (
 	wire  [31:0] nios2_gen2_0_data_master_writedata;                          // nios2_gen2_0:d_writedata -> mm_interconnect_0:nios2_gen2_0_data_master_writedata
 	wire  [31:0] nios2_gen2_0_instruction_master_readdata;                    // mm_interconnect_0:nios2_gen2_0_instruction_master_readdata -> nios2_gen2_0:i_readdata
 	wire         nios2_gen2_0_instruction_master_waitrequest;                 // mm_interconnect_0:nios2_gen2_0_instruction_master_waitrequest -> nios2_gen2_0:i_waitrequest
-	wire  [11:0] nios2_gen2_0_instruction_master_address;                     // nios2_gen2_0:i_address -> mm_interconnect_0:nios2_gen2_0_instruction_master_address
+	wire  [15:0] nios2_gen2_0_instruction_master_address;                     // nios2_gen2_0:i_address -> mm_interconnect_0:nios2_gen2_0_instruction_master_address
 	wire         nios2_gen2_0_instruction_master_read;                        // nios2_gen2_0:i_read -> mm_interconnect_0:nios2_gen2_0_instruction_master_read
 	wire         mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect;  // mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_chipselect -> jtag_uart_0:av_chipselect
 	wire  [31:0] mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_readdata;    // jtag_uart_0:av_readdata -> mm_interconnect_0:jtag_uart_0_avalon_jtag_slave_readdata
@@ -68,7 +68,7 @@ module unsaved (
 	wire  [31:0] mm_interconnect_0_mtl_ip_0_s0_writedata;                     // mm_interconnect_0:MTL_ip_0_s0_writedata -> MTL_ip_0:avs_s0_writedata
 	wire         mm_interconnect_0_onchip_memory2_0_s1_chipselect;            // mm_interconnect_0:onchip_memory2_0_s1_chipselect -> onchip_memory2_0:chipselect
 	wire  [31:0] mm_interconnect_0_onchip_memory2_0_s1_readdata;              // onchip_memory2_0:readdata -> mm_interconnect_0:onchip_memory2_0_s1_readdata
-	wire   [9:0] mm_interconnect_0_onchip_memory2_0_s1_address;               // mm_interconnect_0:onchip_memory2_0_s1_address -> onchip_memory2_0:address
+	wire  [11:0] mm_interconnect_0_onchip_memory2_0_s1_address;               // mm_interconnect_0:onchip_memory2_0_s1_address -> onchip_memory2_0:address
 	wire   [3:0] mm_interconnect_0_onchip_memory2_0_s1_byteenable;            // mm_interconnect_0:onchip_memory2_0_s1_byteenable -> onchip_memory2_0:byteenable
 	wire         mm_interconnect_0_onchip_memory2_0_s1_write;                 // mm_interconnect_0:onchip_memory2_0_s1_write -> onchip_memory2_0:write
 	wire  [31:0] mm_interconnect_0_onchip_memory2_0_s1_writedata;             // mm_interconnect_0:onchip_memory2_0_s1_writedata -> onchip_memory2_0:writedata
@@ -91,8 +91,6 @@ module unsaved (
 		.avs_s0_write       (mm_interconnect_0_mtl_ip_0_s0_write),       //               .write
 		.avs_s0_writedata   (mm_interconnect_0_mtl_ip_0_s0_writedata),   //               .writedata
 		.avs_s0_waitrequest (mm_interconnect_0_mtl_ip_0_s0_waitrequest), //               .waitrequest
-		.clock_clk          (clk_clk),                                   //     clock_sink.clk
-		.reset_reset        (~rst_controller_reset_out_reset),           //     reset_sink.reset_n
 		.MTL_DCLK           (mtl_ip_0_mtl_conduit_export),               //    MTL_conduit.export
 		.MTL_HSD            (mtl_ip_0_conduit_end_export),               //    conduit_end.export
 		.MTL_VSD            (mtl_ip_0_conduit_end_1_export),             //  conduit_end_1.export
@@ -115,7 +113,9 @@ module unsaved (
 		.iSPI_CLK           (mtl_ip_0_conduit_end_18_export),            // conduit_end_18.export
 		.iSPI_CS            (mtl_ip_0_conduit_end_19_export),            // conduit_end_19.export
 		.iSPI_MOSI          (mtl_ip_0_conduit_end_20_export),            // conduit_end_20.export
-		.oSPI_MISO          (mtl_ip_0_conduit_end_21_export)             // conduit_end_21.export
+		.oSPI_MISO          (mtl_ip_0_conduit_end_21_export),            // conduit_end_21.export
+		.reset_reset        (~rst_controller_reset_out_reset),           //     reset_sink.reset_n
+		.clock_clk          (clk_clk)                                    //     clock_sink.clk
 	);
 
 	unsaved_jtag_uart_0 jtag_uart_0 (
