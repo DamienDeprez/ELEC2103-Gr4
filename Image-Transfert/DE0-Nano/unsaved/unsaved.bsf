@@ -179,6 +179,13 @@ agreement for further details.
 		(line (pt 0 952)(pt 208 952)(line_width 3))
 	)
 	(port
+		(pt 0 992)
+		(output)
+		(text "mtl_ip_0_mtl_conduit_export" (rect 0 0 115 12)(font "Arial" (font_size 8)))
+		(text "mtl_ip_0_mtl_conduit_export" (rect 4 981 166 992)(font "Arial" (font_size 8)))
+		(line (pt 0 992)(pt 208 992)(line_width 1))
+	)
+	(port
 		(pt 0 352)
 		(bidir)
 		(text "mtl_ip_0_conduit_end_14_export[15..0]" (rect 0 0 156 12)(font "Arial" (font_size 8)))
@@ -191,13 +198,6 @@ agreement for further details.
 		(text "mtl_ip_0_conduit_end_3_export" (rect 0 0 128 12)(font "Arial" (font_size 8)))
 		(text "mtl_ip_0_conduit_end_3_export" (rect 4 701 178 712)(font "Arial" (font_size 8)))
 		(line (pt 0 712)(pt 208 712)(line_width 1))
-	)
-	(port
-		(pt 0 992)
-		(bidir)
-		(text "mtl_ip_0_mtl_conduit_export" (rect 0 0 115 12)(font "Arial" (font_size 8)))
-		(text "mtl_ip_0_mtl_conduit_export" (rect 4 981 166 992)(font "Arial" (font_size 8)))
-		(line (pt 0 992)(pt 208 992)(line_width 1))
 	)
 	(drawing
 		(text "clk" (rect 193 43 404 99)(font "Arial" (color 128 0 0)(font_size 9)))

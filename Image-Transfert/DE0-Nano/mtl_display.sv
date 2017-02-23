@@ -43,6 +43,8 @@ module mtl_display(
 	// Host Side
 	input				iCLK, 					// Input LCD control clock
 	input				iRST_n, 					// Input system reset
+	input  [9:0] iX1, iX2, iX3, iX4, iX5,
+	input  [8:0] iY1, iY2, iY3, iY4, iY5,
 	// MMU
 	input 		   iLoading,				// Input signal telling in which loading state is the system
 	input	 [31:0]	iREAD_DATA1,			// Input data 1 from SDRAM (RGB)
@@ -88,6 +90,15 @@ module mtl_display(
 	reg			mvd;
 	reg			loading_buf;
 	reg			no_data_yet;
+	
+	reg         isInRectangle1,isInRectangle2,isInRectangle3,isInRectangle4,isInRectangle5;
+	
+	
+	assign isInRectangle1 = (iX1 - 10'd20 < x_cnt && x_cnt < iX1 + 10'd20) && (iY1 - 9'd20 < y_cnt && y_cnt < iY1 + 9'd20);
+	assign isInRectangle2 = (iX2 - 10'd20 < x_cnt && x_cnt < iX2 + 10'd20) && (iY2 - 9'd20 < y_cnt && y_cnt < iY2 + 9'd20);
+	assign isInRectangle3 = (iX3 - 10'd20 < x_cnt && x_cnt < iX3 + 10'd20) && (iY3 - 9'd20 < y_cnt && y_cnt < iY3 + 9'd20);
+	assign isInRectangle4 = (iX4 - 10'd20 < x_cnt && x_cnt < iX4 + 10'd20) && (iY4 - 9'd20 < y_cnt && y_cnt < iY4 + 9'd20);
+	assign isInRectangle5 = (iX5 - 10'd20 < x_cnt && x_cnt < iX5 + 10'd20) && (iY5 - 9'd20 < y_cnt && y_cnt < iY5 + 9'd20);
 
 	//=============================================================================
 	// Structural coding
@@ -153,25 +164,38 @@ module mtl_display(
 			// then display the loading screen.
 			// The current pixel is black (resp. white)
 			// if a 1 (resp. 0) is written in the ROM.
-			end /*else if (loading_buf) begin
-				if(q_rom) begin
+			end else if (loading_buf) begin
 					read_red 	<= 8'b0;
 					read_green 	<= 8'b0;
-					read_blue 	<= 8'b0;
-				end else begin
-					read_red 	<= 8'd255;
-					read_green 	<= 8'd255;
-					read_blue 	<= 8'd255;
-				end
+					read_blue 	<= 8'hFF;
+				//end
 			// ...and if the slideshow has been loaded,
 			// then display the values read from the SDRAM.
-			end */else begin
-					if(x_cnt < 10'd400) begin
-						read_red 	<= iREAD_DATA2[23:16];
-						read_green 	<= iREAD_DATA2[15:8];
-						read_blue 	<= iREAD_DATA2[7:0];
+			end else begin
+					if(isInRectangle1) begin
+						read_red 	<= 8'hFF;
+						read_green 	<= 8'h00;
+						read_blue 	<= 8'h00;
 						//oRead_Select <= 0;
-					end else begin
+					end else if (isInRectangle2) begin
+						read_red 	<= 8'h00;
+						read_green 	<= 8'hFF;
+						read_blue 	<= 8'h00;
+					end
+					else if (isInRectangle3) begin
+						read_red 	<= 8'h00;
+						read_green 	<= 8'h00;
+						read_blue 	<= 8'hFF;
+					end else if (isInRectangle4) begin
+						read_red 	<= 8'hFF;
+						read_green 	<= 8'hFF;
+						read_blue 	<= 8'h00;
+					end else if (isInRectangle5) begin
+						read_red 	<= 8'h00;
+						read_green 	<= 8'hFF;
+						read_blue 	<= 8'hFF;
+					end					
+					else begin
 						read_red 	<= (iREAD_DATA2[23:16]);
 						read_green 	<= (iREAD_DATA2[15:8]);
 						read_blue 	<= (iREAD_DATA2[7:0]);

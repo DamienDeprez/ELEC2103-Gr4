@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2017.02.21.18:08:18</td>
+    <td class="l">2017.02.23.15:38:56</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -174,7 +174,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    <tr>
     <td class="slaveb">s1&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>00008000</td>
-    <td class="empty"></td>
+    <td class="addr"><span style="color:#989898">0x</span>00008000</td>
    </tr>
    <tr>
     <td class="slavemodule">&#160;
@@ -186,7 +186,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slaveb">control_slave&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>00011000</td>
+    <td class="addr"><span style="color:#989898">0x</span>00011060</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -199,7 +199,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slaveb">s1&#160;</td>
-    <td class="addr"><span style="color:#989898">0x</span>00010020</td>
+    <td class="addr"><span style="color:#989898">0x</span>00011000</td>
     <td class="empty"></td>
    </tr>
   </table>
@@ -477,7 +477,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="22">nios2_gen2_0</td>
+      <td class="main" rowspan="24">nios2_gen2_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clk</td>
@@ -550,9 +550,19 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="from">data_master&#160;&#160;</td>
-      <td class="neighbor" rowspan="2">
+      <td class="neighbor" rowspan="4">
        <a href="#module_onchip_memory2_0">onchip_memory2_0</a>
       </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">instruction_master&#160;&#160;</td>
      </tr>
      <tr>
       <td></td>
@@ -796,7 +806,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">resetSlave</td>
-        <td class="parametervalue">nios2_gen2_0.debug_mem_slave</td>
+        <td class="parametervalue">onchip_memory2_0.s1</td>
        </tr>
        <tr>
         <td class="parametername">mmu_TLBMissExcSlave</td>
@@ -804,7 +814,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">exceptionSlave</td>
-        <td class="parametervalue">nios2_gen2_0.debug_mem_slave</td>
+        <td class="parametervalue">onchip_memory2_0.s1</td>
        </tr>
        <tr>
         <td class="parametername">breakSlave</td>
@@ -1156,11 +1166,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">resetAbsoluteAddr</td>
-        <td class="parametervalue">2048</td>
+        <td class="parametervalue">32768</td>
        </tr>
        <tr>
         <td class="parametername">exceptionAbsoluteAddr</td>
-        <td class="parametervalue">2080</td>
+        <td class="parametervalue">32800</td>
        </tr>
        <tr>
         <td class="parametername">breakAbsoluteAddr</td>
@@ -1220,7 +1230,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">instAddrWidth</td>
-        <td class="parametervalue">12</td>
+        <td class="parametervalue">16</td>
        </tr>
        <tr>
         <td class="parametername">faAddrWidth</td>
@@ -1272,7 +1282,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">instSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x8000' end='0xC000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">faSlaveMapParam</td>
@@ -1280,7 +1290,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">dataSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x8000' end='0x9000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x10000' end='0x10008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /&gt;&lt;slave name='timer_0.s1' start='0x10020' end='0x10040' type='altera_avalon_timer.s1' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x11000' end='0x11008' type='altera_avalon_sysid_qsys.control_slave' /&gt;&lt;slave name='MTL_ip_0.s0' start='0x20000' end='0x20400' type='MTL_ip.s0' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x800' end='0x1000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x8000' end='0xC000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='jtag_uart_0.avalon_jtag_slave' start='0x10000' end='0x10008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /&gt;&lt;slave name='timer_0.s1' start='0x11000' end='0x11020' type='altera_avalon_timer.s1' /&gt;&lt;slave name='sysid_qsys_0.control_slave' start='0x11060' end='0x11068' type='altera_avalon_sysid_qsys.control_slave' /&gt;&lt;slave name='MTL_ip_0.s0' start='0x20000' end='0x20400' type='MTL_ip.s0' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">tightlyCoupledDataMaster0MapParam</td>
@@ -1433,7 +1443,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">EXCEPTION_ADDR</td>
-        <td class="parametervalue">0x00000820</td>
+        <td class="parametervalue">0x00008020</td>
        </tr>
        <tr>
         <td class="parametername">FLASH_ACCELERATOR_LINES</td>
@@ -1489,7 +1499,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">INST_ADDR_WIDTH</td>
-        <td class="parametervalue">12</td>
+        <td class="parametervalue">16</td>
        </tr>
        <tr>
         <td class="parametername">OCI_VERSION</td>
@@ -1497,7 +1507,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">RESET_ADDR</td>
-        <td class="parametervalue">0x00000800</td>
+        <td class="parametervalue">0x00008000</td>
        </tr>
       </table>
      </td>
@@ -1512,11 +1522,17 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    <div class="greydiv">
     <table class="connectionboxes">
      <tr>
-      <td class="neighbor" rowspan="2">
+      <td class="neighbor" rowspan="4">
        <a href="#module_nios2_gen2_0">nios2_gen2_0</a>
       </td>
       <td class="from">data_master&#160;&#160;</td>
-      <td class="main" rowspan="7">onchip_memory2_0</td>
+      <td class="main" rowspan="9">onchip_memory2_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr>
+      <td class="from">instruction_master&#160;&#160;</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;s1</td>
@@ -1586,7 +1602,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">memorySize</td>
-        <td class="parametervalue">4096</td>
+        <td class="parametervalue">16384</td>
        </tr>
        <tr>
         <td class="parametername">readDuringWriteMode</td>
@@ -1650,11 +1666,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">derived_set_addr_width</td>
-        <td class="parametervalue">10</td>
+        <td class="parametervalue">12</td>
        </tr>
        <tr>
         <td class="parametername">derived_set_addr_width2</td>
-        <td class="parametervalue">10</td>
+        <td class="parametervalue">12</td>
        </tr>
        <tr>
         <td class="parametername">derived_set_data_width</td>
@@ -1743,7 +1759,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">SIZE_VALUE</td>
-        <td class="parametervalue">4096</td>
+        <td class="parametervalue">16384</td>
        </tr>
        <tr>
         <td class="parametername">WRITABLE</td>
@@ -1800,11 +1816,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <table>
        <tr>
         <td class="parametername">id</td>
-        <td class="parametervalue">0</td>
+        <td class="parametervalue">587339520</td>
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1487696898</td>
+        <td class="parametervalue">1487860735</td>
        </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
@@ -1825,11 +1841,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <table>
        <tr>
         <td class="parametername">ID</td>
-        <td class="parametervalue">0</td>
+        <td class="parametervalue">587339520</td>
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1487696898</td>
+        <td class="parametervalue">1487860735</td>
        </tr>
       </table>
      </td>
@@ -2027,7 +2043,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0.01 seconds</td>
-    <td class="r">rendering took 0.12 seconds</td>
+    <td class="r">rendering took 0.10 seconds</td>
    </tr>
   </table>
  </body>

@@ -1,0 +1,10 @@
+PLL_Name	mmu:mmu_inst|RAM_PLL:RAM_PLL_inst|altpll:altpll_component|RAM_PLL_altpll:auto_generated|pll1
+PLLJITTER	35
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	mtl_controller:mtl_ctrl_inst|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1
+PLLJITTER	NA
+PLLSPEmax	84
+PLLSPEmin	-53
+
