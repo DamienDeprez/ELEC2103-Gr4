@@ -144,7 +144,7 @@ module DE0_NANO(
 	
 		unsaved u0 (
 		.clk_clk                        (CLOCK_50),                        //                     clk.clk
-		.reset_reset_n                  (GPIO_0[1]),                  //                   reset.reset_n
+		.reset_reset_n                  (~GPIO_0[1]),                  //                   reset.reset_n
 		.mtl_ip_0_mtl_conduit_export    (MTL_DCLK),    //    mtl_ip_0_mtl_conduit.export
 		.mtl_ip_0_conduit_end_export    (MTL_HSD),    //    mtl_ip_0_conduit_end.export
 		.mtl_ip_0_conduit_end_1_export  (MTL_VSD),  //  mtl_ip_0_conduit_end_1.export

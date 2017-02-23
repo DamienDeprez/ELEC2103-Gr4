@@ -137,7 +137,7 @@ module MTL_custom_ip (
 	// carried out. Otherwise, some random bugs risk to appear after a reset of the 
 	// system (see definition of the module at the end of this file).
 	reset_delay	reset_delay_inst (		
-		.iRSTN(~RST),
+		.iRSTN(RST),
 		.iCLK(clock_clk),
 		.oRSTN(dly_rstn),
 		.oRD_RST(rd_rst),
