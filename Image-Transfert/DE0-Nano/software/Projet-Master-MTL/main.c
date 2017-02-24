@@ -45,6 +45,7 @@ int main (void){
 			backY = 0;
 		if(y1>(maxY+vBorder)-(border+size))
 			backY = 1;
+
 	if(!backX) x1+=vector1[0];
 	else x1-=vector1[0];
 

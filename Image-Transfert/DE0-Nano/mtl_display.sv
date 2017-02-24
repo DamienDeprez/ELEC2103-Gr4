@@ -50,7 +50,8 @@ module mtl_display(
 	input	 [31:0]	iREAD_DATA1,			// Input data 1 from SDRAM (RGB)
 	input	 [31:0]	iREAD_DATA2,			// Input data 2 from SDRAM (RGB)
 	//output 			oRead_Select,			// Select the data to read
-	output			oREAD_SDRAM_EN,		// SDRAM read control signal
+	output			oREAD_SDRAM_EN1,		// SDRAM read control signal
+	output			oREAD_SDRAM_EN2,		// SDRAM read control signal
 	output 			oNew_Frame,				// Output signal being a pulse when a new frame of the LCD begins
 	output 			oEnd_Frame,				// Output signal being a pulse when a frame of the LCD ends
 	// LCD Side
@@ -124,7 +125,8 @@ module mtl_display(
 	// This signal controls read requests to the SDRAM.
 	// When asserted, new data becomes available in iREAD_DATA
 	// at each clock cycle.
-	assign	oREAD_SDRAM_EN = (~loading_buf && display_area_prev);
+	assign	oREAD_SDRAM_EN1 = (~loading_buf && display_area_prev /* && y_cnt< 225 */);
+	assign	oREAD_SDRAM_EN2 = (~loading_buf && display_area_prev && y_cnt >= 225);
 							
 	// This signal indicates the LCD active display area shifted back from
 	// 1 pixel in the x direction. This accounts for the 1-cycle delay
@@ -176,7 +178,6 @@ module mtl_display(
 						read_red 	<= 8'hFF;
 						read_green 	<= 8'h00;
 						read_blue 	<= 8'h00;
-						//oRead_Select <= 0;
 					end else if (isInRectangle2) begin
 						read_red 	<= 8'h00;
 						read_green 	<= 8'hFF;
@@ -195,12 +196,15 @@ module mtl_display(
 						read_green 	<= 8'hFF;
 						read_blue 	<= 8'hFF;
 					end					
-					else begin
+					else /*if (y_cnt < 225)*/ begin
+						read_red 	<= (iREAD_DATA1[23:16]);
+						read_green 	<= (iREAD_DATA1[15:8]);
+						read_blue 	<= (iREAD_DATA1[7:0]);
+					end/* else if(y_cnt >= 225) begin
 						read_red 	<= (iREAD_DATA2[23:16]);
-						read_green 	<= (iREAD_DATA2[15:8]);
-						read_blue 	<= (iREAD_DATA2[7:0]);
-						//oRead_Select <= 1;
-					end
+						read_green	<= (iREAD_DATA2[15:8]);
+						read_blue	<= (iREAD_DATA2[7:0]);
+					end*/
 			end
 		// If we aren't in the active display area, put at zero
 		// the color signals.

@@ -22,7 +22,8 @@ module mmu (
 	output         oLoading,			// Control signal telling in which loading state is the system
 	output [31:0]  oRead_Data1,    	// Data 1 (RGB) from SDRAM to MTL controller
 	output [31:0]	oRead_Data2,		// Data 2 (RGB) from SDRAM to MTL controller
-	input 			iRead_En,			// SDRAM read control signal
+	input 			iRead_En1,			// SDRAM read control signal
+	input				iRead_En2,
 	// SDRAM
 	output  [12:0]	oDRAM_ADDR,
 	output  [1:0]	oDRAM_BA,
@@ -189,16 +190,16 @@ module mmu (
 		.WR1_LOAD(iRST),
 		.WR1_CLK(~iCLK_50),
 		//	FIFO Read Side 1
-		/*.RD1_DATA(oRead_Data1),
-		.RD1(iRead_En),
+		.RD1_DATA(oRead_Data1),
+		.RD1(iRead_En1),
 		.RD1_ADDR(base_read_addr1),
 		.RD1_MAX_ADDR(max_read_addr1),
 		.RD1_LENGTH(RD_LENGTH),
 		.RD1_LOAD(iRST|| iRd_RST || load_new),
-		.RD1_CLK(iCLK_33),*/
+		.RD1_CLK(iCLK_33),
 		// FIFO Read Side 2
 		.RD2_DATA(oRead_Data2),
-		.RD2(iRead_En),
+		.RD2(iRead_En2),
 		.RD2_ADDR(base_read_addr2),
 		.RD2_MAX_ADDR(max_read_addr2),
 		.RD2_LENGTH(RD_LENGTH),

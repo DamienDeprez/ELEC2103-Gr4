@@ -50,7 +50,8 @@ module mtl_controller (
 	input 		 iLoading,				 // Control signal telling in which loading state is the system
 	input [31:0] iREAD_DATA1, 			 // Data 1 (RGB)from SDRAM to MTL
 	input [31:0] iREAD_DATA2,			 // Data 2 (RGB)from SDRAM to MTL
-	output       oREAD_SDRAM_EN,		 // SDRAM read control signal
+	output       oREAD_SDRAM_EN1,		 // SDRAM read control signal
+	output       oREAD_SDRAM_EN2,		 // SDRAM read control signal
 	output		 oNew_Frame,			 // Control signal being a pulse when a new frame of the LCD begins
 	output		 oEnd_Frame,			 // Control signal being a pulse when a frame of the LCD ends
 	output		 oGest_W,				 // Detected gesture pulse (sliding towards West)
@@ -99,7 +100,8 @@ module mtl_controller (
 		.iLoading(iLoading),									// Control signal telling in which loading state is the system
 		.iREAD_DATA1(iREAD_DATA1),							// Input data from SDRAM (RGB)
 		.iREAD_DATA2(iREAD_DATA2),
-		.oREAD_SDRAM_EN(oREAD_SDRAM_EN),					// SDRAM read control signal
+		.oREAD_SDRAM_EN1(oREAD_SDRAM_EN1),				// SDRAM read control signal
+		.oREAD_SDRAM_EN2(oREAD_SDRAM_EN2),				// SDRAM read control signal
 		.oNew_Frame(oNew_Frame),							// Output signal being a pulse when a new frame of the LCD begins
 		.oEnd_Frame(oEnd_Frame),							// Output signal being a pulse when a frame of the LCD ends
 		// LCD Side

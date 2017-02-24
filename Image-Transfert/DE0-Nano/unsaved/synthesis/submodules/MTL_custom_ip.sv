@@ -49,7 +49,7 @@ module MTL_custom_ip (
 	// MMU - MTL
 	
 	logic [31:0]	SDRAM_RData1, SDRAM_RData2;
-	logic 			SDRAM_REn;
+	logic 			SDRAM_REn1, SDRAM_REn2;
 	logic				New_Frame, End_Frame;
 	
 	logic 			Gest_W, Gest_E;
@@ -177,7 +177,8 @@ module MTL_custom_ip (
 		.oLoading(Loading),								// Control signal telling in which loading state is the system
 		.oRead_Data1(SDRAM_RData1),  					// Data 1 (RGB) from SDRAM to MTL controller
 		.oRead_Data2(SDRAM_RData2),  					// Data 2 (RGB) from SDRAM to MTL controller
-		.iRead_En(SDRAM_REn),							// SDRAM read control signal
+		.iRead_En1(SDRAM_REn1),							// SDRAM read control signal
+		.iRead_En2(SDRAM_REn2),
 		// SDRAM
 		.oDRAM_ADDR(DRAM_ADDR),
 		.oDRAM_BA(DRAM_BA),
@@ -214,7 +215,8 @@ module MTL_custom_ip (
 		.iLoading(Loading),				 				// Input signal telling in which loading state is the system
 		.iREAD_DATA1(SDRAM_RData1), 			 			// Input data 1 from SDRAM (RGB)
 		.iREAD_DATA2(SDRAM_RData2), 			 			// Input data 2 from SDRAM (RGB)
-		.oREAD_SDRAM_EN(SDRAM_REn),		 			// SDRAM read control signal
+		.oREAD_SDRAM_EN1(SDRAM_REn1),		 			// SDRAM read control signal
+		.oREAD_SDRAM_EN2(SDRAM_REn2),		 			// SDRAM read control signal
 		.oNew_Frame(New_Frame),			    			// Output signal being a pulse when a new frame of the LCD begins
 		.oEnd_Frame(End_Frame),				 			// Output signal being a pulse when a frame of the LCD ends
 		.oGest_W(Gest_W),									// Detected gesture pulse (sliding towards West)
