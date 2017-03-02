@@ -129,7 +129,7 @@ assign x_correct = x_cnt - 60;
 assign y_correct = y_cnt - 40;
 					
 // Check if the current pixel position is in the rectangle
-assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 1056; // readius = 32
+assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 1056; // readius = 32  (32²+32)
 assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 1056; // readius = 32
 assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 1056; // readius = 32
 assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 1056; // readius = 32
@@ -163,44 +163,44 @@ always_ff @(posedge iCLK) begin
 			read_green <= 8'h55;
 		end
 		else if(isInCircle3 && iX3 != 0 && iY3 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h00;
-			read_green <= 8'hCC;
+			read_red <= 8'hD0;
+			read_blue <= 8'h7C;
+			read_green <= 8'hB7;
 		end
 		else if(isInCircle4 && iX4 != 0 && iY4 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD6;
+			read_blue <= 8'hC5;
+			read_green <= 8'h85;
 		end
 		else if(isInCircle5 && iX5 != 0 && iY5 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD0;
+			read_blue <= 8'h7C;
+			read_green <= 8'hB7;
 		end
 		else if(isInCircle6 && iX6 != 0 && iY6 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD6;
+			read_blue <= 8'hC5;
+			read_green <= 8'h85;
 		end
 		else if(isInCircle7 && iX7 != 0 && iY7 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD0;
+			read_blue <= 8'h7C;
+			read_green <= 8'hB7;
 		end
 		else if(isInCircle8 && iX8 != 0 && iY8 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD6;
+			read_blue <= 8'hC5;
+			read_green <= 8'h85;
 		end
 		else if(isInCircle9 && iX9 != 0 && iY9 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD0;
+			read_blue <= 8'h7C;
+			read_green <= 8'hB7;
 		end
 		else if(isInCircle10 && iX10 != 0 && iY10 !=0) begin
-			read_red <= 8'h55;
-			read_blue <= 8'h0F;
-			read_green <= 8'hCC;
+			read_red <= 8'hD6;
+			read_blue <= 8'hC5;
+			read_green <= 8'h85;
 		end
 		else begin
 			read_red 	<= 8'h80; 

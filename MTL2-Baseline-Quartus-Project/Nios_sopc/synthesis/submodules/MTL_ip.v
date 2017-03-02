@@ -35,8 +35,10 @@ module MTL_ip (
 	reg [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10;
 	reg [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10;
 	
-	reg [9:0] oX1, oX2, oX3;
-	reg [8:0] oY1, oY2, oY3;
+	reg [9:0] oX1, oX2, oX3, oX4, oX5;
+	reg [8:0] oY1, oY2, oY3, oY4, oY5;
+	
+	reg [3:0] oCount;
 	
 	always @(posedge clock_clk) begin
 	
@@ -85,9 +87,12 @@ module MTL_ip (
 			endcase
 		if (avs_s0_read) begin
 			case(avs_s0_address)
+				8'h00: readdata <= {28'b0,oCount};
 				8'h01: readdata <= {13'b0,oY1,oX1};
 				8'h02: readdata <= {13'b0,oY2,oX2};
 				8'h03: readdata <= {13'b0,oY3,oX3};
+				8'h04: readdata <= {13'b0,oY4,oX4};
+				8'h05: readdata <= {13'b0,oY5,oX5};
 			endcase 
 		end	
 	end
@@ -132,9 +137,14 @@ module MTL_ip (
 	.oX1(oX1),
 	.oX2(oX2),
 	.oX3(oX3),
+	.oX4(oX4),
+	.oX5(ox5),
 	.oY1(oY1),
 	.oY2(oY2),
-	.oY3(oY3)
+	.oY3(oY3),
+	.oY4(oY4),
+	.oY5(oY5),
+	.oCount(oCount)
 );
 
 endmodule

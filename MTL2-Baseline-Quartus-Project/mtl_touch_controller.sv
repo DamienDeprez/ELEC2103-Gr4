@@ -49,10 +49,13 @@ module mtl_touch_controller(
 	output   MTL_TOUCH_I2C_SCL,	// I2C clock pin of Touch IC (from MTL)
 	// Gestures
 	output	Gest_Custom1,
+	input rst_gest_custom1,			// reset the gesture_detectiont(gesture readed by the software done)
 	// Position
 	
-	output logic [9:0] x1_1i, x2_1i, x2_1f,
-	output logic [8:0] y1_1i, y2_1i, y2_1f
+	output logic [9:0] oX1, oX2, oX3, oX4, oX5,
+	output logic [8:0] oY1, oY2, oY3, oY4, oY5,
+	
+	output logic [3:0] oCount
 );
 
 //=============================================================================
@@ -65,63 +68,62 @@ logic [3:0] reg_touch_count;
 logic [7:0] reg_gesture;
 logic			touch_ready;
 
-logic isGestCustom1; // set to 1 if the gesture is correct
+assign oX1 = reg_x1;
+assign oY1 = reg_y1;
 
-reg [9:0] x1_initial, x2_initial, x2_final;
-reg [8:0] y1_initial, y2_initial, y2_final;
+assign oX2 = reg_x2;
+assign oY2 = reg_y2;
 
-logic [31:0] current_distance, initial_distance;
+assign oX3 = reg_x3;
+assign oY3 = reg_y3;
 
-logic pulse1, pulse2;
+assign oX4 = reg_x4;
+assign oY4 = reg_y4;
 
-assign current_distance = (x1_initial - reg_x2)*(x1_initial - reg_x2) + (y1_initial - reg_y2)*(y1_initial - reg_y2);
-assign initial_distance = (x1_initial - x2_initial)*(x1_initial - x2_initial) + (y1_initial - y2_initial)*(y1_initial - y2_initial);
+assign oX5 = reg_x5;
+assign oY5 = reg_y5;
 
-assign x1_1i = x1_initial;
-assign y1_1i = y1_initial;
+assign oCount = reg_touch_count;
 
-assign x2_1i = x2_initial;
-assign y2_1i = y2_initial;
-
-assign x2_1f = x2_final;
-assign y2_1f = y2_final;
-
-pulseGenerator generator(
+/*pulseGenerator generator(
 	.clk(iCLK),
 	.reset(iRST),
 	.touch_count(reg_touch_count),
 	.pulse1to2(pulse1),
 	.pulse2to1(pulse2)
 	);
-	
+	*/
 // set the initial point of the gesture
-always_ff @(posedge pulse1) begin
-	x1_initial <= reg_x1;
-	y1_initial <= reg_y1;
-	
-	x2_initial <= reg_x2;
-	y2_initial <= reg_y2;
+/*always_ff @(posedge pulse1) begin
+		x1_initial <= reg_x1;
+		y1_initial <= reg_y1;
+		
+		x2_initial <= reg_x2;
+		y2_initial <= reg_y2;
 end
 
  // set the final point of the gesture if it's correct
-always_ff @(posedge pulse2) begin
-	if(isGestCustom1) begin
-		x2_final <= reg_x2;
-		y2_final <= reg_y2;
-	end else begin
+always_ff @(negedge pulse2) begin
+	if(~isGestCustom1) begin
 		x2_final <= 10'b0;
 		y2_final <= 9'b0;
+	end else begin
+		x2_final <= reg_x2;
+		y2_final <= reg_y2;
 	end
 end
 
 always_ff @(posedge touch_ready, posedge pulse1) begin
 	if(pulse1) 
 		isGestCustom1 <= 1'b1;
+	else if(pulse2)
+		isGestCustom1 <= 1'b0;
 	else
 		isGestCustom1 <= (x1_initial - 10'd30 <= reg_x1 && reg_x1 <= x1_initial + 10'd30) && // verifie que x1 ne bouge pas 
 						 (y1_initial - 9'd30 <= reg_y1 && reg_y1 <= y1_initial + 9'd30); // &&  // verifie que y1 ne bouge pas
 						 //(initial_distance - 32'd400 <= current_distance && current_distance <= initial_distance + 32'd400);
-end
+end*/
+
 
 //=============================================================================
 // Structural coding

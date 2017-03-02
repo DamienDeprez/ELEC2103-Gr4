@@ -54,8 +54,9 @@ module mtl_controller (
 	output [7:0] MTL_B, 					// LCD blue color data (to MTL)
 	input  [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, // x position for the 10 balls
 	input  [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10,  // y position for the 10 balls
-	output [9:0] oX1, oX2, oX3, // x position for the gesture
-	output [8:0] oY1, oY2, oY3 // y position for the gesture
+	output [9:0] oX1, oX2, oX3, oX4, oX5, // x position for the gesture
+	output [8:0] oY1, oY2, oY3, oY4, oY5,// y position for the gesture
+	output [3:0] oCount
 );
 
 //=============================================================================
@@ -66,7 +67,7 @@ logic CLOCK_33, iCLOCK_33;						// 33MHz clocks for the MTL
 
 logic	newFrame, endFrame;
 
-logic Gest_Custom1; // Predifined Gesture
+logic Gest_Custom1; // Custom Gesture
 
 
 logic [23:0]   ColorDataBfr, ColorData;	// {8-bit red, 8-bit green, 8-bit blue} 
@@ -159,8 +160,6 @@ mtl_display_controller mtl_display_controller_inst (
 
 assign MTL_DCLK = iCLOCK_33;
 
-
-
 //--- Touch controller -------------------------
 
 mtl_touch_controller mtl_touch_controller_inst (
@@ -172,17 +171,23 @@ mtl_touch_controller mtl_touch_controller_inst (
 	.MTL_TOUCH_I2C_SCL(MTL_TOUCH_I2C_SCL),	// I2C clock pin of Touch IC (from MTL)
 	// Gestures
 	.Gest_Custom1(Gest_Custom1),
+	.rst_gest_custom1(rst_Gest_Shoot),
 	
-	.x1_1i(oX1),
-	.x2_1i(oX2),
-	.x2_1f(oX3),
-	.y1_1i(oY1),
-	.y2_1i(oY2),
-	.y2_1f(oY3)
+	.oX1(oX1),
+	.oX2(oX2),
+	.oX3(oX3),
+	.oX4(oX4),
+	.oX5(ox5),
+	.oY1(oY1),
+	.oY2(oY2),
+	.oY3(oY3),
+	.oY4(oY4),
+	.oY5(oY5),
+	.oCount(oCount)
 );
 			
 
-
+assign Gest_Shoot = Gest_Custom1;
 //============================================================
 // Clock management 
 //============================================================
