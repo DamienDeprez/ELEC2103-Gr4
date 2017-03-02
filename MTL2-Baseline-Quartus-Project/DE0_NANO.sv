@@ -140,6 +140,15 @@ logic RST, dly_rstn, rd_rst, dly_rst;
 
 assign RST = ~KEY[0];
 
+wire sdram_clk;
+
+sdram_pll sdram_pll_inst(
+	.inclk0(CLOCK_50),
+	.c0(sdram_clk)
+);
+
+assign DRAM_CLK = sdram_clk;
+
 // A good synchronization of all the resets of the different
 // components must be carried out. Otherwise, some random bugs
 // risk to appear after a reset of the system (see definition
@@ -155,7 +164,7 @@ reset_delay	reset_delay_inst (
 
 //--- MTL Controller ------------------------------------
 
-mtl_controller (
+/*mtl_controller (
 	.iCLK(CLOCK_50),
 	.iRST(dly_rst),
 	// MTL
@@ -168,7 +177,32 @@ mtl_controller (
 	.MTL_R(MTL_R),									// LCD red color data  (to MTL)
 	.MTL_G(MTL_G),									// LCD green color data (to MTL)
 	.MTL_B(MTL_B) 									// LCD blue color data (to MTL)
-);
+);*/
+
+Nios_sopc u0 (
+		.clk_clk                         (CLOCK_50),                         //                      clk.clk
+		.reset_reset_n                   (~RST),                   //                    reset.reset_n
+		.sdram_controller_addr           (DRAM_ADDR),           //         sdram_controller.addr
+		.sdram_controller_ba             (DRAM_BA),             //                         .ba
+		.sdram_controller_cas_n          (DRAM_CAS_N),          //                         .cas_n
+		.sdram_controller_cke            (DRAM_CKE),            //                         .cke
+		.sdram_controller_cs_n           (DRAM_CS_N),           //                         .cs_n
+		.sdram_controller_dq             (DRAM_DQ),             //                         .dq
+		.sdram_controller_dqm            (DRAM_DQM),            //                         .dqm
+		.sdram_controller_ras_n          (DRAM_RAS_N),          //                         .ras_n
+		.sdram_controller_we_n           (DRAM_WE_N),           //                         .we_n
+		.mtl_ip_mtl_dclk_export          (MTL_DCLK),          //          mtl_ip_mtl_dclk.export
+		.mtl_ip_mtl_hsd_export           (MTL_HSD),           //           mtl_ip_mtl_hsd.export
+		.mtl_ip_mtl_vsd_export           (MTL_VSD),           //           mtl_ip_mtl_vsd.export
+		.mtl_ip_mtl_touch_i2c_scl_export (MTL_TOUCH_I2C_SCL), // mtl_ip_mtl_touch_i2c_scl.export
+		.mtl_ip_mtl_touch_i2c_sda_export (MTL_TOUCH_I2C_SDA), // mtl_ip_mtl_touch_i2c_sda.export
+		.mtl_ip_mtl_touch_int_n_export   (MTL_TOUCH_INT_n),   //   mtl_ip_mtl_touch_int_n.export
+		.mtl_ip_mtl_r_export             (MTL_R),             //             mtl_ip_mtl_r.export
+		.mtl_ip_mtl_g_export             (MTL_G),             //             mtl_ip_mtl_g.export
+		.mtl_ip_mtl_b_export             (MTL_B),             //             mtl_ip_mtl_b.export
+		.mtl_ip_rst_dly_export           (dly_rst)            //           mtl_ip_rst_dly.export
+	);
+
 
 
 endmodule // DE0_NANO

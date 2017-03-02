@@ -24,7 +24,16 @@ module unsaved (
 	mtl_ip_0_conduit_end_8_export,
 	mtl_ip_0_conduit_end_9_export,
 	mtl_ip_0_mtl_conduit_export,
-	reset_reset_n);	
+	reset_reset_n,
+	system_sdram_wire_addr,
+	system_sdram_wire_ba,
+	system_sdram_wire_cas_n,
+	system_sdram_wire_cke,
+	system_sdram_wire_cs_n,
+	system_sdram_wire_dq,
+	system_sdram_wire_dqm,
+	system_sdram_wire_ras_n,
+	system_sdram_wire_we_n);	
 
 	input		clk_clk;
 	output		mtl_ip_0_conduit_end_export;
@@ -51,4 +60,13 @@ module unsaved (
 	output	[1:0]	mtl_ip_0_conduit_end_9_export;
 	output		mtl_ip_0_mtl_conduit_export;
 	input		reset_reset_n;
+	output	[11:0]	system_sdram_wire_addr;
+	output	[1:0]	system_sdram_wire_ba;
+	output		system_sdram_wire_cas_n;
+	output		system_sdram_wire_cke;
+	output		system_sdram_wire_cs_n;
+	inout	[31:0]	system_sdram_wire_dq;
+	output	[3:0]	system_sdram_wire_dqm;
+	output		system_sdram_wire_ras_n;
+	output		system_sdram_wire_we_n;
 endmodule

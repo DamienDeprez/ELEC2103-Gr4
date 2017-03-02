@@ -24,7 +24,16 @@
 			mtl_ip_0_conduit_end_8_export  : out   std_logic_vector(12 downto 0);                    -- export
 			mtl_ip_0_conduit_end_9_export  : out   std_logic_vector(1 downto 0);                     -- export
 			mtl_ip_0_mtl_conduit_export    : out   std_logic;                                        -- export
-			reset_reset_n                  : in    std_logic                     := 'X'              -- reset_n
+			reset_reset_n                  : in    std_logic                     := 'X';             -- reset_n
+			system_sdram_wire_addr         : out   std_logic_vector(11 downto 0);                    -- addr
+			system_sdram_wire_ba           : out   std_logic_vector(1 downto 0);                     -- ba
+			system_sdram_wire_cas_n        : out   std_logic;                                        -- cas_n
+			system_sdram_wire_cke          : out   std_logic;                                        -- cke
+			system_sdram_wire_cs_n         : out   std_logic;                                        -- cs_n
+			system_sdram_wire_dq           : inout std_logic_vector(31 downto 0) := (others => 'X'); -- dq
+			system_sdram_wire_dqm          : out   std_logic_vector(3 downto 0);                     -- dqm
+			system_sdram_wire_ras_n        : out   std_logic;                                        -- ras_n
+			system_sdram_wire_we_n         : out   std_logic                                         -- we_n
 		);
 	end component unsaved;
 
@@ -54,6 +63,15 @@
 			mtl_ip_0_conduit_end_8_export  => CONNECTED_TO_mtl_ip_0_conduit_end_8_export,  --  mtl_ip_0_conduit_end_8.export
 			mtl_ip_0_conduit_end_9_export  => CONNECTED_TO_mtl_ip_0_conduit_end_9_export,  --  mtl_ip_0_conduit_end_9.export
 			mtl_ip_0_mtl_conduit_export    => CONNECTED_TO_mtl_ip_0_mtl_conduit_export,    --    mtl_ip_0_mtl_conduit.export
-			reset_reset_n                  => CONNECTED_TO_reset_reset_n                   --                   reset.reset_n
+			reset_reset_n                  => CONNECTED_TO_reset_reset_n,                  --                   reset.reset_n
+			system_sdram_wire_addr         => CONNECTED_TO_system_sdram_wire_addr,         --       system_sdram_wire.addr
+			system_sdram_wire_ba           => CONNECTED_TO_system_sdram_wire_ba,           --                        .ba
+			system_sdram_wire_cas_n        => CONNECTED_TO_system_sdram_wire_cas_n,        --                        .cas_n
+			system_sdram_wire_cke          => CONNECTED_TO_system_sdram_wire_cke,          --                        .cke
+			system_sdram_wire_cs_n         => CONNECTED_TO_system_sdram_wire_cs_n,         --                        .cs_n
+			system_sdram_wire_dq           => CONNECTED_TO_system_sdram_wire_dq,           --                        .dq
+			system_sdram_wire_dqm          => CONNECTED_TO_system_sdram_wire_dqm,          --                        .dqm
+			system_sdram_wire_ras_n        => CONNECTED_TO_system_sdram_wire_ras_n,        --                        .ras_n
+			system_sdram_wire_we_n         => CONNECTED_TO_system_sdram_wire_we_n          --                        .we_n
 		);
 

@@ -398,27 +398,6 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[23] -
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_PIPELINE=0" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_PIPELINE=0" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_COUNTER_PIPELINE=0" -section_id auto_signaltap_0
-set_global_assignment -name QIP_FILE unsaved/synthesis/unsaved.qip
-set_global_assignment -name SYSTEMVERILOG_FILE spi_slave.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mtl_touch.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mtl_display.sv
-set_global_assignment -name SDC_FILE DE0_NANO.sdc
-set_global_assignment -name QIP_FILE sdram_control/Sdram_WR_FIFO.qip
-set_global_assignment -name VERILOG_FILE sdram_control/Sdram_RD_FIFO.v
-set_global_assignment -name QIP_FILE sdram_control/Sdram_RD_FIFO.qip
-set_global_assignment -name SOURCE_FILE sdram_control/sdram_params.h
-set_global_assignment -name VERILOG_FILE sdram_control/sdram_control.v
-set_global_assignment -name VERILOG_FILE sdram_control/sdr_data_path.v
-set_global_assignment -name VERILOG_FILE sdram_control/control_interface.v
-set_global_assignment -name VERILOG_FILE sdram_control/command.v
-set_global_assignment -name VERILOG_FILE i2c_touch_config.v
-set_global_assignment -name SYSTEMVERILOG_FILE DE0_NANO.sv
-set_global_assignment -name SDC_FILE DE0_NANO.SDC
-set_global_assignment -name QIP_FILE MTL_PLL.qip
-set_global_assignment -name QIP_FILE RAM_PLL.qip
-set_global_assignment -name SYSTEMVERILOG_FILE mtl_controller.sv
-set_global_assignment -name QIP_FILE Loading_ROM.qip
-set_global_assignment -name SYSTEMVERILOG_FILE mmu.sv
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=24" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=1024" -section_id auto_signaltap_0
@@ -569,5 +548,26 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_DE0_NANO_auto_signaltap_0_1_71d," -section_id auto_signaltap_0
-set_global_assignment -name SLD_FILE db/stp_MTL_ports_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE uNios/synthesis/uNios.qip
+set_global_assignment -name SYSTEMVERILOG_FILE spi_slave.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mtl_touch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mtl_display.sv
+set_global_assignment -name SDC_FILE DE0_NANO.sdc
+set_global_assignment -name QIP_FILE sdram_control/Sdram_WR_FIFO.qip
+set_global_assignment -name VERILOG_FILE sdram_control/Sdram_RD_FIFO.v
+set_global_assignment -name QIP_FILE sdram_control/Sdram_RD_FIFO.qip
+set_global_assignment -name SOURCE_FILE sdram_control/sdram_params.h
+set_global_assignment -name VERILOG_FILE sdram_control/sdram_control.v
+set_global_assignment -name VERILOG_FILE sdram_control/sdr_data_path.v
+set_global_assignment -name VERILOG_FILE sdram_control/control_interface.v
+set_global_assignment -name VERILOG_FILE sdram_control/command.v
+set_global_assignment -name VERILOG_FILE i2c_touch_config.v
+set_global_assignment -name SYSTEMVERILOG_FILE DE0_NANO.sv
+set_global_assignment -name SDC_FILE DE0_NANO.SDC
+set_global_assignment -name QIP_FILE MTL_PLL.qip
+set_global_assignment -name QIP_FILE RAM_PLL.qip
+set_global_assignment -name SYSTEMVERILOG_FILE mtl_controller.sv
+set_global_assignment -name QIP_FILE Loading_ROM.qip
+set_global_assignment -name SYSTEMVERILOG_FILE mmu.sv
+set_global_assignment -name SLD_FILE db/stp_MTL_ports_auto_stripped.stp

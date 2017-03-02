@@ -48,11 +48,6 @@ module mtl_touch_controller(
 	inout 	MTL_TOUCH_I2C_SDA,	// I2C data pin of Touch IC (from/to MTL)
 	output   MTL_TOUCH_I2C_SCL,	// I2C clock pin of Touch IC (from MTL)
 	// Gestures
-	output   Gest_W,					// Decoded gesture (sliding towards West)
-	output   Gest_E,					// Decoded gesture (sliding towards East)
-	output   Gest_N,					// Decoded gesture (sliding towards North)
-	output   Gest_S,						// Decoded gesture (sliding towards South)
-	output   Gest_Zoom, 					// Decoded gesture (sliding Zoom)
 	output	Gest_Custom1,
 	// Position
 	
@@ -110,20 +105,18 @@ end
 
  // set the final point of the gesture if it's correct
 always_ff @(posedge pulse2) begin
-	//if(isGestCustom1) begin
+	if(isGestCustom1) begin
 		x2_final <= reg_x2;
 		y2_final <= reg_y2;
-	//end else begin
-		//x2_final <= 10'b0;
-		//y2_final <= 9'b0;
-	//end
+	end else begin
+		x2_final <= 10'b0;
+		y2_final <= 9'b0;
+	end
 end
 
-always_ff @(posedge touch_ready, posedge pulse1, posedge pulse2) begin
+always_ff @(posedge touch_ready, posedge pulse1) begin
 	if(pulse1) 
 		isGestCustom1 <= 1'b1;
-	else if(pulse2)
-		isGestCustom1 <= 1'b0;
 	else
 		isGestCustom1 <= (x1_initial - 10'd30 <= reg_x1 && reg_x1 <= x1_initial + 10'd30) && // verifie que x1 ne bouge pas 
 						 (y1_initial - 9'd30 <= reg_y1 && reg_y1 <= y1_initial + 9'd30); // &&  // verifie que y1 ne bouge pas
@@ -171,7 +164,7 @@ i2c_touch_config  i2c_touch_config_inst (
 // the second one for the sliding "East" gesture.
 // More details are given while defining the module, please see below.
 
-touch_buffer	touch_buffer_west (
+/*touch_buffer	touch_buffer_west (
 	.clk (iCLK),
 	.rst (iRST),
 	.trigger (touch_ready && (reg_touch_count == 4'd1)),
@@ -197,7 +190,7 @@ touch_buffer 	touch_buffer_south (
 	.rst (iRST),
 	.trigger (touch_ready && (reg_touch_count == 4'd4)),
 	.pulse (Gest_S)
-);
+);*/
 
 
 endmodule // mtl_touch_controller

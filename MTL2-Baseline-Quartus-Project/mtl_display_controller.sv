@@ -43,7 +43,6 @@ module mtl_display_controller(
 	// Host Side
 	iCLK, 				// Input LCD control clock
 	iRST_n, 				// Input system reset
-	iColorData,			// Input hardcoded color data
 	oNewFrame,			// Output signal being a pulse when a new frame of the LCD begins
 	oEndFrame,			// Output signal being a pulse when a frame of the LCD ends
 	// LCD Side
@@ -53,8 +52,8 @@ module mtl_display_controller(
 	oLCD_G,           // Output LCD green color data  
 	oLCD_B,            // Output LCD blue color data  
 	
-	iX1, iX2, iX3,
-	iY1, iY2, iY3
+	iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10,
+	iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10
 );
 						
 //============================================================================
@@ -76,7 +75,6 @@ parameter Vertical_Front_Porch = 22;
 
 input				iCLK;   
 input				iRST_n;
-input  [23:0]  iColorData;
 output			oNewFrame;
 output			oEndFrame;
 output			oHD;
@@ -85,15 +83,15 @@ output [7:0]	oLCD_R;
 output [7:0]	oLCD_G;
 output [7:0]	oLCD_B;
 
-input [9:0] iX1, iX2, iX3;
-input [8:0] iY1, iY2, iY3;
+input [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10;
+input [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10;
 
 //=============================================================================
 // REG/WIRE declarations
 //=============================================================================
 
-reg  [10:0] x_cnt;  
-reg  [9:0]	y_cnt; 
+reg  [10:0] x_cnt, x_correct;  
+reg  [9:0]	y_cnt, y_correct; 
 wire [7:0]	read_red;
 wire [7:0]	read_green;
 wire [7:0]	read_blue; 
@@ -101,7 +99,8 @@ wire			display_area, display_area_prev;
 reg			mhd;
 reg			mvd;
 
-logic isInRectangle;
+logic isInCircle1, isInCircle2, isInCircle3, isInCircle4, isInCircle5;
+logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10;
 
 //=============================================================================
 // Structural coding
@@ -125,11 +124,23 @@ assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(x_cnt<(H_LINE-Horizontal_Front_Porch-2))&&
 						(y_cnt>(Vertical_Blank-1))&& 
 						(y_cnt<(V_LINE-Vertical_Front_Porch))));
+						
+assign x_correct = x_cnt - 60;
+assign y_correct = y_cnt - 40;
 					
 // Check if the current pixel position is in the rectangle
-assign isInRectangle1 = (iX1+20 < x_cnt && x_cnt < iX1+60) && (iY1 < y_cnt && y_cnt < iY1 + 40);
-assign isInRectangle2 = (iX2+20 < x_cnt && x_cnt < iX2+60) && (iY2 < y_cnt && y_cnt < iY2 + 40);
-assign isInRectangle3 = (iX3+20 < x_cnt && x_cnt < iX3+60) && (iY3 < y_cnt && y_cnt < iY3 + 40);
+assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 1056; // readius = 32
+assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 1056; // readius = 32
+assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 1056; // readius = 32
+assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 1056; // readius = 32
+assign isInCircle5 = (iX5-x_correct)*(iX5-x_correct) + (iY5-y_correct)*(iY5-y_correct) < 1056; // readius = 32
+assign isInCircle6 = (iX6-x_correct)*(iX6-x_correct) + (iY6-y_correct)*(iY6-y_correct) < 1056; // readius = 32
+assign isInCircle7 = (iX7-x_correct)*(iX7-x_correct) + (iY7-y_correct)*(iY7-y_correct) < 1056; // readius = 32
+assign isInCircle8 = (iX8-x_correct)*(iX8-x_correct) + (iY8-y_correct)*(iY8-y_correct) < 1056; // readius = 32
+assign isInCircle9 = (iX9-x_correct)*(iX9-x_correct) + (iY9-y_correct)*(iY9-y_correct) < 1056; // readius = 32
+assign isInCircle10 = (iX10-x_correct)*(iX10-x_correct) + (iY10-y_correct)*(iY10-y_correct) < 1056; // readius = 32
+//assign isInRectangle2 = (iX2+20 < x_cnt && x_cnt < iX2+60) && (iY2 < y_cnt && y_cnt < iY2 + 40);
+//assign isInRectangle3 = (iX3+20 < x_cnt && x_cnt < iX3+60) && (iY3 < y_cnt && y_cnt < iY3 + 40);
 						
 
 // Assigns the right color data.
@@ -141,25 +152,60 @@ always_ff @(posedge iCLK) begin
 		read_blue 	<= 8'b0;
 	// If we are in the active display area...
 	end else if (display_area) begin
-		if(isInRectangle1) begin
-			read_red <= 8'b11111111;
+		if(isInCircle1 && iX1 != 0 && iY1 !=0 ) begin
+			read_red <= 8'hFF;
 			read_blue <= 8'h00;
 			read_green <= 8'h00;
 		end
-		else if(isInRectangle2) begin
+		else if(isInCircle2 && iX2 != 0 && iY2 !=0) begin
 			read_red <= 8'h00;
 			read_blue <= 8'hCC;
 			read_green <= 8'h55;
 		end
-		else if(isInRectangle3) begin
+		else if(isInCircle3 && iX3 != 0 && iY3 !=0) begin
 			read_red <= 8'h55;
 			read_blue <= 8'h00;
 			read_green <= 8'hCC;
 		end
+		else if(isInCircle4 && iX4 != 0 && iY4 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle5 && iX5 != 0 && iY5 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle6 && iX6 != 0 && iY6 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle7 && iX7 != 0 && iY7 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle8 && iX8 != 0 && iY8 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle9 && iX9 != 0 && iY9 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
+		else if(isInCircle10 && iX10 != 0 && iY10 !=0) begin
+			read_red <= 8'h55;
+			read_blue <= 8'h0F;
+			read_green <= 8'hCC;
+		end
 		else begin
-			read_red 	<= iColorData[23:16]; 
-			read_green 	<= iColorData[15:8]; 
-			read_blue 	<= iColorData[7:0];
+			read_red 	<= 8'h80; 
+			read_green 	<= 8'hD4; 
+			read_blue 	<= 8'hFF;
 		end
 	// If we aren't in the active display area, put at zero
 	// the color signals.
