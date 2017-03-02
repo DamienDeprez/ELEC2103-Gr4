@@ -40,7 +40,7 @@ module MTL_ip (
 	
 	reg [3:0] oCount;
 	
-	always @(posedge clock_clk) begin
+	always @(negedge clock_clk) begin
 	
 		if (avs_s0_write)
 			case(avs_s0_address)
@@ -87,12 +87,12 @@ module MTL_ip (
 			endcase
 		if (avs_s0_read) begin
 			case(avs_s0_address)
-				8'h00: readdata <= {28'b0,oCount};
-				8'h01: readdata <= {13'b0,oY1,oX1};
-				8'h02: readdata <= {13'b0,oY2,oX2};
-				8'h03: readdata <= {13'b0,oY3,oX3};
-				8'h04: readdata <= {13'b0,oY4,oX4};
-				8'h05: readdata <= {13'b0,oY5,oX5};
+				8'h0A: readdata <= {28'b0,oCount};
+				8'h0B: readdata <= {13'b0,oY1,oX1};
+				8'h0C: readdata <= {13'b0,oY2,oX2};
+				8'h0D: readdata <= {13'b0,oY3,oX3};
+				8'h0E: readdata <= {13'b0,oY4,oX4};
+				8'h0F: readdata <= {13'b0,oY5,oX5};
 			endcase 
 		end	
 	end
@@ -101,7 +101,7 @@ module MTL_ip (
 	assign avs_s0_waitrequest = 1'b0;
 	
 	
-	mtl_controller (
+	mtl_controller controller(
 	.iCLK(clock_clk),
 	.iRST(RST_DLY),
 	// MTL
