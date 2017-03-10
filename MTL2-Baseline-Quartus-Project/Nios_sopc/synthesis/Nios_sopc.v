@@ -5,6 +5,17 @@
 `timescale 1 ps / 1 ps
 module Nios_sopc (
 		input  wire        clk_clk,                         //                      clk.clk
+		output wire [6:0]  data_addr_export,                //                data_addr.export
+		input  wire [31:0] data_read_export,                //                data_read.export
+		output wire        data_we_export,                  //                  data_we.export
+		output wire [31:0] data_write_export,               //               data_write.export
+		input  wire [6:0]  mem_nios_pi_s2_address,          //           mem_nios_pi_s2.address
+		input  wire        mem_nios_pi_s2_chipselect,       //                         .chipselect
+		input  wire        mem_nios_pi_s2_clken,            //                         .clken
+		input  wire        mem_nios_pi_s2_write,            //                         .write
+		output wire [31:0] mem_nios_pi_s2_readdata,         //                         .readdata
+		input  wire [31:0] mem_nios_pi_s2_writedata,        //                         .writedata
+		input  wire [3:0]  mem_nios_pi_s2_byteenable,       //                         .byteenable
 		output wire [7:0]  mtl_ip_mtl_b_export,             //             mtl_ip_mtl_b.export
 		output wire        mtl_ip_mtl_dclk_export,          //          mtl_ip_mtl_dclk.export
 		output wire [7:0]  mtl_ip_mtl_g_export,             //             mtl_ip_mtl_g.export
@@ -24,7 +35,11 @@ module Nios_sopc (
 		inout  wire [15:0] sdram_controller_dq,             //                         .dq
 		output wire [1:0]  sdram_controller_dqm,            //                         .dqm
 		output wire        sdram_controller_ras_n,          //                         .ras_n
-		output wire        sdram_controller_we_n            //                         .we_n
+		output wire        sdram_controller_we_n,           //                         .we_n
+		input  wire        spi_clk_export,                  //                  spi_clk.export
+		input  wire        spi_cs_export,                   //                   spi_cs.export
+		output wire        spi_miso_export,                 //                 spi_miso.export
+		input  wire        spi_mosi_export                  //                 spi_mosi.export
 	);
 
 	wire  [31:0] cpu_data_master_readdata;                                  // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
@@ -81,12 +96,19 @@ module Nios_sopc (
 	wire         mm_interconnect_0_sdram_controller_s1_readdatavalid;       // sdram_controller:za_valid -> mm_interconnect_0:sdram_controller_s1_readdatavalid
 	wire         mm_interconnect_0_sdram_controller_s1_write;               // mm_interconnect_0:sdram_controller_s1_write -> sdram_controller:az_wr_n
 	wire  [15:0] mm_interconnect_0_sdram_controller_s1_writedata;           // mm_interconnect_0:sdram_controller_s1_writedata -> sdram_controller:az_data
+	wire         mm_interconnect_0_mem_nios_pi_s1_chipselect;               // mm_interconnect_0:mem_Nios_PI_s1_chipselect -> mem_Nios_PI:chipselect
+	wire  [31:0] mm_interconnect_0_mem_nios_pi_s1_readdata;                 // mem_Nios_PI:readdata -> mm_interconnect_0:mem_Nios_PI_s1_readdata
+	wire   [6:0] mm_interconnect_0_mem_nios_pi_s1_address;                  // mm_interconnect_0:mem_Nios_PI_s1_address -> mem_Nios_PI:address
+	wire   [3:0] mm_interconnect_0_mem_nios_pi_s1_byteenable;               // mm_interconnect_0:mem_Nios_PI_s1_byteenable -> mem_Nios_PI:byteenable
+	wire         mm_interconnect_0_mem_nios_pi_s1_write;                    // mm_interconnect_0:mem_Nios_PI_s1_write -> mem_Nios_PI:write
+	wire  [31:0] mm_interconnect_0_mem_nios_pi_s1_writedata;                // mm_interconnect_0:mem_Nios_PI_s1_writedata -> mem_Nios_PI:writedata
+	wire         mm_interconnect_0_mem_nios_pi_s1_clken;                    // mm_interconnect_0:mem_Nios_PI_s1_clken -> mem_Nios_PI:clken
 	wire         irq_mapper_receiver0_irq;                                  // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                  // timer_timestamp:irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                  // timer_system:irq -> irq_mapper:receiver2_irq
 	wire  [31:0] cpu_irq_irq;                                               // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [MTL_ip:reset_reset, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, sdram_controller:reset_n, sysid_qsys:reset_n, timer_system:reset_n, timer_timestamp:reset_n]
-	wire         rst_controller_reset_out_reset_req;                        // rst_controller:reset_req -> [cpu:reset_req, rst_translator:reset_req_in]
+	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [MTL_ip:reset_reset, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mem_Nios_PI:reset, mem_Nios_PI:reset2, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, sdram_controller:reset_n, sysid_qsys:reset_n, timer_system:reset_n, timer_timestamp:reset_n]
+	wire         rst_controller_reset_out_reset_req;                        // rst_controller:reset_req -> [cpu:reset_req, mem_Nios_PI:reset_req, mem_Nios_PI:reset_req2, rst_translator:reset_req_in]
 
 	MTL_ip mtl_ip (
 		.avs_s0_address     (mm_interconnect_0_mtl_ip_s0_address),     //                s0.address
@@ -149,6 +171,42 @@ module Nios_sopc (
 		.av_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                  .waitrequest
 		.av_irq         (irq_mapper_receiver0_irq)                                   //               irq.irq
+	);
+
+	Nios_sopc_mem_Nios_PI mem_nios_pi (
+		.clk         (clk_clk),                                     //   clk1.clk
+		.address     (mm_interconnect_0_mem_nios_pi_s1_address),    //     s1.address
+		.clken       (mm_interconnect_0_mem_nios_pi_s1_clken),      //       .clken
+		.chipselect  (mm_interconnect_0_mem_nios_pi_s1_chipselect), //       .chipselect
+		.write       (mm_interconnect_0_mem_nios_pi_s1_write),      //       .write
+		.readdata    (mm_interconnect_0_mem_nios_pi_s1_readdata),   //       .readdata
+		.writedata   (mm_interconnect_0_mem_nios_pi_s1_writedata),  //       .writedata
+		.byteenable  (mm_interconnect_0_mem_nios_pi_s1_byteenable), //       .byteenable
+		.reset       (rst_controller_reset_out_reset),              // reset1.reset
+		.reset_req   (rst_controller_reset_out_reset_req),          //       .reset_req
+		.address2    (mem_nios_pi_s2_address),                      //     s2.address
+		.chipselect2 (mem_nios_pi_s2_chipselect),                   //       .chipselect
+		.clken2      (mem_nios_pi_s2_clken),                        //       .clken
+		.write2      (mem_nios_pi_s2_write),                        //       .write
+		.readdata2   (mem_nios_pi_s2_readdata),                     //       .readdata
+		.writedata2  (mem_nios_pi_s2_writedata),                    //       .writedata
+		.byteenable2 (mem_nios_pi_s2_byteenable),                   //       .byteenable
+		.clk2        (clk_clk),                                     //   clk2.clk
+		.reset2      (rst_controller_reset_out_reset),              // reset2.reset
+		.reset_req2  (rst_controller_reset_out_reset_req),          //       .reset_req
+		.freeze      (1'b0)                                         // (terminated)
+	);
+
+	new_component my_spi (
+		.clock_clk  (clk_clk),           //      clock.clk
+		.SPI_CLK    (spi_clk_export),    //    SPI_CLK.export
+		.SPI_CS     (spi_cs_export),     //     SPI_CS.export
+		.SPI_MOSI   (spi_mosi_export),   //   SPI_MOSI.export
+		.SPI_MISO   (spi_miso_export),   //   SPI_MISO.export
+		.Data_WE    (data_we_export),    //    Data_WE.export
+		.Data_Addr  (data_addr_export),  //  Data_Addr.export
+		.Data_Write (data_write_export), // Data_Write.export
+		.Data_Read  (data_read_export)   //  Data_Read.export
 	);
 
 	Nios_sopc_sdram_controller sdram_controller (
@@ -233,6 +291,13 @@ module Nios_sopc (
 		.jtag_uart_avalon_jtag_slave_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                                .writedata
 		.jtag_uart_avalon_jtag_slave_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                                .waitrequest
 		.jtag_uart_avalon_jtag_slave_chipselect  (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),  //                                .chipselect
+		.mem_Nios_PI_s1_address                  (mm_interconnect_0_mem_nios_pi_s1_address),                  //                  mem_Nios_PI_s1.address
+		.mem_Nios_PI_s1_write                    (mm_interconnect_0_mem_nios_pi_s1_write),                    //                                .write
+		.mem_Nios_PI_s1_readdata                 (mm_interconnect_0_mem_nios_pi_s1_readdata),                 //                                .readdata
+		.mem_Nios_PI_s1_writedata                (mm_interconnect_0_mem_nios_pi_s1_writedata),                //                                .writedata
+		.mem_Nios_PI_s1_byteenable               (mm_interconnect_0_mem_nios_pi_s1_byteenable),               //                                .byteenable
+		.mem_Nios_PI_s1_chipselect               (mm_interconnect_0_mem_nios_pi_s1_chipselect),               //                                .chipselect
+		.mem_Nios_PI_s1_clken                    (mm_interconnect_0_mem_nios_pi_s1_clken),                    //                                .clken
 		.MTL_ip_s0_address                       (mm_interconnect_0_mtl_ip_s0_address),                       //                       MTL_ip_s0.address
 		.MTL_ip_s0_write                         (mm_interconnect_0_mtl_ip_s0_write),                         //                                .write
 		.MTL_ip_s0_read                          (mm_interconnect_0_mtl_ip_s0_read),                          //                                .read

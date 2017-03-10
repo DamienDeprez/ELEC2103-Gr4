@@ -1,6 +1,17 @@
 	component Nios_sopc is
 		port (
 			clk_clk                         : in    std_logic                     := 'X';             -- clk
+			data_addr_export                : out   std_logic_vector(6 downto 0);                     -- export
+			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			data_we_export                  : out   std_logic;                                        -- export
+			data_write_export               : out   std_logic_vector(31 downto 0);                    -- export
+			mem_nios_pi_s2_address          : in    std_logic_vector(6 downto 0)  := (others => 'X'); -- address
+			mem_nios_pi_s2_chipselect       : in    std_logic                     := 'X';             -- chipselect
+			mem_nios_pi_s2_clken            : in    std_logic                     := 'X';             -- clken
+			mem_nios_pi_s2_write            : in    std_logic                     := 'X';             -- write
+			mem_nios_pi_s2_readdata         : out   std_logic_vector(31 downto 0);                    -- readdata
+			mem_nios_pi_s2_writedata        : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			mem_nios_pi_s2_byteenable       : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
 			mtl_ip_mtl_b_export             : out   std_logic_vector(7 downto 0);                     -- export
 			mtl_ip_mtl_dclk_export          : out   std_logic;                                        -- export
 			mtl_ip_mtl_g_export             : out   std_logic_vector(7 downto 0);                     -- export
@@ -20,7 +31,11 @@
 			sdram_controller_dq             : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
 			sdram_controller_dqm            : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_controller_ras_n          : out   std_logic;                                        -- ras_n
-			sdram_controller_we_n           : out   std_logic                                         -- we_n
+			sdram_controller_we_n           : out   std_logic;                                        -- we_n
+			spi_clk_export                  : in    std_logic                     := 'X';             -- export
+			spi_cs_export                   : in    std_logic                     := 'X';             -- export
+			spi_miso_export                 : out   std_logic;                                        -- export
+			spi_mosi_export                 : in    std_logic                     := 'X'              -- export
 		);
 	end component Nios_sopc;
 

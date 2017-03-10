@@ -1,26 +1,40 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst INGI2315_Lab4_sopc.timer_timestamp -pg 1 -lvl 3 -y 450
-preplace inst INGI2315_Lab4_sopc.clk_0 -pg 1 -lvl 1 -y 570
-preplace inst INGI2315_Lab4_sopc.cpu.reset_bridge -pg 1
-preplace inst INGI2315_Lab4_sopc.Button -pg 1 -lvl 3 -y 30
-preplace inst INGI2315_Lab4_sopc.sysid_qsys -pg 1 -lvl 3 -y 250
-preplace inst INGI2315_Lab4_sopc.sdram_controller -pg 1 -lvl 3 -y 140
-preplace inst INGI2315_Lab4_sopc.jtag_uart -pg 1 -lvl 3 -y 340
-preplace inst INGI2315_Lab4_sopc.cpu.clock_bridge -pg 1
-preplace inst INGI2315_Lab4_sopc.cpu -pg 1 -lvl 2 -y 400
-preplace inst INGI2315_Lab4_sopc.cpu.cpu -pg 1
-preplace inst INGI2315_Lab4_sopc.LEDs -pg 1 -lvl 3 -y 670
-preplace inst INGI2315_Lab4_sopc -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst INGI2315_Lab4_sopc.timer_system -pg 1 -lvl 3 -y 560
-preplace netloc EXPORT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)INGI2315_Lab4_sopc.button,(SLAVE)Button.external_connection) 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc INTERCONNECT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)sysid_qsys.control_slave,(SLAVE)timer_timestamp.s1,(SLAVE)sdram_controller.s1,(SLAVE)Button.s1,(SLAVE)timer_system.s1,(MASTER)cpu.data_master,(SLAVE)LEDs.s1,(MASTER)cpu.instruction_master,(SLAVE)cpu.debug_mem_slave) 1 1 2 380 540 740
-preplace netloc FAN_OUT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)cpu.clk,(SLAVE)timer_system.clk,(SLAVE)timer_timestamp.clk,(SLAVE)jtag_uart.clk,(SLAVE)LEDs.clk,(MASTER)clk_0.clk,(SLAVE)Button.clk,(SLAVE)sysid_qsys.clk,(SLAVE)sdram_controller.clk) 1 1 2 320 580 760
-preplace netloc EXPORT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)INGI2315_Lab4_sopc.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)clk_0.clk_in,(SLAVE)INGI2315_Lab4_sopc.clk) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>INGI2315_Lab4_sopc</net_container>(MASTER)cpu.irq,(SLAVE)jtag_uart.irq,(SLAVE)timer_system.irq,(SLAVE)timer_timestamp.irq) 1 2 1 780
-preplace netloc FAN_OUT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)sysid_qsys.reset,(SLAVE)LEDs.reset,(SLAVE)Button.reset,(SLAVE)sdram_controller.reset,(MASTER)clk_0.clk_reset,(SLAVE)cpu.reset,(SLAVE)timer_timestamp.reset,(SLAVE)timer_system.reset,(SLAVE)jtag_uart.reset) 1 1 2 360 600 800
-preplace netloc EXPORT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)sdram_controller.wire,(SLAVE)INGI2315_Lab4_sopc.sdram_controller) 1 0 3 NJ 210 NJ 210 NJ
-preplace netloc EXPORT<net_container>INGI2315_Lab4_sopc</net_container>(SLAVE)LEDs.external_connection,(SLAVE)INGI2315_Lab4_sopc.leds) 1 0 3 NJ 560 NJ 700 NJ
-levelinfo -pg 1 0 110 1030
-levelinfo -hier INGI2315_Lab4_sopc 120 150 500 870 1020
+preplace inst Nios_sopc.sdram_controller -pg 1 -lvl 3 -y 710
+preplace inst Nios_sopc.cpu.cpu -pg 1
+preplace inst Nios_sopc.cpu.clock_bridge -pg 1
+preplace inst Nios_sopc -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst Nios_sopc.my_SPI_ip -pg 1 -lvl 3 -y 170
+preplace inst Nios_sopc.timer_system -pg 1 -lvl 3 -y 430
+preplace inst Nios_sopc.sysid_qsys -pg 1 -lvl 3 -y 530
+preplace inst Nios_sopc.mem_Nios_PI -pg 1 -lvl 3 -y 30
+preplace inst Nios_sopc.MTL_ip -pg 1 -lvl 3 -y 810
+preplace inst Nios_sopc.jtag_uart -pg 1 -lvl 3 -y 330
+preplace inst Nios_sopc.cpu.reset_bridge -pg 1
+preplace inst Nios_sopc.clk_0 -pg 1 -lvl 1 -y 400
+preplace inst Nios_sopc.timer_timestamp -pg 1 -lvl 3 -y 610
+preplace inst Nios_sopc.cpu -pg 1 -lvl 2 -y 390
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)sdram_controller.wire,(SLAVE)Nios_sopc.sdram_controller) 1 0 3 NJ 780 NJ 780 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.mtl_ip_rst_dly,(SLAVE)MTL_ip.RST_DLY) 1 0 3 NJ 1000 NJ 1000 NJ
+preplace netloc FAN_OUT<net_container>Nios_sopc</net_container>(SLAVE)mem_Nios_PI.clk2,(SLAVE)MTL_ip.clock_sink,(SLAVE)cpu.clk,(SLAVE)mem_Nios_PI.clk1,(SLAVE)sysid_qsys.clk,(MASTER)clk_0.clk,(SLAVE)jtag_uart.clk,(SLAVE)timer_system.clk,(SLAVE)my_SPI_ip.clock,(SLAVE)timer_timestamp.clk,(SLAVE)sdram_controller.clk) 1 1 2 390 350 770
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.mtl_ip_mtl_vsd,(SLAVE)MTL_ip.MTL_VSD) 1 0 3 NJ 980 NJ 980 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)MTL_ip.MTL_TOUCH_I2C_SCL,(SLAVE)Nios_sopc.mtl_ip_mtl_touch_i2c_scl) 1 0 3 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.mtl_ip_mtl_touch_i2c_sda,(SLAVE)MTL_ip.MTL_TOUCH_I2C_SDA) 1 0 3 NJ 960 NJ 960 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)MTL_ip.MTL_G,(SLAVE)Nios_sopc.mtl_ip_mtl_g) 1 0 3 NJ 860 NJ 860 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)my_SPI_ip.SPI_CLK,(SLAVE)Nios_sopc.spi_clk) 1 0 3 NJ 180 NJ 180 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.mtl_ip_mtl_dclk,(SLAVE)MTL_ip.MTL_DCLK) 1 0 3 NJ 840 NJ 840 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.spi_miso,(SLAVE)my_SPI_ip.SPI_MISO) 1 0 3 NJ 220 NJ 220 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)MTL_ip.MTL_B,(SLAVE)Nios_sopc.mtl_ip_mtl_b) 1 0 3 NJ 820 NJ 820 NJ
+preplace netloc FAN_OUT<net_container>Nios_sopc</net_container>(SLAVE)jtag_uart.irq,(SLAVE)timer_system.irq,(MASTER)cpu.irq,(SLAVE)timer_timestamp.irq) 1 2 1 810
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)mem_Nios_PI.s2,(SLAVE)Nios_sopc.mem_nios_pi_s2) 1 0 3 NJ 140 NJ 140 NJ
+preplace netloc INTERCONNECT<net_container>Nios_sopc</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(MASTER)cpu.data_master,(SLAVE)timer_system.s1,(SLAVE)mem_Nios_PI.s1,(MASTER)cpu.instruction_master,(SLAVE)timer_timestamp.s1,(SLAVE)my_SPI_ip.avs_s0,(SLAVE)sdram_controller.s1,(SLAVE)sysid_qsys.control_slave,(SLAVE)cpu.debug_mem_slave,(SLAVE)MTL_ip.s0) 1 1 2 390 1040 790
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)my_SPI_ip.SPI_CS,(SLAVE)Nios_sopc.spi_cs) 1 0 3 NJ 200 NJ 200 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)MTL_ip.MTL_R,(SLAVE)Nios_sopc.mtl_ip_mtl_r) 1 0 3 NJ 900 NJ 900 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)MTL_ip.MTL_HSD,(SLAVE)Nios_sopc.mtl_ip_mtl_hsd) 1 0 3 NJ 880 NJ 880 NJ
+preplace netloc FAN_OUT<net_container>Nios_sopc</net_container>(SLAVE)timer_timestamp.reset,(SLAVE)my_SPI_ip.reset,(SLAVE)cpu.reset,(SLAVE)sdram_controller.reset,(SLAVE)jtag_uart.reset,(SLAVE)sysid_qsys.reset,(SLAVE)mem_Nios_PI.reset1,(MASTER)clk_0.clk_reset,(SLAVE)timer_system.reset,(SLAVE)mem_Nios_PI.reset2,(SLAVE)MTL_ip.reset_sink) 1 1 2 370 1020 830
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.spi_mosi,(SLAVE)my_SPI_ip.SPI_MOSI) 1 0 3 NJ 240 NJ 240 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)Nios_sopc.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>Nios_sopc</net_container>(SLAVE)Nios_sopc.mtl_ip_mtl_touch_int_n,(SLAVE)MTL_ip.MTL_TOUCH_INT_n) 1 0 3 NJ 920 NJ 920 NJ
+levelinfo -pg 1 0 160 1030
+levelinfo -hier Nios_sopc 170 200 530 880 1020

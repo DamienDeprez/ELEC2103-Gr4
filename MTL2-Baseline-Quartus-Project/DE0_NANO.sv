@@ -148,7 +148,9 @@ sdram_pll sdram_pll_inst(
 );
 
 assign DRAM_CLK = sdram_clk;
-
+logic mem_nios_pi_we;
+	logic [6:0]	 mem_nios_pi_addr;
+	logic [31:0] mem_nios_pi_readdata, mem_nios_pi_writedata;
 // A good synchronization of all the resets of the different
 // components must be carried out. Otherwise, some random bugs
 // risk to appear after a reset of the system (see definition
@@ -200,10 +202,37 @@ Nios_sopc u0 (
 		.mtl_ip_mtl_r_export             (MTL_R),             //             mtl_ip_mtl_r.export
 		.mtl_ip_mtl_g_export             (MTL_G),             //             mtl_ip_mtl_g.export
 		.mtl_ip_mtl_b_export             (MTL_B),             //             mtl_ip_mtl_b.export
-		.mtl_ip_rst_dly_export           (dly_rst)            //           mtl_ip_rst_dly.export
+		.mtl_ip_rst_dly_export           (dly_rst),     		//           mtl_ip_rst_dly.export
+		.mem_nios_pi_s2_address          (mem_nios_pi_addr),          //           mem_nios_pi_s2.address
+		.mem_nios_pi_s2_chipselect       (1'b1),       //                         .chipselect
+		.mem_nios_pi_s2_clken            (1'b1),            //                         .clken
+		.mem_nios_pi_s2_write            (mem_nios_pi_we),            //                         .write
+		.mem_nios_pi_s2_readdata         (mem_nios_pi_readdata),         //                         .readdata
+		.mem_nios_pi_s2_writedata        (mem_nios_pi_writedata),        //                         .writedata
+		.mem_nios_pi_s2_byteenable       (4'b1111),        //                         .byteenabel
+		.spi_clk_export                  (spi_clk),                  //                  spi_clk.export
+		.spi_cs_export                   (spi_cs),                   //                   spi_cs.export
+		.spi_mosi_export                 (spi_mosi),                 //                 spi_mosi.export
+		.spi_miso_export                 (spi_miso),                 //                 spi_miso.export
+		.data_we_export                  (mem_nios_pi_we),                  //                  data_we.export
+		.data_addr_export                (mem_nios_pi_addr),                //                data_addr.export
+		.data_write_export               (mem_nios_pi_writedata),               //               data_write.export
+		.data_read_export                (mem_nios_pi_readdata)                 //                data_read.export
 	);
 
+//=======================================================
+//  SPI
+//=======================================================
 
+	logic spi_clk, spi_cs, spi_mosi, spi_miso;
+	logic [31:0] DataToPI, DataFromPI;
+
+	
+	assign spi_clk  		= GPIO_0[11];	// SCLK = pin 16 = GPIO_11
+	assign spi_cs   		= GPIO_0[9];	// CE0  = pin 14 = GPIO_9
+	assign spi_mosi     	= GPIO_0[15];	// MOSI = pin 20 = GPIO_15
+	
+	assign GPIO_0[13] = spi_cs ? 1'bz : spi_miso;  // MISO = pin 18 = GPIO_13	
 
 endmodule // DE0_NANO
 
