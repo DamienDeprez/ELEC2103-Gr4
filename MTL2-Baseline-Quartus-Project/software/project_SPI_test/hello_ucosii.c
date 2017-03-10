@@ -124,7 +124,7 @@ void task2 (void *pdata)
 {
 	volatile int * MTL_controller = (int *) MTL_IP_BASE;
 	volatile int * mem = (int *) MEM_NIOS_PI_BASE+6;
-	*mem=8;
+	*mem=19	;
 
 
 	int x4 = 64;

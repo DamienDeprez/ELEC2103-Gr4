@@ -100,8 +100,8 @@ reg			mhd;
 reg			mvd;
 
 logic isInCircle1, isInCircle2, isInCircle3, isInCircle4, isInCircle5;
-logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10;
-
+logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10,isInCircle11,isInCircle12,isInCircle13,isInCircle14;
+logic isInRectangle2,isInRectangle3;
 //=============================================================================
 // Structural coding
 //=============================================================================
@@ -125,21 +125,29 @@ assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(y_cnt>(Vertical_Blank-1))&& 
 						(y_cnt<(V_LINE-Vertical_Front_Porch))));
 						
-assign x_correct = x_cnt - 60;
-assign y_correct = y_cnt - 40;
+assign x_correct = x_cnt - 80;
+assign y_correct = y_cnt - 60;
 					
 // Check if the current pixel position is in the rectangle
-assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 1056; // readius = 32  (32²+32)
-assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 1056; // readius = 32
-assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 1056; // readius = 32
-assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 1056; // readius = 32
-assign isInCircle5 = (iX5-x_correct)*(iX5-x_correct) + (iY5-y_correct)*(iY5-y_correct) < 1056; // readius = 32
-assign isInCircle6 = (iX6-x_correct)*(iX6-x_correct) + (iY6-y_correct)*(iY6-y_correct) < 1056; // readius = 32
-assign isInCircle7 = (iX7-x_correct)*(iX7-x_correct) + (iY7-y_correct)*(iY7-y_correct) < 1056; // readius = 32
-assign isInCircle8 = (iX8-x_correct)*(iX8-x_correct) + (iY8-y_correct)*(iY8-y_correct) < 1056; // readius = 32
-assign isInCircle9 = (iX9-x_correct)*(iX9-x_correct) + (iY9-y_correct)*(iY9-y_correct) < 1056; // readius = 32
-assign isInCircle10 = (iX10-x_correct)*(iX10-x_correct) + (iY10-y_correct)*(iY10-y_correct) < 1056; // readius = 32
-//assign isInRectangle2 = (iX2+20 < x_cnt && x_cnt < iX2+60) && (iY2 < y_cnt && y_cnt < iY2 + 40);
+assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 650; // readius = 25
+assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 650; // readius = 25
+assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 650; // readius = 25
+assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 650; // readius = 25
+assign isInCircle5 = (iX5-x_correct)*(iX5-x_correct) + (iY5-y_correct)*(iY5-y_correct) < 650; // readius = 25
+assign isInCircle6 = (iX6-x_correct)*(iX6-x_correct) + (iY6-y_correct)*(iY6-y_correct) < 650; // readius = 25
+assign isInCircle7 = (iX7-x_correct)*(iX7-x_correct) + (iY7-y_correct)*(iY7-y_correct) < 650; // readius = 25
+assign isInCircle8 = (iX8-x_correct)*(iX8-x_correct) + (iY8-y_correct)*(iY8-y_correct) < 650; // readius = 25
+assign isInCircle9 = (iX9-x_correct)*(iX9-x_correct) + (iY9-y_correct)*(iY9-y_correct) < 650; // readius = 25
+assign isInCircle10 = (iX10-x_correct)*(iX10-x_correct) + (iY10-y_correct)*(iY10-y_correct) < 650; // readius = 25
+
+assign isInCircle11 = (75-x_cnt)*(75-x_cnt) + (54-y_cnt)*(54-y_cnt) < 650; // readius = 25
+assign isInCircle12 = (815-x_cnt)*(815-x_cnt) + (54-y_cnt)*(54-y_cnt) < 650; // readius = 25
+assign isInCircle13 = (75-x_cnt)*(75-x_cnt) + (475-y_cnt)*(475-y_cnt) < 650; // readius = 25
+assign isInCircle14 = (815-x_cnt)*(815-x_cnt) + (475-y_cnt)*(475-y_cnt) < 650; // readius = 25
+
+assign isInRectangle2 = (75 < x_cnt && x_cnt < 815) && (54 < y_cnt && y_cnt < 475);
+///assign isInRectangle3 = (1 < x_cnt && x_cnt<115 && 766 < x_cnt && x_cnt<1025) && ( y_cnt<100 && y_cnt > 1 && y_cnt < 511 && y_cnt > 431);
+
 //assign isInRectangle3 = (iX3+20 < x_cnt && x_cnt < iX3+60) && (iY3 < y_cnt && y_cnt < iY3 + 40);
 						
 
@@ -202,10 +210,35 @@ always_ff @(posedge iCLK) begin
 			read_blue <= 8'hC5;
 			read_green <= 8'h85;
 		end
+		else if(isInCircle11 ) begin
+			read_red <= 8'h0;
+			read_blue <= 8'h0;
+			read_green <= 8'h0;
+		end
+		else if(isInCircle12 ) begin
+			read_red <= 8'h0;
+			read_blue <= 8'h0;
+			read_green <= 8'h0;
+		end
+		else if(isInCircle13 ) begin
+			read_red <= 8'h0;
+			read_blue <= 8'h0;
+			read_green <= 8'h0;
+		end
+		else if(isInCircle14 ) begin
+			read_red <= 8'h0;
+			read_blue <= 8'h0;
+			read_green <= 8'h0;
+		end
+		else if(isInRectangle2)begin
+			read_red <= 8'h00;
+			read_blue <= 8'h00;
+			read_green <= 8'hCC;
+		end
 		else begin
-			read_red 	<= 8'h80; 
-			read_green 	<= 8'hD4; 
-			read_blue 	<= 8'hFF;
+			read_red 	<= 8'h00; 
+			read_green 	<= 8'h4D; 
+			read_blue 	<= 8'h00;
 		end
 	// If we aren't in the active display area, put at zero
 	// the color signals.
