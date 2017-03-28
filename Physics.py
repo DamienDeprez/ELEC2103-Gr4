@@ -63,10 +63,10 @@ def shoot(screen, x, y, x_ball_1, y_ball_1,x_ball_2,y_ball_2):
 
 def collide(x_ball_1, y_ball_1,x_ball_2,y_ball_2):
     if (math.sqrt((x_ball_2-x_ball_1)*(x_ball_2-x_ball_1)+(y_ball_1-y_ball_2)*(y_ball_1-y_ball_2)) <= (2*SIZE)):
-        collision=1
+        return True        
     else:
-        collision=0
-    return collision
+        return False
+   
  
 #def border_collide(x_ball,y_ball):
     

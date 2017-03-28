@@ -38,16 +38,26 @@
 #define   TASK_STACKSIZE       2048
 OS_STK    task1_stk[TASK_STACKSIZE];
 OS_STK    task2_stk[TASK_STACKSIZE];
+OS_STK    task3_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
 
 #define TASK1_PRIORITY      1
 #define TASK2_PRIORITY      2
+#define TASK3_PRIORITY      2
+
 
 /* Definition of the mailboxes */
 OS_EVENT *MailBox1;
 OS_EVENT *MailBox2;
 OS_EVENT *MailBox3;
+
+float * Xdir = (float*) MEM_NIOS_PI_BASE+4;
+float * Ydir = (float*) MEM_NIOS_PI_BASE+5;
+int * isSend = (int*) MEM_NIOS_PI_BASE+6;
+int * Ack     = (int*) MEM_NIOS_PI_BASE+7;
+int * isReceived = (int*) MEM_NIOS_PI_BASE+8;
+
 
 /* Prints "Hello World" and sleeps for three seconds */
 void task1(void* pdata)
@@ -124,13 +134,13 @@ void task2 (void *pdata)
 {
 	volatile int * MTL_controller = (int *) MTL_IP_BASE;
 	volatile int * mem = (int *) MEM_NIOS_PI_BASE+6;
-	*mem=130	;
+	*mem=130;
 
 
 	int x4 = 64;
 	int y4 = 64;
-	int x5 = 500;//128;
-	int y5 = 215;//64;
+	int x5 = 0;//128;
+	int y5 = 0;//64;
 	int x6 = 0;//196;
 	int y6 = 0;//64;
 	int x7 = 0;//256;
@@ -163,19 +173,26 @@ void task2 (void *pdata)
 
 	int size = 32;
 	int border = 0;
-
 	double vector [2];
 	double speed;
 
 	double ball_x = 64, ball_y = 64;
 
 	while(1){
-
 		double *vector_x = OSMboxPend(MailBox1,0,&err);
 		double *vector_y = OSMboxPend(MailBox2,0,&err);
 		double *speed_msg = OSMboxPend(MailBox3,0,&err);
+
 		vector[0] = *vector_x;
 		vector[1] = *vector_y;
+
+		*Xdir = vector[0];
+		*Ydir = vector[1];
+		//isShoot = 1;
+
+
+		printf("Xdir:%.2f,Ydir:%.2f\n",*Xdir,*Ydir);
+
 		speed = *speed_msg;
 		int backX = vector[0] <0;
 		int backY = vector[1] <0;
@@ -189,23 +206,23 @@ void task2 (void *pdata)
 			//printf("task 3 -> shoot ball 4 (%.2f, %.2f) %.2f\n", vector[0], vector[1], speed);
 
 			if(ball_x < border+size+hBorder + 1){
-				printf("border\n");
+				//printf("border\n");
 				backX = 0; // avance
 			}
 			if(ball_x > (maxX+hBorder)-(border+size)){
 				backX = 1; // recule
-				printf("border\n");
+				//printf("border\n");
 			}
 			if(ball_y < border + size+vBorder+1){
-				printf("border\n");
+				//printf("border\n");
 				backY = 0;
 			}
 			if(ball_y>(maxY+vBorder)-(border+size)){
-				printf("border\n");
+				///printf("border\n");
 				backY = 1;
 			}
 			if((ball_x < x5-5 || ball_x > x5+5) && (ball_y <y5-5 || ball_y >y5+5)){
-				printf("collision\n");
+				//printf("collision\n");
 				//backX=1;
 				//backY=1;
 			}
@@ -226,14 +243,25 @@ void task2 (void *pdata)
 			speed = speed - 1;
 
 		}
+
 	}
 }
+
+void task3 (void *pdata)
+{
+
+
+printf("Hello from task 3\n");
+
+
+}
+
 
 /* The main function creates two task and starts multi-tasking */
 int main(void)
 {
   OSInit();
-
+   *isReceived =0;
 
 	MailBox1 = OSMboxCreate(NULL);
 	MailBox2 = OSMboxCreate(NULL);
@@ -258,6 +286,16 @@ int main(void)
                     TASK_STACKSIZE,
                     NULL,
                     0);
+  OSTaskCreateExt(task3,
+                      NULL,
+                      (void *)&task3_stk[TASK_STACKSIZE-1],
+                      TASK3_PRIORITY,
+                      TASK3_PRIORITY,
+                      task3_stk,
+                      TASK_STACKSIZE,
+                      NULL,
+                      0);
+
 
 	OSStart();
   return 0;
