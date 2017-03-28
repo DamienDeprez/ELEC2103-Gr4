@@ -129,8 +129,8 @@ void task2 (void *pdata)
 
 	int x4 = 64;
 	int y4 = 64;
-	int x5 = 0;//128;
-	int y5 = 0;//64;
+	int x5 = 500;//128;
+	int y5 = 215;//64;
 	int x6 = 0;//196;
 	int y6 = 0;//64;
 	int x7 = 0;//256;
@@ -188,14 +188,27 @@ void task2 (void *pdata)
 		while (speed >= 0){
 			//printf("task 3 -> shoot ball 4 (%.2f, %.2f) %.2f\n", vector[0], vector[1], speed);
 
-			if(ball_x < border+size+hBorder + 1)
+			if(ball_x < border+size+hBorder + 1){
+				printf("border\n");
 				backX = 0; // avance
-			if(ball_x > (maxX+hBorder)-(border+size))
+			}
+			if(ball_x > (maxX+hBorder)-(border+size)){
 				backX = 1; // recule
-			if(ball_y < border + size+vBorder+1)
+				printf("border\n");
+			}
+			if(ball_y < border + size+vBorder+1){
+				printf("border\n");
 				backY = 0;
-			if(ball_y>(maxY+vBorder)-(border+size))
+			}
+			if(ball_y>(maxY+vBorder)-(border+size)){
+				printf("border\n");
 				backY = 1;
+			}
+			if((ball_x < x5-5 || ball_x > x5+5) && (ball_y <y5-5 || ball_y >y5+5)){
+				printf("collision\n");
+				//backX=1;
+				//backY=1;
+			}
 
 			OSTimeDlyHMSM(0,0,0,40);
 

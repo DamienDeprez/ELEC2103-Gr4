@@ -2,24 +2,16 @@ import pygame
 import Display
 import Physics
 import math
-import socket
-import pickle
-
-TCP_IP = '130.104.153.105'
-TCP_PORT = 5005
-BUFFER_SIZE = 1024
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 pygame.init()
-WINDOW_SIZE = [1026,512]
+WINDOW_SIZE = [1026, 512]
 screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("Billard - Server")
+pygame.display.set_caption("Billard")
 x1 = 0
 y1 = 0
 x2 = 0
 y2 = 0
-
+collision=0
 is_start_point = False
 LEFT = 1
 RIGHT = 3
@@ -33,7 +25,7 @@ SIZE = 13
 MAX_X = 800
 MAX_Y = 480
 
-isActivePlayer = False
+isActivePlayer = True
 
 done = False
 shoot = False
@@ -42,21 +34,18 @@ shoot = False
 x_ball_1 = 250
 y_ball_1 = 250
 
-print("draw")
+x_ball_2 = 600
+y_ball_2 = 300
 
 Display.draw_background(screen)
 Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
-pygame.display.update()
+Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
 
 clock = pygame.time.Clock()
 
-s.bind((TCP_IP, TCP_PORT))
-s.listen(1)
-
-con, addr = s.accept()
-print('Connection address:', addr)
-
 while not done:
+    Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
+    #print(x_ball_1,y_ball_1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
@@ -80,27 +69,23 @@ while not done:
                 length = min(length, 510)
                 Display.draw_background(screen)
                 Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
+                Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
                 Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(x_ball_1), int(y_ball_1), int(x_ball_1)+vector[0]*200, int(y_ball_1)+vector[1]*200, 4)
                 Display.draw_line(screen, (128, 128, 128), x1, y1, x, y, 2)
     if isActivePlayer and shoot:
         # Send to the other player
-        message = pickle.dumps([x2 - x1, y2 - y1])
-        con.send(message)
-        isActivePlayer = False
         print("Send data")
-        x_dir = (x2 - x1)
-        y_dir = (y2 - y1)
-        (x_ball_1, y_ball_1) = Physics.shoot(screen, x_dir, y_dir, x_ball_1, y_ball_1)
+        isActivePlayer = False
+    else:
+        # Wait data from the other player
+        isActivePlayer = True
+    if shoot:
+        x_dir = (x2-x1)
+        y_dir = (y2-y1)
+        (x_ball_1, y_ball_1) = Physics.shoot(screen, x_dir, y_dir, x_ball_1, y_ball_1,x_ball_2,y_ball_2)
+        collision=Physics.collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2)
+        #(x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_2, y_ball_2)
         clock.tick(60)
         shoot = False
-    elif not isActivePlayer:
-        # Wait data from the other player
-        print("Wait data")
-        data = con.recv(BUFFER_SIZE)
-        if not data: break
-        a = pickle.loads(data)
-        print ("received data:", a)
-        (x_ball_1, y_ball_1) = Physics.shoot(screen, a[0], a[1], x_ball_1, y_ball_1)
-        isActivePlayer = True
     pygame.display.update()
 pygame.quit()
