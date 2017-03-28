@@ -82,7 +82,7 @@ while not done:
     if shoot:
         x_dir = (x2-x1)
         y_dir = (y2-y1)
-        (x_ball_1, y_ball_1) = Physics.shoot(screen, x_dir, y_dir, x_ball_1, y_ball_1,x_ball_2,y_ball_2)
+        (x_ball_1, y_ball_1, x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_1, y_ball_1,x_ball_2,y_ball_2)
         collision=Physics.collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2)
         #(x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_2, y_ball_2)
         clock.tick(60)
