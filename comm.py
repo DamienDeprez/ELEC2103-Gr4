@@ -46,17 +46,17 @@ done = False
 while not done:
 	ToSPI = [0x01, 0x00, 0x00, 0x00, 0x00]	
 	XdirSend = MySPI_FPGA.xfer2(ToSPI)
-	Xdir_Send= intToFloat(bytes(XdirSend[1:]))
+	#Xdir_Send= intToFloat(bytes(XdirSend[1:]))
 
 	ToSPI = [0x02, 0x00, 0x00, 0x00, 0x00]
 	YdirSend = MySPI_FPGA.xfer2(ToSPI)
-	Ydir_Send= intToFloat(bytes(YdirSend[1:]))
+	#Ydir_Send= intToFloat(bytes(YdirSend[1:]))
 	
 	
 	if isActivePlayer:
            # Send to the other player
            print("Send data")
-           message = pickle.dumps([Xdir_Send, Ydir_Send])
+           message = pickle.dumps([XdirSend, YdirSend])
            s.send(message)
            isActivePlayer = False
 	
@@ -69,11 +69,11 @@ while not done:
            print("received data:", a)
            ToSPI = [0x84, 0x00, 0x00, 0x00, 0x01]
 	   isReceived = MySPI_FPGA.xfer2(ToSPI)	   
-           dir1= floatToBinary32(a[0])
-           dir2= floatToBinary32(a[1])
-           ToSPI = [0x87, dir1[0], dir1[1], dir1[2],dir1[3]]	
+           dir1= a[0]#floatToBinary32(a[0])
+           dir2= a[1]#floatToBinary32(a[1])
+           ToSPI = [0x87, 0x00, 0x00, 0x00, dir1]	
 	   Xdir = MySPI_FPGA.xfer2(ToSPI)
-	   ToSPI = [0x88, dir2[0], dir2[1], dir2[2], dir2[3]]
+	   ToSPI = [0x88, 0x00, 0x00, 0x00, dir2]
 	   Ydir = MySPI_FPGA.xfer2(ToSPI)
            isActivePlayer = True
 
