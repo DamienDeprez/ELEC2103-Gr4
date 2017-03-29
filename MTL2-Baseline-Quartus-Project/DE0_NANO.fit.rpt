@@ -1,5 +1,5 @@
 Fitter report for DE0_NANO
-Fri Mar 10 14:51:41 2017
+Tue Mar 28 18:25:19 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -33,24 +33,23 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  25. Control Signals
  26. Global & Other Fast Signals
  27. Fitter RAM Summary
- 28. |DE0_NANO|Nios_sopc:u0|Nios_sopc_mem_Nios_PI:mem_nios_pi|altsyncram:the_altsyncram|altsyncram_b132:auto_generated|ALTSYNCRAM
- 29. Fitter DSP Block Usage Summary
- 30. DSP Block Details
- 31. Routing Usage Summary
- 32. LAB Logic Elements
- 33. LAB-wide Signals
- 34. LAB Signals Sourced
- 35. LAB Signals Sourced Out
- 36. LAB Distinct Inputs
- 37. I/O Rules Summary
- 38. I/O Rules Details
- 39. I/O Rules Matrix
- 40. Fitter Device Options
- 41. Operating Settings and Conditions
- 42. Estimated Delay Added for Hold Timing Summary
- 43. Estimated Delay Added for Hold Timing Details
- 44. Fitter Messages
- 45. Fitter Suppressed Messages
+ 28. Fitter DSP Block Usage Summary
+ 29. DSP Block Details
+ 30. Routing Usage Summary
+ 31. LAB Logic Elements
+ 32. LAB-wide Signals
+ 33. LAB Signals Sourced
+ 34. LAB Signals Sourced Out
+ 35. LAB Distinct Inputs
+ 36. I/O Rules Summary
+ 37. I/O Rules Details
+ 38. I/O Rules Matrix
+ 39. Fitter Device Options
+ 40. Operating Settings and Conditions
+ 41. Estimated Delay Added for Hold Timing Summary
+ 42. Estimated Delay Added for Hold Timing Details
+ 43. Fitter Messages
+ 44. Fitter Suppressed Messages
 
 
 
@@ -77,7 +76,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Mar 10 14:51:40 2017       ;
+; Fitter Status                      ; Successful - Tue Mar 28 18:25:19 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; DE0_NANO                                    ;
 ; Top-level Entity Name              ; DE0_NANO                                    ;
@@ -161,15 +160,17 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.05        ;
-; Maximum used               ; 2           ;
+; Average used               ; 1.11        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   5.1%      ;
+;     Processor 2            ;   3.9%      ;
+;     Processor 3            ;   3.6%      ;
+;     Processor 4            ;   3.4%      ;
 +----------------------------+-------------+
 
 
@@ -392,7 +393,7 @@ agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.pin.
+The pin-out file can be found in /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.pin.
 
 
 +-------------------------------------------------------------------------+
@@ -1950,43 +1951,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------------------------------------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+---------------------------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; Name                                                                                                                                                                                                                                                                                                                          ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF                       ; Location                       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+---------------------------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_nios2_oci:the_Nios_sopc_cpu_cpu_nios2_oci|Nios_sopc_cpu_cpu_nios2_ocimem:the_Nios_sopc_cpu_cpu_nios2_ocimem|Nios_sopc_cpu_cpu_ociram_sp_ram_module:Nios_sopc_cpu_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_ac71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; None                      ; M9K_X22_Y12_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_register_bank_a_module:Nios_sopc_cpu_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated|ALTSYNCRAM                                                                                                                           ; AUTO ; Simple Dual Port ; Single Clock ; 32           ; 32           ; 32           ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 1024 ; 32                          ; 32                          ; 32                          ; 32                          ; 1024                ; 1    ; None                      ; M9K_X22_Y15_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_register_bank_b_module:Nios_sopc_cpu_cpu_register_bank_b|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated|ALTSYNCRAM                                                                                                                           ; AUTO ; Simple Dual Port ; Single Clock ; 32           ; 32           ; 32           ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 1024 ; 32                          ; 32                          ; 32                          ; 32                          ; 1024                ; 1    ; None                      ; M9K_X22_Y14_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; Nios_sopc:u0|Nios_sopc_jtag_uart:jtag_uart|Nios_sopc_jtag_uart_scfifo_r:the_Nios_sopc_jtag_uart_scfifo_r|scfifo:rfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|altsyncram_nio1:FIFOram|ALTSYNCRAM                                                                                                                      ; AUTO ; Simple Dual Port ; Single Clock ; 64           ; 8            ; 64           ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 512  ; 64                          ; 8                           ; 64                          ; 8                           ; 512                 ; 1    ; None                      ; M9K_X22_Y16_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; Nios_sopc:u0|Nios_sopc_jtag_uart:jtag_uart|Nios_sopc_jtag_uart_scfifo_w:the_Nios_sopc_jtag_uart_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|altsyncram_nio1:FIFOram|ALTSYNCRAM                                                                                                                      ; AUTO ; Simple Dual Port ; Single Clock ; 64           ; 8            ; 64           ; 8            ; yes                    ; no                      ; yes                    ; yes                     ; 512  ; 64                          ; 8                           ; 64                          ; 8                           ; 512                 ; 1    ; None                      ; M9K_X33_Y14_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; Nios_sopc:u0|Nios_sopc_mem_Nios_PI:mem_nios_pi|altsyncram:the_altsyncram|altsyncram_b132:auto_generated|ALTSYNCRAM                                                                                                                                                                                                            ; AUTO ; True Dual Port   ; Single Clock ; 128          ; 32           ; 128          ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 4096 ; 128                         ; 32                          ; 128                         ; 32                          ; 4096                ; 2    ; Nios_sopc_mem_Nios_PI.hex ; M9K_X22_Y18_N0, M9K_X22_Y19_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+---------------------------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; Name                                                                                                                                                                                                                                                                                                                          ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF  ; Location                       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_nios2_oci:the_Nios_sopc_cpu_cpu_nios2_oci|Nios_sopc_cpu_cpu_nios2_ocimem:the_Nios_sopc_cpu_cpu_nios2_ocimem|Nios_sopc_cpu_cpu_ociram_sp_ram_module:Nios_sopc_cpu_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_ac71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; Single Clock ; 256          ; 32           ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 8192 ; 256                         ; 32                          ; --                          ; --                          ; 8192                ; 1    ; None ; M9K_X22_Y12_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_register_bank_a_module:Nios_sopc_cpu_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated|ALTSYNCRAM                                                                                                                           ; AUTO ; Simple Dual Port ; Single Clock ; 32           ; 32           ; 32           ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 1024 ; 32                          ; 32                          ; 32                          ; 32                          ; 1024                ; 1    ; None ; M9K_X22_Y15_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_register_bank_b_module:Nios_sopc_cpu_cpu_register_bank_b|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated|ALTSYNCRAM                                                                                                                           ; AUTO ; Simple Dual Port ; Single Clock ; 32           ; 32           ; 32           ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 1024 ; 32                          ; 32                          ; 32                          ; 32                          ; 1024                ; 1    ; None ; M9K_X22_Y14_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; Nios_sopc:u0|Nios_sopc_jtag_uart:jtag_uart|Nios_sopc_jtag_uart_scfifo_r:the_Nios_sopc_jtag_uart_scfifo_r|scfifo:rfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|altsyncram_nio1:FIFOram|ALTSYNCRAM                                                                                                                      ; AUTO ; Simple Dual Port ; Single Clock ; 64           ; 8            ; 64           ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 512  ; 64                          ; 8                           ; 64                          ; 8                           ; 512                 ; 1    ; None ; M9K_X22_Y16_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; Nios_sopc:u0|Nios_sopc_jtag_uart:jtag_uart|Nios_sopc_jtag_uart_scfifo_w:the_Nios_sopc_jtag_uart_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|altsyncram_nio1:FIFOram|ALTSYNCRAM                                                                                                                      ; AUTO ; Simple Dual Port ; Single Clock ; 64           ; 8            ; 64           ; 8            ; yes                    ; no                      ; yes                    ; yes                     ; 512  ; 64                          ; 8                           ; 64                          ; 8                           ; 512                 ; 1    ; None ; M9K_X33_Y14_N0                 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; Nios_sopc:u0|Nios_sopc_mem_Nios_PI:mem_nios_pi|altsyncram:the_altsyncram|altsyncram_b132:auto_generated|ALTSYNCRAM                                                                                                                                                                                                            ; AUTO ; True Dual Port   ; Single Clock ; 128          ; 32           ; 128          ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 4096 ; 128                         ; 32                          ; 128                         ; 32                          ; 4096                ; 2    ; None ; M9K_X22_Y18_N0, M9K_X22_Y19_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+--------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
-
-
-RAM content values are presented in the following format: (Binary) (Octal) (Decimal) (Hexadecimal) 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; |DE0_NANO|Nios_sopc:u0|Nios_sopc_mem_Nios_PI:mem_nios_pi|altsyncram:the_altsyncram|altsyncram_b132:auto_generated|ALTSYNCRAM                                                                                                                                     ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-;   Addr   ;              +0              ;              +1              ;              +2              ;              +3              ;              +4              ;              +5              ;              +6              ;              +7              ;
-+----------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+------------------------------+
-;0;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;8;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;16;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;24;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;32;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;40;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;48;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;56;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;64;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;72;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;80;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;88;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;96;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;104;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;112;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
-;120;(00000000000000000000000000000000) (0) (0) (00)    ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;(00000000000000000000000000000000) (0) (0) (00)   ;
 
 
 +-----------------------------------------------------------------------------------------------+
@@ -2528,15 +2505,15 @@ Note: This table only shows the top 15 path(s) that have the largest delay added
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device EP4CE22F17C6 for design "DE0_NANO"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Info (15535): Implemented PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" as Cyclone IV E PLL type File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
-    Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of -3 degrees (-192 ps) for sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|wire_pll1_clk[0] port File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
-Info (15535): Implemented PLL "Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1" as Cyclone IV E PLL type File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
-    Info (15099): Implementing clock multiplication of 33, clock division of 50, and phase shift of 0 degrees (0 ps) for Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[0] port File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
-    Info (15099): Implementing clock multiplication of 33, clock division of 50, and phase shift of 120 degrees (10101 ps) for Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[1] port File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
+Info (15535): Implemented PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" as Cyclone IV E PLL type File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
+    Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of -3 degrees (-192 ps) for sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|wire_pll1_clk[0] port File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
+Info (15535): Implemented PLL "Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1" as Cyclone IV E PLL type File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
+    Info (15099): Implementing clock multiplication of 33, clock division of 50, and phase shift of 0 degrees (0 ps) for Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[0] port File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
+    Info (15099): Implementing clock multiplication of 33, clock division of 50, and phase shift of 120 degrees (10101 ps) for Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[1] port File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
@@ -2549,7 +2526,7 @@ Info (12825): nCSO dual-purpose pin not reserved
 Info (12825): DCLK dual-purpose pin not reserved
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
-Warning (176127): The parameters of the PLL Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1 and the PLL sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 do not have the same values - hence these PLLs cannot be merged File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
+Warning (176127): The parameters of the PLL Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1 and the PLL sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 do not have the same values - hence these PLLs cannot be merged File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
     Info (176120): The values of the parameter "M" do not match for the PLL atoms sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 and PLL Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1
         Info (176121): The value of the parameter "M" for the PLL atom sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 is 13
         Info (176121): The value of the parameter "M" for the PLL atom Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1 is 99
@@ -2568,7 +2545,7 @@ Warning (176127): The parameters of the PLL Nios_sopc:u0|MTL_ip:mtl_ip|mtl_contr
     Info (176120): The values of the parameter "M_PH" do not match for the PLL atoms sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 and PLL Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1
         Info (176121): The value of the parameter "M_PH" for the PLL atom sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1 is 1
         Info (176121): The value of the parameter "M_PH" for the PLL atom Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1 is 0
-Critical Warning (176598): PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" input clock inclk[0] is not fully compensated because it is fed by a remote clock pin "Pin_R8" File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 148
+Critical Warning (176598): PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" input clock inclk[0] is not fully compensated because it is fed by a remote clock pin "Pin_R8" File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 148
 Info (332164): Evaluating HDL-embedded SDC commands
     Info (332165): Entity alt_jtag_atlantic
         Info (332166): set_false_path -from [get_registers {*|alt_jtag_atlantic:*|jupdate}] -to [get_registers {*|alt_jtag_atlantic:*|jupdate1*}] 
@@ -2621,45 +2598,46 @@ Info (332111): Found 5 clocks
     Info (332111):   20.000 sdram_pll_inst|altpll_component|auto_generated|pll1|clk[0]
     Info (332111):   30.303 u0|mtl_ip|controller|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[0]
     Info (332111):   30.303 u0|mtl_ip|controller|MTL_PLL_inst|altpll_component|auto_generated|pll1|clk[1]
-Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN R8 (CLK15, DIFFCLK_6p)) File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 71
+Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN R8 (CLK15, DIFFCLK_6p)) File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 71
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G15
-Info (176353): Automatically promoted node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_4) File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
+Info (176353): Automatically promoted node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_4) File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G18
-Info (176353): Automatically promoted node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[1] (placed in counter C1 of PLL_4) File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
+Info (176353): Automatically promoted node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|wire_pll1_clk[1] (placed in counter C1 of PLL_4) File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 78
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
-Info (176353): Automatically promoted node sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_1) File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 78
+Info (176353): Automatically promoted node sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_1) File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 78
     Info (176355): Automatically promoted destinations to use location or clock signal External Clock Output CLKCTRL_PLL1E0
 Info (176353): Automatically promoted node altera_internal_jtag~TCKUTAP 
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-Info (176353): Automatically promoted node Nios_sopc:u0|altera_reset_controller:rst_controller|r_sync_rst  File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_reset_controller.v Line: 288
+Info (176353): Automatically promoted node Nios_sopc:u0|altera_reset_controller:rst_controller|r_sync_rst  File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_reset_controller.v Line: 288
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_rnw~4 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 215
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_cs_n~0 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 212
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_cs_n~1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 212
-        Info (176357): Destination node Nios_sopc:u0|altera_reset_controller:rst_controller|WideOr0~0 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_reset_controller.v Line: 290
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[0] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[2] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[1] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|W_rf_wren File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_cpu_cpu.v Line: 3451
-        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_nios2_oci:the_Nios_sopc_cpu_cpu_nios2_oci|Nios_sopc_cpu_cpu_nios2_oci_debug:the_Nios_sopc_cpu_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer|din_s1 File: /home/bilal/intelFPGA_lite/16.1/quartus/libraries/megafunctions/altera_std_synchronizer.v Line: 45
-Info (176353): Automatically promoted node reset_delay:reset_delay_inst|cont[26]  File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_rnw~4 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 215
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_cs_n~0 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 212
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|active_cs_n~1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 212
+        Info (176357): Destination node Nios_sopc:u0|altera_reset_controller:rst_controller|WideOr0~0 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_reset_controller.v Line: 290
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[0] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[2] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_sdram_controller:sdram_controller|i_refs[1] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_sdram_controller.v Line: 356
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|W_rf_wren File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/Nios_sopc_cpu_cpu.v Line: 3451
+        Info (176357): Destination node Nios_sopc:u0|Nios_sopc_cpu:cpu|Nios_sopc_cpu_cpu:cpu|Nios_sopc_cpu_cpu_nios2_oci:the_Nios_sopc_cpu_cpu_nios2_oci|Nios_sopc_cpu_cpu_nios2_oci_debug:the_Nios_sopc_cpu_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer|din_s1 File: /home/damien/intelFPGA_lite/16.1/quartus/libraries/megafunctions/altera_std_synchronizer.v Line: 45
+Info (176353): Automatically promoted node reset_delay:reset_delay_inst|cont[26]  File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_display_controller:mtl_display_controller_inst|read_red[5] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv Line: 155
-        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_display_controller:mtl_display_controller_inst|read_green[2] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv Line: 155
-        Info (176357): Destination node reset_delay:reset_delay_inst|Add0~50 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 266
-        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Decoder0~57 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/i2c_touch_config.v Line: 239
-        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Decoder0~59 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/i2c_touch_config.v Line: 239
-        Info (176357): Destination node reset_delay:reset_delay_inst|cont[25] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
-        Info (176357): Destination node reset_delay:reset_delay_inst|cont[24] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
-        Info (176357): Destination node reset_delay:reset_delay_inst|cont[23] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
-        Info (176357): Destination node reset_delay:reset_delay_inst|cont[22] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
-        Info (176357): Destination node reset_delay:reset_delay_inst|cont[21] File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_display_controller:mtl_display_controller_inst|read_red[5] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv Line: 155
+        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_display_controller:mtl_display_controller_inst|read_green[2] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/mtl_display_controller.sv Line: 155
+        Info (176357): Destination node reset_delay:reset_delay_inst|Add0~50 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 266
+        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Decoder0~57 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/i2c_touch_config.v Line: 239
+        Info (176357): Destination node Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|mtl_touch_controller:mtl_touch_controller_inst|i2c_touch_config:i2c_touch_config_inst|Decoder0~59 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/i2c_touch_config.v Line: 239
+        Info (176357): Destination node reset_delay:reset_delay_inst|cont[25] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node reset_delay:reset_delay_inst|cont[24] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node reset_delay:reset_delay_inst|cont[23] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node reset_delay:reset_delay_inst|cont[22] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
+        Info (176357): Destination node reset_delay:reset_delay_inst|cont[21] File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 265
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Warning (176250): Ignoring invalid fast I/O register assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (176251): Ignoring some wildcard destinations of fast I/O register assignments
+    Info (176252): Wildcard assignment "Fast Output Enable Register=ON" to "oe" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[9]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[8]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[7]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
@@ -2679,178 +2657,177 @@ Warning (176251): Ignoring some wildcard destinations of fast I/O register assig
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[2]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[1]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[0]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
-    Info (176252): Wildcard assignment "Fast Output Enable Register=ON" to "oe" matches multiple destination nodes -- some destinations are not valid targets for this assignment
 Info (176235): Finished register packing
     Extra Info (176218): Packed 8 registers into blocks of type Block RAM
     Extra Info (176218): Packed 16 registers into blocks of type I/O Input Buffer
     Extra Info (176218): Packed 53 registers into blocks of type I/O Output Buffer
     Extra Info (176220): Created 34 register duplicates
-Warning (15058): PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" is in normal or source synchronous mode with output clock "compensate_clock" set to clk[0] that is not fully compensated because it feeds an output pin -- only PLLs in zero delay buffer mode can fully compensate output pins File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
-Warning (15064): PLL "Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1" output port clk[1] feeds output pin "MTL_DCLK~output" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:08
+Warning (15058): PLL "sdram_pll:sdram_pll_inst|altpll:altpll_component|sdram_pll_altpll:auto_generated|pll1" is in normal or source synchronous mode with output clock "compensate_clock" set to clk[0] that is not fully compensated because it feeds an output pin -- only PLLs in zero delay buffer mode can fully compensate output pins File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/sdram_pll_altpll.v Line: 44
+Warning (15064): PLL "Nios_sopc:u0|MTL_ip:mtl_ip|mtl_controller:controller|MTL_PLL:MTL_PLL_inst|altpll:altpll_component|MTL_PLL_altpll:auto_generated|pll1" output port clk[1] feeds output pin "MTL_DCLK~output" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/db/MTL_PLL_altpll.v Line: 44
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:07
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:11
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:08
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 7% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 22% of the available device resources in the region that extends from location X10_Y11 to location X20_Y22
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:09
-Info (11888): Total time spent on timing analysis during the Fitter is 6.20 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
+Info (11888): Total time spent on timing analysis during the Fitter is 5.41 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169180): Following 1 pins must use external clamping diodes.
-    Info (169178): Pin EPCS_DATA0 uses I/O standard 3.3-V LVTTL at H2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 96
+    Info (169178): Pin EPCS_DATA0 uses I/O standard 3.3-V LVTTL at H2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 96
 Warning (169177): 80 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin KEY[1] uses I/O standard 3.3-V LVTTL at E1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 77
-    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at M1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
-    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at T8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
-    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at B9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
-    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at M15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
-    Info (169178): Pin G_SENSOR_INT uses I/O standard 3.3-V LVTTL at M2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 102
-    Info (169178): Pin ADC_SDAT uses I/O standard 3.3-V LVTTL at A9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 110
-    Info (169178): Pin GPIO_2_IN[0] uses I/O standard 3.3-V LVTTL at E15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
-    Info (169178): Pin GPIO_2_IN[1] uses I/O standard 3.3-V LVTTL at E16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
-    Info (169178): Pin GPIO_2_IN[2] uses I/O standard 3.3-V LVTTL at M16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
-    Info (169178): Pin GPIO_0_IN[0] uses I/O standard 3.3-V LVTTL at A8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 118
-    Info (169178): Pin GPIO_0_IN[1] uses I/O standard 3.3-V LVTTL at B8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 118
-    Info (169178): Pin I2C_SDAT uses I/O standard 3.3-V LVTTL at F1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 104
-    Info (169178): Pin GPIO_2[0] uses I/O standard 3.3-V LVTTL at A14 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[1] uses I/O standard 3.3-V LVTTL at B16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[2] uses I/O standard 3.3-V LVTTL at C14 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[3] uses I/O standard 3.3-V LVTTL at C16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[4] uses I/O standard 3.3-V LVTTL at C15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[5] uses I/O standard 3.3-V LVTTL at D16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[6] uses I/O standard 3.3-V LVTTL at D15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[7] uses I/O standard 3.3-V LVTTL at D14 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[8] uses I/O standard 3.3-V LVTTL at F15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[9] uses I/O standard 3.3-V LVTTL at F16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[10] uses I/O standard 3.3-V LVTTL at F14 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[11] uses I/O standard 3.3-V LVTTL at G16 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_2[12] uses I/O standard 3.3-V LVTTL at G15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169178): Pin GPIO_0[0] uses I/O standard 3.3-V LVTTL at D3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[1] uses I/O standard 3.3-V LVTTL at C3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[2] uses I/O standard 3.3-V LVTTL at A2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[3] uses I/O standard 3.3-V LVTTL at A3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[4] uses I/O standard 3.3-V LVTTL at B3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[5] uses I/O standard 3.3-V LVTTL at B4 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[6] uses I/O standard 3.3-V LVTTL at A4 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[7] uses I/O standard 3.3-V LVTTL at B5 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[8] uses I/O standard 3.3-V LVTTL at A5 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[10] uses I/O standard 3.3-V LVTTL at B6 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[12] uses I/O standard 3.3-V LVTTL at B7 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[14] uses I/O standard 3.3-V LVTTL at A7 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[16] uses I/O standard 3.3-V LVTTL at C8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[17] uses I/O standard 3.3-V LVTTL at E6 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[18] uses I/O standard 3.3-V LVTTL at E7 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[19] uses I/O standard 3.3-V LVTTL at D8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[20] uses I/O standard 3.3-V LVTTL at E8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[21] uses I/O standard 3.3-V LVTTL at F8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[22] uses I/O standard 3.3-V LVTTL at F9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[23] uses I/O standard 3.3-V LVTTL at E9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[24] uses I/O standard 3.3-V LVTTL at C9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[25] uses I/O standard 3.3-V LVTTL at D9 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[26] uses I/O standard 3.3-V LVTTL at E11 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[27] uses I/O standard 3.3-V LVTTL at E10 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[28] uses I/O standard 3.3-V LVTTL at C11 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[29] uses I/O standard 3.3-V LVTTL at B11 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[30] uses I/O standard 3.3-V LVTTL at A12 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[31] uses I/O standard 3.3-V LVTTL at D11 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[32] uses I/O standard 3.3-V LVTTL at D12 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[33] uses I/O standard 3.3-V LVTTL at B12 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin DRAM_DQ[0] uses I/O standard 3.3-V LVTTL at G2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[1] uses I/O standard 3.3-V LVTTL at G1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[2] uses I/O standard 3.3-V LVTTL at L8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[3] uses I/O standard 3.3-V LVTTL at K5 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[4] uses I/O standard 3.3-V LVTTL at K2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[5] uses I/O standard 3.3-V LVTTL at J2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[6] uses I/O standard 3.3-V LVTTL at J1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[7] uses I/O standard 3.3-V LVTTL at R7 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[8] uses I/O standard 3.3-V LVTTL at T4 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[9] uses I/O standard 3.3-V LVTTL at T2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[10] uses I/O standard 3.3-V LVTTL at T3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[11] uses I/O standard 3.3-V LVTTL at R3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[12] uses I/O standard 3.3-V LVTTL at R5 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[13] uses I/O standard 3.3-V LVTTL at P3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[14] uses I/O standard 3.3-V LVTTL at N3 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin DRAM_DQ[15] uses I/O standard 3.3-V LVTTL at K1 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
-    Info (169178): Pin GPIO_0[9] uses I/O standard 3.3-V LVTTL at D5 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[11] uses I/O standard 3.3-V LVTTL at A6 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[13] uses I/O standard 3.3-V LVTTL at D6 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin GPIO_0[15] uses I/O standard 3.3-V LVTTL at C6 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169178): Pin MTL_TOUCH_I2C_SDA uses I/O standard 3.3-V LVTTL at K15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 125
-    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at R8 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 71
-    Info (169178): Pin KEY[0] uses I/O standard 3.3-V LVTTL at J15 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 77
-    Info (169178): Pin MTL_TOUCH_INT_n uses I/O standard 3.3-V LVTTL at J13 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 126
+    Info (169178): Pin KEY[1] uses I/O standard 3.3-V LVTTL at E1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 77
+    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at M1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
+    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at T8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
+    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at B9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
+    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at M15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 80
+    Info (169178): Pin G_SENSOR_INT uses I/O standard 3.3-V LVTTL at M2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 102
+    Info (169178): Pin ADC_SDAT uses I/O standard 3.3-V LVTTL at A9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 110
+    Info (169178): Pin GPIO_2_IN[0] uses I/O standard 3.3-V LVTTL at E15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
+    Info (169178): Pin GPIO_2_IN[1] uses I/O standard 3.3-V LVTTL at E16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
+    Info (169178): Pin GPIO_2_IN[2] uses I/O standard 3.3-V LVTTL at M16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 114
+    Info (169178): Pin GPIO_0_IN[0] uses I/O standard 3.3-V LVTTL at A8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 118
+    Info (169178): Pin GPIO_0_IN[1] uses I/O standard 3.3-V LVTTL at B8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 118
+    Info (169178): Pin I2C_SDAT uses I/O standard 3.3-V LVTTL at F1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 104
+    Info (169178): Pin GPIO_2[0] uses I/O standard 3.3-V LVTTL at A14 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[1] uses I/O standard 3.3-V LVTTL at B16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[2] uses I/O standard 3.3-V LVTTL at C14 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[3] uses I/O standard 3.3-V LVTTL at C16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[4] uses I/O standard 3.3-V LVTTL at C15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[5] uses I/O standard 3.3-V LVTTL at D16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[6] uses I/O standard 3.3-V LVTTL at D15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[7] uses I/O standard 3.3-V LVTTL at D14 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[8] uses I/O standard 3.3-V LVTTL at F15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[9] uses I/O standard 3.3-V LVTTL at F16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[10] uses I/O standard 3.3-V LVTTL at F14 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[11] uses I/O standard 3.3-V LVTTL at G16 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_2[12] uses I/O standard 3.3-V LVTTL at G15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169178): Pin GPIO_0[0] uses I/O standard 3.3-V LVTTL at D3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[1] uses I/O standard 3.3-V LVTTL at C3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[2] uses I/O standard 3.3-V LVTTL at A2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[3] uses I/O standard 3.3-V LVTTL at A3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[4] uses I/O standard 3.3-V LVTTL at B3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[5] uses I/O standard 3.3-V LVTTL at B4 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[6] uses I/O standard 3.3-V LVTTL at A4 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[7] uses I/O standard 3.3-V LVTTL at B5 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[8] uses I/O standard 3.3-V LVTTL at A5 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[10] uses I/O standard 3.3-V LVTTL at B6 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[12] uses I/O standard 3.3-V LVTTL at B7 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[14] uses I/O standard 3.3-V LVTTL at A7 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[16] uses I/O standard 3.3-V LVTTL at C8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[17] uses I/O standard 3.3-V LVTTL at E6 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[18] uses I/O standard 3.3-V LVTTL at E7 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[19] uses I/O standard 3.3-V LVTTL at D8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[20] uses I/O standard 3.3-V LVTTL at E8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[21] uses I/O standard 3.3-V LVTTL at F8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[22] uses I/O standard 3.3-V LVTTL at F9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[23] uses I/O standard 3.3-V LVTTL at E9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[24] uses I/O standard 3.3-V LVTTL at C9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[25] uses I/O standard 3.3-V LVTTL at D9 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[26] uses I/O standard 3.3-V LVTTL at E11 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[27] uses I/O standard 3.3-V LVTTL at E10 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[28] uses I/O standard 3.3-V LVTTL at C11 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[29] uses I/O standard 3.3-V LVTTL at B11 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[30] uses I/O standard 3.3-V LVTTL at A12 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[31] uses I/O standard 3.3-V LVTTL at D11 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[32] uses I/O standard 3.3-V LVTTL at D12 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[33] uses I/O standard 3.3-V LVTTL at B12 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin DRAM_DQ[0] uses I/O standard 3.3-V LVTTL at G2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[1] uses I/O standard 3.3-V LVTTL at G1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[2] uses I/O standard 3.3-V LVTTL at L8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[3] uses I/O standard 3.3-V LVTTL at K5 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[4] uses I/O standard 3.3-V LVTTL at K2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[5] uses I/O standard 3.3-V LVTTL at J2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[6] uses I/O standard 3.3-V LVTTL at J1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[7] uses I/O standard 3.3-V LVTTL at R7 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[8] uses I/O standard 3.3-V LVTTL at T4 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[9] uses I/O standard 3.3-V LVTTL at T2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[10] uses I/O standard 3.3-V LVTTL at T3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[11] uses I/O standard 3.3-V LVTTL at R3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[12] uses I/O standard 3.3-V LVTTL at R5 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[13] uses I/O standard 3.3-V LVTTL at P3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[14] uses I/O standard 3.3-V LVTTL at N3 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin DRAM_DQ[15] uses I/O standard 3.3-V LVTTL at K1 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 89
+    Info (169178): Pin GPIO_0[9] uses I/O standard 3.3-V LVTTL at D5 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[11] uses I/O standard 3.3-V LVTTL at A6 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[13] uses I/O standard 3.3-V LVTTL at D6 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin GPIO_0[15] uses I/O standard 3.3-V LVTTL at C6 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169178): Pin MTL_TOUCH_I2C_SDA uses I/O standard 3.3-V LVTTL at K15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 125
+    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at R8 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 71
+    Info (169178): Pin KEY[0] uses I/O standard 3.3-V LVTTL at J15 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 77
+    Info (169178): Pin MTL_TOUCH_INT_n uses I/O standard 3.3-V LVTTL at J13 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 126
 Warning (169203): PCI-clamp diode is not supported in this mode. The following 1 pins must meet the Intel FPGA requirements for 3.3V, 3.0V, and 2.5V interfaces if they are connected to devices other than the supported configuration devices. In these cases, Intel recommends termination method as specified in the Application Note 447.
-    Info (169178): Pin EPCS_DATA0 uses I/O standard 3.3-V LVTTL at H2 File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 96
+    Info (169178): Pin EPCS_DATA0 uses I/O standard 3.3-V LVTTL at H2 File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 96
 Warning (169064): Following 47 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin I2C_SDAT has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 104
-    Info (169065): Pin GPIO_2[0] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[1] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[2] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[3] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[4] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[5] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[6] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[7] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[8] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[9] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[10] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[11] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_2[12] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
-    Info (169065): Pin GPIO_0[0] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[1] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[2] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[3] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[4] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[5] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[6] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[7] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[8] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[10] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[12] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[14] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[16] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[17] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[18] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[19] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[20] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[21] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[22] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[23] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[24] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[25] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[26] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[27] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[28] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[29] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[30] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[31] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[32] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[33] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[9] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[11] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-    Info (169065): Pin GPIO_0[15] has a permanently disabled output enable File: /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
-Info (144001): Generated suppressed messages file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.fit.smsg
+    Info (169065): Pin I2C_SDAT has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 104
+    Info (169065): Pin GPIO_2[0] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[1] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[2] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[3] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[4] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[5] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[6] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[7] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[8] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[9] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[10] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[11] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_2[12] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 113
+    Info (169065): Pin GPIO_0[0] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[1] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[2] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[3] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[4] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[5] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[6] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[7] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[8] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[10] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[12] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[14] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[16] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[17] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[18] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[19] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[20] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[21] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[22] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[23] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[24] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[25] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[26] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[27] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[28] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[29] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[30] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[31] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[32] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[33] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[9] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[11] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+    Info (169065): Pin GPIO_0[15] has a permanently disabled output enable File: /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.sv Line: 117
+Info (144001): Generated suppressed messages file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 1251 megabytes
-    Info: Processing ended: Fri Mar 10 14:51:42 2017
-    Info: Elapsed time: 00:00:46
-    Info: Total CPU time (on all processors): 00:00:54
+    Info: Peak virtual memory: 1346 megabytes
+    Info: Processing ended: Tue Mar 28 18:25:20 2017
+    Info: Elapsed time: 00:00:41
+    Info: Total CPU time (on all processors): 00:00:51
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.fit.smsg.
+The suppressed messages can be found in /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/DE0_NANO.fit.smsg.
 
 
