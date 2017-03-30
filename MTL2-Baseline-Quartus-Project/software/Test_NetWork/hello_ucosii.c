@@ -31,6 +31,8 @@
 #include <stdio.h>
 #include "includes.h"
 #include "system.h"
+#include "physics.h"
+#include <math.h>
 
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
@@ -127,6 +129,11 @@ void task2(void* pdata)
 
   INT8U err;
   INT8U opt_task2;
+  volatile int * display = (int *) MTL_IP_BASE;
+  float x_ball = 200;
+  float y_ball = 200;
+  *(display + 1) = ((int) (y_ball) << 10) + (int) (x_ball);
+
   while (1)
   {
    opt_task2= OS_FLAG_SET;
@@ -134,14 +141,43 @@ void task2(void* pdata)
    int *vector_x = OSMboxPend(MailBox4,0,&err);
    int *vector_y = OSMboxPend(MailBox5,0,&err);
 
+   float x = (float) *vector_x;
+   float y = (float) *vector_y;
+
    printf("Launch animation : (%d, %d)\n",*vector_x, *vector_y);
+   float length = sqrtf(x*x + y*y);
+   float direction [] = {x/length, y/length};
+   float speed = length / 2.0;
+
+   float velocity [] = {direction[0] * speed/10.0, direction[1] * speed/10.0};
+
+   int border_collision [2][4] = {{0, 0, 0, 0},{0, 0, 0, 0}};
+
+   while(speed >= 0.5)
+   {
+	   	//Border Collide
+       borderCollide((int) x_ball, (int) y_ball, border_collision[0], velocity);
+
+       //Move the ball
+       x_ball += velocity[0];
+       y_ball += velocity[1];
+
+       // Damping factor
+       velocity[0] *= 0.98;
+       velocity[1] *= 0.98;
+       speed = abs((int) (velocity[0])) + abs((int) (velocity[1]));
+
+       *(display + 1) = ((int) (y_ball) << 10) + (int) (x_ball);
+       OSTimeDlyHMSM(0, 0, 0, 20);
+
+   }
+
    OSTimeDlyHMSM(0, 0, 5, 0);
 
    opt_task2= OS_FLAG_CLR;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
   }
 }
-
 
 void task3(void* pdata)
 {

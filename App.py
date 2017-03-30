@@ -16,8 +16,8 @@ is_start_point = False
 LEFT = 1
 RIGHT = 3
 
-BORDER_X = 16
-BORDER_Y = 10
+BORDER_X = 46
+BORDER_Y = 23
 BORDER = 40
 
 SIZE = 13

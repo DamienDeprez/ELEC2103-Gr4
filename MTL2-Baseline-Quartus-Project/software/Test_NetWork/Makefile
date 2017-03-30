@@ -142,7 +142,8 @@ ACDS_VERSION := 16.1
 ELF := Test_NetWork.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_ucosii.c
+C_SRCS += hello_ucosii.c
+C_SRCS += physics.c
 CXX_SRCS :=
 ASM_SRCS :=
 
