@@ -74,11 +74,7 @@ void task1(void* pdata)
 	while (1){
 			count_old = count;
 			count = *(MTL_controller + 10); // récupère le nombre de doigts présent sur l'écran
-			//printf("count : %d\n", count);
-			//OSTimeDlyHMSM(0,0,0,75);
 			int pos1 = *(MTL_controller + 11);
-			//printf("pos1 : (%d, %d)\n", pos1 & 0x0003FF, pos1 >> 10);
-			//OSTimeDlyHMSM(0,0,0,100);
 			int pos2 = *(MTL_controller + 12);
 			if(count_old == 1 && count == 2) // si on passe de 1 à deux doigts
 			{
