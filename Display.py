@@ -24,16 +24,16 @@ def draw_line(screen, color, x1, y1, x2, y2, width):
 def draw_background(screen):
     screen.fill(BLACK)
     pygame.draw.rect(screen, (255, 255, 255), [16, 10, 800, 480]) # draw the visible part of the screen
-    draw_rounded_rectangle(screen, (67, 46, 14), 16, 10, 800, 480, 30) #
-    draw_rounded_rectangle(screen, (12, 53, 30), 26, 20, 780, 460, 25)
-    draw_rounded_rectangle(screen, (0, 96, 41), 56, 50, 720, 400, 0)
+    draw_rounded_rectangle(screen, (67, 46, 14), 46, 23, 800, 480, 30) #
+    draw_rounded_rectangle(screen, (12, 53, 30), 56, 33, 780, 460, 25)
+    draw_rounded_rectangle(screen, (0, 96, 41), 86, 63, 720, 400, 0)
     # draw the whole
-    pygame.draw.circle(screen, (0, 0, 0), [56, 50], 16)
-    pygame.draw.circle(screen, (0, 0, 0), [416, 50], 16)
-    pygame.draw.circle(screen, (0, 0, 0), [776, 50], 16)
-    pygame.draw.circle(screen, (0, 0, 0), [56, 450], 16)
-    pygame.draw.circle(screen, (0, 0, 0), [416, 450], 16)
-    pygame.draw.circle(screen, (0, 0, 0), [776, 450], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [86, 63], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [446, 63], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [806, 63], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [86, 463], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [446, 463], 16)
+    pygame.draw.circle(screen, (0, 0, 0), [806, 463], 16)
 
 
 

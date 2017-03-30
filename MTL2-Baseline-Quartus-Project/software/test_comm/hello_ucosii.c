@@ -68,9 +68,9 @@ void task1(void* pdata)
   { 
     printf("Hello from task1\n");
 
-    double vector_x=2/3;
-	double vector_y=3/4;
-	double speed = 6/9;
+    double vector_x=2.0/3.0;
+	double vector_y=3.0/4.0;
+	double speed = 6.0/9.0;
 
     OSFlagPend(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
     OSMboxPost(MailBox1, &vector_x);
@@ -150,7 +150,7 @@ while (1)
 /* The main function creates two task and starts multi-tasking */
 int main(void)
 {
-
+  INT8U err;
   MailBox1 = OSMboxCreate(NULL);
   MailBox2 = OSMboxCreate(NULL);
   MailBox3 = OSMboxCreate(NULL);
@@ -158,6 +158,9 @@ int main(void)
   MailBox4 = OSMboxCreate(NULL);
   MailBox5 = OSMboxCreate(NULL);
   MailBox6 = OSMboxCreate(NULL);
+
+  isActiveFlagGrp = OSFlagCreate(IS_ACTIVE, &err);
+  AnimationFlagGrp = OSFlagCreate(0, &err);
 
   OSTaskCreateExt(task1,
                   NULL,

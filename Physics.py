@@ -161,12 +161,6 @@ def vect_collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2, velocity_1, velocity_2):#,
 
     return[x_ball_1, y_ball_1, x_ball_2, y_ball_2, velocity_1, velocity_2]
 
-    #central_vector = [x_ball_1-x_ball_2,y_ball_1-y_ball_2]
-    #length_central_vector = math.sqrt((x_ball_1-x_ball_2)*(x_ball_1-x_ball_2)+(y_ball_1-y_ball_2)*(y_ball_1-y_ball_2))
-    #final_vector_1 = [central_vector[0]/length_central_vector, central_vector[1]/length_central_vector]
-    #final_vector_2 = [-1*final_vector_1[1],final_vector_1[0]]
-    #return [final_vector_1, final_vector_2]
-
  
 
 

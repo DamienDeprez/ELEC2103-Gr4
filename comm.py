@@ -50,7 +50,7 @@ while not done:
 
 	ToSPI = [0x02, 0x00, 0x00, 0x00, 0x00]
 	YdirSend = MySPI_FPGA.xfer2(ToSPI)
-	#Ydir_Send= intToFloat(bytes(YdirSend[1:]))
+	#Ydir_Send= intToFloat(bytes(YdirSend[1:])) 
 	
 	
 	if isActivePlayer:
