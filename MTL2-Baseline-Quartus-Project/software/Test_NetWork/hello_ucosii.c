@@ -63,21 +63,63 @@ OS_FLAG_GRP *AnimationFlagGrp;
 /*  */
 void task1(void* pdata)
 {
-  INT8U err;
-  while (1)
-  {
-    int vector_x=150;
-	int vector_y=200;
-	int speed = 100;
-    printf("wait for isActive\n");
-    OSFlagPend(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
-    printf("Send value \n");
-    OSMboxPost(MailBox1, &vector_x);
-    OSMboxPost(MailBox2, &vector_y);
-    OSMboxPost(MailBox3, &speed);
-    //OSMboxPost(MailBox3, &speed);
-    OSTimeDlyHMSM(0, 0, 0, 500);
-  }
+	INT8U err;
+	volatile int * MTL_controller = (int *) MTL_IP_BASE;
+	int count_old = 0;
+	int count = 0;
+
+	int x1_gesture_start, x1_gesture_stop, x2_gesture_start, x2_gesture_stop ;
+	int y1_gesture_start, y1_gesture_stop, y2_gesture_start, y2_gesture_stop;
+
+	int gesture_detected = 0;
+
+	while (1)
+	{
+		printf("wait for isActive\n");
+		OSFlagPend(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
+
+		/*
+		 * Tant que le mouvement n'est pas terminé : On effectue la détection
+		 */
+		while(!gesture_detected)
+		{
+			count_old = count;
+			count = *(MTL_controller + 10); // récupère le nombre de doigts présent sur l'écran
+			int pos1 = *(MTL_controller + 11);
+			int pos2 = *(MTL_controller + 12);
+			if(count_old == 1 && count == 2) // si on passe de 1 à deux doigts
+			{
+				printf("start gesture\n");
+				x1_gesture_start = pos1 & 0x0003FF;
+				y1_gesture_start = pos1 >> 10;
+
+				x2_gesture_start = pos2 & 0x0003FF;
+				y2_gesture_start = pos2 >> 10;
+			}
+			if(count_old == 2 && count == 1) // si on pass de 2 à 1 doigt
+			{
+				printf("stop gesture\n");
+				x1_gesture_stop = pos1 & 0x0003FF;
+				y1_gesture_stop = pos1 >> 10;
+
+				x2_gesture_stop = pos2 & 0x0003FF;
+				y2_gesture_stop = pos2 >> 10;
+				gesture_detected =     (x1_gesture_start -30 <= x1_gesture_stop && x1_gesture_stop <= x1_gesture_start + 30)
+									&& (y1_gesture_start -30 <= y1_gesture_stop && y1_gesture_stop <= y1_gesture_start + 30);
+			}
+
+			//*(MTL_controller + 1) = (y1_gesture_start << 10) + x1_gesture_start;
+			//*(MTL_controller + 2) = (y2_gesture_start << 10) + x2_gesture_start;
+			//*(MTL_controller + 3) = (y2_gesture_stop << 10) + x2_gesture_stop;
+		}
+		int x_dir = (x2_gesture_stop - x1_gesture_start);
+		int y_dir = (y2_gesture_stop - y1_gesture_start);
+		printf("Send value : (%d, %d)\n", x_dir, y_dir);
+		OSMboxPost(MailBox1, &x_dir);
+		OSMboxPost(MailBox2, &y_dir);
+		gesture_detected = 0;
+		OSTimeDlyHMSM(0, 0, 0, 500);
+	}
 }
 
 void task2(void* pdata)
@@ -89,11 +131,11 @@ void task2(void* pdata)
   {
    opt_task2= OS_FLAG_SET;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
-   int *vector_x = OSMboxPend(MailBox3,0,&err);
-   int *vector_y = OSMboxPend(MailBox4,0,&err);
-   int *speed_msg = OSMboxPend(MailBox5,0,&err);
+   int *vector_x = OSMboxPend(MailBox4,0,&err);
+   int *vector_y = OSMboxPend(MailBox5,0,&err);
 
-   printf("Launch animation : (%d, %d) - %d\n",*vector_x, *vector_y, *speed_msg);
+   printf("Launch animation : (%d, %d)\n",*vector_x, *vector_y);
+   OSTimeDlyHMSM(0, 0, 5, 0);
 
    opt_task2= OS_FLAG_CLR;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
@@ -106,6 +148,8 @@ void task3(void* pdata)
 	INT8U err;
 	INT8U opt_task1;
 
+	int activePlayer = 1;
+
 	int * XdirSend = (int*) MEM_NIOS_PI_BASE+1;
 	int * YdirSend = (int*) MEM_NIOS_PI_BASE+2;
 	int * isSend = (int*) MEM_NIOS_PI_BASE+3;
@@ -114,10 +158,10 @@ void task3(void* pdata)
 	//int * AckReceived     = (int*) MEM_NIOS_PI_BASE+6;
 	int * XdirRec = (int*) MEM_NIOS_PI_BASE+7;
 	int * YdirRec = (int*) MEM_NIOS_PI_BASE+8;
-	int * speedRec = (int*) MEM_NIOS_PI_BASE+9;
+	//int * speedRec = (int*) MEM_NIOS_PI_BASE+9;
 
-while (1)
-  {
+	while (1)
+	{
 	  // est-ce qu'on envoie ou on recoit ?
 	  // Si on envoie, recup des infos de la tache 1 + transmettre à la tache 2 + envoir SPI + block la tache 1 avec flag CLEAR
 	  // Si on recoit, on transmet a la tache 2 + deblocque la tache 1 avec SET si task2 a finit l'animation (flag_animation task2 est CLR)
@@ -128,41 +172,41 @@ while (1)
 	 * 	-> Envoi les données à la tâche 3 + lance l'animation
 	 * 	-> Désactive la tâche 1
 	 * */
-	 if(!*isReceived){
+
+	 if(!*isReceived && activePlayer){
 		  OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
 		  printf("Wait for value from task 1\n");
 		  int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
 		  int *vector_y = (int *) OSMboxPend(MailBox2,0,&err);
-		  //int *speed_msg = (int *) OSMboxPend(MailBox3,0,&err);
-		  int speed_msg = 100;
-		  printf("Get value from task 1 : (%d, %d) - %d\n",*vector_x, *vector_y, speed_msg);
+		  printf("Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
 
 		  OSMboxPost(MailBox4, vector_x);
 		  OSMboxPost(MailBox5, vector_y);
-		  OSMboxPost(MailBox6, &speed_msg);
 
 		  *XdirSend = *vector_x;
 		  *YdirSend = *vector_y;
 		  *isSend = 1; // value are available
+		  activePlayer = 0;
 
 		  opt_task1=OS_FLAG_CLR;
 		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
+		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 	  }
-	 /* Si on n'est pas le joueur actif, on attend le signa donnée disponible
+	 /* Si on n'est pas le joueur actif, on attend le signal donnée disponible
 	  * -> lit les donnée
 	  * -> envoi les données à la tâche 3 + lance l'animation
 	  * -> passe en mode joueur actif
 	  */
-	 else{
-		  printf("Get value from SPI : (%d, %d) - %d\n",*XdirRec, *YdirRec, *speedRec);
+	 else if (!activePlayer && *isReceived){
+		  printf("Get value from SPI : (%d, %d)\n",*XdirRec, *YdirRec);
 		  OSMboxPost(MailBox4, XdirRec);
 		  OSMboxPost(MailBox5, YdirRec);
-		  OSMboxPost(MailBox6, speedRec);
 		  opt_task1=OS_FLAG_SET;
 		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
 		  *isReceived = 0; // we are the actif player
+		  activePlayer = 1;
+		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 	  }
-
 	  OSTimeDlyHMSM(0,0,0,100);
   }
 }

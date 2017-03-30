@@ -51,12 +51,16 @@ def SPI2number(SPI_data):
 
 
 
-TCP_IP = '192.168.1.4'
+TCP_IP = '192.168.1.5'
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((TCP_IP, TCP_PORT))
+s.bind((TCP_IP, TCP_PORT))
+s.listen(1)
+conn, addr = s.accept()
+
+print("Connection address : ",addr)
 
 
 MyARM_ResetPin = 19 # Pin 4 of connector = BCM19 = GPIO[1]
@@ -74,7 +78,7 @@ sleep(0.1)
 GPIO.output(MyARM_ResetPin, GPIO.LOW)
 sleep(0.1)
 
-isActivePlayer = True
+isActivePlayer = False
 
 done = False
 
@@ -86,14 +90,14 @@ while not done:
 		YdirSend = SPI2number(MySPI_FPGA.xfer2(data2SPI(2, 0, 0)))
 		print("Send data")
 		message = pickle.dumps([XdirSend, YdirSend])
-		s.send(message)
+		conn.send(message)
 		isActivePlayer = False
 		MySPI_FPGA.xfer2(data2SPI(3, 0, 1)) # consume data
 	
 	elif not isActivePlayer:
 		# Wait data from the other player
 		print("Wait data")
-		data = s.recv(BUFFER_SIZE)
+		data = conn.recv(BUFFER_SIZE)
 		if not data: break
 		a = pickle.loads(data)
 		print("received data:", a)
