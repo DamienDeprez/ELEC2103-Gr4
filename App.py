@@ -3,6 +3,7 @@ import Display
 import Physics
 import math
 
+
 pygame.init()
 WINDOW_SIZE = [1026, 512]
 screen = pygame.display.set_mode(WINDOW_SIZE)
@@ -30,21 +31,18 @@ isActivePlayer = True
 done = False
 shoot = False
 
-
-x_ball_1 = 250
-y_ball_1 = 250
-
-x_ball_2 = 600
-y_ball_2 = 300
+ball = [[250, 250],
+        [600, 235],
+        [600, 265]]
 
 Display.draw_background(screen)
-Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
-Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
+Display.draw_ball(screen, (255, 255, 255), ball[0])
+Display.draw_ball(screen, (255, 255, 0), ball[1])
+Display.draw_ball(screen, (255, 0, 255), ball[2])
 
 clock = pygame.time.Clock()
 
 while not done:
-    Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
     #print(x_ball_1,y_ball_1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -68,9 +66,10 @@ while not done:
                 vector = [x_dir / length, y_dir / length]
                 length = min(length, 510)
                 Display.draw_background(screen)
-                Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
-                Display.draw_ball(screen, (255, 255, 0), int(x_ball_2), int(y_ball_2))
-                Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(x_ball_1), int(y_ball_1), int(x_ball_1)+vector[0]*200, int(y_ball_1)+vector[1]*200, 4)
+                Display.draw_ball(screen, (255, 255, 255), ball[0])
+                Display.draw_ball(screen, (255, 255, 0), ball[1])
+                Display.draw_ball(screen, (255, 0, 255), ball[2])
+                Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(ball[0][0]), int(ball[0][1]), int(ball[0][0])+vector[0]*200, int(ball[0][1])+vector[1]*200, 4)
                 Display.draw_line(screen, (128, 128, 128), x1, y1, x, y, 2)
     if isActivePlayer and shoot:
         # Send to the other player
@@ -82,8 +81,8 @@ while not done:
     if shoot:
         x_dir = (x2-x1)
         y_dir = (y2-y1)
-        (x_ball_1, y_ball_1, x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_1, y_ball_1,x_ball_2,y_ball_2)
-        collision=Physics.collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2)
+        Physics.shoot(screen, x_dir, y_dir, ball)
+        #collision=Physics.collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2)
         #(x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_2, y_ball_2)
         clock.tick(60)
         shoot = False

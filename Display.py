@@ -13,8 +13,8 @@ def draw_rounded_rectangle(screen, color, x0, y0, width, height, radius):
     pygame.draw.circle(screen, color, [x0 +width - radius, y0 + height - radius], radius)
 
 
-def draw_ball(screen, color, x, y):
-    pygame.draw.circle(screen, color, [x, y], 13)
+def draw_ball(screen, color, ball):
+    pygame.draw.circle(screen, color, [int(ball[0]), int(ball[1])], 13)
 
 
 def draw_line(screen, color, x1, y1, x2, y2, width):
@@ -23,7 +23,7 @@ def draw_line(screen, color, x1, y1, x2, y2, width):
 
 def draw_background(screen):
     screen.fill(BLACK)
-    pygame.draw.rect(screen, (255, 255, 255), [16, 10, 800, 480]) # draw the visible part of the screen
+    pygame.draw.rect(screen, (255, 255, 255), [46, 23, 800, 480]) # draw the visible part of the screen
     draw_rounded_rectangle(screen, (67, 46, 14), 46, 23, 800, 480, 30) #
     draw_rounded_rectangle(screen, (12, 53, 30), 56, 33, 780, 460, 25)
     draw_rounded_rectangle(screen, (0, 96, 41), 86, 63, 720, 400, 0)
