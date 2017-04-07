@@ -8,15 +8,23 @@ BORDER_Y = 23
 BORDER = 40
 
 SIZE = 13
+WHOLE_SIZE = 16
 
 MAX_X = 800
 MAX_Y = 480
+
+whole_list=[[86, 63],
+            [446, 63],
+            [806, 63],
+            [86, 463],
+            [446, 463],
+            [806, 63]]
 
 
 def shoot(screen, x, y, ball):
     length = math.sqrt(x * x + y * y)
     direction = [x / length, y / length]
-    speed = 400.0 #min(length / 2.0, 400)
+    speed = min(length / 2.0, 400.0)
 
     velocity = [[direction[0]*speed/100.0, direction[1]*speed/100.0],   # ball 0
                 [0, 0],                                                 # ball 1
@@ -53,6 +61,10 @@ def shoot(screen, x, y, ball):
         move_ball(ball[0], velocity[0])
         move_ball(ball[1], velocity[1])
         move_ball(ball[2], velocity[2])
+
+        whole_collide(ball[0], velocity[0])
+        whole_collide(ball[1], velocity[1])
+        whole_collide(ball[2], velocity[2])
 
         #Check collision with other ball
         collide(ball[0], ball[1], velocity[0], velocity[1], collision[0])
@@ -179,12 +191,33 @@ def move_ball(ball, velocity):
     ball[0] += velocity[0]
     ball[1] += velocity[1]
 
+
 def damping(velocity):
     velocity[0] *= 0.995
     velocity[1] *= 0.995
 
+
 def momentum(velocity):
     return math.sqrt(velocity[0]*velocity[0]+velocity[1]*velocity[1])
+
+
+def whole_collide(ball, velocity):
+    x = ball[0]+velocity[0]
+    y = ball[1]+velocity[1]
+
+    collision = False
+
+    for whole in whole_list:
+        dx = whole[0]-x
+        dy = whole[1]-y
+        collision = collision or dx*dx + dy*dy <= (SIZE+WHOLE_SIZE)*(SIZE+WHOLE_SIZE)*0.75
+    if collision:
+        ball[0] = 0
+        ball[1] = 0
+        velocity[0] = 0
+        velocity[1] = 0
+    return collision
+
 
 def ball_info(num, ball, velocity):
     return "ball {:d} @({:.2f}, {:.2f}) moving @({:.2f}, {:.2f})".format(num, ball[0], ball[1], velocity[0], velocity[1])

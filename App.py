@@ -1,4 +1,5 @@
 import pygame
+import DisplayServer
 import Display
 import Physics
 import math
@@ -6,6 +7,7 @@ import math
 
 pygame.init()
 WINDOW_SIZE = [1026, 512]
+WINDOW_SIZE_SERVER = [1200, 720]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Billard")
 x1 = 0
@@ -69,7 +71,8 @@ while not done:
                 Display.draw_ball(screen, (255, 255, 255), ball[0])
                 Display.draw_ball(screen, (255, 255, 0), ball[1])
                 Display.draw_ball(screen, (255, 0, 255), ball[2])
-                Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(ball[0][0]), int(ball[0][1]), int(ball[0][0])+vector[0]*200, int(ball[0][1])+vector[1]*200, 4)
+                Display.draw_help(screen, (0, int(length/2.0), int(length/2.0)), ball[0], vector, 300)
+                #Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(ball[0][0]), int(ball[0][1]), int(ball[0][0])+vector[0]*200, int(ball[0][1])+vector[1]*200, 4)
                 Display.draw_line(screen, (128, 128, 128), x1, y1, x, y, 2)
     if isActivePlayer and shoot:
         # Send to the other player
@@ -82,6 +85,10 @@ while not done:
         x_dir = (x2-x1)
         y_dir = (y2-y1)
         Physics.shoot(screen, x_dir, y_dir, ball)
+        if ball[0][0] == 0 and ball[0][1] == 0:
+            ball[0][0] = 250
+            ball[0][1] = 250
+            Display.draw_ball(screen, (255, 255, 255), ball[0])
         #collision=Physics.collide(x_ball_1,y_ball_1,x_ball_2,y_ball_2)
         #(x_ball_2, y_ball_2) = Physics.shoot(screen, x_dir, y_dir, x_ball_2, y_ball_2)
         clock.tick(60)
