@@ -396,7 +396,7 @@ def border_collide(ball, velocity, border_collision):
 
 
 def vect_collide(ball1, ball2, v1, v2, collision, id):
-    if not collision[0] and collision[1] or collision[0] and collision[1]:
+    if (not collision[0] and collision[1]) or (collision[0] and collision[1]):
         x1 = ball1[0]
         x2 = ball2[0]
         y1 = ball1[1]
