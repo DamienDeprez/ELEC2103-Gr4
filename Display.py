@@ -46,3 +46,8 @@ def draw_background(screen):
 
 
 
+#def draw_score(screen, player1, player2):
+    #pygame.
+
+
+
