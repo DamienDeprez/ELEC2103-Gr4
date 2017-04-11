@@ -127,17 +127,28 @@ while not done:
         done = False
         shoot = False
 
-        ball = [[250, 250],
-                [600, 235],
-                [600, 265]]
+	ball = [[266, 263], # blanche
+        	[626, 263], # noir
+		[603, 250], # 1
+		[603, 276], # 2
+		[626, 289], # 1
+		[626, 237], # 2
+		[649, 224], # 1
+		[649, 250], # 2
+		[649, 276], # 1
+		[649, 302]] # 2
 
         Display.draw_background(screen)
-        Display.draw_ball(screen, (255, 255, 255), ball[0])
-        Display.draw_ball(screen, (255, 255, 0), ball[1])
-        Display.draw_ball(screen, (255, 0, 255), ball[2])
-        Display.draw_ball(screen, (255, 255, 0), ball[3])
-        Display.draw_ball(screen, (255, 0, 255), ball[4])
-        Display.draw_ball(screen, (255, 255, 0), ball[5])
+	Display.draw_ball(screen, (255, 255, 255), ball[0])
+	Display.draw_ball(screen, (16, 16, 16), ball[1])
+	Display.draw_ball(screen, (255, 255, 0), ball[2])
+	Display.draw_ball(screen, (255, 0, 0), ball[3])
+	Display.draw_ball(screen, (255, 255, 0), ball[4])
+	Display.draw_ball(screen, (255, 0, 0), ball[5])
+	Display.draw_ball(screen, (255, 255, 0), ball[6])
+	Display.draw_ball(screen, (255, 0, 0), ball[7])
+	Display.draw_ball(screen, (255, 255, 0), ball[8])
+	Display.draw_ball(screen, (255, 0, 0), ball[9])
 
     pygame.display.update()
 pygame.quit()
