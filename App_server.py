@@ -1,5 +1,5 @@
 import pygame
-import Display
+import DisplayServer
 import Physics
 import math
 import socket
@@ -12,7 +12,7 @@ BUFFER_SIZE = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 pygame.init()
-WINDOW_SIZE = [1026,512]
+WINDOW_SIZE = [1200,720]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Billard - Server")
 x1 = 0
@@ -44,8 +44,8 @@ y_ball_1 = 250
 
 print("draw")
 
-Display.draw_background(screen)
-Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
+DisplayServer.draw_background(screen)
+DisplayServer.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
 pygame.display.update()
 
 clock = pygame.time.Clock()
@@ -78,10 +78,10 @@ while not done:
                 length = max(math.sqrt(x_dir * x_dir + y_dir * y_dir), 1)
                 vector = [x_dir / length, y_dir / length]
                 length = min(length, 510)
-                Display.draw_background(screen)
-                Display.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
-                Display.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(x_ball_1), int(y_ball_1), int(x_ball_1)+vector[0]*200, int(y_ball_1)+vector[1]*200, 4)
-                Display.draw_line(screen, (128, 128, 128), x1, y1, x, y, 2)
+                DisplayServer.draw_background(screen)
+                DisplayServer.draw_ball(screen, (255, 255, 255), int(x_ball_1), int(y_ball_1))
+                #DisplayServer.draw_line(screen, (0, int(length/2.0), int(length/2.0)), int(x_ball_1), int(y_ball_1), int(x_ball_1)+vector[0]*200, int(y_ball_1)+vector[1]*200, 4)
+                DisplayServer.draw_line(screen, (128, 128, 128), x1, y1, x, y, 2)
     if isActivePlayer and shoot:
         # Send to the other player
         message = pickle.dumps([x2 - x1, y2 - y1])
