@@ -170,7 +170,7 @@ void task2(void* pdata)
    int border_collision [2][4] = {{0, 0, 0, 0},{0, 0, 0, 0}};
    collision = detect_collide(ball1,ball2,velocity1);
 
-   while(speed >= 0.5)
+   while(speed >= 0.01)
    {
 	   	//Border Collide
        borderCollide((int) x_ball, (int) y_ball, border_collision[0], velocity1);
