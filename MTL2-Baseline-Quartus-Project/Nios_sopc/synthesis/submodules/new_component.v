@@ -43,3 +43,4 @@ module new_component (
 	
 
 endmodule
+

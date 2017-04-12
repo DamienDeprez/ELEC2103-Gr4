@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Mar 30, 2017 3:06:48 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1490879208102</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 7, 2017 1:41:05 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1491565265449</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/software/comm_bsp</BspGeneratedLocation>
-        <BspSettingsFile>./settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Nios_sopc.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>cpu</Cpu>

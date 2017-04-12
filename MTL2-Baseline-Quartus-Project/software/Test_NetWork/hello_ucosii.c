@@ -171,8 +171,8 @@ void task2(void* pdata)
        OSTimeDlyHMSM(0, 0, 0, 20);
 
    }
-
-   OSTimeDlyHMSM(0, 0, 5, 0);
+   OSTimeDlyHMSM(0, 0, 0, 500);
+   printf("End animation\n");
 
    opt_task2= OS_FLAG_CLR;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
@@ -195,6 +195,13 @@ void task3(void* pdata)
 	int * XdirRec = (int*) MEM_NIOS_PI_BASE+7;
 	int * YdirRec = (int*) MEM_NIOS_PI_BASE+8;
 	//int * speedRec = (int*) MEM_NIOS_PI_BASE+9;
+
+	*XdirSend = 0;
+	*YdirSend = 0;
+	*isSend = 0;
+	*isReceived = 0;
+	*XdirRec = 0;
+	*YdirRec = 0;
 
 	while (1)
 	{
@@ -237,11 +244,11 @@ void task3(void* pdata)
 		  printf("Get value from SPI : (%d, %d)\n",*XdirRec, *YdirRec);
 		  OSMboxPost(MailBox4, XdirRec);
 		  OSMboxPost(MailBox5, YdirRec);
+		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 		  opt_task1=OS_FLAG_SET;
 		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
 		  *isReceived = 0; // we are the actif player
 		  activePlayer = 1;
-		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 	  }
 	  OSTimeDlyHMSM(0,0,0,100);
   }

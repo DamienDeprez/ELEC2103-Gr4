@@ -132,15 +132,15 @@ assign y_correct = y_cnt;
 					
 // Check if the current pixel position is in the rectangle
 assign isInCircle1 = (iX1-x_correct)*(iX1-x_correct) + (iY1-y_correct)*(iY1-y_correct) < 169; // readius = 13
-assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 650; // readius = 13
-assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 650; // readius = 13
-assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 650; // readius = 13
-assign isInCircle5 = (iX5-x_correct)*(iX5-x_correct) + (iY5-y_correct)*(iY5-y_correct) < 650; // readius = 13
-assign isInCircle6 = (iX6-x_correct)*(iX6-x_correct) + (iY6-y_correct)*(iY6-y_correct) < 650; // readius = 13
-assign isInCircle7 = (iX7-x_correct)*(iX7-x_correct) + (iY7-y_correct)*(iY7-y_correct) < 650; // readius = 13
-assign isInCircle8 = (iX8-x_correct)*(iX8-x_correct) + (iY8-y_correct)*(iY8-y_correct) < 650; // readius = 13
-assign isInCircle9 = (iX9-x_correct)*(iX9-x_correct) + (iY9-y_correct)*(iY9-y_correct) < 650; // readius = 13
-assign isInCircle10 = (iX10-x_correct)*(iX10-x_correct) + (iY10-y_correct)*(iY10-y_correct) < 650; // readius = 13
+assign isInCircle2 = (iX2-x_correct)*(iX2-x_correct) + (iY2-y_correct)*(iY2-y_correct) < 169; // readius = 13
+assign isInCircle3 = (iX3-x_correct)*(iX3-x_correct) + (iY3-y_correct)*(iY3-y_correct) < 169; // readius = 13
+assign isInCircle4 = (iX4-x_correct)*(iX4-x_correct) + (iY4-y_correct)*(iY4-y_correct) < 169; // readius = 13
+assign isInCircle5 = (iX5-x_correct)*(iX5-x_correct) + (iY5-y_correct)*(iY5-y_correct) < 169; // readius = 13
+assign isInCircle6 = (iX6-x_correct)*(iX6-x_correct) + (iY6-y_correct)*(iY6-y_correct) < 169; // readius = 13
+assign isInCircle7 = (iX7-x_correct)*(iX7-x_correct) + (iY7-y_correct)*(iY7-y_correct) < 169; // readius = 13
+assign isInCircle8 = (iX8-x_correct)*(iX8-x_correct) + (iY8-y_correct)*(iY8-y_correct) < 169; // readius = 13
+assign isInCircle9 = (iX9-x_correct)*(iX9-x_correct) + (iY9-y_correct)*(iY9-y_correct) < 169; // readius = 13
+assign isInCircle10 = (iX10-x_correct)*(iX10-x_correct) + (iY10-y_correct)*(iY10-y_correct) < 169; // readius = 13
 
 assign isInCircle11 = (86-x_cnt)*(86-x_cnt) + (63-y_cnt)*(63-y_cnt) < 256; // readius = 16
 assign isInCircle12 = (446-x_cnt)*(446-x_cnt) + (63-y_cnt)*(63-y_cnt) < 256; // readius = 16

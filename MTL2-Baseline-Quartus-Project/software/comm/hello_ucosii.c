@@ -33,6 +33,11 @@
 #include "system.h"
 #include "physics.h"
 #include <math.h>
+#include "io.h"
+#include "HAL/inc/priv/alt_iic_isr_register.h"
+//#include "altera_avalon_pio_regs.h"
+#include <sys/alt_timestamp.h>
+
 
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
@@ -126,13 +131,23 @@ void task1(void* pdata)
 
 void task2(void* pdata)
 {
+  float *result_collide; //modified
 
   INT8U err;
   INT8U opt_task2;
   volatile int * display = (int *) MTL_IP_BASE;
-  float x_ball = 200;
-  float y_ball = 200;
+  float x_ball = 200.0;
+  float y_ball = 200.0;
+  float x_ball2= 400.0;
+  float y_ball2= 200.0;
+
+  float ball1[2]={x_ball,y_ball};
+  //printf("position ball1:%.2f,%.2f\n",ball1[0],ball1[1]);
+  float ball2[2]={x_ball2,y_ball2};
+  //printf("position ball2:%.2f,%.2f\n",ball2[0],ball2[1]);
   *(display + 1) = ((int) (y_ball) << 10) + (int) (x_ball);
+  *(display + 2) = ((int) (y_ball2) << 10) + (int) (x_ball2);
+  int collision=0;
 
   while (1)
   {
@@ -149,31 +164,52 @@ void task2(void* pdata)
    float direction [] = {x/length, y/length};
    float speed = length / 2.0;
 
-   float velocity [] = {direction[0] * speed/10.0, direction[1] * speed/10.0};
+   float velocity1 [] = {direction[0] * speed/10.0, direction[1] * speed/10.0};
+   float velocity2 [2];
 
    int border_collision [2][4] = {{0, 0, 0, 0},{0, 0, 0, 0}};
+   collision = detect_collide(ball1,ball2,velocity1);
 
    while(speed >= 0.5)
    {
 	   	//Border Collide
-       borderCollide((int) x_ball, (int) y_ball, border_collision[0], velocity);
+       borderCollide((int) x_ball, (int) y_ball, border_collision[0], velocity1);
+       borderCollide((int) x_ball2, (int) y_ball2, border_collision[0], velocity2);
+
 
        //Move the ball
-       x_ball += velocity[0];
-       y_ball += velocity[1];
+       x_ball += velocity1[0];
+       y_ball += velocity1[1];
+       ball1[0]=x_ball;
+       ball1[1]=y_ball;
+       x_ball2 += velocity2[0];
+       y_ball2 += velocity2[1];
+       ball2[0]=x_ball2;
+       ball2[1]=y_ball2;
+
+       //Collision
+       collision = detect_collide(ball1,ball2,velocity1);
+       if (collision==1) {
+    	   printf("Collision detected\n");
+    	   collide_calc(ball1,ball2,velocity1,velocity2,collision);
+       }
 
        // Damping factor
-       velocity[0] *= 0.98;
-       velocity[1] *= 0.98;
-       speed = abs((int) (velocity[0])) + abs((int) (velocity[1]));
+       velocity1[0] *= 0.98;
+       velocity1[1] *= 0.98;
+
+       velocity2[0] *= 0.98;
+       velocity2[1] *= 0.98;
+       speed = abs((int) (velocity1[0])) + abs((int) (velocity1[1]));
 
        *(display + 1) = ((int) (y_ball) << 10) + (int) (x_ball);
+       *(display + 2) = ((int) (y_ball2) << 10) + (int) (x_ball2);
        OSTimeDlyHMSM(0, 0, 0, 20);
 
    }
    OSTimeDlyHMSM(0, 0, 0, 500);
 
-   printf("Animation termine");
+   printf("Animation termine\n");
 
    OSTimeDlyHMSM(0, 0, 5, 0);
 
@@ -187,7 +223,7 @@ void task3(void* pdata)
 	INT8U err;
 	INT8U opt_task1;
 
-	int activePlayer = 0;
+	int activePlayer = 1;
 
 	int * XdirSend = (int*) MEM_NIOS_PI_BASE+1;
 	int * YdirSend = (int*) MEM_NIOS_PI_BASE+2;
@@ -233,7 +269,7 @@ void task3(void* pdata)
 		  *XdirSend = *vector_x;
 		  *YdirSend = *vector_y;
 		  *isSend = 1; // value are available
-		  activePlayer = 0;
+		  activePlayer = 1; //modified
 
 		  opt_task1=OS_FLAG_CLR;
 		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
@@ -258,6 +294,78 @@ void task3(void* pdata)
 	  OSTimeDlyHMSM(0,0,0,100);
   }
 }
+
+int detect_collide(float ball1[2], float ball2[2], float velocity1[2]){
+
+	float x1,y1,x2,y2,dx,dy;
+	int collision,size;
+	size=13;
+	x1=ball1[0]+ velocity1[0];
+	x2=ball2[0]+ velocity1[0];
+
+	y1=ball1[1]+ velocity1[1];
+	y2=ball2[1]+ velocity1[1];
+
+	dx=x2-x1;
+	dy=y2-y1;
+	if(dx*dx + dy*dy <= 4*size*size) collision=1;
+    else collision=0;
+	return collision;
+}
+
+void collide_calc(float ball1[2], float ball2[2],float velocity1 [2], float velocity2 [2], int collision){
+	//int result[8];
+	if (collision){
+		float x1,y1,x2,y2,m1,m2,m21,x21,y21,fy21;
+		int sign;
+		float v21 [2];
+		float a;
+		float dv;
+
+		x1=ball1[0];
+		x2=ball2[0];
+		y1=ball1[1];
+		y2=ball2[1];
+
+		m1=1.0;
+		m2=1.0;
+		m21 = m2/m1;
+		x21 = x2-x1;
+		y21 = y2-y1;
+		v21[0]=velocity2[0]-velocity1[0];
+		v21[1]=velocity2[1]-velocity1[1];
+
+		if (v21[0]*x21 + v21[1]*y21 >=0){
+			printf("error in collision\n");
+			velocity2[0] = velocity2[0]+0.0;
+            velocity2[1] = velocity2[1]+0.0;
+            velocity1[0] = velocity2[0]+0.0;
+            velocity1[1] = velocity2[0]+0.0;
+
+		}
+		else{
+			fy21=0.000001*fabs(y21);
+			if(fabs(x21) < fy21){
+				if (x21<0) sign = -1;
+				else sign=1;
+				x21=fy21*sign;
+			}
+			a=y21/x21;
+            dv = -2.0*(v21[0]+a*v21[1])/((1+a*a)*(1+m21));
+            velocity2[0] = velocity2[0] + dv;
+            velocity2[1] = velocity2[1] + a*dv;
+
+            velocity1[0] = velocity1[0] - m21*dv;
+            velocity1[1] = velocity1[0] - a*m21*dv;
+		}
+	}
+}
+
+
+
+
+
+
 /* The main function creates two task and starts multi-tasking */
 int main(void)
 {
