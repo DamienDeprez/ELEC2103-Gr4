@@ -51,7 +51,7 @@ def SPI2number(SPI_data):
 
 
 
-TCP_IP = '192.168.1.5'
+TCP_IP = '10.10.10.15'
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 

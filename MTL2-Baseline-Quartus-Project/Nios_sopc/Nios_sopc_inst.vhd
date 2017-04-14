@@ -1,6 +1,10 @@
 	component Nios_sopc is
 		port (
 			clk_clk                         : in    std_logic                     := 'X';             -- clk
+			data_addr_export                : out   std_logic_vector(6 downto 0);                     -- export
+			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			data_we_export                  : out   std_logic;                                        -- export
+			data_write_export               : out   std_logic_vector(31 downto 0);                    -- export
 			mem_nios_pi_s2_address          : in    std_logic_vector(6 downto 0)  := (others => 'X'); -- address
 			mem_nios_pi_s2_chipselect       : in    std_logic                     := 'X';             -- chipselect
 			mem_nios_pi_s2_clken            : in    std_logic                     := 'X';             -- clken
@@ -30,18 +34,18 @@
 			sdram_controller_we_n           : out   std_logic;                                        -- we_n
 			spi_clk_export                  : in    std_logic                     := 'X';             -- export
 			spi_cs_export                   : in    std_logic                     := 'X';             -- export
-			spi_mosi_export                 : in    std_logic                     := 'X';             -- export
 			spi_miso_export                 : out   std_logic;                                        -- export
-			data_we_export                  : out   std_logic;                                        -- export
-			data_addr_export                : out   std_logic_vector(6 downto 0);                     -- export
-			data_write_export               : out   std_logic_vector(31 downto 0);                    -- export
-			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X')  -- export
+			spi_mosi_export                 : in    std_logic                     := 'X'              -- export
 		);
 	end component Nios_sopc;
 
 	u0 : component Nios_sopc
 		port map (
 			clk_clk                         => CONNECTED_TO_clk_clk,                         --                      clk.clk
+			data_addr_export                => CONNECTED_TO_data_addr_export,                --                data_addr.export
+			data_read_export                => CONNECTED_TO_data_read_export,                --                data_read.export
+			data_we_export                  => CONNECTED_TO_data_we_export,                  --                  data_we.export
+			data_write_export               => CONNECTED_TO_data_write_export,               --               data_write.export
 			mem_nios_pi_s2_address          => CONNECTED_TO_mem_nios_pi_s2_address,          --           mem_nios_pi_s2.address
 			mem_nios_pi_s2_chipselect       => CONNECTED_TO_mem_nios_pi_s2_chipselect,       --                         .chipselect
 			mem_nios_pi_s2_clken            => CONNECTED_TO_mem_nios_pi_s2_clken,            --                         .clken
@@ -71,11 +75,7 @@
 			sdram_controller_we_n           => CONNECTED_TO_sdram_controller_we_n,           --                         .we_n
 			spi_clk_export                  => CONNECTED_TO_spi_clk_export,                  --                  spi_clk.export
 			spi_cs_export                   => CONNECTED_TO_spi_cs_export,                   --                   spi_cs.export
-			spi_mosi_export                 => CONNECTED_TO_spi_mosi_export,                 --                 spi_mosi.export
 			spi_miso_export                 => CONNECTED_TO_spi_miso_export,                 --                 spi_miso.export
-			data_we_export                  => CONNECTED_TO_data_we_export,                  --                  data_we.export
-			data_addr_export                => CONNECTED_TO_data_addr_export,                --                data_addr.export
-			data_write_export               => CONNECTED_TO_data_write_export,               --               data_write.export
-			data_read_export                => CONNECTED_TO_data_read_export                 --                data_read.export
+			spi_mosi_export                 => CONNECTED_TO_spi_mosi_export                  --                 spi_mosi.export
 		);
 

@@ -1,5 +1,9 @@
 	Nios_sopc u0 (
 		.clk_clk                         (<connected-to-clk_clk>),                         //                      clk.clk
+		.data_addr_export                (<connected-to-data_addr_export>),                //                data_addr.export
+		.data_read_export                (<connected-to-data_read_export>),                //                data_read.export
+		.data_we_export                  (<connected-to-data_we_export>),                  //                  data_we.export
+		.data_write_export               (<connected-to-data_write_export>),               //               data_write.export
 		.mem_nios_pi_s2_address          (<connected-to-mem_nios_pi_s2_address>),          //           mem_nios_pi_s2.address
 		.mem_nios_pi_s2_chipselect       (<connected-to-mem_nios_pi_s2_chipselect>),       //                         .chipselect
 		.mem_nios_pi_s2_clken            (<connected-to-mem_nios_pi_s2_clken>),            //                         .clken
@@ -29,11 +33,7 @@
 		.sdram_controller_we_n           (<connected-to-sdram_controller_we_n>),           //                         .we_n
 		.spi_clk_export                  (<connected-to-spi_clk_export>),                  //                  spi_clk.export
 		.spi_cs_export                   (<connected-to-spi_cs_export>),                   //                   spi_cs.export
-		.spi_mosi_export                 (<connected-to-spi_mosi_export>),                 //                 spi_mosi.export
 		.spi_miso_export                 (<connected-to-spi_miso_export>),                 //                 spi_miso.export
-		.data_we_export                  (<connected-to-data_we_export>),                  //                  data_we.export
-		.data_addr_export                (<connected-to-data_addr_export>),                //                data_addr.export
-		.data_write_export               (<connected-to-data_write_export>),               //               data_write.export
-		.data_read_export                (<connected-to-data_read_export>)                 //                data_read.export
+		.spi_mosi_export                 (<connected-to-spi_mosi_export>)                  //                 spi_mosi.export
 	);
 

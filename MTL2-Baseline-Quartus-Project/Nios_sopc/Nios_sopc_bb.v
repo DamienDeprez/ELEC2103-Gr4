@@ -1,6 +1,10 @@
 
 module Nios_sopc (
 	clk_clk,
+	data_addr_export,
+	data_read_export,
+	data_we_export,
+	data_write_export,
 	mem_nios_pi_s2_address,
 	mem_nios_pi_s2_chipselect,
 	mem_nios_pi_s2_clken,
@@ -30,14 +34,14 @@ module Nios_sopc (
 	sdram_controller_we_n,
 	spi_clk_export,
 	spi_cs_export,
-	spi_mosi_export,
 	spi_miso_export,
-	data_we_export,
-	data_addr_export,
-	data_write_export,
-	data_read_export);	
+	spi_mosi_export);	
 
 	input		clk_clk;
+	output	[6:0]	data_addr_export;
+	input	[31:0]	data_read_export;
+	output		data_we_export;
+	output	[31:0]	data_write_export;
 	input	[6:0]	mem_nios_pi_s2_address;
 	input		mem_nios_pi_s2_chipselect;
 	input		mem_nios_pi_s2_clken;
@@ -67,10 +71,6 @@ module Nios_sopc (
 	output		sdram_controller_we_n;
 	input		spi_clk_export;
 	input		spi_cs_export;
-	input		spi_mosi_export;
 	output		spi_miso_export;
-	output		data_we_export;
-	output	[6:0]	data_addr_export;
-	output	[31:0]	data_write_export;
-	input	[31:0]	data_read_export;
+	input		spi_mosi_export;
 endmodule
