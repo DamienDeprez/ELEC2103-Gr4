@@ -1,4 +1,4 @@
-import Display
+import DisplayServer as Display
 import math
 import pygame
 import Logger
@@ -253,6 +253,9 @@ def shoot(screen, x, y, ball, game_data):
 
         collide(ball[8], ball[9], velocity[8], velocity[9], collision[44])
 
+        if not collision[24][0] and collision[24][1]:
+            Logger.logger.debug("collision 24 detected")
+
         # compute new collision vector
         vect_collide(ball[0], ball[1], velocity[0], velocity[1], collision[0], 0)
         vect_collide(ball[0], ball[2], velocity[0], velocity[2], collision[1], 1)
@@ -332,7 +335,7 @@ def shoot(screen, x, y, ball, game_data):
                       + momentum(velocity[9])
         speed = total_speed
 
-        #Logger.log_ball(ball, velocity)
+        Logger.log_ball(ball, velocity)
 
         game_data[1][game_data[0] - 1] = score
 

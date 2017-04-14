@@ -51,19 +51,3 @@ def draw_background(screen):
 
 
 
-def draw_score(screen, player1, player2):
-    font = pygame.font.SysFont(None, int(29*FACTOR)) # heigth of 20
-    text1 = font.render("{:d}".format(player2), True, (255, 255, 0))
-    text2 = font.render("{:d}".format(player1), True, (255, 0, 0))
-    screen.blit(text1,(int((226-XBORDER)*FACTOR)-text1.get_width()//2, int((38-YBORDER)*FACTOR)))
-    screen.blit(text2,(int((626-XBORDER)*FACTOR)-text2.get_width()//2, int((38-YBORDER)*FACTOR)))
-
-
-def draw_active_player(screen, player):
-    if player == 2:
-        pygame.draw.rect(screen, (255, 255, 0), [int((61-XBORDER)*FACTOR), int((163-YBORDER)*FACTOR), int(20*FACTOR), int(200*FACTOR)])
-    else:
-        pygame.draw.rect(screen, (255, 0, 0), [int((811-XBORDER)*FACTOR), int((163-YBORDER)*FACTOR), int(20*FACTOR), int(200*FACTOR)])
-
-
-
