@@ -89,6 +89,14 @@
          type = "int";
       }
    }
+   element nios_custom_instr_floating_point_2_0
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
    element sdram_controller
    {
       datum _sortIndex
@@ -248,7 +256,7 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="nios_custom_instr_floating_point_2_0" baseAddress="224" addressSpan="16" clockCycleType="COMBINATORIAL" /><slave name="nios_custom_instr_floating_point_2_0_1" baseAddress="248" addressSpan="8" clockCycleType="VARIABLE" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
@@ -292,7 +300,7 @@
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
-  <parameter name="impl" value="Tiny" />
+  <parameter name="impl" value="Fast" />
   <parameter name="instAddrWidth" value="26" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='cpu.debug_mem_slave' start='0x10800' end='0x11000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='sdram_controller.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
@@ -465,6 +473,19 @@
   <parameter name="writable" value="true" />
  </module>
  <module name="my_SPI" kind="my_SPI_ip" version="1.0" enabled="1" />
+ <module
+   name="nios_custom_instr_floating_point_2_0"
+   kind="altera_nios_custom_instr_floating_point_2"
+   version="16.1"
+   enabled="1">
+  <parameter name="AUTO_DEVICE" value="EP4CE22F17C6" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
+  <parameter name="arithmetic_present" value="true" />
+  <parameter name="comparison_present" value="true" />
+  <parameter name="conversion_present" value="true" />
+  <parameter name="deviceFamily" value="Cyclone IV E" />
+  <parameter name="root_present" value="true" />
+ </module>
  <module
    name="sdram_controller"
    kind="altera_avalon_new_sdram_controller"
@@ -653,6 +674,24 @@
    start="cpu.irq"
    end="timer_system.irq">
   <parameter name="irqNumber" value="1" />
+ </connection>
+ <connection
+   kind="nios_custom_instruction"
+   version="16.1"
+   start="cpu.custom_instruction_master"
+   end="nios_custom_instr_floating_point_2_0.s1">
+  <parameter name="CIName">nios_custom_instr_floating_point_2_0</parameter>
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="224" />
+ </connection>
+ <connection
+   kind="nios_custom_instruction"
+   version="16.1"
+   start="cpu.custom_instruction_master"
+   end="nios_custom_instr_floating_point_2_0.s2">
+  <parameter name="CIName">nios_custom_instr_floating_point_2_0_1</parameter>
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="248" />
  </connection>
  <connection kind="reset" version="16.1" start="clk_0.clk_reset" end="cpu.reset" />
  <connection
