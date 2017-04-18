@@ -138,8 +138,8 @@ def shoot(screen, x, y, ball, game_data):
             if numberofball == 2:
                 score += 5
             else :
-                if score > 0 : score -= 5
-                ball[1] = [626, 263]
+                if score > 0 : score -= 1
+            numberofball -= 1
 
         if whole_collide(ball[2], velocity[2]):
             if player == 2:
@@ -253,6 +253,9 @@ def shoot(screen, x, y, ball, game_data):
 
         collide(ball[8], ball[9], velocity[8], velocity[9], collision[44])
 
+        if not collision[24][0] and collision[24][1]:
+            Logger.logger.debug("collision 24 detected")
+
         # compute new collision vector
         vect_collide(ball[0], ball[1], velocity[0], velocity[1], collision[0], 0)
         vect_collide(ball[0], ball[2], velocity[0], velocity[2], collision[1], 1)
@@ -332,9 +335,7 @@ def shoot(screen, x, y, ball, game_data):
                       + momentum(velocity[9])
         speed = total_speed
 
-        #Logger.log_ball(ball, velocity)
-
-        game_data[1][game_data[0] - 1] = score
+        Logger.log_ball(ball, velocity)
 
         Display.draw_background(screen)
         Display.draw_ball(screen, (255, 255, 255), ball[0])
@@ -347,8 +348,6 @@ def shoot(screen, x, y, ball, game_data):
         Display.draw_ball(screen, (255, 0, 0), ball[7])
         Display.draw_ball(screen, (255, 255, 0), ball[8])
         Display.draw_ball(screen, (255, 0, 0), ball[9])
-        Display.draw_score(screen, game_data[1][0], game_data[1][1])
-        Display.draw_active_player(screen, game_data[0])
         pygame.display.update()
         clock.tick(500) # wait 20 ms
 
