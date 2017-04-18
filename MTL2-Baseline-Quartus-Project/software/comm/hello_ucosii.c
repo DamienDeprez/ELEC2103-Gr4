@@ -289,7 +289,6 @@ void task3(void* pdata)
 		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
 		  *isReceived = 0; // we are the actif player
 		  activePlayer = 1;
-
 	  }
 	  OSTimeDlyHMSM(0,0,0,100);
   }

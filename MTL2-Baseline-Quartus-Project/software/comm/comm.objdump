@@ -2147,7 +2147,6 @@ void task3(void* pdata)
 		  activePlayer = 1;
  2000d38:	00800044 	movi	r2,1
  2000d3c:	e0bff515 	stw	r2,-44(fp)
-
 	  }
 	  OSTimeDlyHMSM(0,0,0,100);
  2000d40:	01c01904 	movi	r7,100
