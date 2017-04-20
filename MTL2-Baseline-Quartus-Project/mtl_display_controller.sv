@@ -127,7 +127,7 @@ assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(y_cnt>(Vertical_Blank-1))&& 
 						(y_cnt<(V_LINE-Vertical_Front_Porch))));
 						
-assign x_correct = x_cnt;
+assign x_correct = x_cnt;	
 assign y_correct = y_cnt;
 					
 // Check if the current pixel position is in the rectangle
