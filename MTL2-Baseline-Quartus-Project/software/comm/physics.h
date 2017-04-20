@@ -19,6 +19,7 @@
 
 #define DAMPING 0.995
 
+
 int whole_collide(float ball [2], float velocity [2]);
 
 

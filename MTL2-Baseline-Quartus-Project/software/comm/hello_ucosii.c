@@ -44,6 +44,7 @@
 OS_STK    task1_stk[TASK_STACKSIZE];
 OS_STK    task2_stk[TASK_STACKSIZE];
 OS_STK    task3_stk[TASK_STACKSIZE];
+OS_STK    task4_stk[TASK_STACKSIZE];
 
 
 /* Definition of Task Priorities */
@@ -51,6 +52,10 @@ OS_STK    task3_stk[TASK_STACKSIZE];
 #define TASK1_PRIORITY      1
 #define TASK2_PRIORITY      2
 #define TASK3_PRIORITY      3
+#define TASK4_PRIORITY      4
+
+#define ID1 1
+#define ID2 2
 
 /* Definition of the mailboxes */
 OS_EVENT *MailBox1;
@@ -59,17 +64,26 @@ OS_EVENT *MailBox3;
 
 OS_EVENT *MailBox4;
 OS_EVENT *MailBox5;
+
 OS_EVENT *MailBox6;
+OS_EVENT *MailBox7;
+OS_EVENT *MailBox8;
+OS_EVENT *MailBox9;
 
 OS_FLAG_GRP *isActiveFlagGrp;
 OS_FLAG_GRP *AnimationFlagGrp;
+OS_FLAG_GRP *ActivateTask4Grp;
+OS_FLAG_GRP *StartGameGrp;
+
 
 #define IS_ACTIVE (OS_FLAGS) 0x0001
 #define ANIMATION (OS_FLAGS) 0x0001
+#define ACTIVATE_TASK4 (OS_FLAGS) 0x0001
+#define START_THE_GAME (OS_FLAGS) 0x0001
+
+
 
 /*  */
-
-
 
 void task1(void* pdata)
 {
@@ -124,7 +138,7 @@ void task1(void* pdata)
 			//*(MTL_controller + 6) = (y2_gesture_start << 10) + x2_gesture_start;
 			//*(MTL_controller + 7) = (y2_gesture_stop << 10) + x2_gesture_stop;
 		}
-		//printf("Hello");
+
 		int x_dir = (x2_gesture_stop - x1_gesture_start);
 		int y_dir = (y2_gesture_stop - y1_gesture_start);
 		printf("Send value : (%d, %d)\n", x_dir, y_dir);
@@ -176,6 +190,10 @@ void task2(void* pdata)
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
    int *vector_x = OSMboxPend(MailBox4,0,&err);
    int *vector_y = OSMboxPend(MailBox5,0,&err);
+
+   int score = OSMboxPend(MailBox8,0,&err);
+   int nbr_ball = OSMboxPend(MailBox9,0,&err);
+
 
    float x = (float) *vector_x;
    float y = (float) *vector_y;
@@ -392,6 +410,10 @@ void task2(void* pdata)
 
    opt_task2= OS_FLAG_CLR;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
+
+   OSMboxPost(MailBox6, &nbr_ball);
+   OSMboxPost(MailBox7, &score);
+
   }
 }
 
@@ -401,78 +423,137 @@ void task3(void* pdata)
 	INT8U err;
 	INT8U opt_task1;
 
-	int activePlayer = 1;
+	int activePlayer;
+	int * nbr_ball;
+	int * score;
+	/*
+	int * first_player_send = (int*) MEM_NIOS_PI_BASE;
+	int * first_player_reci = (int*) MEM_NIOS_PI_BASE+1;
+	int * all_ready = (int*) MEM_NIOS_PI_BASE+2;
 
-	int * XdirSend = (int*) MEM_NIOS_PI_BASE+1;
-	int * YdirSend = (int*) MEM_NIOS_PI_BASE+2;
-	int * isSend = (int*) MEM_NIOS_PI_BASE+3;
-	int * isReceived = (int*) MEM_NIOS_PI_BASE+4;
-	//int * AckSend     = (int*) MEM_NIOS_PI_BASE+5;
-	//int * AckReceived     = (int*) MEM_NIOS_PI_BASE+6;
-	int * XdirRec = (int*) MEM_NIOS_PI_BASE+7;
-	int * YdirRec = (int*) MEM_NIOS_PI_BASE+8;
-	//int * speedRec = (int*) MEM_NIOS_PI_BASE+9;
+	int * data_avail_send = (int*) MEM_NIOS_PI_BASE+3;
+	int * nbr_ball_send = (int*) MEM_NIOS_PI_BASE+4;
+	int * score_send = (int*) MEM_NIOS_PI_BASE+5;
+	int * XdirSend = (int*) MEM_NIOS_PI_BASE+6;
+	int * YdirSend = (int*) MEM_NIOS_PI_BASE+7;
 
-	*XdirSend =0;
-	*XdirRec =0;
-	*isSend = 0;
-	*isReceived = 0;
-	*YdirSend =0;
-	*YdirRec = 0;
+	int * data_avail_rec = (int*) MEM_NIOS_PI_BASE+8;
+	int * nbr_ball_rec = (int*) MEM_NIOS_PI_BASE+9;
+	int * score_rec = (int*) MEM_NIOS_PI_BASE+10;
+	int * XdirRec = (int*) MEM_NIOS_PI_BASE+11;
+	int * YdirRec = (int*) MEM_NIOS_PI_BASE+12;
+	*/
+	//intermediate variable//
 
+	int ready,first_player,game_finish,ready_send;
+	int all_rdy;
+
+	ready=0;
+	first_player=0;
+	all_rdy=0;
+	game_finish=0;
+	ready_send=0;
 
 	while (1)
 	{
-		//printf("Hello task 3\n");
+		    OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
+			while (!ready){
+				int var = IORD(MEM_NIOS_PI_BASE,1);
+				if(var != 0){
+					ready = 1;
+					first_player = var;
+				}
+				else{
+					OS_FLAGS flag = OSFlagAccept(StartGameGrp,START_THE_GAME,OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, &err);
 
-	  // est-ce qu'on envoie ou on recoit ?
-	  // Si on envoie, recup des infos de la tache 1 + transmettre à la tache 2 + envoir SPI + block la tache 1 avec flag CLEAR
-	  // Si on recoit, on transmet a la tache 2 + deblocque la tache 1 avec SET si task2 a finit l'animation (flag_animation task2 est CLR)
+					if (flag==START_THE_GAME && !ready_send){
+						ready=1;
+						ready_send = 1;
+						IOWR(MEM_NIOS_PI_BASE,0,ID1);
+					}
+				}
+			}
 
-	/* Si on est le joueur actif, on n'attend pas de donnée du Raspberry
-	 * 	-> autorise la tâche 1 à générer le vecteur direction + vitesse
-	 * 	-> Envoi les données ensuite on prévient le Raspberry qu'il y a de nouvelle donnée disponible
-	 * 	-> Envoi les données à la tâche 3 + lance l'animation
-	 * 	-> Désactive la tâche 1
-	 * */
+			while(!all_rdy){
+				if (IORD(MEM_NIOS_PI_BASE,2)) all_rdy = 1;
+			}
+			activePlayer = first_player;
+			while(!game_finish){
+				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,8)){
+						OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
+						printf("Wait for value from task 1\n");
+						int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
+						int *vector_y = (int *) OSMboxPend(MailBox2,0,&err);
+						printf("Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
 
-	 if(!*isReceived && activePlayer){
-		  OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
-		  printf("Wait for value from task 1\n");
-		  int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
-		  int *vector_y = (int *) OSMboxPend(MailBox2,0,&err);
-		  printf("Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
+						OSMboxPost(MailBox4, vector_x);
+						OSMboxPost(MailBox5, vector_y);
 
-		  OSMboxPost(MailBox4, vector_x);
-		  OSMboxPost(MailBox5, vector_y);
+						OSMboxPost(MailBox8, IORD(MEM_NIOS_PI_BASE,9));                 //transmit nbr ball to task 2
+						OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));                //transmit score to task2
 
-		  *XdirSend = *vector_x;
-		  *YdirSend = *vector_y;
-		  *isSend = 1; // value are available
-		  activePlayer = 1; //modified
+						IOWR(MEM_NIOS_PI_BASE,4,*nbr_ball);
+						IOWR(MEM_NIOS_PI_BASE,5,*score);
+						IOWR(MEM_NIOS_PI_BASE,6,*vector_x);
+						IOWR(MEM_NIOS_PI_BASE,7,*vector_y);
+						IOWR(MEM_NIOS_PI_BASE,3,1);             						//*isSend = 1; // value are available
 
-		  opt_task1=OS_FLAG_CLR;
-		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
-		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
-	  }
-	 /* Si on n'est pas le joueur actif, on attend le signal donnée disponible
-	  * -> lit les donnée
-	  * -> envoi les données à la tâche 3 + lance l'animation
-	  * -> passe en mode joueur actif
-	  */
-	 else if (!activePlayer && *isReceived){
-		  printf("Get value from SPI : (%d, %d)\n",*XdirRec, *YdirRec);
-		  OSMboxPost(MailBox4, XdirRec);
-		  OSMboxPost(MailBox5, YdirRec);
-		  OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
-		  opt_task1=OS_FLAG_SET;
-		  OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
-		  *isReceived = 0; // we are the actif player
-		  activePlayer = 1;
-	  }
-	  OSTimeDlyHMSM(0,0,0,100);
-  }
+						opt_task1=OS_FLAG_CLR;
+						OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
+						OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
+
+						*nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
+						*score = (int *) OSMboxPend(MailBox7,0,&err);
+
+						activePlayer = ID2;
+
+				}
+				else if(activePlayer == ID2 && IORD(MEM_NIOS_PI_BASE,8)){
+
+						OSMboxPost(MailBox4, IORD(MEM_NIOS_PI_BASE,11));
+						OSMboxPost(MailBox5, IORD(MEM_NIOS_PI_BASE,12));
+						OSMboxPost(MailBox8, IORD(MEM_NIOS_PI_BASE,9));
+						OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));
+
+						OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
+						opt_task1=OS_FLAG_SET;
+						OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
+
+						IOWR(MEM_NIOS_PI_BASE,8,0);
+						activePlayer = ID1;
+						*nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
+						*score = (int *) OSMboxPend(MailBox7,0,&err);
+				}
+			}
+
+	}
+
 }
+
+void task4(void* pdata)
+{
+
+	volatile int * MTL_controller = (int *) MTL_IP_BASE;
+
+	int count = 0;
+	int count_old = 0;
+
+	INT8U err;
+	INT8U opt_task4;
+
+	count = IORD(MTL_controller,10); // récupère le nombre de doigts présent sur l'écran
+
+	while(1){
+		OSFlagPend(ActivateTask4Grp, ACTIVATE_TASK4, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
+		if (count==1 && count_old == 0){
+			count_old = count;
+			opt_task4= OS_FLAG_SET;
+			OSFlagPost(StartGameGrp,START_THE_GAME,opt_task4,&err);
+		}
+	}
+
+}
+
 
 /* The main function creates two task and starts multi-tasking */
 int main(void)
@@ -487,8 +568,15 @@ int main(void)
   MailBox5 = OSMboxCreate(NULL);
   MailBox6 = OSMboxCreate(NULL);
 
+
+  MailBox7 = OSMboxCreate(NULL);
+  MailBox8 = OSMboxCreate(NULL);
+
   isActiveFlagGrp = OSFlagCreate(0, &err);
   AnimationFlagGrp = OSFlagCreate(0, &err);
+  ActivateTask4Grp = OSFlagCreate(0,&err);
+  StartGameGrp = OSFlagCreate(0,&err);
+
 
   OSTaskCreateExt(task1,
                   NULL,
@@ -519,6 +607,17 @@ int main(void)
                    TASK_STACKSIZE,
                    NULL,
                    0);
+  OSTaskCreateExt(task4,
+                     NULL,
+                     (void *)&task4_stk[TASK_STACKSIZE-1],
+                     TASK4_PRIORITY,
+                     TASK4_PRIORITY,
+                     task4_stk,
+                     TASK_STACKSIZE,
+                     NULL,
+                     0);
+
+
   OSStart();
   return 0;
 }

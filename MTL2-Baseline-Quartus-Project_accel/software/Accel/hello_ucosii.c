@@ -89,7 +89,7 @@ void task1(void* pdata)
 	int count = 0;
 
 	int x1_gesture_start, x1_gesture_stop, x2_gesture_start, x2_gesture_stop ;
-	int y1_gesture_start, y1_gesture_stop, y2_gesture_start, y2_gesture_stop;
+	int y1_gesture_start, y1_gesture_stop, y2_gesture_start, y2_gesture_stop ;
 
 	int gesture_detected = 0;
 
