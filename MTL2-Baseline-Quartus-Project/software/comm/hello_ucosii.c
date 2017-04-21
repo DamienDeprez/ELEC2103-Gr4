@@ -57,6 +57,14 @@ OS_STK    task4_stk[TASK_STACKSIZE];
 #define ID1 1
 #define ID2 2
 
+#define DEBUG
+
+#ifdef DEBUG
+    #define DEBUG_PRINT printf
+#else
+    #define DEBUG_PRINT
+#endif
+
 /* Definition of the mailboxes */
 OS_EVENT *MailBox1;
 OS_EVENT *MailBox2;
@@ -99,7 +107,7 @@ void task1(void* pdata)
 
 	while (1)
 	{
-		printf("wait for isActive\n");
+        DEBUG_PRINT("wait for isActive\n");
 		OSFlagPend(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
 
 		/*
@@ -113,7 +121,7 @@ void task1(void* pdata)
 			int pos2 = IORD(MTL_controller,12);
 			if(count_old == 1 && count == 2) // si on passe de 1 à deux doigts
 			{
-				printf("start gesture\n");
+				DEBUG_PRINT("start gesture\n");
 				x1_gesture_start = pos1 & 0x0003FF;
 				y1_gesture_start = pos1 >> 10;
 
@@ -122,8 +130,8 @@ void task1(void* pdata)
 			}
 			if(count_old == 2 && count == 1) // si on pass de 2 à 1 doigt
 			{
-				printf("stop gesture\n");
-			//	printf("Hello\n");
+				DEBUG_PRINT("stop gesture\n");
+			//	DEBUG_PRINT("Hello\n");
 
 				x1_gesture_stop = pos1 & 0x0003FF;
 				y1_gesture_stop = pos1 >> 10;
@@ -141,7 +149,7 @@ void task1(void* pdata)
 
 		int x_dir = (x2_gesture_stop - x1_gesture_start);
 		int y_dir = (y2_gesture_stop - y1_gesture_start);
-		printf("Send value : (%d, %d)\n", x_dir, y_dir);
+		DEBUG_PRINT("Send value : (%d, %d)\n", x_dir, y_dir);
 		OSMboxPost(MailBox1, &x_dir);
 		OSMboxPost(MailBox2, &y_dir);
 		gesture_detected = 0;
@@ -213,7 +221,7 @@ void task2(void* pdata)
 		   	   	   	   	   	 {0.0, 0.0},
 		   	   	   	   	   	 {0.0, 0.0}};
 
-   printf("Launch animation : (%d, %d) - initial speed : %f - initial velocity : (%f, %f)\n",*vector_x, *vector_y, speed, velocity[0][0], velocity[0][1]);
+   DEBUG_PRINT("Launch animation : (%d, %d) - initial speed : %f - initial velocity : (%f, %f)\n",*vector_x, *vector_y, speed, velocity[0][0], velocity[0][1]);
 
    int border_collision [10][4] = {{0, 0, 0, 0},{0, 0, 0, 0},{0,0,0,0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0}};
 
@@ -404,7 +412,7 @@ void task2(void* pdata)
    }
    OSTimeDlyHMSM(0, 0, 0, 500);
 
-   printf("Animation termine\n");
+   DEBUG_PRINT("Animation termine\n");
 
    OSTimeDlyHMSM(0, 0, 0, 100);
 
@@ -457,6 +465,7 @@ void task3(void* pdata)
 	while (1)
 	{
 		    OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
+            DEBUG_PRINT("[Task 3] Wait for first player")
 			while (!ready){
 				int var = IORD(MEM_NIOS_PI_BASE,1);
 				if(var != 0){
@@ -465,8 +474,8 @@ void task3(void* pdata)
 				}
 				else{
 					OS_FLAGS flag = OSFlagAccept(StartGameGrp,START_THE_GAME,OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, &err);
-
 					if (flag==START_THE_GAME && !ready_send){
+                        DEBUG_PRINT("[Task 3] Player touch the screen")
 						ready=1;
 						ready_send = 1;
 						IOWR(MEM_NIOS_PI_BASE,0,ID1);
@@ -481,10 +490,10 @@ void task3(void* pdata)
 			while(!game_finish){
 				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,8)){
 						OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
-						printf("Wait for value from task 1\n");
+						DEBUG_PRINT("Wait for value from task 1\n");
 						int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
 						int *vector_y = (int *) OSMboxPend(MailBox2,0,&err);
-						printf("Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
+						DEBUG_PRINT("Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
 
 						OSMboxPost(MailBox4, vector_x);
 						OSMboxPost(MailBox5, vector_y);
@@ -538,18 +547,24 @@ void task4(void* pdata)
 	int count = 0;
 	int count_old = 0;
 
+    int gesture_detected = 0;
+
 	INT8U err;
 	INT8U opt_task4;
 
-	count = IORD(MTL_controller,10); // récupère le nombre de doigts présent sur l'écran
-
 	while(1){
 		OSFlagPend(ActivateTask4Grp, ACTIVATE_TASK4, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
-		if (count==1 && count_old == 0){
-			count_old = count;
-			opt_task4= OS_FLAG_SET;
-			OSFlagPost(StartGameGrp,START_THE_GAME,opt_task4,&err);
+        while(!gesture_detected){
+        count_old = count;
+        count = IORD(MTL_controller,10); // récupère le nombre de doigts présent sur l'écran
+		    if (count == 1 && count_old == 0){
+                DEBUG_PRINT("[Task 4] Player touch the screen")
+    			gesture_detected = 1;
+            }
 		}
+        gesture_detected = 0;
+        OSFlagPost(StartGameGrp,START_THE_GAME,OS_FLAG_SET,&err);
+        OSTimeDlyHMSM(0, 0, 0, 500);
 	}
 
 }

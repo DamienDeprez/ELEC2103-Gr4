@@ -219,6 +219,8 @@ Nios_sopc u0 (
 		.data_write_export               (mem_nios_pi_writedata),               //               data_write.export
 		.data_read_export                (mem_nios_pi_readdata)                 //                data_read.export
 	);
+	
+	assign LED[0] = 1'b1;
 
 //=======================================================
 //  SPI
