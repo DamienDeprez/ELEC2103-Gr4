@@ -317,19 +317,19 @@ always_ff @(posedge iCLK) begin
 		// Choose the effect
 		8'b01: begin
 					if(isInCircle26) begin
-						read_red <= 8'hFF;
-						read_blue <= 8'hFF;
-						read_green <= 8'hFF;
-					end
-					else if(isInCircle25) begin
 						read_red <= 8'h23;
 						read_blue <= 8'h70;
 						read_green <= 8'h14;
 					end
+					else if(isInCircle25) begin
+						read_red <= 8'hFF;
+						read_blue <= 8'hFF;
+						read_green <= 8'hFF;
+					end
 					else begin
-						read_red <= 8'd67;
-						read_blue <= 8'd14;
-						read_green <= 8'd46;
+						read_red <= 8'd00;
+						read_blue <= 8'd96;
+						read_green <= 8'd418;
 					end
 				 end
 		endcase

@@ -114,16 +114,24 @@ void collide_calc(float* ball1, float* ball2,float* velocity1, float* velocity2,
 
             velocity1[0] -= m21*dv;
             velocity1[1] -= a*m21*dv;
-            DEBUG_PRINT("collision - ball 1 [ %f, %f] - ball 2 [ %f, %f] - V1 [%f, %f] - V2 [%f,%f]\n", ball1[0],ball1[1],
-            					ball2[0],ball2[1],velocity1[0] , velocity1[1],velocity2[0],velocity2[1]);
+            //DEBUG_PRINT("collision - ball 1 [ %f, %f] - ball 2 [ %f, %f] - V1 [%f, %f] - V2 [%f,%f]\n", ball1[0],ball1[1],
+            //					ball2[0],ball2[1],velocity1[0] , velocity1[1],velocity2[0],velocity2[1]);
 		}
 	}
 }
 
 
-void moveBall(float* ball, float* velocity){
-	ball[0] += velocity[0];
-	ball[1] += velocity[1];
+void moveBall(float* ball, float* velocity, float theta, int neutre){
+	if(neutre != 0)
+	{
+		ball[0] += velocity[0]*cosf(theta);
+		ball[1] += velocity[1]*sinf(theta);
+	}
+	else
+	{
+		ball[0] += velocity[0];
+		ball[1] += velocity[1];
+	}
 }
 
 

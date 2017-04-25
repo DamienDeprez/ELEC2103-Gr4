@@ -187,7 +187,7 @@ void task1(void* pdata)
 
 		int x_dir = (x2_gesture_stop - x1_gesture_start);
 		int y_dir = (y2_gesture_stop - y1_gesture_start);
-		DEBUG_PRINT("[Task 1] Send value : (%d, %d)\n", x_dir, y_dir);
+		DEBUG_PRINT("[Task 1] Send value : (%d, %d) - (%d, %d)\n", x_dir, y_dir,x,y);
 		OSMboxPost(MailBox1, &x_dir);
 		OSMboxPost(MailBox2, &y_dir);
 		OSMboxPost(MailBox10,&x);
@@ -243,7 +243,7 @@ void task2(void* pdata)
    int *effect_y = OSMboxPend(MailBox13,0, &err);
 
    //int score = OSMboxPend(MailBox8,0,&err);
-   int *nbr_ball = OSMboxPend(MailBox9,0,&err);
+   int *nbr_ball = OSMboxPend(MailBox8,0,&err);
    int number_of_ball = *nbr_ball;
 
 
@@ -265,9 +265,12 @@ void task2(void* pdata)
 		   	   	   	   	   	 {0.0, 0.0},
 		   	   	   	   	   	 {0.0, 0.0}};
 
-   DEBUG_PRINT("[Task 2] Launch animation : (%d, %d) - initial speed : %f - initial velocity : (%f, %f)\n",*vector_x, *vector_y, speed, velocity[0][0], velocity[0][1]);
+   DEBUG_PRINT("[Task 2] Launch animation : (%d, %d) - initial speed : %f - initial velocity : (%f, %f)",*vector_x, *vector_y, speed, velocity[0][0], velocity[0][1]);
+   DEBUG_PRINT(" effect : (%d, %d)\n",*effect_x, *effect_y);
 
    int border_collision [10][4] = {{0, 0, 0, 0},{0, 0, 0, 0},{0,0,0,0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0},{0, 0, 0, 0}};
+   float theta = atan2f(*effect_x-446, *effect_y-263);
+   DEBUG_PRINT("theta : %f",theta);
 
    while(speed >= 0.1)
    {
@@ -286,16 +289,19 @@ void task2(void* pdata)
 
        //Move the ball
 
-       moveBall(ball[0], velocity[0]);
-       moveBall(ball[1], velocity[1]);
-       moveBall(ball[2], velocity[2]);
-       moveBall(ball[3], velocity[3]);
-       moveBall(ball[4], velocity[4]);
-       moveBall(ball[5], velocity[5]);
-       moveBall(ball[6], velocity[6]);
-       moveBall(ball[7], velocity[7]);
-       moveBall(ball[8], velocity[8]);
-       moveBall(ball[9], velocity[9]);
+       if(theta < 0.1)
+    	   moveBall(ball[0], velocity[0], 0, 0);
+       else
+    	   moveBall(ball[0], velocity[0],theta,1);
+       moveBall(ball[1], velocity[1],0,0);
+       moveBall(ball[2], velocity[2],0,0);
+       moveBall(ball[3], velocity[3],0,0);
+       moveBall(ball[4], velocity[4],0,0);
+       moveBall(ball[5], velocity[5],0,0);
+       moveBall(ball[6], velocity[6],0,0);
+       moveBall(ball[7], velocity[7],0,0);
+       moveBall(ball[8], velocity[8],0,0);
+       moveBall(ball[9], velocity[9],0,0);
 
        //Whole collision
 
@@ -463,7 +469,7 @@ void task2(void* pdata)
    opt_task2= OS_FLAG_CLR;
    OSFlagPost(AnimationFlagGrp,ANIMATION,opt_task2,&err);
 
-   OSMboxPost(MailBox6, nbr_ball);
+   OSMboxPost(MailBox6, &number_of_ball);
    //OSMboxPost(MailBox7, &score);
 
   }
@@ -624,6 +630,7 @@ void task3(void* pdata)
 				{
 					activePlayer = ID1;
 				}
+				DEBUG_PRINT("[Task 3] Number of ball : %i\n",number_of_ball);
 			}
 
 	}

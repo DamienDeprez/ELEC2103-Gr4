@@ -39,7 +39,7 @@ void detect_collide(float* ball1, float* ball2,int* collision);
 
 void collide_calc(float* ball1, float* ball2,float* velocity1, float* velocity2, int* collision,int id);
 
-void moveBall(float* ball, float* velocity);
+void moveBall(float* ball, float* velocity, float theta, int neutre);
 
 void damping(float* velocity);
 
