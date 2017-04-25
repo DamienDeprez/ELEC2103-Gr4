@@ -75,22 +75,22 @@ Warning: Nios_sopc: "No matching role found for cpu_custom_instruction_master_mu
 Info: MTL_ip: "Nios_sopc" instantiated MTL_ip "MTL_ip"
 Info: cpu: "Nios_sopc" instantiated altera_nios2_gen2 "cpu"
 Info: jtag_uart: Starting RTL generation for module 'Nios_sopc_jtag_uart'
-Info: jtag_uart:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Nios_sopc_jtag_uart --dir=/tmp/alt7274_6115293598805013372.dir/0002_jtag_uart_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_6115293598805013372.dir/0002_jtag_uart_gen//Nios_sopc_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Nios_sopc_jtag_uart --dir=/tmp/alt7274_3562613916257514268.dir/0002_jtag_uart_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0002_jtag_uart_gen//Nios_sopc_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'Nios_sopc_jtag_uart'
 Info: jtag_uart: "Nios_sopc" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: mem_Nios_PI: Starting RTL generation for module 'Nios_sopc_mem_Nios_PI'
-Info: mem_Nios_PI:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Nios_sopc_mem_Nios_PI --dir=/tmp/alt7274_6115293598805013372.dir/0003_mem_Nios_PI_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_6115293598805013372.dir/0003_mem_Nios_PI_gen//Nios_sopc_mem_Nios_PI_component_configuration.pl  --do_build_sim=0  ]
+Info: mem_Nios_PI:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Nios_sopc_mem_Nios_PI --dir=/tmp/alt7274_3562613916257514268.dir/0003_mem_Nios_PI_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0003_mem_Nios_PI_gen//Nios_sopc_mem_Nios_PI_component_configuration.pl  --do_build_sim=0  ]
 Info: mem_Nios_PI: Done RTL generation for module 'Nios_sopc_mem_Nios_PI'
 Info: mem_Nios_PI: "Nios_sopc" instantiated altera_avalon_onchip_memory2 "mem_Nios_PI"
 Info: my_SPI: "Nios_sopc" instantiated my_SPI_ip "my_SPI"
 Info: nios_custom_instr_floating_point_2_0: "Nios_sopc" instantiated altera_nios_custom_instr_floating_point_2 "nios_custom_instr_floating_point_2_0"
 Info: sdram_controller: Starting RTL generation for module 'Nios_sopc_sdram_controller'
-Info: sdram_controller:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Nios_sopc_sdram_controller --dir=/tmp/alt7274_6115293598805013372.dir/0005_sdram_controller_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_6115293598805013372.dir/0005_sdram_controller_gen//Nios_sopc_sdram_controller_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram_controller:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Nios_sopc_sdram_controller --dir=/tmp/alt7274_3562613916257514268.dir/0005_sdram_controller_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0005_sdram_controller_gen//Nios_sopc_sdram_controller_component_configuration.pl  --do_build_sim=0  ]
 Info: sdram_controller: Done RTL generation for module 'Nios_sopc_sdram_controller'
 Info: sdram_controller: "Nios_sopc" instantiated altera_avalon_new_sdram_controller "sdram_controller"
 Info: sysid_qsys: "Nios_sopc" instantiated altera_avalon_sysid_qsys "sysid_qsys"
 Info: timer_system: Starting RTL generation for module 'Nios_sopc_timer_system'
-Info: timer_system:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Nios_sopc_timer_system --dir=/tmp/alt7274_6115293598805013372.dir/0007_timer_system_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_6115293598805013372.dir/0007_timer_system_gen//Nios_sopc_timer_system_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_system:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Nios_sopc_timer_system --dir=/tmp/alt7274_3562613916257514268.dir/0007_timer_system_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0007_timer_system_gen//Nios_sopc_timer_system_component_configuration.pl  --do_build_sim=0  ]
 Info: timer_system: Done RTL generation for module 'Nios_sopc_timer_system'
 Info: timer_system: "Nios_sopc" instantiated altera_avalon_timer "timer_system"
 Info: cpu_custom_instruction_master_translator: "Nios_sopc" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
@@ -109,16 +109,25 @@ Info: mm_interconnect_0: "Nios_sopc" instantiated altera_mm_interconnect "mm_int
 Info: irq_mapper: "Nios_sopc" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "Nios_sopc" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'Nios_sopc_cpu_cpu'
-Info: cpu:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//eperlcmd -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=Nios_sopc_cpu_cpu --dir=/tmp/alt7274_6115293598805013372.dir/0014_cpu_gen/ --quartus_bindir=/home/bilal/intelFPGA_lite/16.1/quartus/linux64/ --verilog --config=/tmp/alt7274_6115293598805013372.dir/0014_cpu_gen//Nios_sopc_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2017.04.18 14:50:01 (*) Starting Nios II generation
-Info: cpu: # 2017.04.18 14:50:01 (*)   Checking for plaintext license.
-Info: cpu: # 2017.04.18 14:50:02 (*)   Plaintext license not found.
-Info: cpu: # 2017.04.18 14:50:02 (*)   No license required to generate encrypted Nios II/e.
-Info: cpu: # 2017.04.18 14:50:02 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2017.04.18 14:50:02 (*)   Creating all objects for CPU
-Info: cpu: # 2017.04.18 14:50:03 (*)   Generating RTL from CPU objects
-Info: cpu: # 2017.04.18 14:50:03 (*)   Creating plain-text RTL
-Info: cpu: # 2017.04.18 14:50:04 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//eperlcmd -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=Nios_sopc_cpu_cpu --dir=/tmp/alt7274_3562613916257514268.dir/0014_cpu_gen/ --quartus_bindir=/home/bilal/intelFPGA_lite/16.1/quartus/linux64/ --verilog --config=/tmp/alt7274_3562613916257514268.dir/0014_cpu_gen//Nios_sopc_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2017.04.18 15:07:54 (*) Starting Nios II generation
+Info: cpu: # 2017.04.18 15:07:54 (*)   Checking for plaintext license.
+Info: cpu: # 2017.04.18 15:07:55 (*)   Plaintext license not found.
+Info: cpu: # 2017.04.18 15:07:55 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2017.04.18 15:07:56 (*)   Encrypted license not found.  Defaulting to OCP evaluation license (produces a time-limited SOF)
+Info: cpu: # 2017.04.18 15:07:56 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2017.04.18 15:07:56 (*)   Creating all objects for CPU
+Info: cpu: # 2017.04.18 15:07:56 (*)     Testbench
+Info: cpu: # 2017.04.18 15:07:56 (*)     Instruction decoding
+Info: cpu: # 2017.04.18 15:07:56 (*)       Instruction fields
+Info: cpu: # 2017.04.18 15:07:56 (*)       Instruction decodes
+Info: cpu: # 2017.04.18 15:07:57 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2017.04.18 15:07:57 (*)       Instruction controls
+Info: cpu: # 2017.04.18 15:07:57 (*)     Pipeline frontend
+Info: cpu: # 2017.04.18 15:07:57 (*)     Pipeline backend
+Info: cpu: # 2017.04.18 15:07:59 (*)   Generating RTL from CPU objects
+Info: cpu: # 2017.04.18 15:08:01 (*)   Creating encrypted RTL
+Info: cpu: # 2017.04.18 15:08:02 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'Nios_sopc_cpu_cpu'
 Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
 Info: fpci_combi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_combi "fpci_combi"
@@ -133,13 +142,17 @@ Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
 Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
 Info: router_008: "mm_interconnect_0" instantiated altera_merlin_router "router_008"
+Info: cpu_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "cpu_data_master_limiter"
+Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_sc_fifo.v
 Info: sdram_controller_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_controller_s1_burst_adapter"
+Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_st_pipeline_base.v
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
 Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
 Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
@@ -151,6 +164,6 @@ Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapt
 Info: avalon_st_adapter_006: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_006"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: error_adapter_0: "avalon_st_adapter_006" instantiated error_adapter "error_adapter_0"
-Info: Nios_sopc: Done "Nios_sopc" with 43 modules, 82 files
+Info: Nios_sopc: Done "Nios_sopc" with 45 modules, 90 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

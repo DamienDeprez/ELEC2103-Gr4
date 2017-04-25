@@ -35,7 +35,11 @@ module Nios_sopc (
 	spi_clk_export,
 	spi_cs_export,
 	spi_miso_export,
-	spi_mosi_export);	
+	spi_mosi_export,
+	accelerometer_I2C_SDAT,
+	accelerometer_I2C_SCLK,
+	accelerometer_G_SENSOR_CS_N,
+	accelerometer_G_SENSOR_INT);	
 
 	input		clk_clk;
 	output	[6:0]	data_addr_export;
@@ -73,4 +77,8 @@ module Nios_sopc (
 	input		spi_cs_export;
 	output		spi_miso_export;
 	input		spi_mosi_export;
+	inout		accelerometer_I2C_SDAT;
+	output		accelerometer_I2C_SCLK;
+	output		accelerometer_G_SENSOR_CS_N;
+	input		accelerometer_G_SENSOR_INT;
 endmodule

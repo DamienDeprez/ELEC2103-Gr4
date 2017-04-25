@@ -33,8 +33,12 @@ module MTL_ip (
 	
 	reg [31:0] readdata;
 
-	reg [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10;
-	reg [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10;
+	reg [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, iX11;
+	reg [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10, iY11;
+	
+	reg player;
+	
+	reg [1:0] screenType;
 	
 	reg [9:0] oX1, oX2, oX3, oX4, oX5;
 	reg [8:0] oY1, oY2, oY3, oY4, oY5;
@@ -85,6 +89,16 @@ module MTL_ip (
 						iX10 <= avs_s0_writedata[9:0];
 						iY10 <= avs_s0_writedata[18:10];
 					end
+			8'h0B: begin
+						iX11 <= avs_s0_writedata[9:0];
+						iY11 <= avs_s0_writedata[18:10];
+					 end
+			8'h0C: begin
+						player <= avs_s0_writedata[0];
+					 end
+			8'h0D: begin
+						screenType <= avs_s0_writedata[1:0];
+					 end
 			endcase
 		if (avs_s0_read) begin
 			case(avs_s0_address)
@@ -125,6 +139,7 @@ module MTL_ip (
 	.iX8(iX8),
 	.iX9(iX9),
 	.iX10(iX10),
+	.iX11(iX11),
 	.iY1(iY1),
 	.iY2(iY2),
 	.iY3(iY3),
@@ -135,6 +150,9 @@ module MTL_ip (
 	.iY8(iY8),
 	.iY9(iY9),
 	.iY10(iY10),
+	.iY11(iY11),
+	.player(player),
+	.screenType(screenType),
 	.oX1(oX1),
 	.oX2(oX2),
 	.oX3(oX3),

@@ -32,11 +32,13 @@
 #include "includes.h"
 #include "system.h"
 #include "physics.h"
-//#include <math.h>
+#include <math.h>
 #include "io.h"
 #include "HAL/inc/priv/alt_iic_isr_register.h"
 //#include "altera_avalon_pio_regs.h"
 #include <sys/alt_timestamp.h>
+#include "altera_up_avalon_accelerometer_spi.h"
+
 
 
 /* Definition of Task Stacks */
@@ -54,16 +56,10 @@ OS_STK    task4_stk[TASK_STACKSIZE];
 #define TASK3_PRIORITY      3
 #define TASK4_PRIORITY      4
 
-#define ID1 1
-#define ID2 2
+#define ID1 2
+#define ID2 1
 
-#define DEBUG
-
-#ifdef DEBUG
-    #define DEBUG_PRINT printf
-#else
-    #define DEBUG_PRINT
-#endif
+//#define DEBUG
 
 /* Definition of the mailboxes */
 OS_EVENT *MailBox1;
@@ -78,6 +74,11 @@ OS_EVENT *MailBox7;
 OS_EVENT *MailBox8;
 OS_EVENT *MailBox9;
 
+OS_EVENT *MailBox10;
+OS_EVENT *MailBox11;
+OS_EVENT *MailBox12;
+OS_EVENT *MailBox13;
+
 OS_FLAG_GRP *isActiveFlagGrp;
 OS_FLAG_GRP *AnimationFlagGrp;
 OS_FLAG_GRP *ActivateTask4Grp;
@@ -89,14 +90,21 @@ OS_FLAG_GRP *StartGameGrp;
 #define ACTIVATE_TASK4 (OS_FLAGS) 0x0001
 #define START_THE_GAME (OS_FLAGS) 0x0001
 
+const char * accel_name = ACCELEROMETER_SPI_0_NAME;
+alt_up_accelerometer_spi_dev * accel_spi = NULL;
 
 
 /*  */
 
 void task1(void* pdata)
 {
+
 	INT8U err;
-	volatile int * MTL_controller = (int *) MTL_IP_BASE;
+	int shoot = 0;
+	int x_axis,y_axis;
+
+
+	//volatile int * MTL_controller = (int *) MTL_IP_BASE;
 	int count_old = 0;
 	int count = 0;
 
@@ -107,18 +115,20 @@ void task1(void* pdata)
 
 	while (1)
 	{
+
+
         DEBUG_PRINT("[Task 1] wait for isActive\n");
 		OSFlagPend(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, 0,&err); // wait for a flag and consume it
-
+		IOWR(MTL_IP_BASE,13,0);
 		/*
 		 * Tant que le mouvement n'est pas terminé : On effectue la détection
 		 */
 		while(!gesture_detected)
 		{
 			count_old = count;
-			count = IORD(MTL_controller,10); // récupère le nombre de doigts présent sur l'écran
-			int pos1 = IORD(MTL_controller,11);
-			int pos2 = IORD(MTL_controller,12);
+			count = IORD(MTL_IP_BASE,10); // récupère le nombre de doigts présent sur l'écran
+			int pos1 = IORD(MTL_IP_BASE,11);
+			int pos2 = IORD(MTL_IP_BASE,12);
 			if(count_old == 1 && count == 2) // si on passe de 1 à deux doigts
 			{
 				DEBUG_PRINT("[Task 1] start gesture\n");
@@ -145,12 +155,43 @@ void task1(void* pdata)
 			//*(MTL_controller + 6) = (y2_gesture_start << 10) + x2_gesture_start;
 			//*(MTL_controller + 7) = (y2_gesture_stop << 10) + x2_gesture_stop;
 		}
+		IOWR(MTL_IP_BASE,13, 1);
+
+		count_old = 0;
+		count = 0;
+		shoot = 0;
+  		int x = 446;
+  		int y = 263;
+  		IOWR(MTL_IP_BASE,11,(y<<10)+x);
+  		OSTimeDlyHMSM(0, 0, 0, 500);
+
+  		while(!shoot)
+  		{
+  			count_old = count;
+  			count = IORD(MTL_IP_BASE,10);
+  			if(count_old == 0 && count == 1)
+  				shoot = 1;
+  			else{
+  			   alt_up_accelerometer_spi_read_y_axis(accel_spi,  &y_axis);
+  		       alt_up_accelerometer_spi_read_x_axis(accel_spi,  &x_axis);
+  		       //printf("Accelerometer : (%d, %d)\n",x_axis, y_axis);
+  		       y += -(x_axis) / 10;
+  		       x += y_axis / 10;
+  		       IOWR(MTL_IP_BASE,11,(y<<10)+x);
+  				// play with the accelerometer
+
+  			}
+  			OSTimeDlyHMSM(0, 0, 0, 50);
+  		}
+  		IOWR(MTL_IP_BASE,13, 0);
 
 		int x_dir = (x2_gesture_stop - x1_gesture_start);
 		int y_dir = (y2_gesture_stop - y1_gesture_start);
 		DEBUG_PRINT("[Task 1] Send value : (%d, %d)\n", x_dir, y_dir);
 		OSMboxPost(MailBox1, &x_dir);
 		OSMboxPost(MailBox2, &y_dir);
+		OSMboxPost(MailBox10,&x);
+		OSMboxPost(MailBox11,&y);
 		gesture_detected = 0;
 		OSTimeDlyHMSM(0, 0, 0, 500);
 	}
@@ -198,14 +239,18 @@ void task2(void* pdata)
    int *vector_x = OSMboxPend(MailBox4,0,&err);
    int *vector_y = OSMboxPend(MailBox5,0,&err);
 
+   int *effect_x = OSMboxPend(MailBox12,0, &err);
+   int *effect_y = OSMboxPend(MailBox13,0, &err);
+
    //int score = OSMboxPend(MailBox8,0,&err);
    int *nbr_ball = OSMboxPend(MailBox9,0,&err);
+   int number_of_ball = *nbr_ball;
 
 
    float x = (float) *vector_x;
    float y = (float) *vector_y;
 
-   float length = sqrtf(x*x + y*y);
+   float length = sqrt(x*x + y*y);
    float direction [] = {x/length, y/length};
    float speed = fmin(length / 2.0, 400.0);
 
@@ -254,15 +299,15 @@ void task2(void* pdata)
 
        //Whole collision
 
-       whole_collide(ball[1],velocity[1]);
-       whole_collide(ball[2],velocity[2]);
-       whole_collide(ball[3],velocity[3]);
-       whole_collide(ball[4],velocity[4]);
-       whole_collide(ball[5],velocity[5]);
-       whole_collide(ball[6],velocity[6]);
-       whole_collide(ball[7],velocity[7]);
-       whole_collide(ball[8],velocity[8]);
-       whole_collide(ball[9],velocity[9]);
+       if(whole_collide(ball[1],velocity[1])) number_of_ball -= 1;
+       if(whole_collide(ball[2],velocity[2])) number_of_ball -= 1;
+       if(whole_collide(ball[3],velocity[3])) number_of_ball -= 1;
+       if(whole_collide(ball[4],velocity[4])) number_of_ball -= 1;
+       if(whole_collide(ball[5],velocity[5])) number_of_ball -= 1;
+       if(whole_collide(ball[6],velocity[6])) number_of_ball -= 1;
+       if(whole_collide(ball[7],velocity[7])) number_of_ball -= 1;
+       if(whole_collide(ball[8],velocity[8])) number_of_ball -= 1;
+       if(whole_collide(ball[9],velocity[9])) number_of_ball -= 1;
 
        //Collision
 
@@ -469,18 +514,22 @@ void task3(void* pdata)
 	game_finish=0;
 	ready_send=0;
 	int number_of_ball = 10;
+    int time_out = 0;
 
 	while (1)
 	{
-		    OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
+			/* Wait for first player */
+		    /*OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
             DEBUG_PRINT("[Task 3] Wait for first player\n");
-			while (!ready){
+			while (!ready && !time_out){
 				int var = IORD(MEM_NIOS_PI_BASE,1);
+                time_out = IORD(MEM_NIOS_PI_BASE,15);
+                if(time_out) IOWR(MEM_NIOS_PI_BASE,15,1);
 				if(var != 0){
 					ready = 1;
 					first_player = var;
 				}
-				else{
+				else if(!time_out){
 					OS_FLAGS flag = OSFlagAccept(StartGameGrp,START_THE_GAME,OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, &err);
 					if (flag==START_THE_GAME && !ready_send){
                         DEBUG_PRINT("[Task 3] Player touch the screen\n");
@@ -489,25 +538,34 @@ void task3(void* pdata)
 					}
 				}
 				OSTimeDlyHMSM(0, 0, 0, 100);
-			}
+			}*/
 
-			DEBUG_PRINT("[Task 3] Wait for all player are ready \n");
-			while(!all_rdy){
+			/* Wait for all player */
+			/*DEBUG_PRINT("[Task 3] Wait for all player are ready \n");
+			while(!all_rdy && !time_out){
+                time_out = IORD(MEM_NIOS_PI_BASE,15);
+                if(time_out) IOWR(MEM_NIOS_PI_BASE,15,1);
 				if (IORD(MEM_NIOS_PI_BASE,2)) all_rdy = 1;
-			}
-			activePlayer = first_player;
+			}*/
+			activePlayer = ID1;//first_player;
 			game_finish = 0;
 			DEBUG_PRINT("[Task 3] the game can start\n");
-			while(!game_finish){
-				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,8)){
+			while(!game_finish && !time_out){
+                time_out = IORD(MEM_NIOS_PI_BASE,15);
+                if(time_out) IOWR(MEM_NIOS_PI_BASE,15,1);
+				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,8) && !time_out){
 						OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
 						DEBUG_PRINT("[Task 3] Wait for value from task 1\n");
 						int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
 						int *vector_y = (int *) OSMboxPend(MailBox2,0,&err);
+						int *effect_x = (int *) OSMboxPend(MailBox10,0,&err);
+						int *effect_y = (int *) OSMboxPend(MailBox11,0,&err);
 						DEBUG_PRINT("[Task 3] Get value from task 1 : (%d, %d)\n",*vector_x, *vector_y);
 
 						OSMboxPost(MailBox4, vector_x);
 						OSMboxPost(MailBox5, vector_y);
+						OSMboxPost(MailBox12, effect_x);
+						OSMboxPost(MailBox13, effect_y);
 
 						OSMboxPost(MailBox8, &number_of_ball);                 //transmit nbr ball to task 2
 						//OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));                //transmit score to task2
@@ -515,26 +573,41 @@ void task3(void* pdata)
 						DEBUG_PRINT("[Task 3] Send value to the SPI\n");
 						IOWR(MEM_NIOS_PI_BASE,4,number_of_ball);
 						//IOWR(MEM_NIOS_PI_BASE,5,*score);
-						IOWR(MEM_NIOS_PI_BASE,6,*vector_x);
-						IOWR(MEM_NIOS_PI_BASE,7,*vector_y);
+						IOWR(MEM_NIOS_PI_BASE,6,(*vector_y<<10)+*vector_x);
+						IOWR(MEM_NIOS_PI_BASE,7,(*effect_y<<10)+*effect_x);
 						IOWR(MEM_NIOS_PI_BASE,3,1);             						//*isSend = 1; // value are available
 
 						opt_task1=OS_FLAG_CLR;
 						OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
 						OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 
-						//*nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
+						int *nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
+						number_of_ball = *nbr_ball;
 						//*score = (int *) OSMboxPend(MailBox7,0,&err);
 
 						activePlayer = ID2;
 
 				}
-				else if(activePlayer == ID2 && IORD(MEM_NIOS_PI_BASE,8)){
+				else if(activePlayer == ID2 && IORD(MEM_NIOS_PI_BASE,8) && !time_out){
 
-						OSMboxPost(MailBox4, IORD(MEM_NIOS_PI_BASE,11));
-						OSMboxPost(MailBox5, IORD(MEM_NIOS_PI_BASE,12));
+						int dir = (int)(IORD(MEM_NIOS_PI_BASE,11));
+						int effect = (int)(IORD(MEM_NIOS_PI_BASE,12));
+
+						int x = dir & 0x3FF;
+						int y = (dir>>10) & 0x1FF;
+
+						int effect_x = effect & 0x3FF;
+						int effect_y = (effect>>10) & 0x1FF;
+
+						DEBUG_PRINT("[Task 3] %x - %x \t effect : (%d, %d)\n",x,y, effect_x, effect_y);
+
+						OSMboxPost(MailBox4, &x);
+						OSMboxPost(MailBox5, &y);
 						OSMboxPost(MailBox8, IORD(MEM_NIOS_PI_BASE,9));
 						OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));
+						OSMboxPost(MailBox12, effect_x);
+						OSMboxPost(MailBox13, effect_y);
+
 
 						OSFlagPend(AnimationFlagGrp, ANIMATION, OS_FLAG_WAIT_CLR_ALL, 0, &err);
 						opt_task1=OS_FLAG_SET;
@@ -542,8 +615,14 @@ void task3(void* pdata)
 
 						IOWR(MEM_NIOS_PI_BASE,8,0);
 						activePlayer = ID1;
+						int *nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
+						number_of_ball = *nbr_ball;
 						//*nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
 						//*score = (int *) OSMboxPend(MailBox7,0,&err);
+				}
+				else if(activePlayer == ID2)
+				{
+					activePlayer = ID1;
 				}
 			}
 
@@ -598,11 +677,24 @@ int main(void)
 
   MailBox7 = OSMboxCreate(NULL);
   MailBox8 = OSMboxCreate(NULL);
+  MailBox9 = OSMboxCreate(NULL);
+
+  MailBox10 = OSMboxCreate(NULL);
+  MailBox11 = OSMboxCreate(NULL);
+  MailBox12 = OSMboxCreate(NULL);
+  MailBox13 = OSMboxCreate(NULL);
 
   isActiveFlagGrp = OSFlagCreate(0, &err);
   AnimationFlagGrp = OSFlagCreate(0, &err);
   ActivateTask4Grp = OSFlagCreate(0,&err);
   StartGameGrp = OSFlagCreate(0,&err);
+
+  accel_spi = alt_up_accelerometer_spi_open_dev(accel_name);
+  	if(accel_spi == NULL){
+  		printf("Accelerometer device not found.\n");
+  	}
+
+
 
 
   OSTaskCreateExt(task1,

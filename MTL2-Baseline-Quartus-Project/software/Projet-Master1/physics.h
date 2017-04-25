@@ -19,6 +19,14 @@
 
 #define DAMPING 0.995
 
+#define DEBUG
+
+#ifdef DEBUG
+    #define DEBUG_PRINT printf
+#else
+    #define DEBUG_PRINT
+#endif
+
 
 int whole_collide(float ball [2], float velocity [2]);
 

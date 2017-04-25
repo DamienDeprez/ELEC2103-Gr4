@@ -274,6 +274,13 @@ altera_nios2_gen2_ucosii_driver_ASM_LIB_SRCS := \
 	$(altera_nios2_gen2_ucosii_driver_SRCS_ROOT)/src/crt0.S \
 	$(altera_nios2_gen2_ucosii_driver_SRCS_ROOT)/src/os_cpu_a.S
 
+# altera_up_avalon_accelerometer_spi_driver sources root 
+altera_up_avalon_accelerometer_spi_driver_SRCS_ROOT := drivers
+
+# altera_up_avalon_accelerometer_spi_driver sources 
+altera_up_avalon_accelerometer_spi_driver_C_LIB_SRCS := \
+	$(altera_up_avalon_accelerometer_spi_driver_SRCS_ROOT)/src/altera_up_avalon_accelerometer_spi.c
+
 # fpoint2_driver sources root 
 fpoint2_driver_SRCS_ROOT := drivers
 
@@ -361,6 +368,7 @@ COMPONENT_C_LIB_SRCS += \
 	$(altera_avalon_sysid_qsys_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_nios2_gen2_ucosii_driver_C_LIB_SRCS) \
+	$(altera_up_avalon_accelerometer_spi_driver_C_LIB_SRCS) \
 	$(hal_C_LIB_SRCS) \
 	$(ucosii_C_LIB_SRCS)
 

@@ -52,11 +52,13 @@ module mtl_controller (
 	output [7:0] MTL_R,					// LCD red color data  (to MTL)
 	output [7:0] MTL_G,					// LCD green color data (to MTL)
 	output [7:0] MTL_B, 					// LCD blue color data (to MTL)
-	input  [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, // x position for the 10 balls
-	input  [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10,  // y position for the 10 balls
+	input  [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, iX11, // x position for the 10 balls
+	input  [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10, iY11, // y position for the 10 balls
 	output [9:0] oX1, oX2, oX3, oX4, oX5, // x position for the gesture
 	output [8:0] oY1, oY2, oY3, oY4, oY5,// y position for the gesture
-	output [3:0] oCount
+	output [3:0] oCount,
+	input			 player,
+	input	 [1:0] screenType		
 );
 
 //=============================================================================
@@ -156,6 +158,10 @@ mtl_display_controller mtl_display_controller_inst (
 	.iY9(iY9),
 	.iX10(iX10),
 	.iY10(iY10),
+	.iX11(iX11),
+	.iY11(iY11),
+	.player(player),
+	.screenType(screenType)
 );
 
 assign MTL_DCLK = iCLOCK_33;

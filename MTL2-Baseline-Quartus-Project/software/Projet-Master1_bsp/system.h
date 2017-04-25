@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
  * SOPC Builder design path: ../../Nios_sopc.sopcinfo
  *
- * Generated: Thu Apr 20 19:59:39 CEST 2017
+ * Generated: Tue Apr 25 15:31:27 CEST 2017
  */
 
 /*
@@ -183,6 +183,7 @@
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_NIOS_CUSTOM_INSTR_FLOATING_POINT_2
+#define __ALTERA_UP_AVALON_ACCELEROMETER_SPI
 #define __MTL_IP
 
 
@@ -206,8 +207,8 @@
  */
 
 #define ALT_DEVICE_FAMILY "Cyclone IV E"
-#define ALT_ENHANCED_INTERRUPT_API_PRESENT
 #define ALT_IRQ_BASE NULL
+#define ALT_LEGACY_INTERRUPT_API_PRESENT
 #define ALT_LOG_PORT "/dev/null"
 #define ALT_LOG_PORT_BASE 0x0
 #define ALT_LOG_PORT_DEV null
@@ -234,6 +235,20 @@
 #define ALT_STDOUT_PRESENT
 #define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
 #define ALT_SYSTEM_NAME "Nios_sopc"
+
+
+/*
+ * accelerometer_spi_0 configuration
+ *
+ */
+
+#define ACCELEROMETER_SPI_0_BASE 0x200200
+#define ACCELEROMETER_SPI_0_IRQ 3
+#define ACCELEROMETER_SPI_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define ACCELEROMETER_SPI_0_NAME "/dev/accelerometer_spi_0"
+#define ACCELEROMETER_SPI_0_SPAN 2
+#define ACCELEROMETER_SPI_0_TYPE "altera_up_avalon_accelerometer_spi"
+#define ALT_MODULE_CLASS_accelerometer_spi_0 altera_up_avalon_accelerometer_spi
 
 
 /*
@@ -345,7 +360,7 @@
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1492520863
+#define SYSID_QSYS_TIMESTAMP 1493121464
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 

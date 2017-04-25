@@ -217,7 +217,11 @@ Nios_sopc u0 (
 		.data_we_export                  (mem_nios_pi_we),                  //                  data_we.export
 		.data_addr_export                (mem_nios_pi_addr),                //                data_addr.export
 		.data_write_export               (mem_nios_pi_writedata),               //               data_write.export
-		.data_read_export                (mem_nios_pi_readdata)                 //                data_read.export
+		.data_read_export                (mem_nios_pi_readdata),                 //                data_read.export
+		.accelerometer_I2C_SDAT          (I2C_SDAT),          //            accelerometer.I2C_SDAT
+		.accelerometer_I2C_SCLK          (I2C_SCLK),          //                         .I2C_SCLK
+		.accelerometer_G_SENSOR_CS_N     (G_SENSOR_CS_N),     //                         .G_SENSOR_CS_N
+		.accelerometer_G_SENSOR_INT      (G_SENSOR_INT)       //                         .G_SENSOR_INT
 	);
 	
 	assign LED[0] = 1'b1;

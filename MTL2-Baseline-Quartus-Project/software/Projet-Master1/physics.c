@@ -99,8 +99,6 @@ void collide_calc(float* ball1, float* ball2,float* velocity1, float* velocity2,
 
 		if ((v21[0]*x21 + v21[1]*y21) >=0){
 			//DEBUG_PRINT("error in collision\n");
-			//DEBUG_PRINT("collision id: %d - ball1 [ %.2f, %.2f] - ball2 [ %.2f, %.2f] - V1 [%.2f, %.2f] - V2 [%.2f,%.2f]\n",id, ball1[0],ball1[1],
-					//ball2[0],ball2[1],velocity1[0] , velocity1[1],velocity2[0],velocity2[1]);
 		}
 		else{
 			fy21=0.000001*fabs(y21);
@@ -116,6 +114,8 @@ void collide_calc(float* ball1, float* ball2,float* velocity1, float* velocity2,
 
             velocity1[0] -= m21*dv;
             velocity1[1] -= a*m21*dv;
+            DEBUG_PRINT("collision - ball 1 [ %f, %f] - ball 2 [ %f, %f] - V1 [%f, %f] - V2 [%f,%f]\n", ball1[0],ball1[1],
+            					ball2[0],ball2[1],velocity1[0] , velocity1[1],velocity2[0],velocity2[1]);
 		}
 	}
 }

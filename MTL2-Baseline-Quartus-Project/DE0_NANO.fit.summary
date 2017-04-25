@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Apr 21 09:47:40 2017
+Fitter Status : Successful - Tue Apr 25 15:16:09 2017
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : DE0_NANO
 Top-level Entity Name : DE0_NANO
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 9,770 / 22,320 ( 44 % )
-    Total combinational functions : 8,697 / 22,320 ( 39 % )
-    Dedicated logic registers : 4,435 / 22,320 ( 20 % )
-Total registers : 4504
+Total logic elements : 10,217 / 22,320 ( 46 % )
+    Total combinational functions : 9,127 / 22,320 ( 41 % )
+    Dedicated logic registers : 4,646 / 22,320 ( 21 % )
+Total registers : 4715
 Total pins : 148 / 154 ( 96 % )
 Total virtual pins : 0
 Total memory bits : 85,088 / 608,256 ( 14 % )
-Embedded Multiplier 9-bit elements : 82 / 132 ( 62 % )
+Embedded Multiplier 9-bit elements : 88 / 132 ( 67 % )
 Total PLLs : 2 / 4 ( 50 % )

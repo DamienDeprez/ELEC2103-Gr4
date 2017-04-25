@@ -52,8 +52,11 @@ module mtl_display_controller(
 	oLCD_G,           // Output LCD green color data  
 	oLCD_B,            // Output LCD blue color data  
 	
-	iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10,
-	iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10
+	iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, iX11,
+	iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10, iY11,
+	
+	player,
+	screenType
 );
 						
 //============================================================================
@@ -83,8 +86,12 @@ output [7:0]	oLCD_R;
 output [7:0]	oLCD_G;
 output [7:0]	oLCD_B;
 
-input [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10;
-input [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10;
+input [9:0] iX1, iX2, iX3, iX4, iX5, iX6, iX7, iX8, iX9, iX10, iX11;
+input [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10, iY11;
+
+input player;
+
+input [1:0] screenType;
 
 //=============================================================================
 // REG/WIRE declarations
@@ -104,6 +111,12 @@ logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10,isInCircl
 logic isInCircle17,isInCircle18,isInCircle19,isInCircle20;
 logic isInCircle21,isInCircle22,isInCircle23,isInCircle24;
 logic isInRectangle2,isInRectangle3,isInRectangle4,isInRectangle5,isInRectangle6,isInRectangle7,isInRectangle8;
+
+logic isInCircle25, inInCircle26;
+
+logic isInRectangle9;
+
+logic isInRectangle10, isInRectangle11; // Text rectangle
 //=============================================================================
 // Structural coding
 //=============================================================================
@@ -174,6 +187,12 @@ assign isInCircle23 = (81-x_cnt)*(81-x_cnt) + (468-y_cnt)*(468-y_cnt) < 625; // 
 assign isInCircle24 = (811-x_cnt)*(811-x_cnt) + (468-y_cnt)*(468-y_cnt) < 625; // readius = 30
 
 //assign isInRectangle3 = (iX3+20 < x_cnt && x_cnt < iX3+60) && (iY3 < y_cnt && y_cnt < iY3 + 40);
+// active player bar
+assign isInRectangle9 = (60 < x_cnt && x_cnt < 80) && (162 < y_cnt && y_cnt < 362);
+
+// effect screen
+assign isInCircle25 = (446-x_cnt)*(446-x_cnt) + (263-y_cnt)*(263-y_cnt) < 22500;
+assign isInCircle26 = (iX11-x_correct)*(iX11-x_correct) + (iY11-y_correct)*(iY11-y_correct) < 169; // readius = 13
 						
 
 // Assigns the right color data.
@@ -185,108 +204,135 @@ always_ff @(posedge iCLK) begin
 		read_blue 	<= 8'b0;
 	// If we are in the active display area...
 	end else if (display_area) begin
-		if(isInCircle1 && iX1 != 0 && iY1 !=0 ) begin
-			read_red <= 8'hFF;
-			read_blue <= 8'h00;
-			read_green <= 8'h00;
+		case(screenType)
+		// display the table with all ball
+		8'b00: begin
+			if(isInCircle1 && iX1 != 0 && iY1 !=0 ) begin
+				read_red <= 8'hFF;
+				read_blue <= 8'h00;
+				read_green <= 8'h00;
+			end
+			else if(isInCircle2 && iX2 != 0 && iY2 !=0) begin
+				read_red <= 8'h00;
+				read_blue <= 8'hCC;
+				read_green <= 8'h55;
+			end
+			else if(isInCircle3 && iX3 != 0 && iY3 !=0) begin
+				read_red <= 8'hD0;
+				read_blue <= 8'h7C;
+				read_green <= 8'hB7;
+			end
+			else if(isInCircle4 && iX4 != 0 && iY4 !=0) begin
+				read_red <= 8'hD6;
+				read_blue <= 8'hC5;
+				read_green <= 8'h85;
+			end
+			else if(isInCircle5 && iX5 != 0 && iY5 !=0) begin
+				read_red <= 8'hD0;
+				read_blue <= 8'h7C;
+				read_green <= 8'hB7;
+			end
+			else if(isInCircle6 && iX6 != 0 && iY6 !=0) begin
+				read_red <= 8'hD6;
+				read_blue <= 8'hC5;
+				read_green <= 8'h85;
+			end
+			else if(isInCircle7 && iX7 != 0 && iY7 !=0) begin
+				read_red <= 8'hD0;
+				read_blue <= 8'h7C;
+				read_green <= 8'hB7;
+			end
+			else if(isInCircle8 && iX8 != 0 && iY8 !=0) begin
+				read_red <= 8'hD6;
+				read_blue <= 8'hC5;
+				read_green <= 8'h85;
+			end
+			else if(isInCircle9 && iX9 != 0 && iY9 !=0) begin
+				read_red <= 8'hD0;
+				read_blue <= 8'h7C;
+				read_green <= 8'hB7;
+			end
+			else if(isInCircle10 && iX10 != 0 && iY10 !=0) begin
+				read_red <= 8'hD6;
+				read_blue <= 8'hC5;
+				read_green <= 8'h85;
+			end
+			else if(isInCircle11 ) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end
+			else if(isInCircle12 ) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end
+			else if(isInCircle13 ) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end
+			else if(isInCircle14 ) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end
+			else if(isInCircle15 ) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end
+			else if(isInCircle16) begin
+				read_red <= 8'h0;
+				read_blue <= 8'h0;
+				read_green <= 8'h0;
+			end		
+			else if(isInRectangle9 && player) begin
+				read_red <= 8'hFF;
+				read_blue <= 8'h0;
+				read_green <= 8'hFF;
+			end
+			else if(isInRectangle4)begin
+				read_red <= 8'd00;
+				read_blue <= 8'd96;
+				read_green <= 8'd418;
+			end
+			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
+				read_red <= 8'd12;
+				read_blue <= 8'd30;
+				read_green <= 8'd53;
+			end
+			else
+			if( isInRectangle5 ||isInRectangle6 || isInCircle17 || isInCircle18 || isInCircle19 || isInCircle20)begin
+				read_red <= 8'd67;
+				read_blue <= 8'd14;
+				read_green <= 8'd46;
+			end
+			else begin
+				read_red <= 8'd0;
+				read_blue <= 8'd0;
+				read_green <= 8'd0;
+			end
 		end
-		else if(isInCircle2 && iX2 != 0 && iY2 !=0) begin
-			read_red <= 8'h00;
-			read_blue <= 8'hCC;
-			read_green <= 8'h55;
-		end
-		else if(isInCircle3 && iX3 != 0 && iY3 !=0) begin
-			read_red <= 8'hD0;
-			read_blue <= 8'h7C;
-			read_green <= 8'hB7;
-		end
-		else if(isInCircle4 && iX4 != 0 && iY4 !=0) begin
-			read_red <= 8'hD6;
-			read_blue <= 8'hC5;
-			read_green <= 8'h85;
-		end
-		else if(isInCircle5 && iX5 != 0 && iY5 !=0) begin
-			read_red <= 8'hD0;
-			read_blue <= 8'h7C;
-			read_green <= 8'hB7;
-		end
-		else if(isInCircle6 && iX6 != 0 && iY6 !=0) begin
-			read_red <= 8'hD6;
-			read_blue <= 8'hC5;
-			read_green <= 8'h85;
-		end
-		else if(isInCircle7 && iX7 != 0 && iY7 !=0) begin
-			read_red <= 8'hD0;
-			read_blue <= 8'h7C;
-			read_green <= 8'hB7;
-		end
-		else if(isInCircle8 && iX8 != 0 && iY8 !=0) begin
-			read_red <= 8'hD6;
-			read_blue <= 8'hC5;
-			read_green <= 8'h85;
-		end
-		else if(isInCircle9 && iX9 != 0 && iY9 !=0) begin
-			read_red <= 8'hD0;
-			read_blue <= 8'h7C;
-			read_green <= 8'hB7;
-		end
-		else if(isInCircle10 && iX10 != 0 && iY10 !=0) begin
-			read_red <= 8'hD6;
-			read_blue <= 8'hC5;
-			read_green <= 8'h85;
-		end
-		else if(isInCircle11 ) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end
-		else if(isInCircle12 ) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end
-		else if(isInCircle13 ) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end
-		else if(isInCircle14 ) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end
-		else if(isInCircle15 ) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end
-		else if(isInCircle16) begin
-			read_red <= 8'h0;
-			read_blue <= 8'h0;
-			read_green <= 8'h0;
-		end		
-		
-		else if(isInRectangle4)begin
-  			read_red <= 8'd00;
-			read_blue <= 8'd96;
-			read_green <= 8'd418;
-		end
-		else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
-			read_red <= 8'd12;
-			read_blue <= 8'd30;
-			read_green <= 8'd53;
-		end
-		else
-	   if( isInRectangle5 ||isInRectangle6 || isInCircle17 || isInCircle18 || isInCircle19 || isInCircle20)begin
-    		read_red <= 8'd67;
-			read_blue <= 8'd14;
-			read_green <= 8'd46;
-		end
-		else begin
-			read_red <= 8'd0;
-			read_blue <= 8'd0;
-			read_green <= 8'd0;
-		end
+		// Choose the effect
+		8'b01: begin
+					if(isInCircle26) begin
+						read_red <= 8'hFF;
+						read_blue <= 8'hFF;
+						read_green <= 8'hFF;
+					end
+					else if(isInCircle25) begin
+						read_red <= 8'h23;
+						read_blue <= 8'h70;
+						read_green <= 8'h14;
+					end
+					else begin
+						read_red <= 8'd67;
+						read_blue <= 8'd14;
+						read_green <= 8'd46;
+					end
+				 end
+		endcase
 	// If we aren't in the active display area, put at zero
 	// the color signals.
 	end else begin

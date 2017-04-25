@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
  * SOPC Builder design path: ../../Nios_sopc.sopcinfo
  *
- * Generated: Thu Apr 20 19:59:39 CEST 2017
+ * Generated: Tue Apr 25 15:31:27 CEST 2017
  */
 
 /*
@@ -62,6 +62,7 @@
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
+#include "altera_up_avalon_accelerometer_spi.h"
 
 /*
  * Allocate the device storage
@@ -72,6 +73,7 @@ ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS, sysid_qsys);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_SYSTEM, timer_system);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_TIMESTAMP, timer_timestamp);
+ALTERA_UP_AVALON_ACCELEROMETER_SPI_INSTANCE ( ACCELEROMETER_SPI_0, accelerometer_spi_0);
 
 /*
  * Initialize the interrupt controller devices
@@ -98,4 +100,5 @@ void alt_sys_init( void )
     ALTERA_AVALON_TIMER_INIT ( TIMER_TIMESTAMP, timer_timestamp);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS, sysid_qsys);
+    ALTERA_UP_AVALON_ACCELEROMETER_SPI_INIT ( ACCELEROMETER_SPI_0, accelerometer_spi_0);
 }

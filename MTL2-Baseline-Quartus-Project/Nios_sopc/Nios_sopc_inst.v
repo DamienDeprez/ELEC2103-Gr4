@@ -34,6 +34,10 @@
 		.spi_clk_export                  (<connected-to-spi_clk_export>),                  //                  spi_clk.export
 		.spi_cs_export                   (<connected-to-spi_cs_export>),                   //                   spi_cs.export
 		.spi_miso_export                 (<connected-to-spi_miso_export>),                 //                 spi_miso.export
-		.spi_mosi_export                 (<connected-to-spi_mosi_export>)                  //                 spi_mosi.export
+		.spi_mosi_export                 (<connected-to-spi_mosi_export>),                 //                 spi_mosi.export
+		.accelerometer_I2C_SDAT          (<connected-to-accelerometer_I2C_SDAT>),          //            accelerometer.I2C_SDAT
+		.accelerometer_I2C_SCLK          (<connected-to-accelerometer_I2C_SCLK>),          //                         .I2C_SCLK
+		.accelerometer_G_SENSOR_CS_N     (<connected-to-accelerometer_G_SENSOR_CS_N>),     //                         .G_SENSOR_CS_N
+		.accelerometer_G_SENSOR_INT      (<connected-to-accelerometer_G_SENSOR_INT>)       //                         .G_SENSOR_INT
 	);
 

@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="640ab11ade3238ff661f"/>
+    <hash md5_digest_80b="033b3043c2fed2c81f5c"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="DE0_NANO_time_limited.sof" usercode="0xFFFFFFFF"/>
@@ -100,7 +100,7 @@
     </sld_info>
     <sld_info hpath="Nios_sopc:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME Nios_sopc HAS_SOPCINFO 1 GENERATION_ID 1492520863"/>
+        <assignment_value text="QSYS_NAME Nios_sopc HAS_SOPCINFO 1 GENERATION_ID 1493121464"/>
       </assignment_values>
       <parameters/>
     </sld_info>
