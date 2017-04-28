@@ -91,7 +91,7 @@ input [8:0] iY1, iY2, iY3, iY4, iY5, iY6, iY7, iY8, iY9, iY10, iY11;
 
 input player;
 
-input [1:0] screenType;
+input [2:0] screenType;
 
 //=============================================================================
 // REG/WIRE declarations
@@ -106,6 +106,13 @@ wire			display_area, display_area_prev;
 reg			mhd;
 reg			mvd;
 
+wire			q_rom_start, q_rom_wait, q_rom_loading;
+wire [15:0]	address_start;
+wire [14:0] address_wait;
+wire [13:0] address_loading;
+
+logic [7:0] counter;
+
 logic isInCircle1, isInCircle2, isInCircle3, isInCircle4, isInCircle5;
 logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10,isInCircle11,isInCircle12,isInCircle13,isInCircle14,isInCircle15,isInCircle16;
 logic isInCircle17,isInCircle18,isInCircle19,isInCircle20;
@@ -115,8 +122,6 @@ logic isInRectangle2,isInRectangle3,isInRectangle4,isInRectangle5,isInRectangle6
 logic isInCircle25, inInCircle26;
 
 logic isInRectangle9;
-
-logic isInRectangle10, isInRectangle11; // Text rectangle
 //=============================================================================
 // Structural coding
 //=============================================================================
@@ -128,6 +133,25 @@ logic isInRectangle10, isInRectangle11; // Text rectangle
 // This signal indicates the LCD active display area shifted back from
 // 1 pixel in the x direction. This accounts for the 1-cycle delay
 // in the sequential logic.
+
+Start	start_img(
+	.address(address_start),
+	.clock(iCLK),
+	.q(q_rom_start)
+	);
+	
+Wait_Text wait_img(
+	.address(address_wait),
+	.clock(iCLK),
+	.q(q_rom_wait)
+	);
+	
+Loading_Text loading_img(
+	.address(address_loading),
+	.clock(iCLK),
+	.q(q_rom_loading)
+	);
+
 assign	display_area = ((x_cnt>(Horizontal_Blank-2)&&
 						(x_cnt<(H_LINE-Horizontal_Front_Porch-1))&&
 						(y_cnt>(Vertical_Blank-1))&& 
@@ -139,6 +163,11 @@ assign	display_area_prev =	((x_cnt>(Horizontal_Blank-3)&&
 						(x_cnt<(H_LINE-Horizontal_Front_Porch-2))&&
 						(y_cnt>(Vertical_Blank-1))&& 
 						(y_cnt<(V_LINE-Vertical_Front_Porch))));
+						
+						
+assign address_start = (223 <= x_cnt && x_cnt <= 669) && (213 <= y_cnt && y_cnt < 313) ? ((x_cnt-223) + 446*(y_cnt-213)) : 16'b0;
+assign address_wait = (204 <= x_cnt && x_cnt <= 688) && (239 <= y_cnt && y_cnt < 281) ? ((x_cnt-204) + 484*(y_cnt-239)) : 15'b0;
+assign address_loading = (299 <= x_cnt && x_cnt <= 593) && (239 <= y_cnt && y_cnt < 281) ? ((x_cnt-299) + 294*(y_cnt-239)) : 14'b0;
 						
 assign x_correct = x_cnt;	
 assign y_correct = y_cnt;
@@ -202,11 +231,12 @@ always_ff @(posedge iCLK) begin
 		read_red 	<= 8'b0;
 		read_green 	<= 8'b0;
 		read_blue 	<= 8'b0;
+		counter <= 8'd0;
 	// If we are in the active display area...
 	end else if (display_area) begin
 		case(screenType)
 		// display the table with all ball
-		8'b00: begin
+		3'b000: begin
 			if(isInCircle1 && iX1 != 0 && iY1 !=0 ) begin
 				read_red <= 8'hFF;
 				read_blue <= 8'h00;
@@ -315,7 +345,7 @@ always_ff @(posedge iCLK) begin
 			end
 		end
 		// Choose the effect
-		8'b01: begin
+		3'b001: begin
 					if(isInCircle26) begin
 						read_red <= 8'h23;
 						read_blue <= 8'h70;
@@ -332,6 +362,89 @@ always_ff @(posedge iCLK) begin
 						read_green <= 8'd418;
 					end
 				 end
+		3'b010: begin
+			if (oNewFrame) begin counter <= counter + 8'd1; end
+			if (counter == 8'd255) begin counter <= 8'd0; end
+			if((223 < x_cnt && x_cnt < 669) && (213 <= y_cnt && y_cnt < 313) && !q_rom_start) begin
+				read_red <= counter[7:0];
+				read_green <= counter[7:0];
+				read_blue <= counter[7:0];
+			end
+			else if(isInRectangle4)begin
+				read_red <= 8'd00;
+				read_blue <= 8'd96;
+				read_green <= 8'd418;
+			end
+			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
+				read_red <= 8'd12;
+				read_blue <= 8'd30;
+				read_green <= 8'd53;
+			end
+			else if( isInRectangle5 ||isInRectangle6 || isInCircle17 || isInCircle18 || isInCircle19 || isInCircle20)begin
+				read_red <= 8'd67;
+				read_blue <= 8'd14;
+				read_green <= 8'd46;
+			end
+			else begin
+				read_red <= 8'd0;
+				read_blue <= 8'd0;
+				read_green <= 8'd0;
+			end
+		end
+		3'b011: begin
+			if((204 < x_cnt && x_cnt < 688) && (239 <= y_cnt && y_cnt < 281) && !q_rom_wait) begin
+				read_red <= 8'b0;
+				read_green <= 8'b0;
+				read_blue <= 8'b0;
+			end
+			else if(isInRectangle4)begin
+				read_red <= 8'd00;
+				read_blue <= 8'd96;
+				read_green <= 8'd418;
+			end
+			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
+				read_red <= 8'd12;
+				read_blue <= 8'd30;
+				read_green <= 8'd53;
+			end
+			else if( isInRectangle5 ||isInRectangle6 || isInCircle17 || isInCircle18 || isInCircle19 || isInCircle20)begin
+				read_red <= 8'd67;
+				read_blue <= 8'd14;
+				read_green <= 8'd46;
+			end
+			else begin
+				read_red <= 8'd0;
+				read_blue <= 8'd0;
+				read_green <= 8'd0;
+			end
+		end
+		3'b100: begin
+			if((253 < x_cnt && x_cnt < 593) && (239 <= y_cnt && y_cnt < 281) && !q_rom_loading) begin
+				read_red <= 8'b0;
+				read_green <= 8'b0;
+				read_blue <= 8'b0;
+			end
+			else if(isInRectangle4)begin
+				read_red <= 8'd00;
+				read_blue <= 8'd96;
+				read_green <= 8'd418;
+			end
+			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
+				read_red <= 8'd12;
+				read_blue <= 8'd30;
+				read_green <= 8'd53;
+			end
+			else if( isInRectangle5 ||isInRectangle6 || isInCircle17 || isInCircle18 || isInCircle19 || isInCircle20)begin
+				read_red <= 8'd67;
+				read_blue <= 8'd14;
+				read_green <= 8'd46;
+			end
+			else begin
+				read_red <= 8'd0;
+				read_blue <= 8'd0;
+				read_green <= 8'd0;
+			end
+		end
 		endcase
 	// If we aren't in the active display area, put at zero
 	// the color signals.
@@ -341,7 +454,6 @@ always_ff @(posedge iCLK) begin
 		read_blue 	<= 8'b0;
 	end
 end
-
 
 //--- Keeping track of x and y positions of the current pixel ------------------
 //--- and generating the horiz. and vert. sync. signals ------------------------

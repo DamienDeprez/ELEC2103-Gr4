@@ -58,7 +58,7 @@ module mtl_controller (
 	output [8:0] oY1, oY2, oY3, oY4, oY5,// y position for the gesture
 	output [3:0] oCount,
 	input			 player,
-	input	 [1:0] screenType		
+	input	 [2:0] screenType		
 );
 
 //=============================================================================

@@ -242,7 +242,6 @@ void task2(void* pdata)
    int *effect_x = OSMboxPend(MailBox12,0, &err);
    int *effect_y = OSMboxPend(MailBox13,0, &err);
 
-   //int score = OSMboxPend(MailBox8,0,&err);
    int *nbr_ball = OSMboxPend(MailBox8,0,&err);
    int number_of_ball = *nbr_ball;
 
@@ -482,8 +481,6 @@ void task3(void* pdata)
 	INT8U opt_task1;
 
 	int activePlayer;
-	//int * nbr_ball;
-	int score [2] = {0,0};
 	/*
 	int * first_player_send = (int*) MEM_NIOS_PI_BASE;
 	int * first_player_reci = (int*) MEM_NIOS_PI_BASE+1;
@@ -491,15 +488,17 @@ void task3(void* pdata)
 
 	int * data_avail_send = (int*) MEM_NIOS_PI_BASE+3;
 	int * nbr_ball_send = (int*) MEM_NIOS_PI_BASE+4;
-	int * score_send = (int*) MEM_NIOS_PI_BASE+5;
-	int * XdirSend = (int*) MEM_NIOS_PI_BASE+6;
-	int * YdirSend = (int*) MEM_NIOS_PI_BASE+7;
+	int * dir_send = (int*) MEM_NIOS_PI_BASE+5;
+	int * effect_send = (int*) MEM_NIOS_PI_BASE+6;
 
-	int * data_avail_rec = (int*) MEM_NIOS_PI_BASE+8;
-	int * nbr_ball_rec = (int*) MEM_NIOS_PI_BASE+9;
-	int * score_rec = (int*) MEM_NIOS_PI_BASE+10;
-	int * XdirRec = (int*) MEM_NIOS_PI_BASE+11;
-	int * YdirRec = (int*) MEM_NIOS_PI_BASE+12;
+	int * data_avail_rec = (int*) MEM_NIOS_PI_BASE+7;
+	int * nbr_ball_rec = (int*) MEM_NIOS_PI_BASE+8;
+	int * dir_rec = (int*) MEM_NIOS_PI_BASE+9;
+	int * effect_rec = (int*) MEM_NIOS_PI_BASE+10;
+
+	int * turn_finish = (int *) MEM_NIOS_PI_BASE + 13; to RPi
+	int * game_finish = (int*) MEM_NIOS_PI_BASE+14; to RPi
+	int * time_out = (int*) MEM_NIOS_PI_BASE+15; from RPi
 	*/
 	//intermediate variable//
 
@@ -509,7 +508,7 @@ void task3(void* pdata)
 
 	IOWR(MEM_NIOS_PI_BASE,3,0);
 
-	IOWR(MEM_NIOS_PI_BASE,8,0);
+	IOWR(MEM_NIOS_PI_BASE,7,0);
 
 	int ready,first_player,game_finish,ready_send;
 	int all_rdy;
@@ -522,10 +521,19 @@ void task3(void* pdata)
 	int number_of_ball = 10;
     int time_out = 0;
 
+    int val = IORD(GPIO_BASE,0);
+    IOWR(MTL_IP_BASE,13,4);
+    while(!val){
+    	val = IORD(GPIO_BASE,0);
+    	OSTimeDlyHMSM(0,0,0,500);
+    }
+
 	while (1)
 	{
+            time_out = 0;
 			/* Wait for first player */
-		    /*OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
+		    OSFlagPost(ActivateTask4Grp,ACTIVATE_TASK4,OS_FLAG_SET,&err);
+		    IOWR(MTL_IP_BASE,13,2);
             DEBUG_PRINT("[Task 3] Wait for first player\n");
 			while (!ready && !time_out){
 				int var = IORD(MEM_NIOS_PI_BASE,1);
@@ -538,28 +546,37 @@ void task3(void* pdata)
 				else if(!time_out){
 					OS_FLAGS flag = OSFlagAccept(StartGameGrp,START_THE_GAME,OS_FLAG_WAIT_SET_ALL + OS_FLAG_CONSUME, &err);
 					if (flag==START_THE_GAME && !ready_send){
+					    IOWR(MTL_IP_BASE,13,3);
                         DEBUG_PRINT("[Task 3] Player touch the screen\n");
 						ready_send = 1;
 						IOWR(MEM_NIOS_PI_BASE,0,ID1);
 					}
 				}
 				OSTimeDlyHMSM(0, 0, 0, 100);
-			}*/
+			}
 
 			/* Wait for all player */
-			/*DEBUG_PRINT("[Task 3] Wait for all player are ready \n");
+			DEBUG_PRINT("[Task 3] Wait for all player are ready \n");
 			while(!all_rdy && !time_out){
                 time_out = IORD(MEM_NIOS_PI_BASE,15);
                 if(time_out) IOWR(MEM_NIOS_PI_BASE,15,1);
 				if (IORD(MEM_NIOS_PI_BASE,2)) all_rdy = 1;
-			}*/
-			activePlayer = ID1;//first_player;
+			}
+
+			activePlayer = first_player;
 			game_finish = 0;
 			DEBUG_PRINT("[Task 3] the game can start\n");
+			IOWR(MTL_IP_BASE,13,0);
 			while(!game_finish && !time_out){
                 time_out = IORD(MEM_NIOS_PI_BASE,15);
-                if(time_out) IOWR(MEM_NIOS_PI_BASE,15,1);
-				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,8) && !time_out){
+                if(time_out) IOWR(MEM_NIOS_PI_BASE,15,0);
+                if(activePlayer == ID1){
+                	IOWR(MTL_IP_BASE,12,1);
+                }
+                else{
+                	IOWR(MTL_IP_BASE,12,0);
+                }
+				if(activePlayer==ID1 && !IORD(MEM_NIOS_PI_BASE,7) && !time_out){
 						OSFlagPost(isActiveFlagGrp, IS_ACTIVE, OS_FLAG_SET, &err);
 						DEBUG_PRINT("[Task 3] Wait for value from task 1\n");
 						int *vector_x = (int *) OSMboxPend(MailBox1,0,&err);
@@ -574,13 +591,11 @@ void task3(void* pdata)
 						OSMboxPost(MailBox13, effect_y);
 
 						OSMboxPost(MailBox8, &number_of_ball);                 //transmit nbr ball to task 2
-						//OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));                //transmit score to task2
 
 						DEBUG_PRINT("[Task 3] Send value to the SPI\n");
 						IOWR(MEM_NIOS_PI_BASE,4,number_of_ball);
-						//IOWR(MEM_NIOS_PI_BASE,5,*score);
-						IOWR(MEM_NIOS_PI_BASE,6,(*vector_y<<10)+*vector_x);
-						IOWR(MEM_NIOS_PI_BASE,7,(*effect_y<<10)+*effect_x);
+						IOWR(MEM_NIOS_PI_BASE,5,(*vector_y<<10)+*vector_x);
+						IOWR(MEM_NIOS_PI_BASE,6,(*effect_y<<10)+*effect_x);
 						IOWR(MEM_NIOS_PI_BASE,3,1);             						//*isSend = 1; // value are available
 
 						opt_task1=OS_FLAG_CLR;
@@ -589,15 +604,13 @@ void task3(void* pdata)
 
 						int *nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
 						number_of_ball = *nbr_ball;
-						//*score = (int *) OSMboxPend(MailBox7,0,&err);
-
 						activePlayer = ID2;
 
 				}
-				else if(activePlayer == ID2 && IORD(MEM_NIOS_PI_BASE,8) && !time_out){
+				else if(activePlayer == ID2 && IORD(MEM_NIOS_PI_BASE,7) && !time_out){
 
-						int dir = (int)(IORD(MEM_NIOS_PI_BASE,11));
-						int effect = (int)(IORD(MEM_NIOS_PI_BASE,12));
+						int dir = (int)(IORD(MEM_NIOS_PI_BASE,9));
+						int effect = (int)(IORD(MEM_NIOS_PI_BASE,10));
 
 						int x = dir & 0x3FF;
 						int y = (dir>>10) & 0x1FF;
@@ -609,8 +622,7 @@ void task3(void* pdata)
 
 						OSMboxPost(MailBox4, &x);
 						OSMboxPost(MailBox5, &y);
-						OSMboxPost(MailBox8, IORD(MEM_NIOS_PI_BASE,9));
-						OSMboxPost(MailBox9, IORD(MEM_NIOS_PI_BASE,10));
+						OSMboxPost(MailBox8, IORD(MEM_NIOS_PI_BASE,8));
 						OSMboxPost(MailBox12, effect_x);
 						OSMboxPost(MailBox13, effect_y);
 
@@ -619,17 +631,17 @@ void task3(void* pdata)
 						opt_task1=OS_FLAG_SET;
 						OSFlagPost(isActiveFlagGrp,IS_ACTIVE,opt_task1,&err);
 
-						IOWR(MEM_NIOS_PI_BASE,8,0);
+						IOWR(MEM_NIOS_PI_BASE,7,0);
 						activePlayer = ID1;
 						int *nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
 						number_of_ball = *nbr_ball;
-						//*nbr_ball = (int *) OSMboxPend(MailBox6,0,&err);
-						//*score = (int *) OSMboxPend(MailBox7,0,&err);
 				}
-				else if(activePlayer == ID2)
-				{
-					activePlayer = ID1;
+				game_finish = number_of_ball == 1;
+				if(game_finish == 1){
+					IOWR(MEM_NIOS_PI_BASE,14,1); // game finish
 				}
+				IOWR(MEM_NIOS_PI_BASE,13,1); // turn finish
+
 				DEBUG_PRINT("[Task 3] Number of ball : %i\n",number_of_ball);
 			}
 

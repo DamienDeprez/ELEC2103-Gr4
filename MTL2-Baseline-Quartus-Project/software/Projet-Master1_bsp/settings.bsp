@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 25, 2017 3:31:23 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1493127083866</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 28, 2017 10:08:27 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1493366907543</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/software/Projet-Master1_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Nios_sopc.sopcinfo</SopcDesignFile>
@@ -1778,6 +1778,18 @@
                 <slaveDescriptor>accelerometer_spi_0</slaveDescriptor>
                 <addressRange>0x00200200 - 0x00200201</addressRange>
                 <addressSpan>2</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>LED</slaveDescriptor>
+                <addressRange>0x00200300 - 0x0020030F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>GPIO</slaveDescriptor>
+                <addressRange>0x00200400 - 0x0020040F</addressRange>
+                <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>

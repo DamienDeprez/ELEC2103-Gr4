@@ -9,6 +9,8 @@
 			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			data_we_export                  : out   std_logic;                                        -- export
 			data_write_export               : out   std_logic_vector(31 downto 0);                    -- export
+			gpio_export                     : in    std_logic                     := 'X';             -- export
+			led_export                      : out   std_logic;                                        -- export
 			mem_nios_pi_s2_address          : in    std_logic_vector(6 downto 0)  := (others => 'X'); -- address
 			mem_nios_pi_s2_chipselect       : in    std_logic                     := 'X';             -- chipselect
 			mem_nios_pi_s2_clken            : in    std_logic                     := 'X';             -- clken

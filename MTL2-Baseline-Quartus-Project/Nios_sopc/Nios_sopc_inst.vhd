@@ -1,5 +1,9 @@
 	component Nios_sopc is
 		port (
+			accelerometer_I2C_SDAT          : inout std_logic                     := 'X';             -- I2C_SDAT
+			accelerometer_I2C_SCLK          : out   std_logic;                                        -- I2C_SCLK
+			accelerometer_G_SENSOR_CS_N     : out   std_logic;                                        -- G_SENSOR_CS_N
+			accelerometer_G_SENSOR_INT      : in    std_logic                     := 'X';             -- G_SENSOR_INT
 			clk_clk                         : in    std_logic                     := 'X';             -- clk
 			data_addr_export                : out   std_logic_vector(6 downto 0);                     -- export
 			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
@@ -36,15 +40,17 @@
 			spi_cs_export                   : in    std_logic                     := 'X';             -- export
 			spi_miso_export                 : out   std_logic;                                        -- export
 			spi_mosi_export                 : in    std_logic                     := 'X';             -- export
-			accelerometer_I2C_SDAT          : inout std_logic                     := 'X';             -- I2C_SDAT
-			accelerometer_I2C_SCLK          : out   std_logic;                                        -- I2C_SCLK
-			accelerometer_G_SENSOR_CS_N     : out   std_logic;                                        -- G_SENSOR_CS_N
-			accelerometer_G_SENSOR_INT      : in    std_logic                     := 'X'              -- G_SENSOR_INT
+			led_export                      : out   std_logic;                                        -- export
+			gpio_export                     : in    std_logic                     := 'X'              -- export
 		);
 	end component Nios_sopc;
 
 	u0 : component Nios_sopc
 		port map (
+			accelerometer_I2C_SDAT          => CONNECTED_TO_accelerometer_I2C_SDAT,          --            accelerometer.I2C_SDAT
+			accelerometer_I2C_SCLK          => CONNECTED_TO_accelerometer_I2C_SCLK,          --                         .I2C_SCLK
+			accelerometer_G_SENSOR_CS_N     => CONNECTED_TO_accelerometer_G_SENSOR_CS_N,     --                         .G_SENSOR_CS_N
+			accelerometer_G_SENSOR_INT      => CONNECTED_TO_accelerometer_G_SENSOR_INT,      --                         .G_SENSOR_INT
 			clk_clk                         => CONNECTED_TO_clk_clk,                         --                      clk.clk
 			data_addr_export                => CONNECTED_TO_data_addr_export,                --                data_addr.export
 			data_read_export                => CONNECTED_TO_data_read_export,                --                data_read.export
@@ -81,9 +87,7 @@
 			spi_cs_export                   => CONNECTED_TO_spi_cs_export,                   --                   spi_cs.export
 			spi_miso_export                 => CONNECTED_TO_spi_miso_export,                 --                 spi_miso.export
 			spi_mosi_export                 => CONNECTED_TO_spi_mosi_export,                 --                 spi_mosi.export
-			accelerometer_I2C_SDAT          => CONNECTED_TO_accelerometer_I2C_SDAT,          --            accelerometer.I2C_SDAT
-			accelerometer_I2C_SCLK          => CONNECTED_TO_accelerometer_I2C_SCLK,          --                         .I2C_SCLK
-			accelerometer_G_SENSOR_CS_N     => CONNECTED_TO_accelerometer_G_SENSOR_CS_N,     --                         .G_SENSOR_CS_N
-			accelerometer_G_SENSOR_INT      => CONNECTED_TO_accelerometer_G_SENSOR_INT       --                         .G_SENSOR_INT
+			led_export                      => CONNECTED_TO_led_export,                      --                      led.export
+			gpio_export                     => CONNECTED_TO_gpio_export                      --                     gpio.export
 		);
 

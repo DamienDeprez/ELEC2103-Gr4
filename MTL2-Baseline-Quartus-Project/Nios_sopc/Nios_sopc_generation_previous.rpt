@@ -1,9 +1,11 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc.qsys --block-symbol-file --output-directory=/home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc --family="Cyclone IV E" --part=EP4CE22F17C6
+Info: qsys-generate /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc.qsys --block-symbol-file --output-directory=/mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc --family="Cyclone IV E" --part=EP4CE22F17C6
 Progress: Loading MTL2-Baseline-Quartus-Project/Nios_sopc.qsys
 Progress: Reading input file
 Progress: Adding MTL_ip [MTL_ip 1.0]
 Progress: Parameterizing module MTL_ip
+Progress: Adding accelerometer_spi_0 [altera_up_avalon_accelerometer_spi 16.1]
+Progress: Parameterizing module accelerometer_spi_0
 Progress: Adding clk_0 [clock_source 16.1]
 Progress: Parameterizing module clk_0
 Progress: Adding cpu [altera_nios2_gen2 16.1]
@@ -36,11 +38,13 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc.qsys --synthesis=VERILOG --output-directory=/home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis --family="Cyclone IV E" --part=EP4CE22F17C6
+Info: qsys-generate /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc.qsys --synthesis=VERILOG --output-directory=/mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis --family="Cyclone IV E" --part=EP4CE22F17C6
 Progress: Loading MTL2-Baseline-Quartus-Project/Nios_sopc.qsys
 Progress: Reading input file
 Progress: Adding MTL_ip [MTL_ip 1.0]
 Progress: Parameterizing module MTL_ip
+Progress: Adding accelerometer_spi_0 [altera_up_avalon_accelerometer_spi 16.1]
+Progress: Parameterizing module accelerometer_spi_0
 Progress: Adding clk_0 [clock_source 16.1]
 Progress: Parameterizing module clk_0
 Progress: Adding cpu [altera_nios2_gen2 16.1]
@@ -73,24 +77,26 @@ Info: Nios_sopc: Generating Nios_sopc "Nios_sopc" for QUARTUS_SYNTH
 Warning: Nios_sopc: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
 Warning: Nios_sopc: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
 Info: MTL_ip: "Nios_sopc" instantiated MTL_ip "MTL_ip"
+Info: accelerometer_spi_0: Starting Generation of the Accelerometer Controller in SPI mode
+Info: accelerometer_spi_0: "Nios_sopc" instantiated altera_up_avalon_accelerometer_spi "accelerometer_spi_0"
 Info: cpu: "Nios_sopc" instantiated altera_nios2_gen2 "cpu"
 Info: jtag_uart: Starting RTL generation for module 'Nios_sopc_jtag_uart'
-Info: jtag_uart:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Nios_sopc_jtag_uart --dir=/tmp/alt7274_3562613916257514268.dir/0002_jtag_uart_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0002_jtag_uart_gen//Nios_sopc_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=Nios_sopc_jtag_uart --dir=/tmp/alt7281_2356966426974648935.dir/0003_jtag_uart_gen/ --quartus_dir=/home/damien/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7281_2356966426974648935.dir/0003_jtag_uart_gen//Nios_sopc_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'Nios_sopc_jtag_uart'
 Info: jtag_uart: "Nios_sopc" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: mem_Nios_PI: Starting RTL generation for module 'Nios_sopc_mem_Nios_PI'
-Info: mem_Nios_PI:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Nios_sopc_mem_Nios_PI --dir=/tmp/alt7274_3562613916257514268.dir/0003_mem_Nios_PI_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0003_mem_Nios_PI_gen//Nios_sopc_mem_Nios_PI_component_configuration.pl  --do_build_sim=0  ]
+Info: mem_Nios_PI:   Generation command is [exec /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=Nios_sopc_mem_Nios_PI --dir=/tmp/alt7281_2356966426974648935.dir/0004_mem_Nios_PI_gen/ --quartus_dir=/home/damien/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7281_2356966426974648935.dir/0004_mem_Nios_PI_gen//Nios_sopc_mem_Nios_PI_component_configuration.pl  --do_build_sim=0  ]
 Info: mem_Nios_PI: Done RTL generation for module 'Nios_sopc_mem_Nios_PI'
 Info: mem_Nios_PI: "Nios_sopc" instantiated altera_avalon_onchip_memory2 "mem_Nios_PI"
 Info: my_SPI: "Nios_sopc" instantiated my_SPI_ip "my_SPI"
 Info: nios_custom_instr_floating_point_2_0: "Nios_sopc" instantiated altera_nios_custom_instr_floating_point_2 "nios_custom_instr_floating_point_2_0"
 Info: sdram_controller: Starting RTL generation for module 'Nios_sopc_sdram_controller'
-Info: sdram_controller:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Nios_sopc_sdram_controller --dir=/tmp/alt7274_3562613916257514268.dir/0005_sdram_controller_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0005_sdram_controller_gen//Nios_sopc_sdram_controller_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram_controller:   Generation command is [exec /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/bin/perl -I /home/damien/intelFPGA_lite/16.1/quartus/linux64/perl/lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=Nios_sopc_sdram_controller --dir=/tmp/alt7281_2356966426974648935.dir/0006_sdram_controller_gen/ --quartus_dir=/home/damien/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7281_2356966426974648935.dir/0006_sdram_controller_gen//Nios_sopc_sdram_controller_component_configuration.pl  --do_build_sim=0  ]
 Info: sdram_controller: Done RTL generation for module 'Nios_sopc_sdram_controller'
 Info: sdram_controller: "Nios_sopc" instantiated altera_avalon_new_sdram_controller "sdram_controller"
 Info: sysid_qsys: "Nios_sopc" instantiated altera_avalon_sysid_qsys "sysid_qsys"
 Info: timer_system: Starting RTL generation for module 'Nios_sopc_timer_system'
-Info: timer_system:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/bin/perl -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Nios_sopc_timer_system --dir=/tmp/alt7274_3562613916257514268.dir/0007_timer_system_gen/ --quartus_dir=/home/bilal/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7274_3562613916257514268.dir/0007_timer_system_gen//Nios_sopc_timer_system_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_system:   Generation command is [exec /home/damien/intelFPGA_lite/16.1/quartus/linux64//perl/bin/perl -I /home/damien/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/common -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=Nios_sopc_timer_system --dir=/tmp/alt7281_2356966426974648935.dir/0008_timer_system_gen/ --quartus_dir=/home/damien/intelFPGA_lite/16.1/quartus --verilog --config=/tmp/alt7281_2356966426974648935.dir/0008_timer_system_gen//Nios_sopc_timer_system_component_configuration.pl  --do_build_sim=0  ]
 Info: timer_system: Done RTL generation for module 'Nios_sopc_timer_system'
 Info: timer_system: "Nios_sopc" instantiated altera_avalon_timer "timer_system"
 Info: cpu_custom_instruction_master_translator: "Nios_sopc" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
@@ -105,65 +111,69 @@ Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "Nios_sopc" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "Nios_sopc" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "Nios_sopc" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'Nios_sopc_cpu_cpu'
-Info: cpu:   Generation command is [exec /home/bilal/intelFPGA_lite/16.1/quartus/linux64//eperlcmd -I /home/bilal/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/bilal/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=Nios_sopc_cpu_cpu --dir=/tmp/alt7274_3562613916257514268.dir/0014_cpu_gen/ --quartus_bindir=/home/bilal/intelFPGA_lite/16.1/quartus/linux64/ --verilog --config=/tmp/alt7274_3562613916257514268.dir/0014_cpu_gen//Nios_sopc_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2017.04.18 15:07:54 (*) Starting Nios II generation
-Info: cpu: # 2017.04.18 15:07:54 (*)   Checking for plaintext license.
-Info: cpu: # 2017.04.18 15:07:55 (*)   Plaintext license not found.
-Info: cpu: # 2017.04.18 15:07:55 (*)   Checking for encrypted license (non-evaluation).
-Info: cpu: # 2017.04.18 15:07:56 (*)   Encrypted license not found.  Defaulting to OCP evaluation license (produces a time-limited SOF)
-Info: cpu: # 2017.04.18 15:07:56 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2017.04.18 15:07:56 (*)   Creating all objects for CPU
-Info: cpu: # 2017.04.18 15:07:56 (*)     Testbench
-Info: cpu: # 2017.04.18 15:07:56 (*)     Instruction decoding
-Info: cpu: # 2017.04.18 15:07:56 (*)       Instruction fields
-Info: cpu: # 2017.04.18 15:07:56 (*)       Instruction decodes
-Info: cpu: # 2017.04.18 15:07:57 (*)       Signals for RTL simulation waveforms
-Info: cpu: # 2017.04.18 15:07:57 (*)       Instruction controls
-Info: cpu: # 2017.04.18 15:07:57 (*)     Pipeline frontend
-Info: cpu: # 2017.04.18 15:07:57 (*)     Pipeline backend
-Info: cpu: # 2017.04.18 15:07:59 (*)   Generating RTL from CPU objects
-Info: cpu: # 2017.04.18 15:08:01 (*)   Creating encrypted RTL
-Info: cpu: # 2017.04.18 15:08:02 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec /home/damien/intelFPGA_lite/16.1/quartus/linux64//eperlcmd -I /home/damien/intelFPGA_lite/16.1/quartus/linux64//perl/lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/europa -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin/perl_lib -I /home/damien/intelFPGA_lite/16.1/quartus/sopc_builder/bin -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/damien/intelFPGA_lite/16.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=Nios_sopc_cpu_cpu --dir=/tmp/alt7281_2356966426974648935.dir/0015_cpu_gen/ --quartus_bindir=/home/damien/intelFPGA_lite/16.1/quartus/linux64/ --verilog --config=/tmp/alt7281_2356966426974648935.dir/0015_cpu_gen//Nios_sopc_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2017.04.25 13:57:53 (*) Starting Nios II generation
+Info: cpu: # 2017.04.25 13:57:53 (*)   Checking for plaintext license.
+Info: cpu: # 2017.04.25 13:57:54 (*)   Plaintext license not found.
+Info: cpu: # 2017.04.25 13:57:54 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2017.04.25 13:57:54 (*)   Encrypted license not found.  Defaulting to OCP evaluation license (produces a time-limited SOF)
+Info: cpu: # 2017.04.25 13:57:54 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2017.04.25 13:57:54 (*)   Creating all objects for CPU
+Info: cpu: # 2017.04.25 13:57:54 (*)     Testbench
+Info: cpu: # 2017.04.25 13:57:54 (*)     Instruction decoding
+Info: cpu: # 2017.04.25 13:57:54 (*)       Instruction fields
+Info: cpu: # 2017.04.25 13:57:54 (*)       Instruction decodes
+Info: cpu: # 2017.04.25 13:57:55 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2017.04.25 13:57:55 (*)       Instruction controls
+Info: cpu: # 2017.04.25 13:57:55 (*)     Pipeline frontend
+Info: cpu: # 2017.04.25 13:57:55 (*)     Pipeline backend
+Info: cpu: # 2017.04.25 13:57:57 (*)   Generating RTL from CPU objects
+Info: cpu: # 2017.04.25 13:57:58 (*)   Creating encrypted RTL
+Info: cpu: # 2017.04.25 13:57:59 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'Nios_sopc_cpu_cpu'
 Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
 Info: fpci_combi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_combi "fpci_combi"
 Info: fpci_multi: "nios_custom_instr_floating_point_2_0" instantiated altera_nios_custom_instr_floating_point_2_multi "fpci_multi"
 Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
-Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_translator"
 Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
-Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
-Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_agent"
+Info: accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_agent_rsp_fifo"
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
-Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
-Info: router_008: "mm_interconnect_0" instantiated altera_merlin_router "router_008"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
+Info: router_009: "mm_interconnect_0" instantiated altera_merlin_router "router_009"
 Info: cpu_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "cpu_data_master_limiter"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_sc_fifo.v
-Info: sdram_controller_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_controller_s1_burst_adapter"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_burst_adapter"
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_avalon_st_pipeline_base.v
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
-Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_003: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_003"
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
-Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_demux_003: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_003"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: sdram_controller_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_controller_s1_rsp_width_adapter"
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_address_alignment.sv
-Info: Reusing file /home/bilal/Master_1/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "accelerometer_spi_0_avalon_accelerometer_spi_mode_slave_rsp_width_adapter"
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/Nios_sopc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
-Info: avalon_st_adapter_006: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_006"
+Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: avalon_st_adapter_007: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_007"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: error_adapter_0: "avalon_st_adapter_006" instantiated error_adapter "error_adapter_0"
-Info: Nios_sopc: Done "Nios_sopc" with 45 modules, 90 files
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_007" instantiated error_adapter "error_adapter_0"
+Info: Nios_sopc: Done "Nios_sopc" with 49 modules, 98 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

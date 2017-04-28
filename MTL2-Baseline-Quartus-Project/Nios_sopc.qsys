@@ -9,6 +9,38 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element GPIO
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element GPIO.s1
+   {
+      datum baseAddress
+      {
+         value = "2098176";
+         type = "String";
+      }
+   }
+   element LED
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element LED.s1
+   {
+      datum baseAddress
+      {
+         value = "2097920";
+         type = "String";
+      }
+   }
    element MTL_ip
    {
       datum _sortIndex
@@ -205,6 +237,16 @@
    type="conduit"
    dir="end" />
  <interface
+   name="gpio"
+   internal="GPIO.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="led"
+   internal="LED.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
    name="mem_nios_pi_s2"
    internal="mem_Nios_PI.s2"
    type="avalon"
@@ -257,6 +299,34 @@
  <interface name="spi_cs" internal="my_SPI.SPI_CS" type="conduit" dir="end" />
  <interface name="spi_miso" internal="my_SPI.SPI_MISO" type="conduit" dir="end" />
  <interface name="spi_mosi" internal="my_SPI.SPI_MOSI" type="conduit" dir="end" />
+ <module name="GPIO" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="LED" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
  <module name="MTL_ip" kind="MTL_ip" version="1.0" enabled="1" />
  <module
    name="accelerometer_spi_0"
@@ -292,7 +362,7 @@
   <parameter name="dataAddrWidth" value="26" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='timer_system.s1' start='0x0' end='0x20' type='altera_avalon_timer.s1' /><slave name='cpu.debug_mem_slave' start='0x10800' end='0x11000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer_timestamp.s1' start='0x11000' end='0x11020' type='altera_avalon_timer.s1' /><slave name='sysid_qsys.control_slave' start='0x11060' end='0x11068' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x11068' end='0x11070' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='MTL_ip.s0' start='0x20000' end='0x20400' type='MTL_ip.s0' /><slave name='mem_Nios_PI.s1' start='0x200000' end='0x200200' type='altera_avalon_onchip_memory2.s1' /><slave name='accelerometer_spi_0.avalon_accelerometer_spi_mode_slave' start='0x200200' end='0x200202' type='altera_up_avalon_accelerometer_spi.avalon_accelerometer_spi_mode_slave' /><slave name='sdram_controller.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='timer_system.s1' start='0x0' end='0x20' type='altera_avalon_timer.s1' /><slave name='cpu.debug_mem_slave' start='0x10800' end='0x11000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer_timestamp.s1' start='0x11000' end='0x11020' type='altera_avalon_timer.s1' /><slave name='sysid_qsys.control_slave' start='0x11060' end='0x11068' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x11068' end='0x11070' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='MTL_ip.s0' start='0x20000' end='0x20400' type='MTL_ip.s0' /><slave name='mem_Nios_PI.s1' start='0x200000' end='0x200200' type='altera_avalon_onchip_memory2.s1' /><slave name='accelerometer_spi_0.avalon_accelerometer_spi_mode_slave' start='0x200200' end='0x200202' type='altera_up_avalon_accelerometer_spi.avalon_accelerometer_spi_mode_slave' /><slave name='LED.s1' start='0x200300' end='0x200310' type='altera_avalon_pio.s1' /><slave name='GPIO.s1' start='0x200400' end='0x200410' type='altera_avalon_pio.s1' /><slave name='sdram_controller.s1' start='0x2000000' end='0x4000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -660,6 +730,16 @@
   <parameter name="baseAddress" value="0x00200000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection kind="avalon" version="16.1" start="cpu.data_master" end="LED.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00200300" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="avalon" version="16.1" start="cpu.data_master" end="GPIO.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00200400" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection
    kind="avalon"
    version="16.1"
@@ -697,6 +777,8 @@
    version="16.1"
    start="clk_0.clk"
    end="accelerometer_spi_0.clk" />
+ <connection kind="clock" version="16.1" start="clk_0.clk" end="LED.clk" />
+ <connection kind="clock" version="16.1" start="clk_0.clk" end="GPIO.clk" />
  <connection kind="clock" version="16.1" start="clk_0.clk" end="mem_Nios_PI.clk1" />
  <connection kind="clock" version="16.1" start="clk_0.clk" end="mem_Nios_PI.clk2" />
  <connection kind="clock" version="16.1" start="clk_0.clk" end="my_SPI.clock" />
@@ -774,6 +856,8 @@
    version="16.1"
    start="clk_0.clk_reset"
    end="accelerometer_spi_0.reset" />
+ <connection kind="reset" version="16.1" start="clk_0.clk_reset" end="LED.reset" />
+ <connection kind="reset" version="16.1" start="clk_0.clk_reset" end="GPIO.reset" />
  <connection
    kind="reset"
    version="16.1"

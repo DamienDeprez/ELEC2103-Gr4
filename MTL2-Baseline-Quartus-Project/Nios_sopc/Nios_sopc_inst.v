@@ -1,4 +1,8 @@
 	Nios_sopc u0 (
+		.accelerometer_I2C_SDAT          (<connected-to-accelerometer_I2C_SDAT>),          //            accelerometer.I2C_SDAT
+		.accelerometer_I2C_SCLK          (<connected-to-accelerometer_I2C_SCLK>),          //                         .I2C_SCLK
+		.accelerometer_G_SENSOR_CS_N     (<connected-to-accelerometer_G_SENSOR_CS_N>),     //                         .G_SENSOR_CS_N
+		.accelerometer_G_SENSOR_INT      (<connected-to-accelerometer_G_SENSOR_INT>),      //                         .G_SENSOR_INT
 		.clk_clk                         (<connected-to-clk_clk>),                         //                      clk.clk
 		.data_addr_export                (<connected-to-data_addr_export>),                //                data_addr.export
 		.data_read_export                (<connected-to-data_read_export>),                //                data_read.export
@@ -35,9 +39,7 @@
 		.spi_cs_export                   (<connected-to-spi_cs_export>),                   //                   spi_cs.export
 		.spi_miso_export                 (<connected-to-spi_miso_export>),                 //                 spi_miso.export
 		.spi_mosi_export                 (<connected-to-spi_mosi_export>),                 //                 spi_mosi.export
-		.accelerometer_I2C_SDAT          (<connected-to-accelerometer_I2C_SDAT>),          //            accelerometer.I2C_SDAT
-		.accelerometer_I2C_SCLK          (<connected-to-accelerometer_I2C_SCLK>),          //                         .I2C_SCLK
-		.accelerometer_G_SENSOR_CS_N     (<connected-to-accelerometer_G_SENSOR_CS_N>),     //                         .G_SENSOR_CS_N
-		.accelerometer_G_SENSOR_INT      (<connected-to-accelerometer_G_SENSOR_INT>)       //                         .G_SENSOR_INT
+		.led_export                      (<connected-to-led_export>),                      //                      led.export
+		.gpio_export                     (<connected-to-gpio_export>)                      //                     gpio.export
 	);
 

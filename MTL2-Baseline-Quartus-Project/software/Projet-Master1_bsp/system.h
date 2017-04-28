@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
  * SOPC Builder design path: ../../Nios_sopc.sopcinfo
  *
- * Generated: Tue Apr 25 15:31:27 CEST 2017
+ * Generated: Fri Apr 28 10:08:30 CEST 2017
  */
 
 /*
@@ -179,12 +179,67 @@
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
+#define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_NIOS_CUSTOM_INSTR_FLOATING_POINT_2
 #define __ALTERA_UP_AVALON_ACCELEROMETER_SPI
 #define __MTL_IP
+
+
+/*
+ * GPIO configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_GPIO altera_avalon_pio
+#define GPIO_BASE 0x200400
+#define GPIO_BIT_CLEARING_EDGE_REGISTER 0
+#define GPIO_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define GPIO_CAPTURE 0
+#define GPIO_DATA_WIDTH 1
+#define GPIO_DO_TEST_BENCH_WIRING 0
+#define GPIO_DRIVEN_SIM_VALUE 0
+#define GPIO_EDGE_TYPE "NONE"
+#define GPIO_FREQ 50000000
+#define GPIO_HAS_IN 1
+#define GPIO_HAS_OUT 0
+#define GPIO_HAS_TRI 0
+#define GPIO_IRQ -1
+#define GPIO_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define GPIO_IRQ_TYPE "NONE"
+#define GPIO_NAME "/dev/GPIO"
+#define GPIO_RESET_VALUE 0
+#define GPIO_SPAN 16
+#define GPIO_TYPE "altera_avalon_pio"
+
+
+/*
+ * LED configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_LED altera_avalon_pio
+#define LED_BASE 0x200300
+#define LED_BIT_CLEARING_EDGE_REGISTER 0
+#define LED_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define LED_CAPTURE 0
+#define LED_DATA_WIDTH 1
+#define LED_DO_TEST_BENCH_WIRING 0
+#define LED_DRIVEN_SIM_VALUE 0
+#define LED_EDGE_TYPE "NONE"
+#define LED_FREQ 50000000
+#define LED_HAS_IN 0
+#define LED_HAS_OUT 1
+#define LED_HAS_TRI 0
+#define LED_IRQ -1
+#define LED_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define LED_IRQ_TYPE "NONE"
+#define LED_NAME "/dev/LED"
+#define LED_RESET_VALUE 0
+#define LED_SPAN 16
+#define LED_TYPE "altera_avalon_pio"
 
 
 /*
@@ -360,7 +415,7 @@
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1493121464
+#define SYSID_QSYS_TIMESTAMP 1493363427
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 

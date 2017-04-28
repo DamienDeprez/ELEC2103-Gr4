@@ -38,7 +38,7 @@ module MTL_ip (
 	
 	reg player;
 	
-	reg [1:0] screenType;
+	reg [2:0] screenType;
 	
 	reg [9:0] oX1, oX2, oX3, oX4, oX5;
 	reg [8:0] oY1, oY2, oY3, oY4, oY5;
@@ -97,7 +97,7 @@ module MTL_ip (
 						player <= avs_s0_writedata[0];
 					 end
 			8'h0D: begin
-						screenType <= avs_s0_writedata[1:0];
+						screenType <= avs_s0_writedata[2:0];
 					 end
 			endcase
 		if (avs_s0_read) begin
