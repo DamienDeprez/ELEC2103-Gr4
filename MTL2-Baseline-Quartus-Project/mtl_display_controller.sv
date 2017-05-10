@@ -111,8 +111,6 @@ wire [15:0]	address_start;
 wire [14:0] address_wait;
 wire [13:0] address_loading;
 
-logic [7:0] counter;
-
 logic isInCircle1, isInCircle2, isInCircle3, isInCircle4, isInCircle5;
 logic isInCircle6, isInCircle7, isInCircle8, isInCircle9, isInCircle10,isInCircle11,isInCircle12,isInCircle13,isInCircle14,isInCircle15,isInCircle16;
 logic isInCircle17,isInCircle18,isInCircle19,isInCircle20;
@@ -231,7 +229,6 @@ always_ff @(posedge iCLK) begin
 		read_red 	<= 8'b0;
 		read_green 	<= 8'b0;
 		read_blue 	<= 8'b0;
-		counter <= 8'd0;
 	// If we are in the active display area...
 	end else if (display_area) begin
 		case(screenType)
@@ -239,53 +236,53 @@ always_ff @(posedge iCLK) begin
 		3'b000: begin
 			if(isInCircle1 && iX1 != 0 && iY1 !=0 ) begin
 				read_red <= 8'hFF;
-				read_blue <= 8'h00;
-				read_green <= 8'h00;
+				read_blue <= 8'hFF;
+				read_green <= 8'hFF;
 			end
 			else if(isInCircle2 && iX2 != 0 && iY2 !=0) begin
-				read_red <= 8'h00;
-				read_blue <= 8'hCC;
-				read_green <= 8'h55;
+				read_red <= 8'h27;
+				read_blue <= 8'h24;
+				read_green <= 8'h26;
 			end
 			else if(isInCircle3 && iX3 != 0 && iY3 !=0) begin
-				read_red <= 8'hD0;
-				read_blue <= 8'h7C;
-				read_green <= 8'hB7;
+				read_red <= 8'h4D;
+				read_blue <= 8'h96;
+				read_green <= 8'hC2;
 			end
 			else if(isInCircle4 && iX4 != 0 && iY4 !=0) begin
-				read_red <= 8'hD6;
-				read_blue <= 8'hC5;
-				read_green <= 8'h85;
+				read_red <= 8'hFF;
+				read_blue <= 8'h38;
+				read_green <= 8'hA5;
 			end
 			else if(isInCircle5 && iX5 != 0 && iY5 !=0) begin
-				read_red <= 8'hD0;
-				read_blue <= 8'h7C;
-				read_green <= 8'hB7;
+				read_red <= 8'h4D;
+				read_blue <= 8'h96;
+				read_green <= 8'hC2;
 			end
 			else if(isInCircle6 && iX6 != 0 && iY6 !=0) begin
-				read_red <= 8'hD6;
-				read_blue <= 8'hC5;
-				read_green <= 8'h85;
+				read_red <= 8'hFF;
+				read_blue <= 8'h38;
+				read_green <= 8'hA5;
 			end
 			else if(isInCircle7 && iX7 != 0 && iY7 !=0) begin
-				read_red <= 8'hD0;
-				read_blue <= 8'h7C;
-				read_green <= 8'hB7;
+				read_red <= 8'h4D;
+				read_blue <= 8'h96;
+				read_green <= 8'hC2;
 			end
 			else if(isInCircle8 && iX8 != 0 && iY8 !=0) begin
-				read_red <= 8'hD6;
-				read_blue <= 8'hC5;
-				read_green <= 8'h85;
+				read_red <= 8'hFF;
+				read_blue <= 8'h38;
+				read_green <= 8'hA5;
 			end
 			else if(isInCircle9 && iX9 != 0 && iY9 !=0) begin
-				read_red <= 8'hD0;
-				read_blue <= 8'h7C;
-				read_green <= 8'hB7;
+				read_red <= 8'h4D;
+				read_blue <= 8'h96;
+				read_green <= 8'hC2;
 			end
 			else if(isInCircle10 && iX10 != 0 && iY10 !=0) begin
-				read_red <= 8'hD6;
-				read_blue <= 8'hC5;
-				read_green <= 8'h85;
+				read_red <= 8'hFF;
+				read_blue <= 8'h38;
+				read_green <= 8'hA5;
 			end
 			else if(isInCircle11 ) begin
 				read_red <= 8'h0;
@@ -319,13 +316,13 @@ always_ff @(posedge iCLK) begin
 			end		
 			else if(isInRectangle9 && player) begin
 				read_red <= 8'hFF;
-				read_blue <= 8'h0;
-				read_green <= 8'hFF;
+				read_blue <= 8'h38;
+				read_green <= 8'hA5;
 			end
 			else if(isInRectangle4)begin
 				read_red <= 8'd00;
-				read_blue <= 8'd96;
-				read_green <= 8'd418;
+				read_blue <= 8'd41;
+				read_green <= 8'd96;
 			end
 			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
 				read_red <= 8'd12;
@@ -358,22 +355,20 @@ always_ff @(posedge iCLK) begin
 					end
 					else begin
 						read_red <= 8'd00;
-						read_blue <= 8'd96;
-						read_green <= 8'd418;
+						read_blue <= 8'd41;
+						read_green <= 8'd96;
 					end
 				 end
 		3'b010: begin
-			if (oNewFrame) begin counter <= counter + 8'd1; end
-			if (counter == 8'd255) begin counter <= 8'd0; end
 			if((223 < x_cnt && x_cnt < 669) && (213 <= y_cnt && y_cnt < 313) && !q_rom_start) begin
-				read_red <= counter[7:0];
-				read_green <= counter[7:0];
-				read_blue <= counter[7:0];
+				read_red <= 8'hFF;
+				read_green <= 8'hA5;
+				read_blue <= 8'h38;
 			end
 			else if(isInRectangle4)begin
 				read_red <= 8'd00;
-				read_blue <= 8'd96;
-				read_green <= 8'd418;
+				read_blue <= 8'd41;
+				read_green <= 8'd96;
 			end
 			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
 				read_red <= 8'd12;
@@ -393,14 +388,14 @@ always_ff @(posedge iCLK) begin
 		end
 		3'b011: begin
 			if((204 < x_cnt && x_cnt < 688) && (239 <= y_cnt && y_cnt < 281) && !q_rom_wait) begin
-				read_red <= 8'b0;
-				read_green <= 8'b0;
-				read_blue <= 8'b0;
+				read_red <= 8'hFF;
+				read_green <= 8'hA5;
+				read_blue <= 8'h38;
 			end
 			else if(isInRectangle4)begin
 				read_red <= 8'd00;
-				read_blue <= 8'd96;
-				read_green <= 8'd418;
+				read_blue <= 8'd41;
+				read_green <= 8'd96;
 			end
 			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
 				read_red <= 8'd12;
@@ -420,14 +415,14 @@ always_ff @(posedge iCLK) begin
 		end
 		3'b100: begin
 			if((253 < x_cnt && x_cnt < 593) && (239 <= y_cnt && y_cnt < 281) && !q_rom_loading) begin
-				read_red <= 8'b0;
-				read_green <= 8'b0;
-				read_blue <= 8'b0;
+				read_red <= 8'hFF;
+				read_green <= 8'hA5;
+				read_blue <= 8'h38;
 			end
 			else if(isInRectangle4)begin
 				read_red <= 8'd00;
-				read_blue <= 8'd96;
-				read_green <= 8'd418;
+				read_blue <= 8'd41;
+				read_green <= 8'd96;
 			end
 			else if(isInRectangle7 ||isInRectangle8 || isInCircle21 || isInCircle22 || isInCircle23 || isInCircle24)begin
 				read_red <= 8'd12;

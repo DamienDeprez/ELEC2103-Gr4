@@ -161,7 +161,7 @@ ACDS_VERSION := 16.1
 SIM_OPTIMIZE ?= 0
 
 # The CPU reset address as needed by elf2flash
-RESET_ADDRESS ?= 0x02000000
+RESET_ADDRESS ?= 0x00040000
 
 # The specific Nios II ELF file format to use.
 NIOS2_ELF_FORMAT ?= elf32-littlenios2
@@ -170,46 +170,81 @@ NIOS2_ELF_FORMAT ?= elf32-littlenios2
 # Pre-Initialized Memory Descriptions
 #-------------------------------------
 
-# Memory: mem_Nios_PI
-MEM_0 := Nios_sopc_mem_Nios_PI
-$(MEM_0)_NAME := mem_Nios_PI
+# Memory: epcs_flash_controller_0
+MEM_0 := Nios_sopc_epcs_flash_controller_0_boot_rom
+$(MEM_0)_NAME := epcs_flash_controller_0
 $(MEM_0)_MEM_INIT_FILE_PARAM_NAME := INIT_FILE
-HEX_FILES += $(MEM_INIT_DIR)/$(MEM_0).hex
-MEM_INIT_INSTALL_FILES += $(MEM_INIT_INSTALL_DIR)/$(MEM_0).hex
+HEX_FILES += $(HDL_SIM_DIR)/$(MEM_0).hex
+HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_0).hex
 DAT_FILES += $(HDL_SIM_DIR)/$(MEM_0).dat
 HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_0).dat
 SYM_FILES += $(HDL_SIM_DIR)/$(MEM_0).sym
 HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_0).sym
-$(MEM_0)_START := 0x00200000
-$(MEM_0)_END := 0x002001ff
-$(MEM_0)_SPAN := 0x00000200
-$(MEM_0)_HIERARCHICAL_PATH := mem_Nios_PI
+FLASH_FILES += $(MEM_0).flash
+$(MEM_0)_START := 0x00040000
+$(MEM_0)_END := 0x000407ff
+$(MEM_0)_SPAN := 0x00000800
+$(MEM_0)_HIERARCHICAL_PATH := epcs_flash_controller_0
 $(MEM_0)_WIDTH := 32
 $(MEM_0)_HEX_DATA_WIDTH := 32
 $(MEM_0)_ENDIANNESS := --little-endian-mem
 $(MEM_0)_CREATE_LANES := 0
+$(MEM_0)_EPCS_FLAGS := --epcs
+$(MEM_0)_NO_ZERO_FILL_FLAG := --no-zero-fill
 
-.PHONY: mem_Nios_PI
-mem_Nios_PI: check_elf_exists $(MEM_INIT_DIR)/$(MEM_0).hex $(HDL_SIM_DIR)/$(MEM_0).dat $(HDL_SIM_DIR)/$(MEM_0).sym
+$(HDL_SIM_DIR)/$(MEM_0).dat: $(MEM_0).flash
+	$(post-process-info)
+	$(MKDIR) -p $(@D)
+	$(FLASH2DAT) --infile=$< --outfile=$@ \
+		--base=0x0 --end=0x7ff --width=$(mem_width) \
+		--create-lanes=$(mem_create_lanes) $(flash2dat_extra_args)
 
-# Memory: sdram_controller
-MEM_1 := sdram_controller
-$(MEM_1)_NAME := sdram_controller
+
+FLASH_DAT_FILES += $(HDL_SIM_DIR)/$(MEM_0).dat
+
+.PHONY: epcs_flash_controller_0
+epcs_flash_controller_0: check_elf_exists $(HDL_SIM_DIR)/$(MEM_0).hex $(HDL_SIM_DIR)/$(MEM_0).dat $(HDL_SIM_DIR)/$(MEM_0).sym $(MEM_0).flash
+
+# Memory: mem_Nios_PI
+MEM_1 := Nios_sopc_mem_Nios_PI
+$(MEM_1)_NAME := mem_Nios_PI
+$(MEM_1)_MEM_INIT_FILE_PARAM_NAME := INIT_FILE
+HEX_FILES += $(MEM_INIT_DIR)/$(MEM_1).hex
+MEM_INIT_INSTALL_FILES += $(MEM_INIT_INSTALL_DIR)/$(MEM_1).hex
 DAT_FILES += $(HDL_SIM_DIR)/$(MEM_1).dat
 HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_1).dat
 SYM_FILES += $(HDL_SIM_DIR)/$(MEM_1).sym
 HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_1).sym
-$(MEM_1)_START := 0x02000000
-$(MEM_1)_END := 0x03ffffff
-$(MEM_1)_SPAN := 0x02000000
-$(MEM_1)_HIERARCHICAL_PATH := sdram_controller
-$(MEM_1)_WIDTH := 16
-$(MEM_1)_HEX_DATA_WIDTH := 16
+$(MEM_1)_START := 0x00200000
+$(MEM_1)_END := 0x002001ff
+$(MEM_1)_SPAN := 0x00000200
+$(MEM_1)_HIERARCHICAL_PATH := mem_Nios_PI
+$(MEM_1)_WIDTH := 32
+$(MEM_1)_HEX_DATA_WIDTH := 32
 $(MEM_1)_ENDIANNESS := --little-endian-mem
 $(MEM_1)_CREATE_LANES := 0
 
+.PHONY: mem_Nios_PI
+mem_Nios_PI: check_elf_exists $(MEM_INIT_DIR)/$(MEM_1).hex $(HDL_SIM_DIR)/$(MEM_1).dat $(HDL_SIM_DIR)/$(MEM_1).sym
+
+# Memory: sdram_controller
+MEM_2 := sdram_controller
+$(MEM_2)_NAME := sdram_controller
+DAT_FILES += $(HDL_SIM_DIR)/$(MEM_2).dat
+HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_2).dat
+SYM_FILES += $(HDL_SIM_DIR)/$(MEM_2).sym
+HDL_SIM_INSTALL_FILES += $(HDL_SIM_INSTALL_DIR)/$(MEM_2).sym
+$(MEM_2)_START := 0x02000000
+$(MEM_2)_END := 0x03ffffff
+$(MEM_2)_SPAN := 0x02000000
+$(MEM_2)_HIERARCHICAL_PATH := sdram_controller
+$(MEM_2)_WIDTH := 16
+$(MEM_2)_HEX_DATA_WIDTH := 16
+$(MEM_2)_ENDIANNESS := --little-endian-mem
+$(MEM_2)_CREATE_LANES := 0
+
 .PHONY: sdram_controller
-sdram_controller: check_elf_exists $(HDL_SIM_DIR)/$(MEM_1).dat $(HDL_SIM_DIR)/$(MEM_1).sym
+sdram_controller: check_elf_exists $(HDL_SIM_DIR)/$(MEM_2).dat $(HDL_SIM_DIR)/$(MEM_2).sym
 
 
 #END OF BSP SPECIFIC

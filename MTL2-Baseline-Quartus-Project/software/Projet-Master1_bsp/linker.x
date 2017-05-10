@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
  * SOPC Builder design path: ../../Nios_sopc.sopcinfo
  *
- * Generated: Thu Apr 20 19:59:39 CEST 2017
+ * Generated: Tue May 02 13:21:05 CEST 2017
  */
 
 /*
@@ -50,12 +50,15 @@
 
 MEMORY
 {
+    reset : ORIGIN = 0x40000, LENGTH = 32
+    epcs_flash_controller_0 : ORIGIN = 0x40020, LENGTH = 2016
     mem_Nios_PI : ORIGIN = 0x200000, LENGTH = 512
-    reset : ORIGIN = 0x2000000, LENGTH = 32
+    sdram_controller_BEFORE_EXCEPTION : ORIGIN = 0x2000000, LENGTH = 32
     sdram_controller : ORIGIN = 0x2000020, LENGTH = 33554400
 }
 
 /* Define symbols for each memory base-address */
+__alt_mem_epcs_flash_controller_0 = 0x40000;
 __alt_mem_mem_Nios_PI = 0x200000;
 __alt_mem_sdram_controller = 0x2000000;
 
@@ -309,7 +312,24 @@ SECTIONS
      *
      */
 
-    .mem_Nios_PI : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    .epcs_flash_controller_0 : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    {
+        PROVIDE (_alt_partition_epcs_flash_controller_0_start = ABSOLUTE(.));
+        *(.epcs_flash_controller_0 .epcs_flash_controller_0. epcs_flash_controller_0.*)
+        . = ALIGN(4);
+        PROVIDE (_alt_partition_epcs_flash_controller_0_end = ABSOLUTE(.));
+    } > epcs_flash_controller_0
+
+    PROVIDE (_alt_partition_epcs_flash_controller_0_load_addr = LOADADDR(.epcs_flash_controller_0));
+
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .mem_Nios_PI : AT ( LOADADDR (.epcs_flash_controller_0) + SIZEOF (.epcs_flash_controller_0) )
     {
         PROVIDE (_alt_partition_mem_Nios_PI_start = ABSOLUTE(.));
         *(.mem_Nios_PI .mem_Nios_PI. mem_Nios_PI.*)

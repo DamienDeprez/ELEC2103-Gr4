@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
  * SOPC Builder design path: ../../Nios_sopc.sopcinfo
  *
- * Generated: Fri Apr 28 10:08:30 CEST 2017
+ * Generated: Tue May 02 13:21:05 CEST 2017
  */
 
 /*
@@ -94,7 +94,7 @@
 #define ALT_CPU_NAME "cpu"
 #define ALT_CPU_NUM_OF_SHADOW_REG_SETS 0
 #define ALT_CPU_OCI_VERSION 1
-#define ALT_CPU_RESET_ADDR 0x02000000
+#define ALT_CPU_RESET_ADDR 0x00040000
 
 
 /*
@@ -133,7 +133,7 @@
 #define NIOS2_INST_ADDR_WIDTH 0x1a
 #define NIOS2_NUM_OF_SHADOW_REG_SETS 0
 #define NIOS2_OCI_VERSION 1
-#define NIOS2_RESET_ADDR 0x02000000
+#define NIOS2_RESET_ADDR 0x00040000
 
 
 /*
@@ -176,6 +176,7 @@
  *
  */
 
+#define __ALTERA_AVALON_EPCS_FLASH_CONTROLLER
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
@@ -307,6 +308,21 @@
 
 
 /*
+ * epcs_flash_controller_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_epcs_flash_controller_0 altera_avalon_epcs_flash_controller
+#define EPCS_FLASH_CONTROLLER_0_BASE 0x40000
+#define EPCS_FLASH_CONTROLLER_0_IRQ 4
+#define EPCS_FLASH_CONTROLLER_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define EPCS_FLASH_CONTROLLER_0_NAME "/dev/epcs_flash_controller_0"
+#define EPCS_FLASH_CONTROLLER_0_REGISTER_OFFSET 1024
+#define EPCS_FLASH_CONTROLLER_0_SPAN 2048
+#define EPCS_FLASH_CONTROLLER_0_TYPE "altera_avalon_epcs_flash_controller"
+
+
+/*
  * hal configuration
  *
  */
@@ -415,7 +431,7 @@
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1493363427
+#define SYSID_QSYS_TIMESTAMP 1493715041
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
 
 

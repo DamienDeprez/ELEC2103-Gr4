@@ -9,6 +9,8 @@
 			data_read_export                : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			data_we_export                  : out   std_logic;                                        -- export
 			data_write_export               : out   std_logic_vector(31 downto 0);                    -- export
+			gpio_export                     : in    std_logic                     := 'X';             -- export
+			led_export                      : out   std_logic;                                        -- export
 			mem_nios_pi_s2_address          : in    std_logic_vector(6 downto 0)  := (others => 'X'); -- address
 			mem_nios_pi_s2_chipselect       : in    std_logic                     := 'X';             -- chipselect
 			mem_nios_pi_s2_clken            : in    std_logic                     := 'X';             -- clken
@@ -40,8 +42,10 @@
 			spi_cs_export                   : in    std_logic                     := 'X';             -- export
 			spi_miso_export                 : out   std_logic;                                        -- export
 			spi_mosi_export                 : in    std_logic                     := 'X';             -- export
-			led_export                      : out   std_logic;                                        -- export
-			gpio_export                     : in    std_logic                     := 'X'              -- export
+			epcs_flash_controller_dclk      : out   std_logic;                                        -- dclk
+			epcs_flash_controller_sce       : out   std_logic;                                        -- sce
+			epcs_flash_controller_sdo       : out   std_logic;                                        -- sdo
+			epcs_flash_controller_data0     : in    std_logic                     := 'X'              -- data0
 		);
 	end component Nios_sopc;
 
@@ -56,6 +60,8 @@
 			data_read_export                => CONNECTED_TO_data_read_export,                --                data_read.export
 			data_we_export                  => CONNECTED_TO_data_we_export,                  --                  data_we.export
 			data_write_export               => CONNECTED_TO_data_write_export,               --               data_write.export
+			gpio_export                     => CONNECTED_TO_gpio_export,                     --                     gpio.export
+			led_export                      => CONNECTED_TO_led_export,                      --                      led.export
 			mem_nios_pi_s2_address          => CONNECTED_TO_mem_nios_pi_s2_address,          --           mem_nios_pi_s2.address
 			mem_nios_pi_s2_chipselect       => CONNECTED_TO_mem_nios_pi_s2_chipselect,       --                         .chipselect
 			mem_nios_pi_s2_clken            => CONNECTED_TO_mem_nios_pi_s2_clken,            --                         .clken
@@ -87,7 +93,9 @@
 			spi_cs_export                   => CONNECTED_TO_spi_cs_export,                   --                   spi_cs.export
 			spi_miso_export                 => CONNECTED_TO_spi_miso_export,                 --                 spi_miso.export
 			spi_mosi_export                 => CONNECTED_TO_spi_mosi_export,                 --                 spi_mosi.export
-			led_export                      => CONNECTED_TO_led_export,                      --                      led.export
-			gpio_export                     => CONNECTED_TO_gpio_export                      --                     gpio.export
+			epcs_flash_controller_dclk      => CONNECTED_TO_epcs_flash_controller_dclk,      --    epcs_flash_controller.dclk
+			epcs_flash_controller_sce       => CONNECTED_TO_epcs_flash_controller_sce,       --                         .sce
+			epcs_flash_controller_sdo       => CONNECTED_TO_epcs_flash_controller_sdo,       --                         .sdo
+			epcs_flash_controller_data0     => CONNECTED_TO_epcs_flash_controller_data0      --                         .data0
 		);
 

@@ -8,6 +8,8 @@
 		.data_read_export                (<connected-to-data_read_export>),                //                data_read.export
 		.data_we_export                  (<connected-to-data_we_export>),                  //                  data_we.export
 		.data_write_export               (<connected-to-data_write_export>),               //               data_write.export
+		.gpio_export                     (<connected-to-gpio_export>),                     //                     gpio.export
+		.led_export                      (<connected-to-led_export>),                      //                      led.export
 		.mem_nios_pi_s2_address          (<connected-to-mem_nios_pi_s2_address>),          //           mem_nios_pi_s2.address
 		.mem_nios_pi_s2_chipselect       (<connected-to-mem_nios_pi_s2_chipselect>),       //                         .chipselect
 		.mem_nios_pi_s2_clken            (<connected-to-mem_nios_pi_s2_clken>),            //                         .clken
@@ -39,7 +41,9 @@
 		.spi_cs_export                   (<connected-to-spi_cs_export>),                   //                   spi_cs.export
 		.spi_miso_export                 (<connected-to-spi_miso_export>),                 //                 spi_miso.export
 		.spi_mosi_export                 (<connected-to-spi_mosi_export>),                 //                 spi_mosi.export
-		.led_export                      (<connected-to-led_export>),                      //                      led.export
-		.gpio_export                     (<connected-to-gpio_export>)                      //                     gpio.export
+		.epcs_flash_controller_dclk      (<connected-to-epcs_flash_controller_dclk>),      //    epcs_flash_controller.dclk
+		.epcs_flash_controller_sce       (<connected-to-epcs_flash_controller_sce>),       //                         .sce
+		.epcs_flash_controller_sdo       (<connected-to-epcs_flash_controller_sdo>),       //                         .sdo
+		.epcs_flash_controller_data0     (<connected-to-epcs_flash_controller_data0>)      //                         .data0
 	);
 

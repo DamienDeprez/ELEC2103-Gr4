@@ -8,7 +8,7 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Interface Protocols/PCI Express,Project,Library/Processors and Peripherals/Peripherals,Library/Interface Protocols/PCI Express/QSYS Example Designs,Library,Library/Processors and Peripherals,Library/Interface Protocols" />
+   expandedCategories="Library,Library/Basic Functions/Configuration and Programming,Project,Library/Basic Functions" />
  <window width="1551" height="876" x="49" y="24" />
  <generation path="_PROJECT_NAME_" />
 </preferences>

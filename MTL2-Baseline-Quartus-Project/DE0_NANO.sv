@@ -222,8 +222,12 @@ Nios_sopc u0 (
 		.accelerometer_I2C_SCLK          (I2C_SCLK),          //                         .I2C_SCLK
 		.accelerometer_G_SENSOR_CS_N     (G_SENSOR_CS_N),     //                         .G_SENSOR_CS_N
 		.accelerometer_G_SENSOR_INT      (G_SENSOR_INT),       //                         .G_SENSOR_INT
-		.gpio_export							(GPIO_0[5]),
-		.led_export								(LED[7])
+		.gpio_export							(GPIO_0[3]),
+		.led_export								(LED[7]),
+		.epcs_flash_controller_dclk      (EPCS_DCLK),      //    epcs_flash_controller.dclk
+		.epcs_flash_controller_sce       (EPCS_NCSO),       //                         .sce
+		.epcs_flash_controller_sdo       (EPCS_ASDO),       //                         .sdo
+		.epcs_flash_controller_data0     (EPCS_DATA0)   
 	);
 	
 	assign LED[0] = 1'b1;

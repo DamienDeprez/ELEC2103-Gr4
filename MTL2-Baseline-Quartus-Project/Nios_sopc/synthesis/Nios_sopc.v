@@ -13,6 +13,10 @@ module Nios_sopc (
 		input  wire [31:0] data_read_export,                //                data_read.export
 		output wire        data_we_export,                  //                  data_we.export
 		output wire [31:0] data_write_export,               //               data_write.export
+		output wire        epcs_flash_controller_dclk,      //    epcs_flash_controller.dclk
+		output wire        epcs_flash_controller_sce,       //                         .sce
+		output wire        epcs_flash_controller_sdo,       //                         .sdo
+		input  wire        epcs_flash_controller_data0,     //                         .data0
 		input  wire        gpio_export,                     //                     gpio.export
 		output wire        led_export,                      //                      led.export
 		input  wire [6:0]  mem_nios_pi_s2_address,          //           mem_nios_pi_s2.address
@@ -186,6 +190,12 @@ module Nios_sopc (
 	wire   [3:0] mm_interconnect_0_cpu_debug_mem_slave_byteenable;                                      // mm_interconnect_0:cpu_debug_mem_slave_byteenable -> cpu:debug_mem_slave_byteenable
 	wire         mm_interconnect_0_cpu_debug_mem_slave_write;                                           // mm_interconnect_0:cpu_debug_mem_slave_write -> cpu:debug_mem_slave_write
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_writedata;                                       // mm_interconnect_0:cpu_debug_mem_slave_writedata -> cpu:debug_mem_slave_writedata
+	wire         mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_chipselect;                // mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_chipselect -> epcs_flash_controller_0:chipselect
+	wire  [31:0] mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_readdata;                  // epcs_flash_controller_0:readdata -> mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_readdata
+	wire   [8:0] mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_address;                   // mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_address -> epcs_flash_controller_0:address
+	wire         mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_read;                      // mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_read -> epcs_flash_controller_0:read_n
+	wire         mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_write;                     // mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_write -> epcs_flash_controller_0:write_n
+	wire  [31:0] mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_writedata;                 // mm_interconnect_0:epcs_flash_controller_0_epcs_control_port_writedata -> epcs_flash_controller_0:writedata
 	wire  [31:0] mm_interconnect_0_mtl_ip_s0_readdata;                                                  // MTL_ip:avs_s0_readdata -> mm_interconnect_0:MTL_ip_s0_readdata
 	wire         mm_interconnect_0_mtl_ip_s0_waitrequest;                                               // MTL_ip:avs_s0_waitrequest -> mm_interconnect_0:MTL_ip_s0_waitrequest
 	wire   [7:0] mm_interconnect_0_mtl_ip_s0_address;                                                   // mm_interconnect_0:MTL_ip_s0_address -> MTL_ip:avs_s0_address
@@ -229,9 +239,10 @@ module Nios_sopc (
 	wire         irq_mapper_receiver1_irq;                                                              // jtag_uart:av_irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                                              // timer_timestamp:irq -> irq_mapper:receiver2_irq
 	wire         irq_mapper_receiver3_irq;                                                              // timer_system:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                                              // epcs_flash_controller_0:irq -> irq_mapper:receiver4_irq
 	wire  [31:0] cpu_irq_irq;                                                                           // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [GPIO:reset_n, LED:reset_n, MTL_ip:reset_reset, accelerometer_spi_0:reset, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mem_Nios_PI:reset, mem_Nios_PI:reset2, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, sdram_controller:reset_n, sysid_qsys:reset_n, timer_system:reset_n, timer_timestamp:reset_n]
-	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [cpu:reset_req, mem_Nios_PI:reset_req, mem_Nios_PI:reset_req2, rst_translator:reset_req_in]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [GPIO:reset_n, LED:reset_n, MTL_ip:reset_reset, accelerometer_spi_0:reset, cpu:reset_n, epcs_flash_controller_0:reset_n, irq_mapper:reset, jtag_uart:rst_n, mem_Nios_PI:reset, mem_Nios_PI:reset2, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, sdram_controller:reset_n, sysid_qsys:reset_n, timer_system:reset_n, timer_timestamp:reset_n]
+	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [cpu:reset_req, epcs_flash_controller_0:reset_req, mem_Nios_PI:reset_req, mem_Nios_PI:reset_req2, rst_translator:reset_req_in]
 
 	Nios_sopc_GPIO gpio (
 		.clk      (clk_clk),                            //                 clk.clk
@@ -346,6 +357,23 @@ module Nios_sopc (
 		.E_ci_combo_readra                   (cpu_custom_instruction_master_readra),              //                          .readra
 		.E_ci_combo_readrb                   (cpu_custom_instruction_master_readrb),              //                          .readrb
 		.E_ci_combo_writerc                  (cpu_custom_instruction_master_writerc)              //                          .writerc
+	);
+
+	Nios_sopc_epcs_flash_controller_0 epcs_flash_controller_0 (
+		.clk        (clk_clk),                                                                //               clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                                        //             reset.reset_n
+		.reset_req  (rst_controller_reset_out_reset_req),                                     //                  .reset_req
+		.address    (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_address),    // epcs_control_port.address
+		.chipselect (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_chipselect), //                  .chipselect
+		.read_n     (~mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_read),      //                  .read_n
+		.readdata   (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_readdata),   //                  .readdata
+		.write_n    (~mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_write),     //                  .write_n
+		.writedata  (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_writedata),  //                  .writedata
+		.irq        (irq_mapper_receiver4_irq),                                               //               irq.irq
+		.dclk       (epcs_flash_controller_dclk),                                             //          external.export
+		.sce        (epcs_flash_controller_sce),                                              //                  .export
+		.sdo        (epcs_flash_controller_sdo),                                              //                  .export
+		.data0      (epcs_flash_controller_data0)                                             //                  .export
 	);
 
 	Nios_sopc_jtag_uart jtag_uart (
@@ -716,6 +744,12 @@ module Nios_sopc (
 		.cpu_debug_mem_slave_byteenable                                      (mm_interconnect_0_cpu_debug_mem_slave_byteenable),                                      //                                                        .byteenable
 		.cpu_debug_mem_slave_waitrequest                                     (mm_interconnect_0_cpu_debug_mem_slave_waitrequest),                                     //                                                        .waitrequest
 		.cpu_debug_mem_slave_debugaccess                                     (mm_interconnect_0_cpu_debug_mem_slave_debugaccess),                                     //                                                        .debugaccess
+		.epcs_flash_controller_0_epcs_control_port_address                   (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_address),                   //               epcs_flash_controller_0_epcs_control_port.address
+		.epcs_flash_controller_0_epcs_control_port_write                     (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_write),                     //                                                        .write
+		.epcs_flash_controller_0_epcs_control_port_read                      (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_read),                      //                                                        .read
+		.epcs_flash_controller_0_epcs_control_port_readdata                  (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_readdata),                  //                                                        .readdata
+		.epcs_flash_controller_0_epcs_control_port_writedata                 (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_writedata),                 //                                                        .writedata
+		.epcs_flash_controller_0_epcs_control_port_chipselect                (mm_interconnect_0_epcs_flash_controller_0_epcs_control_port_chipselect),                //                                                        .chipselect
 		.GPIO_s1_address                                                     (mm_interconnect_0_gpio_s1_address),                                                     //                                                 GPIO_s1.address
 		.GPIO_s1_readdata                                                    (mm_interconnect_0_gpio_s1_readdata),                                                    //                                                        .readdata
 		.jtag_uart_avalon_jtag_slave_address                                 (mm_interconnect_0_jtag_uart_avalon_jtag_slave_address),                                 //                             jtag_uart_avalon_jtag_slave.address
@@ -773,6 +807,7 @@ module Nios_sopc (
 		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
 		.receiver3_irq (irq_mapper_receiver3_irq),       // receiver3.irq
+		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

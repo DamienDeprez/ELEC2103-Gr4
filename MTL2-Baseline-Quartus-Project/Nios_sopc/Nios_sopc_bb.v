@@ -9,6 +9,8 @@ module Nios_sopc (
 	data_read_export,
 	data_we_export,
 	data_write_export,
+	gpio_export,
+	led_export,
 	mem_nios_pi_s2_address,
 	mem_nios_pi_s2_chipselect,
 	mem_nios_pi_s2_clken,
@@ -40,8 +42,10 @@ module Nios_sopc (
 	spi_cs_export,
 	spi_miso_export,
 	spi_mosi_export,
-	led_export,
-	gpio_export);	
+	epcs_flash_controller_dclk,
+	epcs_flash_controller_sce,
+	epcs_flash_controller_sdo,
+	epcs_flash_controller_data0);	
 
 	inout		accelerometer_I2C_SDAT;
 	output		accelerometer_I2C_SCLK;
@@ -52,6 +56,8 @@ module Nios_sopc (
 	input	[31:0]	data_read_export;
 	output		data_we_export;
 	output	[31:0]	data_write_export;
+	input		gpio_export;
+	output		led_export;
 	input	[6:0]	mem_nios_pi_s2_address;
 	input		mem_nios_pi_s2_chipselect;
 	input		mem_nios_pi_s2_clken;
@@ -83,6 +89,8 @@ module Nios_sopc (
 	input		spi_cs_export;
 	output		spi_miso_export;
 	input		spi_mosi_export;
-	output		led_export;
-	input		gpio_export;
+	output		epcs_flash_controller_dclk;
+	output		epcs_flash_controller_sce;
+	output		epcs_flash_controller_sdo;
+	input		epcs_flash_controller_data0;
 endmodule

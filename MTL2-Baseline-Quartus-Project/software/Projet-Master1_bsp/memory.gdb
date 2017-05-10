@@ -3,7 +3,7 @@
 # Machine generated for CPU 'cpu' in SOPC Builder design 'Nios_sopc'
 # SOPC Builder design path: ../../Nios_sopc.sopcinfo
 #
-# Generated: Thu Apr 20 19:59:39 CEST 2017
+# Generated: Tue May 02 13:21:05 CEST 2017
 
 # DO NOT MODIFY THIS FILE
 #
@@ -45,6 +45,9 @@
 # Define memory regions for each memory connected to the CPU.
 # The cache attribute is specified which improves GDB performance
 # by allowing GDB to cache memory contents on the host.
+
+# epcs_flash_controller_0
+memory 0x40000 0x40800 cache
 
 # mem_Nios_PI
 memory 0x200000 0x200200 cache

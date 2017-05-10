@@ -1,0 +1,72 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{pict2e}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage[margin=2.5cm]{geometry}
+%\usepackage{fullpage} % pour des marges plus petites
+\usepackage{geometry}
+\usepackage[final]{pdfpages}
+\usepackage{indentfirst}
+\usepackage[hypcap=false]{caption}
+\captionsetup{format=hang,justification=justified}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{textcomp} %pour pouvoir mettre des °
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[final]{pdfpages}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage[squaren,Gray]{SIunits}
+\usepackage{circuitikz}
+
+\lstset{frame=tb,
+		language=Matlab,
+ 		aboveskip=3mm,
+  		belowskip=3mm,
+  		showstringspaces=false,
+  		columns=flexible,
+  		basicstyle={\small\ttfamily},
+  		numbers=left,
+ 		numberstyle=\tiny\color{gray},
+  		keywordstyle=\color{mauve},
+  		commentstyle=\color{dkgreen},
+  		stringstyle=\color{blue},
+  		breaklines=true,
+  		breakatwhitespace=true
+  		tabsize=3
+  		extendedchars=true
+	}
+
+\setlength{\unitlength}{1mm}
+
+\geometry{hmargin=80pt, vmargin=3cm}
+\lstset{language=Matlab,breaklines=true}
+
+\titleformat{\chapter}
+{\bf\fontsize{20.74}{20.74}\selectfont}
+{\bf\fontsize{20.74}{20.74}\selectfont \thechapter \hspace{1 cm}}
+{0 pt}{}{}
+\titlespacing{\chapter}{10 pt}{10 pt}{20 pt}[10 pt]
+
+\newcommand{\MatLab}[1]
+{\section{#1}
+\lstinputlisting{MatLab/#1.m}}
+
+\newcommand{\note}[1]
+{\color{red}#1\color{black}}
+
+\renewcommand{\headrulewidth}{0 pt}
+\renewcommand{\footrulewidth}{0 pt}

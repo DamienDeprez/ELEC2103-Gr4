@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 28, 2017 10:08:27 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1493366907543</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>May 2, 2017 1:23:11 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1493724191204</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/mnt/Home/ELEC2103-Gr4/MTL2-Baseline-Quartus-Project/software/Projet-Master1_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Nios_sopc.sopcinfo</SopcDesignFile>
@@ -782,7 +782,7 @@
                 <SettingName>hal.enable_c_plus_plus</SettingName>
                 <Identifier>ALT_NO_C_PLUS_PLUS</Identifier>
                 <Type>Boolean</Type>
-                <Value>1</Value>
+                <Value>0</Value>
                 <DefaultValue>1</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Enable support for a subset of the C++ language. This option increases code footprint by adding support for C++ constructors. Certain features, such as multiple inheritance and exceptions are not supported. If false, adds -DALT_NO_C_PLUS_PLUS to ALT_CPPFLAGS in public.mk, and reduces code footprint.</Description>
@@ -1767,6 +1767,12 @@
                 <addressRange>0x00020000 - 0x000203FF</addressRange>
                 <addressSpan>1024</addressSpan>
                 <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>epcs_flash_controller_0</slaveDescriptor>
+                <addressRange>0x00040000 - 0x000407FF</addressRange>
+                <addressSpan>2048</addressSpan>
+                <attributes>flash, memory, non-volatile</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>mem_Nios_PI</slaveDescriptor>

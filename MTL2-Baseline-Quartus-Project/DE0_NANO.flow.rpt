@@ -1,5 +1,5 @@
 Flow report for DE0_NANO
-Fri Apr 28 09:56:49 2017
+Tue May  2 11:06:14 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 28 09:56:41 2017       ;
+; Flow Status                        ; Successful - Tue May  2 11:06:06 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; DE0_NANO                                    ;
 ; Top-level Entity Name              ; DE0_NANO                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 11,511 / 22,320 ( 52 % )                    ;
-;     Total combinational functions  ; 10,036 / 22,320 ( 45 % )                    ;
-;     Dedicated logic registers      ; 5,399 / 22,320 ( 24 % )                     ;
-; Total registers                    ; 5468                                        ;
+; Total logic elements               ; 11,761 / 22,320 ( 53 % )                    ;
+;     Total combinational functions  ; 10,236 / 22,320 ( 46 % )                    ;
+;     Dedicated logic registers      ; 5,559 / 22,320 ( 25 % )                     ;
+; Total registers                    ; 5628                                        ;
 ; Total pins                         ; 148 / 154 ( 96 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 166,716 / 608,256 ( 27 % )                  ;
+; Total memory bits                  ; 174,908 / 608,256 ( 29 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 88 / 132 ( 67 % )                           ;
 ; Total PLLs                         ; 2 / 4 ( 50 % )                              ;
 +------------------------------------+---------------------------------------------+
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/28/2017 09:54:04 ;
+; Start date & time ; 05/02/2017 11:03:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE0_NANO            ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                     ; Value                                                                                                                                          ; Default Value ; Entity Name ; Section Id       ;
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 215729412785073.149336604418945                                                                                                                ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 215729412785073.149371581209939                                                                                                                ; --            ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                                                                             ; --            ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                                             ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                                              ; --            ; --          ; --               ;
@@ -98,7 +98,7 @@ agreement for further details.
 ; SLD_FILE                            ; Nios_sopc/synthesis/Nios_sopc.regmap                                                                                                           ; --            ; --          ; --               ;
 ; SLD_FILE                            ; Nios_sopc/synthesis/Nios_sopc.debuginfo                                                                                                        ; --            ; --          ; --               ;
 ; SLD_FILE                            ; db/stp_MTL_ports_auto_stripped.stp                                                                                                             ; --            ; --          ; --               ;
-; SLD_INFO                            ; QSYS_NAME Nios_sopc HAS_SOPCINFO 1 GENERATION_ID 1493363427                                                                                    ; --            ; Nios_sopc   ; --               ;
+; SLD_INFO                            ; QSYS_NAME Nios_sopc HAS_SOPCINFO 1 GENERATION_ID 1493715041                                                                                    ; --            ; Nios_sopc   ; --               ;
 ; SLD_NODE_CREATOR_ID                 ; 110                                                                                                                                            ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                                                                                  ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                                                                                        ; --            ; --          ; auto_signaltap_0 ;
@@ -137,11 +137,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:13     ; 1.0                     ; 1303 MB             ; 00:01:45                           ;
-; Fitter                    ; 00:01:10     ; 1.2                     ; 1444 MB             ; 00:02:04                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 866 MB              ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:01:09     ; 1.0                     ; 1316 MB             ; 00:01:39                           ;
+; Fitter                    ; 00:01:13     ; 1.2                     ; 1447 MB             ; 00:02:10                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 865 MB              ; 00:00:02                           ;
 ; TimeQuest Timing Analyzer ; 00:00:07     ; 1.5                     ; 1015 MB             ; 00:00:09                           ;
-; Total                     ; 00:02:32     ; --                      ; --                  ; 00:04:00                           ;
+; Total                     ; 00:02:31     ; --                      ; --                  ; 00:04:00                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
