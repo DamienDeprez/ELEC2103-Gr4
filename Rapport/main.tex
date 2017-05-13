@@ -15,7 +15,7 @@
 
 \centering
 
-\includegraphics[scale=0.17]{Projet_Master.png}
+\includegraphics[scale=0.17]{img/Projet_Master.png}
 \caption{Shéma générale de la partie hardware}
 \label{fig1}
 
@@ -26,27 +26,27 @@
 \newpage
 \section{Processeur}
 
-Dans cette section, nous allons detailler les choix que nous avons fait dans ce projet au niveau du processeur implementé en hardware, ainsi que au niveau graphique ainsi que les moyens mis en oeuvre pour répondre au objectifs de ce projet. De ce fait, nous nous sommes basé sur le principe même de notre jeu.
+Dans cette section, nous allons détailler les choix que nous avons fait dans ce projet au niveau du processeur implémenté en hardware, ainsi que au niveau graphique ainsi que les moyens mis en œuvre pour répondre au objectifs de ce projet. De ce fait, nous nous sommes basé sur le principe même de notre jeu.
 
-\paragraph{Choix du precesseur}
+\paragraph{Choix du processeur}
 
-De part le nombre important de calculs devant être fait par le processeur (tous les calculs liès au systeme de collision entre les balles, les directions des tirs,...), nous sommes passés sur un processeur de type f. De plus, nous voulions utilise le module "Floating point hardware", pour que les resultats soient calcués plus rapidement.
+De part le nombre important de calculs devant être fait par le processeur (tous les calculs liés au système de collision entre les balles, les directions des tirs,...), nous sommes passés sur un processeur de type f. De plus, nous voulions utilise le module "Floating point hardware", pour que les résultats soient calculés plus rapidement.
 
 \paragraph{Floating point hardware}
 
-Durant le cours de Real-Time, nous avons remarqué que faire les calculs en hardware étaient en moyenne 8 fois plus rapide que si ils étaient fait en software. Lorsque ce module est utilisé, toutes les operations étant faites en software en temps normal, sont remplacées par des customs instructions implementées directement en harware.
+Durant le cours de Real-Time, nous avons remarqué que faire les calculs en hardware étaient en moyenne 8 fois plus rapide que si ils étaient fait en software. Lorsque ce module est utilisé, toutes les opérations étant faites en software en temps normal, sont remplacées par des customs instructions implémentées directement en hardware.
 
 % pq type f, utilité du FPH, ...
 \section{Gestion de l'écran}
-
-En ce qui concerne l'écran, nous avons utilisé une custom instruction appellée "MTL IP" sur le schéma \ref{fig1}. Celle-ci, contient les modules de controles et de gestion des gestes liées à la tablette tactile. Nous avons implementé toute la partie graphique du jeu en hardware.
+% LE MTL IP n'est pas une custom instruction c'est un IP core
+En ce qui concerne l'écran, nous avons utilisé un custom IP core appelée "MTL IP" sur le schéma \ref{fig1}. Celui-ci, contient les modules de contrôles et de gestion des gestes liées à la tablette tactile. Nous avons implémente toute la partie graphique du jeu en hardware.
 
 \paragraph{Background}
-Comme on peut le voir su la photo \ref{fig2}, le background ressemble bien à une  table de billard. Celui-ci a été implémenté par une succession de couche successive, les unes sur les autres. Les trous sont générées sur base de l'équation d'un cercle. Idem pour les balles qui vont servir au jeu, elles sont definies par la même equation que les trous, avec un diametre different et differentes couleurs definies par leurs valeurs RGB.
+Comme on peut le voir su la photo \ref{fig2}, le background ressemble bien à une  table de billard. Celui-ci a été implémenté par une succession de couche successive, les unes sur les autres. Les trous sont générées sur base de l'équation d'un cercle. Idem pour les balles qui vont servir au jeu, elles sont définies par la même equation que les trous, avec un diamètre diffèrent et différentes couleurs définies par leurs valeurs RGB.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.75]{background.png}
+\includegraphics[scale=0.75]{img/background.png}
 \caption{Background du jeu}
 \label{fig2}
 \end{figure}
@@ -55,16 +55,16 @@ Comme on peut le voir su la photo \ref{fig2}, le background ressemble bien à un
 
 \paragraph{ROM}
 
-Pour faire une sorte de menu de début de jeu, nous avons utilisé des ROMS. Ceci grâce au module Qsys, en lui donnant le bon fichier hexadeciale. La ROM1 est representé sur la figure \ref{fig3}, et est l'écran d'acceuil du jeu. La ROM2, de la figure \ref{fig4}, est l'écran permettant de déterminer lequelle des 2 joueurs jouera en premier (celui qui touche en premier l'écran), et  permet également d'être sur que les 2 systemes (joueur 1 et 2) commencent la partie de manière synchrone.
+Pour faire une sorte de menu de début de jeu, nous avons utilisé des ROMS. Ceci grâce au module Qsys, en lui donnant le bon fichier hexadécimale. La ROM1 est représenté sur la figure \ref{fig3}, et est l'écran d’accueil du jeu. La ROM2, de la figure \ref{fig4}, est l'écran permettant de déterminer lequel des 2 joueurs jouera en premier (celui qui touche en premier l'écran), et  permet également d'être sur que les 2 systèmes (joueur 1 et 2) commencent la partie de manière synchrone.
 
 \begin{figure}[!ht]
    \begin{minipage}[c]{.46\linewidth}
-      \includegraphics[scale=0.65]{start.png}
+      \includegraphics[scale=0.65]{img/start.png}
       \caption{ROM1 - Ecran de demarrage}
       \label{fig3}
    \end{minipage} \hfill
    \begin{minipage}[c]{.46\linewidth}
-      \includegraphics[scale=0.65]{Wait_all_player.png}
+      \includegraphics[scale=0.65]{img/Wait_all_player.png}
       \caption{ROM2 - Ecran d'attente des joueurs
       \label{fig4}}
    \end{minipage}
@@ -72,52 +72,52 @@ Pour faire une sorte de menu de début de jeu, nous avons utilisé des ROMS. Cec
 
 \paragraph{Gestions des gestes}
 
-Un des objectifs de ce projet était bien sur de developper un nouveau gestes propre à notre jeu. Celui-ci a été implementé pour determiner la direction dans laquelle la boule blanche va être envoyé ainsi que sa vitesse. 
+Un des objectifs de ce projet était bien sur de développer un nouveau gestes propre à notre jeu. Celui-ci a été implémente pour déterminer la direction dans laquelle la boule blanche va être envoyé ainsi que sa vitesse. 
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.6]{gesture.png}
+\includegraphics[scale=0.6]{img/gesture.png}
 \caption{Illustration du nouveau geste implementé}
 \label{fig5}
 \end{figure}
 
-Le geste est simple. Il y a 3 detections sur l'écran. Le premier doight donne l'origine du vecteur de mouvement. Ensuite, le deuxième doight touche l'écran à l'endroit oú on veut que la boule  aille. Enfin, il suffit de retirer le dernier doight en contact avec la tablette pour valider le coup. Ce mecanisme est illustré sur la figure \ref{fig5}. Pour resume, la balle partira dans la direction donne par le vecteur formé par les deux doights. Et sa vitesse sera détèrminée pour l'écart entre les 2 doights.
+Le geste est simple. Il y a 3 détections sur l'écran. Le premier doigt donne l'origine du vecteur de mouvement. Ensuite, le deuxième doigt touche l'écran à l'endroit où on veut que la boule  aille. Enfin, il suffit de retirer le dernier doigt en contact avec la tablette pour valider le coup. Ce mécanisme est illustré sur la figure \ref{fig5}. Pour résume, la balle partira dans la direction donne par le vecteur formé par les deux doigts. Et sa vitesse sera déterminée pour l'écart entre les 2 doigts.
 
 
 \paragraph{Barre de joueur actif}
 
-Afin de rendre le jeu plus agréable à jouer, nous avons ajouté un barrette sur le côté gauche de l'ecran (comme encadré en rouge sur la figure \ref{fig6}) pour que les joueurs ait plus facile à savoir lorsque c'est à leur tour de jouer. En fonction du joueur actif, la barrette apparaîtra bleu pour le joueur 1 et orange pour le joueur 2, ou vice-versa.
+Afin de rendre le jeu plus agréable à jouer, nous avons ajouté un barrette sur le côté gauche de L’écran (comme encadré en rouge sur la figure \ref{fig6}) pour que les joueurs ait plus facile à savoir lorsque c'est à leur tour de jouer. En fonction du joueur actif, la barrette apparaîtra bleu pour le joueur 1 et orange pour le joueur 2, ou vice-versa.
 
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.6]{barre.png}
+\includegraphics[scale=0.6]{img/barre.png}
 \caption{Barre montrant le joueur actif}
 \label{fig6}
 \end{figure}
 
-\paragraph{Utilisation de l'accelerometre}
+\paragraph{Utilisation de l'accéléromètre}
 
-Comme dans tous jeux de billard qui se respecte, l'effet donné a la boule blanche est important. C'est pourquoi nous utilisons l'accelerometre du fpga. Comme representé a la figure \ref{fig7}, une fois la direction et la vitesse de la balle decidé, il faut choisir l'effet qu'on veut donner à la balle. Taper à gauche, la fera partir avec un effet à gauche. Il en va de même our la droite. On peut deplacer le petit point noir en bougeant le fpga. Ainsi on peut taper n'importe ou sur la boule.
+Comme dans tous jeux de billard qui se respecte, l'effet donné a la boule blanche est important. C'est pourquoi nous utilisons l'accéléromètre du FPGA. Comme représente a la figure \ref{fig7}, une fois la direction et la vitesse de la balle décidé, il faut choisir l'effet qu'on veut donner à la balle. Taper à gauche, la fera partir avec un effet à gauche. Il en va de même pour la droite. On peut déplacer le petit point noir en bougeant le FPGA. Ainsi on peut taper n'importe ou sur la boule.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.6]{accel.png}
+\includegraphics[scale=0.6]{img/accel.png}
 \caption{Illustration du moyen utilisé pour mettre de l'effet dans la boule blanche}
 \label{fig7}
 \end{figure}
 \newpage
 \section{Communication avec le Raspbery-Pi}
 
-Dans ce projet, nous avons utilisé le FPGA que nous avons programmé, mais aussi le Raspberry-PI, et les 2 communiquent via SPI (celui-ci est representé par la custon instruction "SPI IP" sur le schema \ref{fig1}). Le SPI est très important pour aller lire ou écrire dans les differents registres oú se trouve les directions, les vitesses, les valeurs de l'accéléromètre,...Tous ces registres sont bien sur localisés à des adresses préalablement attribuées en hardware, et qu'on atteint grâce au pointeurs présents en software. On peut distinguer 2 cas
+Dans ce projet, nous avons utilisé le FPGA que nous avons programmé, mais aussi le Raspberry-PI, et les 2 communiquent via SPI (celui-ci est représente par le custom IP core "SPI IP" sur le schéma \ref{fig1}). Le SPI est très important pour aller lire ou écrire dans les différents registres où se trouve les directions, les vitesses, les valeurs de l'accéléromètre,...Tous ces registres sont bien sur localisés à des adresses préalablement attribuées en hardware, et qu'on atteint grâce au pointeurs présents en software. On peut distinguer 2 cas
 
-\paragraph{Envoit des données}
+\paragraph{Envoi des données}
 
 Dans ce cas-ci, nous devons écrire aux bonnes adresses les valeurs en software. Et ensuite, via SPI, on va lire ces valeurs afin de les transmettre.
 
-\paragraph{Reception des données}
+\paragraph{Réception des données}
 
-Le principe est à peu près le même que lorsqu'on envoit. En effet, lors de la reception de données, on écrit aux adresses les valeurs reçues, et on les lit grâce au pointeurs en software afin de les utiliser dans les différentes tâches.
+Le principe est à peu près le même que lorsqu'on envoi. En effet, lors de la réception de données, on écrit aux adresses les valeurs reçues, et on les lit grâce au pointeurs en software afin de les utiliser dans les différentes tâches.
 
 
 \chapter{Partie Software - Real-Time}
@@ -126,8 +126,8 @@ Le principe est à peu près le même que lorsqu'on envoit. En effet, lors de la
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.7]{task.png}
-\caption{Illustration des differentes tâches}
+\includegraphics[scale=0.7]{img/task.png}
+\caption{Illustration des différentes tâches}
 \label{fig8}
 \end{figure}
 
@@ -135,11 +135,11 @@ Dans ce projet, nous avons eu recours a plusieurs reprises au notion vues dans l
 
 \paragraph{Tâche 1}
 
-La tâche 1 a pour mission de detecter le geste (décrit dans la section précédente) fait par le joueur sur la tablette. Celle-ci determine la direction et la vitesse qui seront donnés à la boule blanche lors du tir. Ces deux informations sont transmises à la tâche 3 via mailboxes. De plus, celle-ci est controlé par un flag (isActive) pour que celle-ci soit active (quand le joueur joue) ou inactive (quand le joueur ne joue pas).
+La tâche 1 a pour mission de détecter le geste (décrit dans la section précédente) fait par le joueur sur la tablette. Celle-ci détermine la direction et la vitesse qui seront donnés à la boule blanche lors du tir. Ces deux informations sont transmises à la tâche 3 via Mailboxes. De plus, celle-ci est contrôle par un flag (isActive) pour que celle-ci soit active (quand le joueur joue) ou inactive (quand le joueur ne joue pas).
 
 \paragraph{Tâche 2}
 
-Une des tâches qui fait le plus de calcul. En effet, c'est dans celle-ci que les détèction de collisions sont faites, ainsi que les calculs des vitesses et directions des boules lorsqu'il y a collision,... Les valeurs utiles pour ces opérations sont transmises par la tâche 3 via mailboxes. 
+Une des tâches qui fait le plus de calcul. En effet, c'est dans celle-ci que les détection de collisions sont faites, ainsi que les calculs des vitesses et directions des boules lorsqu'il y a collision,... Les valeurs utiles pour ces opérations sont transmises par la tâche 3 via Mailboxes. 
 
 \paragraph{Tâche 3}
 
