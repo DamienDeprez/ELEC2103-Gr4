@@ -165,6 +165,36 @@ C'est cette tâche qui est en communication avec le Raspberry-PI. En effet, cell
 	\subsection{Tir}
 
 \chapter{Communication}
+L'architecture du système est la suivante : un serveur et deux clients. Cette architecture a été choisie pour permettre d'avoir un observateur pour suivre la partie en cours. 
+Le serveur, les clients on tous la même machine à états finis.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.3]{img/fsm.png}
+\caption{Machine à états finis pour la communication}
+\label{fig9}
+\end{figure}
+Au lancement, le programme se trouve dans l'état d'attente du premier joueur. Dès que le premier joueur est connu, le système passe dans l'état en attente de tous les joueurs. Une fois que tous les joueurs sont prêts, le jeux commence en tour par tour. Pour éviter de rester indéfiniment coincé dans un des états, le système génère un time-out et revient au point de départ.
+\section{Serveur}
+Le serveur centralise et redistribue les données aux deux joueurs. C'est lui qui détermine quel est le premier joueur en fonction de l'ordre d'arrivée des trames "player touch the screen". Une fois que les deux joueurs ont touché l'écran, il envoi la trame "first player is ID" avec l'ID tu premier joueur. C'est le premier état de la machine à états fini.
+
+Par la suite, le serveur attend que les deux joueurs lui répondent qu'il sont prêt. Dès que cela est fait, le serveur passe en mode jeux en tour par tour.
+
+Si la trame "time-out" est reçue, le serveur la transmet à l'autre joueur et se remet à attendre le premier joueur.
+\section{Client - python}
+
+Du coté du client en python, il n'y a pas grand chose à faire. Il faut juste transférer les informations provenant du DE0-NANO au serveur et vice-versa. Le client génère aussi un time-out dans le cas où il ne reçoit pas les données dans un certain délai (1 minute dans ce cas ci).
+\section{Client - C}
+Du coté du client en C sur le DE0-NANO, c'est la tâche 3 qui s'en occupe. 
+Elle est construite sur base de la même machine à états fini. Les deux premiers état permettent l'affichage des différents textes. Ces états sont quitté lorsque le SPI contient des valeurs différentes de 0 à deux adresse différentes. Ces valeurs sont mise par le code python. 
+Pour la partie du jeux en lui même, le fonctionnement est un peu plus compliqué vu que l'on ne peux pas avoir block bloquant lorsque le joueur attend les données envoyée par le serveur.
+A chaque fois que le programme reçoit des valeurs de la part du SPI, la valeur du time-out est vérifiée. Si le time-out a été généré par le Raspberry-Pi ou provient du serveur, la tâche 3 retourne à l'état de départ.
+La figure suivante montre la structure générale de la tâche 3 avec l'arrivée d'un time-out.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.17, angle=90]{img/task3.png}
+\caption{Schéma bloc tâche 3}
+\label{fig9}
+\end{figure}
  % DE0-Nano -> R-Pi; R-Pi -> Server
 \chapter{Conclusion}
 \end{document}
