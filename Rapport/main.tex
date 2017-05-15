@@ -147,22 +147,36 @@ C'est cette tâche qui est en communication avec le Raspberry-PI. En effet, cell
 
 \paragraph{Tâche 4}
 
-
-
-
-
-
-
-
-
-
-
-
-
+Et nous finissons par la tâche qui permet au jeu de commencer. En effet, une fois que la deuxieme rom est apparue sur l'ecran \ref{fig4}, le joueur touchant en premeier l'écran est le premier à jouer.
 
 \section{Physique}
+Une partie importante dans ce projet est la physique implemente dans le jeu. En effet, nous n'envoyons que peu de donnees, mis en revanche, nous exploitons le plus possible la puissance de calcul du fpga. Cele vaut pour les collision, ainsi que pour la partie tir.
+
 	\subsection{Collision}
-	\subsection{Tir}
+
+Une des parties les plus redoutée était le systeme de collision. Nous sommes partie sur l'implementation de collision elastique. De ce fait, nous avons procédé en plusieurs etapes.
+
+\paragraph{Detection des collisions}
+
+Le premiere objectif etait de mettre une condition sur les positions des boules, pour savoir quand est-ce qu'il y a collision. C'st pourquoi, nous calculons la distance euclidienne entre les centres des deux boules qui entrent en collisions, et si cette distance est plus petite que deux fois le rayon de la boule, il y a collision. De plus, afin d'eviter au maximum les erreurs, nous gardons toujours les valeurs definies pendant l'iteration precedente, aafin de "prevoir" au mieux lorsque la collision arrive.
+
+\paragraph{Calcul des directions et des vitesses}
+
+Une fois la collision detecté, nous procedons au calcul des nouvelle directions et vitesses des boules concernées. Pour cela, nous utilisons les formules de physique classique de collisions elastique entre 2 boules. (Les formules ne seront pas detailles ici, ce n'est pas la but).
+
+\paragraph{Detection avec les bords} 
+
+Le principe est le même que pour la collision entre les boules.	
+	
+	\subsection{Tir}	
+\paragraph{Tir classique}
+
+En ce qui concerne le systeme de tir, son implementation sur base des gestes faits sur la tablette a deja ete explique precedemment. Si nous nous interressons maintenant plus a l'aspect code à proprement dit, l'idée est de modifier la position de la balle sur l'écran suffisemment vite afin d'eviter les lags sur le deplacement de la boule. De ce fait, nous incrementons les positions des boules à chaque iteration. 
+
+\paragraph{Implementation de l'effet donné a la boule}
+
+L'effet appliqué à la boule implementé sur base des valeurs de l'accelerometre ressemble au systeme de tir explique juste avant. A la difference pres que l'information d'angle de trajectoire est ajouter en plus dans l'incrementation des positions des boules, afin de donner ce effet de courbure.
+	
 
 \chapter{Communication}
 L'architecture du système est la suivante : un serveur et deux clients. Cette architecture a été choisie pour permettre d'avoir un observateur pour suivre la partie en cours. 
